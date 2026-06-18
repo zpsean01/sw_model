@@ -1,0 +1,102 @@
+{
+    "pipeline": {
+        "description": "ARM Firmware Analysis Pipeline Configuration",
+        "stages": [
+            {
+                "id": "stage1",
+                "name": "Source Preprocessing",
+                "enabled": true,
+                "module": "modules.stage1_preprocessor",
+                "class": "Stage1Preprocessor",
+                "depends_on": [],
+                "params": {
+                    "compile_commands": "compile_commands.json",
+                    "compiler": "arm-none-eabi-gcc",
+                    "output_dir": "preprocessed"
+                }
+            },
+            {
+                "id": "stage2",
+                "name": "AST Analysis",
+                "enabled": true,
+                "module": "modules.stage2_ast_analysis",
+                "class": "Stage2ASTAnalysis",
+                "depends_on": ["stage1"],
+                "params": {
+                    "preprocessed_dir": "preprocessed",
+                    "output_dir": "ast_output",
+                    "ast_engine": "libclang",
+                    "extract": {
+                        "functions": true,
+                        "globals": true,
+                        "types": true,
+                        "interrupts": true,
+                        "registers": true,
+                        "state_machines": true,
+                        "interfaces": true,
+                        "call_graph": true
+                    }
+                }
+            },
+            {
+                "id": "stage3",
+                "name": "ELF Binary Analysis",
+                "enabled": true,
+                "module": "modules.stage3_elf_analysis",
+                "class": "Stage3ELFBinaryAnalysis",
+                "depends_on": [],
+                "params": {
+                    "elf_file": "firmware.elf",
+                    "output_dir": "elf_output",
+                    "arch": "ARM",
+                    "extract": {
+                        "functions": true,
+                        "globals": true,
+                        "types": true,
+                        "call_graph": true
+                    }
+                }
+            },
+            {
+                "id": "stage4",
+                "name": "Event-Driven Architecture Analysis",
+                "enabled": true,
+                "module": "modules.stage4_event_analysis",
+                "class": "Stage4EventArchAnalysis",
+                "depends_on": ["stage2", "stage3"],
+                "params": {
+                    "ast_output_dir": "ast_output",
+                    "elf_output_dir": "elf_output",
+                    "output_dir": "event_output",
+                    "checks": {
+                        "irq_priority": true,
+                        "critical_section": true,
+                        "stack_analysis": true,
+                        "uninit_globals": true,
+                        "reentrancy": true,
+                        "state_machine_integrity": true
+                    }
+                }
+            },
+            {
+                "id": "stage5",
+                "name": "Dynamic Symbolic Execution",
+                "enabled": true,
+                "module": "modules.stage5_symbolic_execution",
+                "class": "Stage5SymbolicExecution",
+                "depends_on": ["stage4"],
+                "params": {
+                    "elf_file": "firmware.elf",
+                    "output_dir": "symbolic_output",
+                    "target_addresses": [],
+                    "exploration": {
+                        "timeout": 300,
+                        "max_depth": 100,
+                        "veritesting": true,
+                        "lazy_initialization": true
+                    }
+                }
+            }
+        ]
+    }
+}
