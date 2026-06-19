@@ -45,6 +45,106 @@ async def get_unified_model_gojs():
     return _load_json(GOJS_DIR / "call_graph_unified.json")
 
 
+# ── Protocol conformance ────────────────────────────────────────────
+
+
+@router.get("/protocol_conformance/data")
+async def get_protocol_conformance_data():
+    """Return protocol conformance analysis results."""
+    return _load_json(DATA_DIR / "protocol_conformance.json")
+
+
+@router.get("/protocol_conformance/gojs")
+async def get_protocol_conformance_gojs():
+    """Return colored GoJS data with protocol conformance finding highlights.
+
+    Merges call_graph_unified GoJS data with finding information.
+    Nodes with findings have diagnostics field populated.
+    Also adds missing function nodes that have findings but aren't in the call graph.
+    """
+    gojs = _load_json(GOJS_DIR / "call_graph_unified.json")
+    findings = _load_json(DATA_DIR / "protocol_conformance.json")
+
+    # Collect all function names that have findings
+    finding_funcs: set = set()
+    for f in findings.get("findings", []):
+        loc = f.get("location", {})
+        fn = loc.get("function", "")
+        if fn:
+            finding_funcs.add(fn)
+
+    # Build existing node key set
+    existing_keys: set = set()
+    for nd in gojs.get("nodeDataArray", []):
+        existing_keys.add(nd.get("key", ""))
+
+    # Load all functions from static analysis to add missing DDR5 nodes
+    func_path = ROOT / "data" / "static" / "functions" / "functions.json"
+    all_functions = []
+    if func_path.exists():
+        with open(func_path, "r", encoding="utf-8") as f:
+            all_functions = json.load(f)
+
+    # Add missing function nodes with findings as leaf nodes under functions-group
+    finding_map: dict = {}
+    for f in findings.get("findings", []):
+        loc = f.get("location", {})
+        fn = loc.get("function", "")
+        if fn:
+            if fn not in finding_map:
+                finding_map[fn] = []
+            finding_map[fn].append(f)
+
+    # Severity → color mapping for frontend highlighting
+    SEVERITY_COLORS = {
+        "critical": "#7f1d1d",
+        "high":     "#dc2626",
+        "medium":   "#f59e0b",
+        "low":      "#3b82f6",
+        "info":     "#6b7280",
+    }
+    SEVERITY_ORDER = {"critical": 5, "high": 4, "medium": 3, "low": 2, "info": 1}
+
+    def _pick_color(findings_list):
+        """Pick the color of the highest severity finding."""
+        max_order = 0
+        best = "info"
+        for ff in findings_list:
+            s = ff.get("severity", "info")
+            o = SEVERITY_ORDER.get(s, 1)
+            if o > max_order:
+                max_order = o
+                best = s
+        return SEVERITY_COLORS.get(best, "#6b7280")
+
+    # Add nodes for functions with findings that aren't in the GoJS data yet
+    node_data = gojs.get("nodeDataArray", [])
+    for fn in sorted(finding_funcs):
+        if fn not in existing_keys:
+            node_data.append({
+                "key": fn,
+                "category": "Group",
+                "isGroup": False,
+                "group": "functions-group",
+                "findings": finding_map.get(fn, []),
+                "finding_highlight": True,
+                "color": _pick_color(finding_map.get(fn, [])),
+            })
+
+    # Also annotate existing nodes with findings
+    for nd in node_data:
+        key = nd.get("key", "")
+        base_key = key.split("::")[-1] if "::" in key else key
+        if base_key in finding_funcs:
+            existing_findings = nd.get("findings", [])
+            if not existing_findings:
+                nd["findings"] = finding_map.get(base_key, [])
+            # Add color field
+            nd["color"] = _pick_color(nd["findings"])
+
+    return gojs
+
+
 # ── Generic resource endpoint ─────────────────────────────────────
 
 

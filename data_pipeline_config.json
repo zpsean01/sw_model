@@ -68,13 +68,15 @@
                     "ast_output_dir": "data/static",
                     "elf_output_dir": "data/binary",
                     "output_dir": "data/modeling",
+                    "spec_model_path": "data/spec_model_ddr5_mock.json",
                     "checks": {
                         "irq_priority": true,
                         "critical_section": true,
                         "stack_analysis": true,
                         "uninit_globals": true,
                         "reentrancy": true,
-                        "state_machine_integrity": true
+                        "state_machine_integrity": true,
+                        "protocol_conformance": true
                     }
                 }
             },

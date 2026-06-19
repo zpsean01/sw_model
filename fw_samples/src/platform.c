@@ -154,3 +154,82 @@ void PLATFORM_ErrorHandler(uint32_t error_code)
         __asm__("wfi" ::: "memory");
     }
 }
+
+/* ===========================================================================
+ * DDR5 init controller platform abstraction
+ *
+ * Provides the extern functions required by src/ddr5_init_controller.c.
+ * These are simplified implementations for analysis purposes.
+ * ======================================================================== */
+
+/* ── DDR controller MMIO base (simulated) ─────────────────────────────── */
+#define DDR_CTRL_BASE           0x40000000UL
+#define DDR_CTRL_MR_OP          (DDR_CTRL_BASE + 0x0000U)
+#define DDR_CTRL_MR_ADDR        (DDR_CTRL_BASE + 0x0004U)
+#define DDR_CTRL_MR_DATA        (DDR_CTRL_BASE + 0x0008U)
+#define DDR_CTRL_MR_CMD         (DDR_CTRL_BASE + 0x000CU)
+#define DDR_CTRL_TRAIN_CTRL     (DDR_CTRL_BASE + 0x0020U)
+#define DDR_CTRL_TRAIN_STATUS   (DDR_CTRL_BASE + 0x0024U)
+#define DDR_CTRL_ZQ_CTRL        (DDR_CTRL_BASE + 0x0030U)
+
+/* Simple busy-wait delay (approximate cycle count) */
+void ddr5_delay_cycles(uint32_t cycles)
+{
+    volatile uint32_t i;
+    for (i = 0; i < cycles; i++)
+    {
+        __asm__("nop");
+    }
+}
+
+/* Memory-mapped register read */
+uint32_t ddr5_read_reg(uint32_t addr)
+{
+    return *(volatile uint32_t *)addr;
+}
+
+/* Memory-mapped register write */
+void ddr5_write_reg(uint32_t addr, uint32_t val)
+{
+    *(volatile uint32_t *)addr = val;
+}
+
+/* DDR5 Mode Register Read via controller MRR operation */
+uint32_t ddr5_mr_read(uint8_t mr_addr)
+{
+    ddr5_write_reg(DDR_CTRL_MR_ADDR, mr_addr);
+    ddr5_write_reg(DDR_CTRL_MR_CMD, 0x01U);   /* MRR command */
+    while (ddr5_read_reg(DDR_CTRL_MR_CMD) & (1U << 31));  /* wait busy */
+    return ddr5_read_reg(DDR_CTRL_MR_DATA);
+}
+
+/* DDR5 Mode Register Write via controller MRW operation */
+void ddr5_mr_write(uint8_t mr_addr, uint32_t data)
+{
+    ddr5_write_reg(DDR_CTRL_MR_ADDR, mr_addr);
+    ddr5_write_reg(DDR_CTRL_MR_DATA, data);
+    ddr5_write_reg(DDR_CTRL_MR_CMD, 0x00U);   /* MRW command */
+    while (ddr5_read_reg(DDR_CTRL_MR_CMD) & (1U << 31));  /* wait busy */
+}
+
+/* DDR5 CA Bus command send (simplified) */
+void ddr5_ca_bus_send(uint16_t cmd, uint32_t addr)
+{
+    /* In real hardware: drives CA[13:0] bus signals with command + address.
+     * Here we write to a simulated controller register for analysis tracing. */
+    ddr5_write_reg(DDR_CTRL_TRAIN_CTRL, ((uint32_t)cmd << 16) | (addr & 0xFFFFU));
+}
+
+/* DDR5 CKE control */
+void ddr5_set_cke(uint8_t state)
+{
+    /* CKE is typically a SoC GPIO or PLL control line. */
+    ddr5_write_reg(DDR_CTRL_BASE + 0x1000U, state ? 1U : 0U);
+}
+
+/* DDR5 RESET_n control */
+void ddr5_set_reset_n(uint8_t state)
+{
+    /* RESET_n is typically a SoC GPIO. */
+    ddr5_write_reg(DDR_CTRL_BASE + 0x1004U, state ? 1U : 0U);
+}

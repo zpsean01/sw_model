@@ -94,6 +94,7 @@ async def get_ztree():
                 {"id": "modeling/event_architecture", "name": "Event Architecture"},
                 {"id": "modeling/security_report", "name": "Security Report"},
                 {"id": "modeling/unified_model", "name": "Unified Model"},
+                {"id": "modeling/protocol_conformance", "name": "Protocol Conformance"},
             ],
         },
         {

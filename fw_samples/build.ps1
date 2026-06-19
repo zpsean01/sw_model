@@ -36,6 +36,8 @@ $CFLAGS = @(
     "-fdata-sections"
     "-I$SRC_DIR\lib"
     "-I$SRC_DIR\src"
+    "-I$SRC_DIR\src\ddr"
+    "-I$SRC_DIR\lib\ddr"
     "-std=c99"
     "-D__CORTEX_M33"
     "-DARM_MATH_CM33"
@@ -74,10 +76,14 @@ $entries = @()
 foreach ($dir in @("lib", "src")) {
     $srcPath = Join-Path $SRC_DIR $dir
     $objSubDir = Join-Path $OBJ_DIR $dir
-    Get-ChildItem "$srcPath\*.c" | ForEach-Object {
+    Get-ChildItem -Path $srcPath -Filter "*.c" -Recurse | ForEach-Object {
         $srcFile = $_.FullName
+        $relPath = $_.DirectoryName.Substring($srcPath.Length).TrimStart('\')
+        $objDir = if ($relPath) { Join-Path $objSubDir $relPath } else { $objSubDir }
+        if (-not (Test-Path $objDir)) { New-Item -ItemType Directory -Path $objDir -Force | Out-Null }
+
         $basename = $_.BaseName
-        $objFile = Join-Path $objSubDir "$basename.o"
+        $objFile = Join-Path $objDir "$basename.o"
 
         $cmdArgs = $CFLAGS + @("-c", $srcFile, "-o", $objFile)
         $cmdLine = "$CC $($cmdArgs -join ' ')"

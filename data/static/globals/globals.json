@@ -112,6 +112,13 @@
     "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
   },
   {
+    "name": "ddr5_state_names",
+    "kind": "CursorKind.VAR_DECL",
+    "type": "const char *[16]",
+    "line": 553,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h"
+  },
+  {
     "name": "g_fault_log",
     "kind": "CursorKind.VAR_DECL",
     "type": "fault_record_t[16]",

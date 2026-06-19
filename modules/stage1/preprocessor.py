@@ -121,7 +121,7 @@ class Stage1Preprocessor(BaseStage):
     ) -> List[str]:
         """Parse the raw command string and convert to a preprocess command."""
         import shlex
-        tokens = shlex.split(command)
+        tokens = shlex.split(command, posix=False)
         cmd = [compiler, "-E", "-C"]
         skip_next = False
         for i, tok in enumerate(tokens):

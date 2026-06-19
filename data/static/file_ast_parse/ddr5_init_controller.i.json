@@ -1,0 +1,583 @@
+{
+  "functions": [
+    {
+      "name": "ddr5_tck_ns",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "bin",
+          "type": "ddr5_speed_bin_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_timing.h"
+    },
+    {
+      "name": "ddr5_train_vref_dq",
+      "return_type": "uint8_t",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h"
+    },
+    {
+      "name": "ddr5_train_vref_ca",
+      "return_type": "uint8_t",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h"
+    },
+    {
+      "name": "ddr5_train_dq_write_leveling",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h"
+    },
+    {
+      "name": "ddr5_train_duty_cycle",
+      "return_type": "uint8_t",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h"
+    },
+    {
+      "name": "ddr5_delay_cycles",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "cycles",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "ddr5_ca_bus_send",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "cmd",
+          "type": "uint16_t"
+        },
+        {
+          "name": "addr",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "ddr5_mr_read",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "mr_addr",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "ddr5_mr_write",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mr_addr",
+          "type": "uint8_t"
+        },
+        {
+          "name": "data",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "ddr5_set_cke",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "state",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "ddr5_set_reset_n",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "state",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "ddr5_read_reg",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "addr",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "ddr5_write_reg",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "addr",
+          "type": "uint32_t"
+        },
+        {
+          "name": "val",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_mr_config",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_vref_train",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [
+        "ddr5_train_vref_ca",
+        "ddr5_train_vref_dq"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_zq_calib",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [
+        "ddr5_read_reg"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_dq_train",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_ca_train",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_dca_train",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [
+        "ddr5_train_duty_cycle"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_crc_config",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_mr_verify",
+      "return_type": "_Bool",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [
+        "ddr5_mr_read"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_mrw_register",
+      "return_type": "_Bool",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        },
+        {
+          "name": "mr",
+          "type": "uint8_t"
+        },
+        {
+          "name": "value",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "ddr5_initialize",
+      "return_type": "ddr5_init_state_t",
+      "parameters": [
+        {
+          "name": "speed_bin",
+          "type": "ddr5_speed_bin_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_mr_config",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_vref_train",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [
+        "ddr5_train_vref_ca",
+        "ddr5_train_vref_dq"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_zq_calib",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [
+        "ddr5_read_reg"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_dq_train",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_ca_train",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_dca_train",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [
+        "ddr5_train_duty_cycle"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_crc_config",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_state_mr_verify",
+      "return_type": "_Bool",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [
+        "ddr5_mr_read"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    },
+    {
+      "name": "_mrw_register",
+      "return_type": "_Bool",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        },
+        {
+          "name": "mr",
+          "type": "uint8_t"
+        },
+        {
+          "name": "value",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+    }
+  ],
+  "global_variables": {
+    "ddr5_state_names": {
+      "type": "const char *[16]",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h",
+      "line": 553
+    }
+  },
+  "type_definitions": {
+    "int64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 78
+    },
+    "uint64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 80
+    },
+    "int_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 82
+    },
+    "uint_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 83
+    },
+    "int_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 84
+    },
+    "uint_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 85
+    },
+    "int32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 87
+    },
+    "uint32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 92
+    },
+    "int_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 94
+    },
+    "uint_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 95
+    },
+    "int_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 96
+    },
+    "uint_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 97
+    },
+    "int16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 99
+    },
+    "uint16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 101
+    },
+    "int_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 103
+    },
+    "uint_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 104
+    },
+    "int_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 105
+    },
+    "uint_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 106
+    },
+    "int8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 112
+    },
+    "uint8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 114
+    },
+    "int_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 122
+    },
+    "uint_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 123
+    },
+    "int_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 124
+    },
+    "uint_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 125
+    },
+    "intptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 139
+    },
+    "uintptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 146
+    },
+    "intmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 152
+    },
+    "uintmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 153
+    },
+    "ddr5_speed_bin_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_timing.h",
+      "line": 439
+    },
+    "ddr5_init_state_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h",
+      "line": 537
+    },
+    "ddr5_training_result_t": {
+      "kind": "STRUCT_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h",
+      "line": 570
+    },
+    "ddr5_init_context_t": {
+      "kind": "STRUCT_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "line": 636
+    }
+  }
+}

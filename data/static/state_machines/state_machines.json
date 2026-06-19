@@ -12,6 +12,12 @@
     "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
   },
   {
+    "name": "ddr5_init_state_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 537,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h"
+  },
+  {
     "name": "gpio_mode_t",
     "kind": "CursorKind.ENUM_DECL",
     "line": 255,

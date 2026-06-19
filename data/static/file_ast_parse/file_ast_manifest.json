@@ -12,6 +12,14 @@
     "ast": "data\\static\\file_ast_parse\\crypto.i.json"
   },
   {
+    "source": "data\\preprocessing\\ddr5_init_controller.i",
+    "ast": "data\\static\\file_ast_parse\\ddr5_init_controller.i.json"
+  },
+  {
+    "source": "data\\preprocessing\\ddr5_training.i",
+    "ast": "data\\static\\file_ast_parse\\ddr5_training.i.json"
+  },
+  {
     "source": "data\\preprocessing\\fault.i",
     "ast": "data\\static\\file_ast_parse\\fault.i.json"
   },

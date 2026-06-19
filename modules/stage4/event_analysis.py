@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 from modules.base import BaseStage
+from modules.stage4.protocol_conformance import ProtocolConformanceAnalyzer
 
 logger = logging.getLogger(__name__)
 
@@ -79,6 +80,47 @@ class Stage4EventArchAnalysis(BaseStage):
             findings = self._check_state_machine_integrity(sm_data)
             report["findings"].extend(findings)
 
+        # ----------------------------------------------------------
+        # Protocol conformance analysis (DDR5 vs spec_model)
+        # ----------------------------------------------------------
+        if checks_cfg.get("protocol_conformance", True):
+            spec_model_path = Path(params.get("spec_model_path", ""))
+            if not spec_model_path.exists():
+                logger.warning("spec_model not found: %s (skipping protocol conformance)", spec_model_path)
+            else:
+                with open(spec_model_path, "r", encoding="utf-8") as f:
+                    spec_model = json.load(f)
+                analyzer = ProtocolConformanceAnalyzer(spec_model)
+
+                pc_findings = []
+                registers_data = self._load_if_exists(ast_dir / "registers" / "registers.json")
+
+                # Check 1: State machine completeness
+                pc_findings.extend(analyzer.check_state_machine_completeness(sm_data))
+
+                # Check 2: Timing constraint audit
+                pc_findings.extend(analyzer.check_timing_constraints(functions, ast_call_graph))
+
+                # Check 3: Register configuration audit
+                pc_findings.extend(analyzer.check_register_config(functions, registers_data))
+
+                # Check 4: Error handling coverage
+                pc_findings.extend(analyzer.check_error_handling(sm_data, ast_call_graph))
+
+                # Check 5: Cross-register dependency
+                pc_findings.extend(analyzer.check_cross_register_dependency(functions))
+
+                for f in pc_findings:
+                    report["findings"].append(f)
+
+                protocol_report = {
+                    "spec_model": str(spec_model_path),
+                    "total_protocol_findings": len(pc_findings),
+                    "findings": pc_findings,
+                }
+                self.save_json("protocol_conformance.json", protocol_report)
+                logger.info("Protocol conformance: %d findings", len(pc_findings))
+
         report["summary"] = self._summarize_findings(report["findings"])
         self.save_json("security_report.json", report)
 
@@ -132,10 +174,25 @@ class Stage4EventArchAnalysis(BaseStage):
         }
 
     def _compute_reachable_from_isrs(
-        self, isr_names: set, call_graph: List[Dict]
+        self, isr_names: set, call_graph: List
     ) -> Dict[str, List[str]]:
-        """Compute the transitive closure of callees for each ISR."""
-        graph = {e["caller"]: e.get("callees", []) for e in call_graph}
+        """Compute the transitive closure of callees for each ISR.
+
+        call_graph is a NetworkX MultiDiGraph serialization:
+            [[nodes], [edges]] where each edge has {source, target, ...}
+        """
+        # Extract edges from [nodes, edges] format
+        if isinstance(call_graph, list) and len(call_graph) == 2:
+            edges = call_graph[1]
+        else:
+            edges = call_graph if isinstance(call_graph, list) else []
+
+        graph: Dict[str, List[str]] = {}
+        for e in edges:
+            src = e.get("source")
+            tgt = e.get("target")
+            if src and tgt:
+                graph.setdefault(src, []).append(tgt)
         result: Dict[str, List[str]] = {}
 
         def reachable(name: str, visited: set) -> set:

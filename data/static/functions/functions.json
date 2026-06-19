@@ -668,6 +668,314 @@
     "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
   },
   {
+    "name": "ddr5_tck_ns",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "bin",
+        "type": "ddr5_speed_bin_t"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_timing.h"
+  },
+  {
+    "name": "ddr5_train_vref_dq",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint8_t",
+    "parameters": [],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h"
+  },
+  {
+    "name": "ddr5_train_vref_ca",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint8_t",
+    "parameters": [],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h"
+  },
+  {
+    "name": "ddr5_train_dq_write_leveling",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h"
+  },
+  {
+    "name": "ddr5_train_duty_cycle",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint8_t",
+    "parameters": [],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h"
+  },
+  {
+    "name": "ddr5_delay_cycles",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "cycles",
+        "type": "uint32_t"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "ddr5_ca_bus_send",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "cmd",
+        "type": "uint16_t"
+      },
+      {
+        "name": "addr",
+        "type": "uint32_t"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "ddr5_mr_read",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "mr_addr",
+        "type": "uint8_t"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "ddr5_mr_write",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "mr_addr",
+        "type": "uint8_t"
+      },
+      {
+        "name": "data",
+        "type": "uint32_t"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "ddr5_set_cke",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "state",
+        "type": "uint8_t"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "ddr5_set_reset_n",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "state",
+        "type": "uint8_t"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "ddr5_read_reg",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "addr",
+        "type": "uint32_t"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "ddr5_write_reg",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "addr",
+        "type": "uint32_t"
+      },
+      {
+        "name": "val",
+        "type": "uint32_t"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "_state_mr_config",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "ctx",
+        "type": "ddr5_init_context_t *"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "_state_vref_train",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "ctx",
+        "type": "ddr5_init_context_t *"
+      }
+    ],
+    "calls": [
+      "ddr5_train_vref_ca",
+      "ddr5_train_vref_dq"
+    ],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "_state_zq_calib",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "ctx",
+        "type": "ddr5_init_context_t *"
+      }
+    ],
+    "calls": [
+      "ddr5_read_reg"
+    ],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "_state_dq_train",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "ctx",
+        "type": "ddr5_init_context_t *"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "_state_ca_train",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "ctx",
+        "type": "ddr5_init_context_t *"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "_state_dca_train",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "ctx",
+        "type": "ddr5_init_context_t *"
+      }
+    ],
+    "calls": [
+      "ddr5_train_duty_cycle"
+    ],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "_state_crc_config",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "ctx",
+        "type": "ddr5_init_context_t *"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "_state_mr_verify",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "_Bool",
+    "parameters": [
+      {
+        "name": "ctx",
+        "type": "ddr5_init_context_t *"
+      }
+    ],
+    "calls": [
+      "ddr5_mr_read"
+    ],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "_mrw_register",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "_Bool",
+    "parameters": [
+      {
+        "name": "ctx",
+        "type": "ddr5_init_context_t *"
+      },
+      {
+        "name": "mr",
+        "type": "uint8_t"
+      },
+      {
+        "name": "value",
+        "type": "uint32_t"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
+    "name": "ddr5_initialize",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "ddr5_init_state_t",
+    "parameters": [
+      {
+        "name": "speed_bin",
+        "type": "ddr5_speed_bin_t"
+      }
+    ],
+    "calls": [],
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c"
+  },
+  {
     "name": "fault_log",
     "kind": "CursorKind.FUNCTION_DECL",
     "return_type": "void",

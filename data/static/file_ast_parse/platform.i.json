@@ -70,6 +70,114 @@
       ],
       "calls": [],
       "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c"
+    },
+    {
+      "name": "ddr5_delay_cycles",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "cycles",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c"
+    },
+    {
+      "name": "ddr5_read_reg",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "addr",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c"
+    },
+    {
+      "name": "ddr5_write_reg",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "addr",
+          "type": "uint32_t"
+        },
+        {
+          "name": "val",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c"
+    },
+    {
+      "name": "ddr5_mr_read",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "mr_addr",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c"
+    },
+    {
+      "name": "ddr5_mr_write",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mr_addr",
+          "type": "uint8_t"
+        },
+        {
+          "name": "data",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c"
+    },
+    {
+      "name": "ddr5_ca_bus_send",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "cmd",
+          "type": "uint16_t"
+        },
+        {
+          "name": "addr",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c"
+    },
+    {
+      "name": "ddr5_set_cke",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "state",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c"
+    },
+    {
+      "name": "ddr5_set_reset_n",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "state",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c"
     }
   ],
   "global_variables": {

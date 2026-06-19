@@ -55,6 +55,11 @@
     "directory": "D:\\programming\\sw_model\\fw_samples"
   },
   {
+    "source": "D:\\programming\\sw_model\\fw_samples\\lib\\ddr\\ddr5_training.c",
+    "preprocessed": "D:\\programming\\sw_model\\data\\preprocessing\\ddr5_training.i",
+    "directory": "D:\\programming\\sw_model\\fw_samples"
+  },
+  {
     "source": "D:\\programming\\sw_model\\fw_samples\\src\\board.c",
     "preprocessed": "D:\\programming\\sw_model\\data\\preprocessing\\board.i",
     "directory": "D:\\programming\\sw_model\\fw_samples"
@@ -92,6 +97,11 @@
   {
     "source": "D:\\programming\\sw_model\\fw_samples\\src\\system.c",
     "preprocessed": "D:\\programming\\sw_model\\data\\preprocessing\\system.i",
+    "directory": "D:\\programming\\sw_model\\fw_samples"
+  },
+  {
+    "source": "D:\\programming\\sw_model\\fw_samples\\src\\ddr\\ddr5_init_controller.c",
+    "preprocessed": "D:\\programming\\sw_model\\data\\preprocessing\\ddr5_init_controller.i",
     "directory": "D:\\programming\\sw_model\\fw_samples"
   }
 ]

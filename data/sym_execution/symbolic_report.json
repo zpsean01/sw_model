@@ -3,6 +3,6 @@
   "target_addresses": [],
   "paths": [],
   "errors": [
-    "angr not available"
+    "Failed to load ELF: Loader.__init__() got an unexpected keyword argument 'use_sim_procs'"
   ]
 }

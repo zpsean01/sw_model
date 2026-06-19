@@ -1032,5 +1032,142 @@
         "name": "CLOCK_SOURCE_PLL"
       }
     ]
+  },
+  {
+    "name": "<anonymous>",
+    "tag": "DW_TAG_enumeration_type",
+    "byte_size": 4,
+    "members": [
+      {
+        "name": "DDR5_STATE_RESET"
+      },
+      {
+        "name": "DDR5_STATE_CKE_HIGH"
+      },
+      {
+        "name": "DDR5_STATE_MR_CONFIG"
+      },
+      {
+        "name": "DDR5_STATE_VREF_TRAIN"
+      },
+      {
+        "name": "DDR5_STATE_ZQ_CALIB"
+      },
+      {
+        "name": "DDR5_STATE_DQ_TRAIN"
+      },
+      {
+        "name": "DDR5_STATE_CA_TRAIN"
+      },
+      {
+        "name": "DDR5_STATE_DCA_TRAIN"
+      },
+      {
+        "name": "DDR5_STATE_CRC_CONFIG"
+      },
+      {
+        "name": "DDR5_STATE_MR_VERIFY"
+      },
+      {
+        "name": "DDR5_STATE_READY"
+      },
+      {
+        "name": "DDR5_STATE_ERROR"
+      }
+    ]
+  },
+  {
+    "name": "<anonymous>",
+    "tag": "DW_TAG_enumeration_type",
+    "byte_size": 4,
+    "members": [
+      {
+        "name": "DDR5_3200"
+      },
+      {
+        "name": "DDR5_3600"
+      },
+      {
+        "name": "DDR5_4000"
+      },
+      {
+        "name": "DDR5_4400"
+      },
+      {
+        "name": "DDR5_4800"
+      },
+      {
+        "name": "DDR5_5600"
+      },
+      {
+        "name": "DDR5_6400"
+      }
+    ]
+  },
+  {
+    "name": "<anonymous>",
+    "tag": "DW_TAG_structure_type",
+    "byte_size": 288,
+    "members": [
+      {
+        "name": "current_state",
+        "type_offset": 267
+      },
+      {
+        "name": "speed_bin",
+        "type_offset": 275
+      },
+      {
+        "name": "mr_configs",
+        "type_offset": 283
+      },
+      {
+        "name": "train_result",
+        "type_offset": 300
+      },
+      {
+        "name": "error_count",
+        "type_offset": 137
+      },
+      {
+        "name": "error_max",
+        "type_offset": 137
+      }
+    ]
+  },
+  {
+    "name": "<anonymous>",
+    "tag": "DW_TAG_structure_type",
+    "byte_size": 20,
+    "members": [
+      {
+        "name": "vref_dq_code",
+        "type_offset": 137
+      },
+      {
+        "name": "vref_ca_code",
+        "type_offset": 137
+      },
+      {
+        "name": "duty_cycle_val",
+        "type_offset": 137
+      },
+      {
+        "name": "dq_pattern_a",
+        "type_offset": 129
+      },
+      {
+        "name": "dq_pattern_b",
+        "type_offset": 129
+      },
+      {
+        "name": "ca_pattern",
+        "type_offset": 129
+      },
+      {
+        "name": "training_pass",
+        "type_offset": 137
+      }
+    ]
   }
 ]
