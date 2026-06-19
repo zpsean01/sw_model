@@ -1,0 +1,37 @@
+[
+  {
+    "name": "g_gpio_ports",
+    "kind": "CursorKind.VAR_DECL",
+    "type": "gpio_regs_t *[2]",
+    "line": 282,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c"
+  },
+  {
+    "name": "g_gpio_initialized",
+    "kind": "CursorKind.VAR_DECL",
+    "type": "_Bool",
+    "line": 286,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c"
+  },
+  {
+    "name": "g_sys_tick_count",
+    "kind": "CursorKind.VAR_DECL",
+    "type": "volatile uint32_t",
+    "line": 249,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c"
+  },
+  {
+    "name": "g_transition_table",
+    "kind": "CursorKind.VAR_DECL",
+    "type": "state_transition_t[17]",
+    "line": 275,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c"
+  },
+  {
+    "name": "g_transition_count",
+    "kind": "CursorKind.VAR_DECL",
+    "type": "const uint32_t",
+    "line": 296,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c"
+  }
+]

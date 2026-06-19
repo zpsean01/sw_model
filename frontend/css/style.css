@@ -1,0 +1,153 @@
+:root {
+  --header-bg: #f0f1f3;
+  --tree-bg: #f8f9fb;
+  --accent: #0f3460;
+  --accent-light: #e8edf4;
+  --highlight: #2563eb;
+  --bg-content: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+  --font-stack: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --header-h: 48px;
+  --tree-w: 280px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  font-family: var(--font-stack);
+  color: var(--text-primary);
+  background: var(--bg-content);
+  overflow: hidden;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ── Header ─────────────────────────────────────── */
+#header {
+  height: var(--header-h);
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+#header h1 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+#header .subtitle {
+  font-size: 10px;
+  color: var(--highlight);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid var(--border);
+}
+
+/* ── Main (two columns) ─────────────────────────── */
+#main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Left: tree panel ───────────────────────────── */
+#tree-panel {
+  width: var(--tree-w);
+  background: var(--tree-bg);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.tree-title {
+  padding: 12px 16px 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+/* zTree overrides for light sidebar */
+#ztree {
+  padding: 8px 4px;
+  background: transparent;
+}
+
+#ztree li a {
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+#ztree li a:hover {
+  background: var(--accent-light);
+}
+
+#ztree li a.curSelectedNode {
+  background: var(--accent-light);
+  color: var(--accent);
+  border: none;
+  height: auto;
+}
+
+#ztree li span.button {
+  background-color: transparent !important;
+}
+
+#ztree li ul.line {
+  border-left-color: var(--border);
+}
+
+/* ── Right: JSON Editor panel ───────────────────── */
+#editor-panel {
+  flex: 1;
+  overflow: hidden;
+  background: var(--bg-content);
+}
+
+#jsoneditor {
+  width: 100%;
+  height: 100%;
+}
+
+/* jsoneditor overrides */
+.jsoneditor {
+  border: none !important;
+}
+
+.jsoneditor-menu {
+  background: var(--accent) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+}
+
+.jsoneditor .jsoneditor-tree {
+  background: #fff;
+}
+
+/* ── Error box ──────────────────────────────────── */
+.error-box {
+  background: #fff5f5;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 16px 20px;
+  margin: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+}

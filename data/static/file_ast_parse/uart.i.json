@@ -1,0 +1,351 @@
+{
+  "functions": [
+    {
+      "name": "uart_irq_handler",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+    },
+    {
+      "name": "UART_Init",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        },
+        {
+          "name": "config",
+          "type": "const uart_config_t *"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+    },
+    {
+      "name": "UART_DeInit",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+    },
+    {
+      "name": "UART_WriteByte",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        },
+        {
+          "name": "data",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+    },
+    {
+      "name": "UART_ReadByte",
+      "return_type": "uint8_t",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+    },
+    {
+      "name": "UART_WriteBuffer",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        },
+        {
+          "name": "data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "length",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+    },
+    {
+      "name": "UART_WriteString",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        },
+        {
+          "name": "str",
+          "type": "const char *"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+    },
+    {
+      "name": "UART_Flush",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+    },
+    {
+      "name": "UART_ErrorsGet",
+      "return_type": "uart_state_t *",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+    },
+    {
+      "name": "UART_EnableInterrupt",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        },
+        {
+          "name": "flags",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+    },
+    {
+      "name": "UART0_IRQHandler",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+    },
+    {
+      "name": "UART1_IRQHandler",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+    }
+  ],
+  "global_variables": {
+    "g_uart_instances": {
+      "type": "uart_regs_t *[2]",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "line": 296
+    },
+    "g_uart_state": {
+      "type": "uart_state_t[2]",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "line": 301
+    },
+    "g_uart_initialized": {
+      "type": "_Bool",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "line": 302
+    }
+  },
+  "type_definitions": {
+    "int64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 75
+    },
+    "uint64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 77
+    },
+    "int_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 79
+    },
+    "uint_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 80
+    },
+    "int_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 81
+    },
+    "uint_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 82
+    },
+    "int32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 84
+    },
+    "uint32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 89
+    },
+    "int_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 91
+    },
+    "uint_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 92
+    },
+    "int_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 93
+    },
+    "uint_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 94
+    },
+    "int16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 96
+    },
+    "uint16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 98
+    },
+    "int_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 100
+    },
+    "uint_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 101
+    },
+    "int_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 102
+    },
+    "uint_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 103
+    },
+    "int8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 109
+    },
+    "uint8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 111
+    },
+    "int_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 119
+    },
+    "uint_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 120
+    },
+    "int_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 121
+    },
+    "uint_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 122
+    },
+    "intptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 136
+    },
+    "uintptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 143
+    },
+    "intmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 149
+    },
+    "uintmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 150
+    },
+    "uart_id_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "line": 249
+    },
+    "uart_parity_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "line": 254
+    },
+    "uart_stop_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "line": 260
+    },
+    "uart_config_t": {
+      "kind": "STRUCT_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "line": 265
+    },
+    "uart_state_t": {
+      "kind": "STRUCT_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "line": 272
+    },
+    "uart_regs_t": {
+      "kind": "STRUCT_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "line": 284
+    }
+  }
+}

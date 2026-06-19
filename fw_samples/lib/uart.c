@@ -11,7 +11,6 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include <string.h>
 
 /* ------------------------------------------------------------------ */
 /*  Peripheral memory-map definitions                                  */
@@ -134,7 +133,7 @@ void UART_Init(uart_id_t id, const uart_config_t *config)
 {
     uart_regs_t *regs = g_uart_instances[id];
 
-    (void)memset(&g_uart_state[id], 0, sizeof(uart_state_t));
+    (void)__builtin_memset(&g_uart_state[id], 0, sizeof(uart_state_t));
 
     /* Enable UART (UE bit), TX, RX — simplified setup */
     regs->CR1 = 0x0000000CUL;   /* UE=0 first, then set after config */
@@ -176,7 +175,7 @@ void UART_DeInit(uart_id_t id)
 {
     uart_regs_t *regs = g_uart_instances[id];
     regs->CR1 = 0;
-    (void)memset(&g_uart_state[id], 0, sizeof(uart_state_t));
+    (void)__builtin_memset(&g_uart_state[id], 0, sizeof(uart_state_t));
 }
 
 /**

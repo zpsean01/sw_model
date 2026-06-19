@@ -9,7 +9,6 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include <string.h>
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -62,7 +61,7 @@ static int32_t its_find_file(uint32_t file_id)
  */
 void ITS_Init(void)
 {
-    (void)memset(g_its_storage, 0, sizeof(g_its_storage));
+    (void)__builtin_memset(g_its_storage, 0, sizeof(g_its_storage));
     g_its_file_count = 0;
     g_its_initialized = true;
 }
@@ -83,7 +82,7 @@ int32_t ITS_Create(uint32_t file_id, uint32_t flags)
     g_its_storage[idx].file_id = file_id;
     g_its_storage[idx].size = 0;
     g_its_storage[idx].flags = flags;
-    (void)memset(g_its_storage[idx].data, 0, 512);
+    (void)__builtin_memset(g_its_storage[idx].data, 0, 512);
     ++g_its_file_count;
     return 0;
 }
@@ -104,7 +103,7 @@ int32_t ITS_Write(uint32_t file_id, const uint8_t *data, uint32_t size)
     if (idx < 0) return -1;
 
     g_its_storage[idx].size = size;
-    (void)memcpy(g_its_storage[idx].data, data, size);
+    (void)__builtin_memcpy(g_its_storage[idx].data, data, size);
     return 0;
 }
 
@@ -123,7 +122,7 @@ int32_t ITS_Read(uint32_t file_id, uint8_t *data, uint32_t *size)
     if (idx < 0) return -1;
 
     *size = g_its_storage[idx].size;
-    (void)memcpy(data, g_its_storage[idx].data, g_its_storage[idx].size);
+    (void)__builtin_memcpy(data, g_its_storage[idx].data, g_its_storage[idx].size);
     return 0;
 }
 
@@ -142,7 +141,7 @@ int32_t ITS_Delete(uint32_t file_id)
     /* Shift remaining entries */
     uint32_t count = g_its_file_count - (uint32_t)idx - 1U;
     if (count > 0U) {
-        (void)memmove(&g_its_storage[idx], &g_its_storage[idx + 1],
+        (void)__builtin_memmove(&g_its_storage[idx], &g_its_storage[idx + 1],
                       count * sizeof(its_file_t));
     }
     --g_its_file_count;

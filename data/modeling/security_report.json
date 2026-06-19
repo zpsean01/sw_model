@@ -1,0 +1,118 @@
+{
+  "summary": {
+    "total": 12,
+    "severities": {
+      "low": 12
+    }
+  },
+  "findings": [
+    {
+      "type": "state_machine_integrity",
+      "severity": "low",
+      "message": "State machine 'crypto_status_t' has fewer than 2 states",
+      "location": {
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "line": 292
+      }
+    },
+    {
+      "type": "state_machine_integrity",
+      "severity": "low",
+      "message": "State machine 'crypto_state_t' has fewer than 2 states",
+      "location": {
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "line": 305
+      }
+    },
+    {
+      "type": "state_machine_integrity",
+      "severity": "low",
+      "message": "State machine 'gpio_mode_t' has fewer than 2 states",
+      "location": {
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+        "line": 255
+      }
+    },
+    {
+      "type": "state_machine_integrity",
+      "severity": "low",
+      "message": "State machine 'app_state_t' has fewer than 2 states",
+      "location": {
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "line": 238
+      }
+    },
+    {
+      "type": "state_machine_integrity",
+      "severity": "low",
+      "message": "State machine 'platform_state_t' has fewer than 2 states",
+      "location": {
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+        "line": 247
+      }
+    },
+    {
+      "type": "state_machine_integrity",
+      "severity": "low",
+      "message": "State machine 'system_state_t' has fewer than 2 states",
+      "location": {
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+        "line": 240
+      }
+    },
+    {
+      "type": "state_machine_integrity",
+      "severity": "low",
+      "message": "State machine 'state_transition_t' has fewer than 2 states",
+      "location": {
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+        "line": 250
+      }
+    },
+    {
+      "type": "state_machine_integrity",
+      "severity": "low",
+      "message": "State machine 'power_mode_t' has fewer than 2 states",
+      "location": {
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "line": 268
+      }
+    },
+    {
+      "type": "state_machine_integrity",
+      "severity": "low",
+      "message": "State machine 'timer_mode_t' has fewer than 2 states",
+      "location": {
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+        "line": 253
+      }
+    },
+    {
+      "type": "state_machine_integrity",
+      "severity": "low",
+      "message": "State machine 'timer_oc_mode_t' has fewer than 2 states",
+      "location": {
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+        "line": 259
+      }
+    },
+    {
+      "type": "state_machine_integrity",
+      "severity": "low",
+      "message": "State machine 'timer_state_t' has fewer than 2 states",
+      "location": {
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+        "line": 287
+      }
+    },
+    {
+      "type": "state_machine_integrity",
+      "severity": "low",
+      "message": "State machine 'uart_state_t' has fewer than 2 states",
+      "location": {
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+        "line": 272
+      }
+    }
+  ]
+}

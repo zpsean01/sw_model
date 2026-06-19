@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARM Firmware Analysis Dashboard</title>
+<!-- ZTree CSS -->
+<link rel="stylesheet" href="js/lib/ztree/zTreeStyle.css">
+<!-- Custom styles -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <!-- Header -->
+  <header id="header">
+    <h1>FW Analyzer</h1>
+    <span class="subtitle">ARM Firmware Analysis</span>
+  </header>
+
+  <div id="main">
+    <!-- Left: zTree panel -->
+    <aside id="tree-panel">
+      <div class="tree-title">Navigation</div>
+      <ul id="ztree" class="ztree"></ul>
+    </aside>
+
+    <!-- Right: JSON Editor panel -->
+    <section id="editor-panel">
+      <div id="jsoneditor"></div>
+    </section>
+  </div>
+</div>
+
+<!-- Ace Editor (JSON viewer) -->
+<script src="js/lib/ace.min.js"></script>
+<script src="js/lib/ace-mode-json.min.js"></script>
+<script src="js/lib/ace-theme-chrome.min.js"></script>
+<script src="js/lib/ace-ext-searchbox.min.js"></script>
+
+<!-- Third-party libraries -->
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/ztree/jquery.ztree.all.min.js"></script>
+
+<!-- Application scripts -->
+<script src="js/common/api.js"></script>
+<script src="js/common/ztree-common.js"></script>
+<script src="js/common/json-editor.js"></script>
+<script src="js/common/components.js"></script>
+<script src="js/features/app.js"></script>
+</body>
+</html>

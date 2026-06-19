@@ -1,0 +1,556 @@
+{
+  "functions": [
+    {
+      "name": "gf_mul2",
+      "return_type": "uint8_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "gf_mul3",
+      "return_type": "uint8_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "aes_encrypt_block",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "key",
+          "type": "const uint32_t[44]"
+        },
+        {
+          "name": "input",
+          "type": "const uint8_t[16]"
+        },
+        {
+          "name": "output",
+          "type": "uint8_t[16]"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "aes_expand_key",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "key_bytes",
+          "type": "const uint8_t[16]"
+        },
+        {
+          "name": "rk",
+          "type": "uint32_t[44]"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "sha256_ch",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint32_t"
+        },
+        {
+          "name": "y",
+          "type": "uint32_t"
+        },
+        {
+          "name": "z",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "sha256_maj",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint32_t"
+        },
+        {
+          "name": "y",
+          "type": "uint32_t"
+        },
+        {
+          "name": "z",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "sha256_sigma0",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "sha256_sigma1",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "sha256_lsigma0",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "sha256_lsigma1",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "sha256_transform",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "sha256_ctx_t *"
+        },
+        {
+          "name": "block",
+          "type": "const uint8_t[64]"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "sha256_compute",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "ilen",
+          "type": "uint32_t"
+        },
+        {
+          "name": "digest",
+          "type": "uint8_t[32]"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "CRYPTO_Init",
+      "return_type": "crypto_status_t",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "CRYPTO_AESEncrypt",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "slot",
+          "type": "uint32_t"
+        },
+        {
+          "name": "input",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "output",
+          "type": "uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "CRYPTO_AESDecrypt",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "slot",
+          "type": "uint32_t"
+        },
+        {
+          "name": "input",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "output",
+          "type": "uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "CRYPTO_SHA256",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        },
+        {
+          "name": "digest",
+          "type": "uint8_t[32]"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "CRYPTO_HMACSHA256",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "key",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "klen",
+          "type": "uint32_t"
+        },
+        {
+          "name": "data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "dlen",
+          "type": "uint32_t"
+        },
+        {
+          "name": "mac",
+          "type": "uint8_t[32]"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "CRYPTO_KeyImport",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "slot",
+          "type": "uint32_t"
+        },
+        {
+          "name": "key_data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "key_len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "CRYPTO_KeyGenerate",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "slot",
+          "type": "uint32_t"
+        },
+        {
+          "name": "key_len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "CRYPTO_KeyDelete",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "slot",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "CRYPTO_TrngGet",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "buf",
+          "type": "uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    },
+    {
+      "name": "CRYPTO_IRQHandler",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+    }
+  ],
+  "global_variables": {
+    "aes_sbox": {
+      "type": "const uint8_t[256]",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "line": 241
+    },
+    "aes_rcon": {
+      "type": "const uint8_t[11]",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "line": 263
+    },
+    "sha256_k": {
+      "type": "const uint32_t[64]",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "line": 270
+    },
+    "g_crypto_state": {
+      "type": "crypto_state_t",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "line": 314
+    },
+    "g_key_slots": {
+      "type": "uint8_t[4][32]",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "line": 315
+    },
+    "crypto_hash_size": {
+      "type": "const uint32_t[4]",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "line": 316
+    }
+  },
+  "type_definitions": {
+    "int64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 73
+    },
+    "uint64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 75
+    },
+    "int_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 77
+    },
+    "uint_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 78
+    },
+    "int_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 79
+    },
+    "uint_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 80
+    },
+    "int32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 82
+    },
+    "uint32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 87
+    },
+    "int_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 89
+    },
+    "uint_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 90
+    },
+    "int_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 91
+    },
+    "uint_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 92
+    },
+    "int16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 94
+    },
+    "uint16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 96
+    },
+    "int_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 98
+    },
+    "uint_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 99
+    },
+    "int_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 100
+    },
+    "uint_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 101
+    },
+    "int8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 107
+    },
+    "uint8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 109
+    },
+    "int_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 117
+    },
+    "uint_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 118
+    },
+    "int_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 119
+    },
+    "uint_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 120
+    },
+    "intptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 134
+    },
+    "uintptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 141
+    },
+    "intmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 147
+    },
+    "uintmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 148
+    },
+    "crypto_status_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "line": 292
+    },
+    "crypto_algo_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "line": 298
+    },
+    "crypto_state_t": {
+      "kind": "STRUCT_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "line": 305
+    },
+    "sha256_ctx_t": {
+      "kind": "STRUCT_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "line": 321
+    }
+  }
+}

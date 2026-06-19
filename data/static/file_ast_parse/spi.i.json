@@ -1,0 +1,289 @@
+{
+  "functions": [
+    {
+      "name": "SPI_Init",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "role",
+          "type": "spi_role_t"
+        },
+        {
+          "name": "cpol",
+          "type": "spi_cpol_t"
+        },
+        {
+          "name": "cpha",
+          "type": "spi_cpha_t"
+        },
+        {
+          "name": "dff",
+          "type": "spi_dff_t"
+        },
+        {
+          "name": "baud_divider",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c"
+    },
+    {
+      "name": "SPI_Transmit",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c"
+    },
+    {
+      "name": "SPI_Receive",
+      "return_type": "uint8_t",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c"
+    },
+    {
+      "name": "SPI_TransmitReceive",
+      "return_type": "uint8_t",
+      "parameters": [
+        {
+          "name": "tx_data",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c"
+    },
+    {
+      "name": "SPI_ReadRegister",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "offset",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c"
+    },
+    {
+      "name": "SPI_WriteRegister",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "offset",
+          "type": "uint32_t"
+        },
+        {
+          "name": "value",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c"
+    },
+    {
+      "name": "SPIM_IRQHandler",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c"
+    },
+    {
+      "name": "SPIS_IRQHandler",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c"
+    }
+  ],
+  "global_variables": {
+    "g_spi_instance": {
+      "type": "spi_regs_t *",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "line": 281
+    },
+    "g_spi_initialized": {
+      "type": "_Bool",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "line": 282
+    },
+    "g_spi_base": {
+      "type": "uint32_t",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "line": 283
+    }
+  },
+  "type_definitions": {
+    "int64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 74
+    },
+    "uint64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 76
+    },
+    "int_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 78
+    },
+    "uint_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 79
+    },
+    "int_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 80
+    },
+    "uint_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 81
+    },
+    "int32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 83
+    },
+    "uint32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 88
+    },
+    "int_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 90
+    },
+    "uint_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 91
+    },
+    "int_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 92
+    },
+    "uint_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 93
+    },
+    "int16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 95
+    },
+    "uint16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 97
+    },
+    "int_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 99
+    },
+    "uint_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 100
+    },
+    "int_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 101
+    },
+    "uint_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 102
+    },
+    "int8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 108
+    },
+    "uint8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 110
+    },
+    "int_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 118
+    },
+    "uint_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 119
+    },
+    "int_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 120
+    },
+    "uint_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 121
+    },
+    "intptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 135
+    },
+    "uintptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 142
+    },
+    "intmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 148
+    },
+    "uintmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 149
+    },
+    "spi_role_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "line": 248
+    },
+    "spi_cpol_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "line": 253
+    },
+    "spi_cpha_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "line": 258
+    },
+    "spi_dff_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "line": 263
+    },
+    "spi_regs_t": {
+      "kind": "STRUCT_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "line": 268
+    }
+  }
+}

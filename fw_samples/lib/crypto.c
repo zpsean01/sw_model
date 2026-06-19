@@ -9,7 +9,6 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include <string.h>
 
 /* ------------------------------------------------------------------ */
 /*  AES S-box (forward)                                                */
@@ -126,7 +125,7 @@ static void aes_encrypt_block(const uint32_t key[44], const uint8_t input[16],
                               uint8_t output[16])
 {
     uint8_t state[16];
-    (void)memcpy(state, input, 16);
+    (void)__builtin_memcpy(state, input, 16);
 
     uint32_t i, round;
     uint8_t tmp[16];
@@ -151,7 +150,7 @@ static void aes_encrypt_block(const uint32_t key[44], const uint8_t input[16],
         tmp[ 4] = state[ 4]; tmp[ 5] = state[ 9]; tmp[ 6] = state[14]; tmp[ 7] = state[ 3];
         tmp[ 8] = state[ 8]; tmp[ 9] = state[13]; tmp[10] = state[ 2]; tmp[11] = state[ 7];
         tmp[12] = state[12]; tmp[13] = state[ 1]; tmp[14] = state[ 6]; tmp[15] = state[11];
-        (void)memcpy(state, tmp, 16);
+        (void)__builtin_memcpy(state, tmp, 16);
 
         /* MixColumns */
         for (i = 0; i < 4; ++i) {
@@ -181,7 +180,7 @@ static void aes_encrypt_block(const uint32_t key[44], const uint8_t input[16],
     tmp[ 4] = state[ 4]; tmp[ 5] = state[ 9]; tmp[ 6] = state[14]; tmp[ 7] = state[ 3];
     tmp[ 8] = state[ 8]; tmp[ 9] = state[13]; tmp[10] = state[ 2]; tmp[11] = state[ 7];
     tmp[12] = state[12]; tmp[13] = state[ 1]; tmp[14] = state[ 6]; tmp[15] = state[11];
-    (void)memcpy(state, tmp, 16);
+    (void)__builtin_memcpy(state, tmp, 16);
 
     for (i = 0; i < 4; ++i) {
         uint32_t k = key[40 + i];
@@ -191,7 +190,7 @@ static void aes_encrypt_block(const uint32_t key[44], const uint8_t input[16],
         state[4*i + 3] ^= (uint8_t)((k >> 24) & 0xFF);
     }
 
-    (void)memcpy(output, state, 16);
+    (void)__builtin_memcpy(output, state, 16);
 }
 
 /**
@@ -340,7 +339,7 @@ static void sha256_compute(const uint8_t *input, uint32_t ilen,
     }
 
     /* Remaining bytes */
-    (void)memcpy(ctx.buffer, input, ilen);
+    (void)__builtin_memcpy(ctx.buffer, input, ilen);
     ctx.buflen = ilen;
     ctx.count += (uint64_t)ilen * 8;
 
@@ -348,11 +347,11 @@ static void sha256_compute(const uint8_t *input, uint32_t ilen,
     ctx.buffer[ctx.buflen] = 0x80;
     ++ctx.buflen;
     if (ctx.buflen > 56) {
-        (void)memset(ctx.buffer + ctx.buflen, 0, 64 - ctx.buflen);
+        (void)__builtin_memset(ctx.buffer + ctx.buflen, 0, 64 - ctx.buflen);
         sha256_transform(&ctx, ctx.buffer);
         ctx.buflen = 0;
     }
-    (void)memset(ctx.buffer + ctx.buflen, 0, 56 - ctx.buflen);
+    (void)__builtin_memset(ctx.buffer + ctx.buflen, 0, 56 - ctx.buflen);
 
     /* Append length in bits (big-endian) */
     uint64_t bits = ctx.count;
@@ -385,8 +384,8 @@ static void sha256_compute(const uint8_t *input, uint32_t ilen,
  */
 crypto_status_t CRYPTO_Init(void)
 {
-    (void)memset(&g_crypto_state, 0, sizeof(crypto_state_t));
-    (void)memset(g_key_slots, 0, sizeof(g_key_slots));
+    (void)__builtin_memset(&g_crypto_state, 0, sizeof(crypto_state_t));
+    (void)__builtin_memset(g_key_slots, 0, sizeof(g_key_slots));
     g_crypto_state.initialized = true;
     return CRYPTO_OK;
 }
@@ -457,9 +456,9 @@ crypto_status_t CRYPTO_HMACSHA256(const uint8_t *key, uint32_t klen,
     uint8_t kp[64];
     uint32_t i;
 
-    (void)memset(kp, 0, 64);
+    (void)__builtin_memset(kp, 0, 64);
     if (klen <= 64) {
-        (void)memcpy(kp, key, klen);
+        (void)__builtin_memcpy(kp, key, klen);
     } else {
         sha256_compute(key, klen, kp);
     }
@@ -473,12 +472,12 @@ crypto_status_t CRYPTO_HMACSHA256(const uint8_t *key, uint32_t klen,
 
     uint8_t inner[32];
     uint8_t buf[128];
-    (void)memcpy(buf, ikpad, 64);
-    (void)memcpy(buf + 64, data, dlen);
+    (void)__builtin_memcpy(buf, ikpad, 64);
+    (void)__builtin_memcpy(buf + 64, data, dlen);
     sha256_compute(buf, 64 + dlen, inner);
 
-    (void)memcpy(buf, okpad, 64);
-    (void)memcpy(buf + 64, inner, 32);
+    (void)__builtin_memcpy(buf, okpad, 64);
+    (void)__builtin_memcpy(buf + 64, inner, 32);
     sha256_compute(buf, 64 + 32, mac);
 
     ++g_crypto_state.operation_count;
@@ -495,8 +494,8 @@ crypto_status_t CRYPTO_KeyImport(uint32_t slot, const uint8_t *key_data,
     if (slot >= 4) return CRYPTO_ERR;
     if (key_len > 32) return CRYPTO_ERR;
 
-    (void)memset(g_key_slots[slot], 0, 32);
-    (void)memcpy(g_key_slots[slot], key_data, key_len);
+    (void)__builtin_memset(g_key_slots[slot], 0, 32);
+    (void)__builtin_memcpy(g_key_slots[slot], key_data, key_len);
     ++g_crypto_state.operation_count;
     return CRYPTO_OK;
 }
@@ -537,7 +536,7 @@ crypto_status_t CRYPTO_KeyDelete(uint32_t slot)
     if (!g_crypto_state.initialized) return CRYPTO_ERR;
     if (slot >= 4) return CRYPTO_ERR;
 
-    (void)memset(g_key_slots[slot], 0, 32);
+    (void)__builtin_memset(g_key_slots[slot], 0, 32);
     ++g_crypto_state.operation_count;
     return CRYPTO_OK;
 }

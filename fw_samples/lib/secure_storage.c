@@ -9,7 +9,6 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include <string.h>
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -63,7 +62,7 @@ static int32_t storage_find_item(uint32_t item_id)
  */
 void STORAGE_Init(void)
 {
-    (void)memset(g_storage_items, 0, sizeof(g_storage_items));
+    (void)__builtin_memset(g_storage_items, 0, sizeof(g_storage_items));
     g_storage_item_count = 0;
     g_storage_initialized = true;
 }
@@ -88,7 +87,7 @@ int32_t STORAGE_Write(uint32_t item_id, const uint8_t *data,
         g_storage_items[idx].size = size;
         g_storage_items[idx].flags = flags;
         g_storage_items[idx].authenticated = false;
-        (void)memcpy(g_storage_items[idx].data, data, size);
+        (void)__builtin_memcpy(g_storage_items[idx].data, data, size);
         return 0;
     }
 
@@ -100,7 +99,7 @@ int32_t STORAGE_Write(uint32_t item_id, const uint8_t *data,
     g_storage_items[idx].size = size;
     g_storage_items[idx].flags = flags;
     g_storage_items[idx].authenticated = false;
-    (void)memcpy(g_storage_items[idx].data, data, size);
+    (void)__builtin_memcpy(g_storage_items[idx].data, data, size);
     ++g_storage_item_count;
     return 0;
 }
@@ -120,7 +119,7 @@ int32_t STORAGE_Read(uint32_t item_id, uint8_t *data, uint32_t *size)
     if (idx < 0) return -1;
 
     *size = g_storage_items[idx].size;
-    (void)memcpy(data, g_storage_items[idx].data, g_storage_items[idx].size);
+    (void)__builtin_memcpy(data, g_storage_items[idx].data, g_storage_items[idx].size);
     return 0;
 }
 
@@ -139,7 +138,7 @@ int32_t STORAGE_Delete(uint32_t item_id)
     /* Shift remaining items down */
     uint32_t count = g_storage_item_count - (uint32_t)idx - 1U;
     if (count > 0U) {
-        (void)memmove(&g_storage_items[idx], &g_storage_items[idx + 1],
+        (void)__builtin_memmove(&g_storage_items[idx], &g_storage_items[idx + 1],
                       count * sizeof(storage_item_t));
     }
     --g_storage_item_count;
@@ -207,6 +206,6 @@ void STORAGE_EraseAll(void)
 {
     if (!g_storage_initialized) return;
 
-    (void)memset(g_storage_items, 0, sizeof(g_storage_items));
+    (void)__builtin_memset(g_storage_items, 0, sizeof(g_storage_items));
     g_storage_item_count = 0;
 }

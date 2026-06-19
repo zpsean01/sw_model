@@ -51,7 +51,7 @@ static uint16_t     g_led_pin        = 5u;  /* GPIOA pin 5 */
 extern int32_t GPIO_Init(uint32_t port, uint32_t pin, uint32_t mode);
 extern int32_t UART_Init(uint32_t instance, uint32_t baud);
 extern int32_t SPI_Init(uint32_t instance, uint32_t speed);
-extern int32_t I2C_Init(uint32_t instance, uint32_t speed);
+
 
 /* ---------------------------------------------------------------------------
  * BOARD_Init — initialise board-level hardware
@@ -74,7 +74,7 @@ void BOARD_Init(void)
     (void)GPIO_Init(0u, g_led_pin, 1u);  /* output */
     (void)UART_Init(0u, 115200u);
     (void)SPI_Init(0u, 1000000u);
-    (void)I2C_Init(0u, 400000u);
+    /* I2C not implemented on this board variant */
 }
 
 /* ---------------------------------------------------------------------------

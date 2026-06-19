@@ -174,3 +174,31 @@ void Reset_Handler(void)
         __asm__("wfi" ::: "memory");
     }
 }
+
+/* ---------------------------------------------------------------------------
+ * ARM EABI runtime helper implementations for bare-metal
+ * --------------------------------------------------------------------------- */
+__attribute__((used))
+void __aeabi_memclr4(void *ptr) {
+    uint32_t *p = (uint32_t *)ptr;
+    p[0] = 0; p[1] = 0; p[2] = 0; p[3] = 0;
+}
+
+__attribute__((used))
+void __aeabi_memclr8(void *ptr) {
+    uint32_t *p = (uint32_t *)ptr;
+    p[0] = 0; p[1] = 0; p[2] = 0; p[3] = 0;
+    p[4] = 0; p[5] = 0; p[6] = 0; p[7] = 0;
+}
+
+__attribute__((used))
+void __aeabi_memcpy4(void *dest, const void *src, uint32_t n) {
+    uint32_t *d = (uint32_t *)dest;
+    const uint32_t *s = (const uint32_t *)src;
+    for (uint32_t i = 0; i < (n >> 2); i++) { d[i] = s[i]; }
+}
+
+__attribute__((used))
+void __aeabi_memcpy8(void *dest, const void *src, uint32_t n) {
+    __aeabi_memcpy4(dest, src, n);
+}

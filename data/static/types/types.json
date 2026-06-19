@@ -1,0 +1,512 @@
+[
+  {
+    "name": "int64_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 74,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uint64_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 76,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "int_least64_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 78,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uint_least64_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 79,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "int_fast64_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 80,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uint_fast64_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 81,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "int32_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 83,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uint32_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 88,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "int_least32_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 90,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uint_least32_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 91,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "int_fast32_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 92,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uint_fast32_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 93,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "int16_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 95,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uint16_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 97,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "int_least16_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 99,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uint_least16_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 100,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "int_fast16_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 101,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uint_fast16_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 102,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "int8_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 108,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uint8_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 110,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "int_least8_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 118,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uint_least8_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 119,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "int_fast8_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 120,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uint_fast8_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 121,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "intptr_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 135,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uintptr_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 142,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "intmax_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 148,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "uintmax_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 149,
+    "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h"
+  },
+  {
+    "name": "attest_claim_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 242,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c"
+  },
+  {
+    "name": "attest_token_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 248,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c"
+  },
+  {
+    "name": "board_id_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 252,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c"
+  },
+  {
+    "name": "board_info_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 259,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c"
+  },
+  {
+    "name": "crypto_status_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 292,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+  },
+  {
+    "name": "crypto_algo_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 298,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+  },
+  {
+    "name": "crypto_state_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 305,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+  },
+  {
+    "name": "sha256_ctx_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 321,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+  },
+  {
+    "name": "fault_type_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 256,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c"
+  },
+  {
+    "name": "fault_record_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 265,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c"
+  },
+  {
+    "name": "gpio_port_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 248,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c"
+  },
+  {
+    "name": "gpio_pin_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 253,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c"
+  },
+  {
+    "name": "gpio_mode_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 255,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c"
+  },
+  {
+    "name": "gpio_pull_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 262,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c"
+  },
+  {
+    "name": "gpio_regs_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 268,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c"
+  },
+  {
+    "name": "irq_priority_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 251,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c"
+  },
+  {
+    "name": "ipc_msg_type_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 242,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c"
+  },
+  {
+    "name": "ipc_endpoint_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 248,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c"
+  },
+  {
+    "name": "ipc_msg_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 254,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c"
+  },
+  {
+    "name": "its_flags_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 241,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c"
+  },
+  {
+    "name": "its_file_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 247,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c"
+  },
+  {
+    "name": "app_state_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 238,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c"
+  },
+  {
+    "name": "boundary_tag",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 245,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c"
+  },
+  {
+    "name": "boundary_tag_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 251,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c"
+  },
+  {
+    "name": "mem_pool_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 253,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c"
+  },
+  {
+    "name": "heap_usage_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 262,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c"
+  },
+  {
+    "name": "platform_state_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 247,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c"
+  },
+  {
+    "name": "platform_config_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 255,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c"
+  },
+  {
+    "name": "rtc_time_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 254,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c"
+  },
+  {
+    "name": "rtc_date_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 260,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c"
+  },
+  {
+    "name": "rtc_format_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 266,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c"
+  },
+  {
+    "name": "rtc_regs_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 271,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c"
+  },
+  {
+    "name": "storage_id_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 241,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c"
+  },
+  {
+    "name": "storage_item_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 247,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c"
+  },
+  {
+    "name": "spi_role_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 248,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c"
+  },
+  {
+    "name": "spi_cpol_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 253,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c"
+  },
+  {
+    "name": "spi_cpha_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 258,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c"
+  },
+  {
+    "name": "spi_dff_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 263,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c"
+  },
+  {
+    "name": "spi_regs_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 268,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c"
+  },
+  {
+    "name": "isr_func_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 238,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c"
+  },
+  {
+    "name": "system_state_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 240,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c"
+  },
+  {
+    "name": "state_transition_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 250,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c"
+  },
+  {
+    "name": "sm_handler_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 258,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c"
+  },
+  {
+    "name": "power_mode_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 268,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+  },
+  {
+    "name": "clock_source_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 276,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+  },
+  {
+    "name": "system_clock_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 283,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+  },
+  {
+    "name": "timer_id_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 248,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c"
+  },
+  {
+    "name": "timer_mode_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 253,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c"
+  },
+  {
+    "name": "timer_oc_mode_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 259,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c"
+  },
+  {
+    "name": "timer_regs_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 266,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c"
+  },
+  {
+    "name": "timer_state_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 287,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c"
+  },
+  {
+    "name": "uart_id_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 249,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+  },
+  {
+    "name": "uart_parity_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 254,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+  },
+  {
+    "name": "uart_stop_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 260,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+  },
+  {
+    "name": "uart_config_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 265,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+  },
+  {
+    "name": "uart_state_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 272,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+  },
+  {
+    "name": "uart_regs_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 284,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+  }
+]

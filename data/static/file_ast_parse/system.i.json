@@ -1,0 +1,374 @@
+{
+  "functions": [
+    {
+      "name": "system_configure_flash_latency",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "clock_mhz",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemClockDividerSet",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ahb",
+          "type": "uint32_t"
+        },
+        {
+          "name": "apb1",
+          "type": "uint32_t"
+        },
+        {
+          "name": "apb2",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemInit",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemCoreClockGet",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemCoreClockUpdate",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemResetCauseGet",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemReset",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemSoftReset",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemPowerModeSet",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "power_mode_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemPowerModeGet",
+      "return_type": "power_mode_t",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemTickConfig",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "reload",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemTickDisable",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemTickCountGet",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemDelayMs",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ms",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemClockDividerSet",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ahb",
+          "type": "uint32_t"
+        },
+        {
+          "name": "apb1",
+          "type": "uint32_t"
+        },
+        {
+          "name": "apb2",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemAHBClockGet",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemAPB1ClockGet",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemAPB2ClockGet",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "system_configure_flash_latency",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "clock_mhz",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    },
+    {
+      "name": "SystemInfoPrint",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+    }
+  ],
+  "global_variables": {
+    "g_reset_cause": {
+      "type": "uint32_t",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "line": 294
+    },
+    "g_system_clock_hz": {
+      "type": "uint32_t",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "line": 295
+    },
+    "g_current_power_mode": {
+      "type": "power_mode_t",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "line": 296
+    },
+    "g_clock_config": {
+      "type": "system_clock_t",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "line": 297
+    }
+  },
+  "type_definitions": {
+    "int64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 70
+    },
+    "uint64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 72
+    },
+    "int_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 74
+    },
+    "uint_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 75
+    },
+    "int_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 76
+    },
+    "uint_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 77
+    },
+    "int32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 79
+    },
+    "uint32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 84
+    },
+    "int_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 86
+    },
+    "uint_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 87
+    },
+    "int_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 88
+    },
+    "uint_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 89
+    },
+    "int16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 91
+    },
+    "uint16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 93
+    },
+    "int_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 95
+    },
+    "uint_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 96
+    },
+    "int_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 97
+    },
+    "uint_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 98
+    },
+    "int8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 104
+    },
+    "uint8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 106
+    },
+    "int_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 114
+    },
+    "uint_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 115
+    },
+    "int_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 116
+    },
+    "uint_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 117
+    },
+    "intptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 131
+    },
+    "uintptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 138
+    },
+    "intmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 144
+    },
+    "uintmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 145
+    },
+    "power_mode_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "line": 268
+    },
+    "clock_source_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "line": 276
+    },
+    "system_clock_t": {
+      "kind": "STRUCT_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "line": 283
+    }
+  }
+}

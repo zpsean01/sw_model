@@ -1,0 +1,282 @@
+[
+  {
+    "name": "g_device_id",
+    "address": 805306388,
+    "size": 32,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_device_id_len",
+    "address": 805306420,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_attest_verified",
+    "address": 805306424,
+    "size": 1,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_attest_initialized",
+    "address": 805306425,
+    "size": 1,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_crypto_state",
+    "address": 805306428,
+    "size": 12,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_key_slots",
+    "address": 805306440,
+    "size": 128,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_gpio_ports",
+    "address": 268437468,
+    "size": 8,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_irq_count",
+    "address": 805306568,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_last_irq",
+    "address": 805306572,
+    "size": 1,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_endpoints",
+    "address": 805306576,
+    "size": 96,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_msg_queue",
+    "address": 805306672,
+    "size": 2304,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_endpoint_count",
+    "address": 805308976,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_msg_count",
+    "address": 805308980,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_ipc_initialized",
+    "address": 805308984,
+    "size": 1,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_its_storage",
+    "address": 805308988,
+    "size": 33536,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_its_file_count",
+    "address": 805342524,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_its_initialized",
+    "address": 805342528,
+    "size": 1,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_storage_items",
+    "address": 805342532,
+    "size": 16896,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_storage_item_count",
+    "address": 805359428,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_storage_initialized",
+    "address": 805359432,
+    "size": 1,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_spi_instance",
+    "address": 805306368,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_spi_base",
+    "address": 805359436,
+    "size": 1,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_uart_instances",
+    "address": 268437460,
+    "size": 8,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_uart_state",
+    "address": 805359440,
+    "size": 1064,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_board_info",
+    "address": 805360504,
+    "size": 24,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_led_pin",
+    "address": 805306372,
+    "size": 2,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_fault_count",
+    "address": 805360528,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_fault_next_index",
+    "address": 805360532,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_fault_log",
+    "address": 805360536,
+    "size": 256,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_sys_tick_count",
+    "address": 805360792,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_main_loop_count",
+    "address": 805360796,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_current_state",
+    "address": 805360800,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_sm_handlers",
+    "address": 805360804,
+    "size": 20,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_transition_table",
+    "address": 268437476,
+    "size": 204,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_clock_config.0",
+    "address": 805306376,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_clock_config.1",
+    "address": 805306380,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_clock_config.2",
+    "address": 805306384,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_reset_cause",
+    "address": 805360824,
+    "size": 1,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_current_power_mode",
+    "address": 805360828,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "g_pfnVectors",
+    "address": 268435456,
+    "size": 192,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "name": "crypto_status_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 292,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+  },
+  {
+    "name": "crypto_state_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 305,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c"
+  },
+  {
+    "name": "gpio_mode_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 255,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c"
+  },
+  {
+    "name": "app_state_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 238,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c"
+  },
+  {
+    "name": "platform_state_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 247,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c"
+  },
+  {
+    "name": "system_state_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 240,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c"
+  },
+  {
+    "name": "state_transition_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 250,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c"
+  },
+  {
+    "name": "power_mode_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 268,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c"
+  },
+  {
+    "name": "timer_mode_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 253,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c"
+  },
+  {
+    "name": "timer_oc_mode_t",
+    "kind": "CursorKind.ENUM_DECL",
+    "line": 259,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c"
+  },
+  {
+    "name": "timer_state_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 287,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c"
+  },
+  {
+    "name": "uart_state_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 272,
+    "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c"
+  }
+]

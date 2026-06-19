@@ -1,0 +1,317 @@
+{
+  "functions": [
+    {
+      "name": "storage_find_item",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "item_id",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c"
+    },
+    {
+      "name": "STORAGE_Init",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c"
+    },
+    {
+      "name": "STORAGE_Write",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "item_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "size",
+          "type": "uint32_t"
+        },
+        {
+          "name": "flags",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "storage_find_item"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c"
+    },
+    {
+      "name": "STORAGE_Read",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "item_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "data",
+          "type": "uint8_t *"
+        },
+        {
+          "name": "size",
+          "type": "uint32_t *"
+        }
+      ],
+      "calls": [
+        "storage_find_item"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c"
+    },
+    {
+      "name": "STORAGE_Delete",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "item_id",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "storage_find_item"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c"
+    },
+    {
+      "name": "STORAGE_GetInfo",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "item_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "out_size",
+          "type": "uint32_t *"
+        },
+        {
+          "name": "out_flags",
+          "type": "uint32_t *"
+        }
+      ],
+      "calls": [
+        "storage_find_item"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c"
+    },
+    {
+      "name": "STORAGE_List",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "ids",
+          "type": "uint32_t *"
+        },
+        {
+          "name": "count",
+          "type": "uint32_t *"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c"
+    },
+    {
+      "name": "STORAGE_IsAuthenticated",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "item_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "auth",
+          "type": "_Bool *"
+        }
+      ],
+      "calls": [
+        "storage_find_item"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c"
+    },
+    {
+      "name": "STORAGE_EraseAll",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c"
+    }
+  ],
+  "global_variables": {
+    "g_storage_items": {
+      "type": "storage_item_t[32]",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+      "line": 258
+    },
+    "g_storage_item_count": {
+      "type": "uint32_t",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+      "line": 259
+    },
+    "g_storage_initialized": {
+      "type": "_Bool",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+      "line": 260
+    }
+  },
+  "type_definitions": {
+    "int64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 73
+    },
+    "uint64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 75
+    },
+    "int_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 77
+    },
+    "uint_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 78
+    },
+    "int_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 79
+    },
+    "uint_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 80
+    },
+    "int32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 82
+    },
+    "uint32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 87
+    },
+    "int_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 89
+    },
+    "uint_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 90
+    },
+    "int_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 91
+    },
+    "uint_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 92
+    },
+    "int16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 94
+    },
+    "uint16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 96
+    },
+    "int_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 98
+    },
+    "uint_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 99
+    },
+    "int_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 100
+    },
+    "uint_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 101
+    },
+    "int8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 107
+    },
+    "uint8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 109
+    },
+    "int_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 117
+    },
+    "uint_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 118
+    },
+    "int_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 119
+    },
+    "uint_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 120
+    },
+    "intptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 134
+    },
+    "uintptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 141
+    },
+    "intmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 147
+    },
+    "uintmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 148
+    },
+    "storage_id_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+      "line": 241
+    },
+    "storage_item_t": {
+      "kind": "STRUCT_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+      "line": 247
+    }
+  }
+}

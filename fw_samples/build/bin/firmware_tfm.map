@@ -1,0 +1,355 @@
+     VMA      LMA     Size Align Out     In      Symbol
+10000000 10000000       c0     4 .vectors
+10000000 10000000        0     1         . = ALIGN(4)
+10000000 10000000       c0     4         D:\programming\sw_model\fw_samples\build\objects\src\startup.o:(.vectors)
+10000000 10000000       c0     1                 g_pfnVectors
+100000c0 100000c0        0     1         . = ALIGN(4)
+100000c0 100000c0      7f0     4 .text
+100000c0 100000c0        0     1         . = ALIGN(4)
+100000c0 100000c0       3c     4         D:\programming\sw_model\fw_samples\build\objects\lib\attestation.o:(.text.ATTEST_Init)
+100000c0 100000c0        0     1                 $t
+100000c1 100000c1       3c     1                 ATTEST_Init
+100000fc 100000fc       28     4         D:\programming\sw_model\fw_samples\build\objects\lib\crypto.o:(.text.CRYPTO_Init)
+100000fc 100000fc        0     1                 $t
+100000fd 100000fd       28     1                 CRYPTO_Init
+10000124 10000124       5e     4         D:\programming\sw_model\fw_samples\build\objects\lib\gpio.o:(.text.GPIO_Init)
+10000124 10000124        0     1                 $t
+10000125 10000125       5e     1                 GPIO_Init
+10000184 10000184       34     4         D:\programming\sw_model\fw_samples\build\objects\lib\interrupt.o:(.text.NVIC_EnableIRQ)
+10000184 10000184        0     1                 $t
+10000185 10000185       34     1                 NVIC_EnableIRQ
+100001b8 100001b8       44     4         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.text.IPC_Init)
+100001b8 100001b8        0     1                 $t
+100001b9 100001b9       44     1                 IPC_Init
+100001fc 100001fc       2c     4         D:\programming\sw_model\fw_samples\build\objects\lib\its.o:(.text.ITS_Init)
+100001fc 100001fc        0     1                 $t
+100001fd 100001fd       2c     1                 ITS_Init
+10000228 10000228       2c     4         D:\programming\sw_model\fw_samples\build\objects\lib\secure_storage.o:(.text.STORAGE_Init)
+10000228 10000228        0     1                 $t
+10000229 10000229       2c     1                 STORAGE_Init
+10000254 10000254       aa     4         D:\programming\sw_model\fw_samples\build\objects\lib\spi.o:(.text.SPI_Init)
+10000254 10000254        0     1                 $t
+10000255 10000255       aa     1                 SPI_Init
+10000300 10000300       78     4         D:\programming\sw_model\fw_samples\build\objects\lib\uart.o:(.text.UART_Init)
+10000300 10000300        0     1                 $t
+10000301 10000301       78     1                 UART_Init
+10000378 10000378       5e     4         D:\programming\sw_model\fw_samples\build\objects\src\board.o:(.text.BOARD_Init)
+10000378 10000378        0     1                 $t
+10000379 10000379       5e     1                 BOARD_Init
+100003d8 100003d8       7c     4         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.text.HardFault_Handler)
+100003d8 100003d8        0     1                 $t
+100003d9 100003d9       7c     1                 HardFault_Handler
+10000454 10000454       5c     4         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.text.MemManage_Handler)
+10000454 10000454        0     1                 $t
+10000455 10000455       5c     1                 MemManage_Handler
+100004b0 100004b0       5c     4         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.text.BusFault_Handler)
+100004b0 100004b0        0     1                 $t
+100004b1 100004b1       5c     1                 BusFault_Handler
+1000050c 1000050c       58     4         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.text.UsageFault_Handler)
+1000050c 1000050c        0     1                 $t
+1000050d 1000050d       58     1                 UsageFault_Handler
+10000564 10000564       58     4         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.text.SecureFault_Handler)
+10000564 10000564        0     1                 $t
+10000565 10000565       58     1                 SecureFault_Handler
+100005bc 100005bc       10     4         D:\programming\sw_model\fw_samples\build\objects\src\main.o:(.text.SysTick_Handler)
+100005bc 100005bc        0     1                 $t
+100005bd 100005bd       10     1                 SysTick_Handler
+100005cc 100005cc       66     4         D:\programming\sw_model\fw_samples\build\objects\src\main.o:(.text.main)
+100005cc 100005cc        0     1                 $t
+100005cd 100005cd       66     1                 main
+10000634 10000634        4     4         D:\programming\sw_model\fw_samples\build\objects\src\startup.o:(.text.Default_Handler)
+10000634 10000634        0     1                 $t
+10000635 10000635        4     1                 Default_Handler
+10000635 10000635        4     1                 NMI_Handler
+10000635 10000635        4     1                 RESERVED
+10000635 10000635        4     1                 SVCall_Handler
+10000635 10000635        4     1                 DebugMon_Handler
+10000635 10000635        4     1                 PendSV_Handler
+10000638 10000638       80     4         D:\programming\sw_model\fw_samples\build\objects\src\startup.o:(.text.Reset_Handler)
+10000638 10000638        0     1                 $t
+10000639 10000639       80     1                 Reset_Handler
+100006b8 100006b8        c     4         D:\programming\sw_model\fw_samples\build\objects\src\startup.o:(.text.__aeabi_memclr4)
+100006b8 100006b8        0     1                 $t
+100006b9 100006b9        c     1                 __aeabi_memclr4
+100006c4 100006c4       28     4         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.text.SM_Init)
+100006c4 100006c4        0     1                 $t
+100006c5 100006c5       28     1                 SM_Init
+100006ec 100006ec        4     4         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.text.sm_default_handler)
+100006ec 100006ec        0     1                 $t
+100006ed 100006ed        4     1                 sm_default_handler
+100006f0 100006f0       7c     4         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.text.SM_Transition)
+100006f0 100006f0        0     1                 $t
+100006f1 100006f1       7c     1                 SM_Transition
+1000076c 1000076c       50     4         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.text.SystemInit)
+1000076c 1000076c        0     1                 $t
+1000076d 1000076d       50     1                 SystemInit
+100007bc 100007bc       16     4         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.text.SystemTickConfig)
+100007bc 100007bc        0     1                 $t
+100007bd 100007bd       16     1                 SystemTickConfig
+100007d4 100007d4       10     4         <internal>:(.rodata.cst8)
+100007e4 100007e4       cc     4         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.rodata.g_transition_table)
+100007e4 100007e4       cc     1                 g_transition_table
+100008b0 100008b0        0     1         . = ALIGN(4)
+30000000 100008b0       14     4 .data
+30000000 100008b0        0     1         . = ALIGN(4)
+30000000 100008b0        0     1         _sdata = .
+30000000 100008b0        4     4         D:\programming\sw_model\fw_samples\build\objects\lib\spi.o:(.data.g_spi_instance)
+30000000 100008b0        4     1                 g_spi_instance
+30000004 100008b4        2     2         D:\programming\sw_model\fw_samples\build\objects\src\board.o:(.data.g_led_pin)
+30000004 100008b4        2     1                 g_led_pin
+30000008 100008b8        4     4         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.data.g_clock_config.0)
+30000008 100008b8        4     1                 g_clock_config.0
+3000000c 100008bc        4     4         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.data.g_clock_config.1)
+3000000c 100008bc        4     1                 g_clock_config.1
+30000010 100008c0        4     4         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.data.g_clock_config.2)
+30000010 100008c0        4     1                 g_clock_config.2
+30000014 100008c4        0     1         . = ALIGN(4)
+30000014 100008c4        0     1         _edata = .
+30000014 100008c4        0     1 _sidata = LOADADDR(.data)
+30000014 30000014     d4ac     4 .bss
+30000014 30000014        0     1         . = ALIGN(4)
+30000014 30000014        0     1         _sbss = .
+30000014 30000014       20     4         D:\programming\sw_model\fw_samples\build\objects\lib\attestation.o:(.bss.g_device_id)
+30000014 30000014       20     1                 g_device_id
+30000034 30000034        4     4         D:\programming\sw_model\fw_samples\build\objects\lib\attestation.o:(.bss.g_device_id_len)
+30000034 30000034        4     1                 g_device_id_len
+30000038 30000038        1     1         D:\programming\sw_model\fw_samples\build\objects\lib\attestation.o:(.bss.g_attest_verified)
+30000038 30000038        1     1                 g_attest_verified
+30000039 30000039        1     1         D:\programming\sw_model\fw_samples\build\objects\lib\attestation.o:(.bss.g_attest_initialized)
+30000039 30000039        1     1                 g_attest_initialized
+3000003c 3000003c        c     4         D:\programming\sw_model\fw_samples\build\objects\lib\crypto.o:(.bss.g_crypto_state)
+3000003c 3000003c        c     1                 g_crypto_state
+30000048 30000048       80     4         D:\programming\sw_model\fw_samples\build\objects\lib\crypto.o:(.bss.g_key_slots)
+30000048 30000048       80     1                 g_key_slots
+300000c8 300000c8        4     4         D:\programming\sw_model\fw_samples\build\objects\lib\interrupt.o:(.bss.g_irq_count)
+300000c8 300000c8        4     1                 g_irq_count
+300000cc 300000cc        1     1         D:\programming\sw_model\fw_samples\build\objects\lib\interrupt.o:(.bss.g_last_irq)
+300000cc 300000cc        1     1                 g_last_irq
+300000d0 300000d0       60     4         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.bss.g_endpoints)
+300000d0 300000d0       60     1                 g_endpoints
+30000130 30000130      900     4         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.bss.g_msg_queue)
+30000130 30000130      900     1                 g_msg_queue
+30000a30 30000a30        4     4         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.bss.g_endpoint_count)
+30000a30 30000a30        4     1                 g_endpoint_count
+30000a34 30000a34        4     4         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.bss.g_msg_count)
+30000a34 30000a34        4     1                 g_msg_count
+30000a38 30000a38        1     1         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.bss.g_ipc_initialized)
+30000a38 30000a38        1     1                 g_ipc_initialized
+30000a3c 30000a3c     8300     4         D:\programming\sw_model\fw_samples\build\objects\lib\its.o:(.bss.g_its_storage)
+30000a3c 30000a3c     8300     1                 g_its_storage
+30008d3c 30008d3c        4     4         D:\programming\sw_model\fw_samples\build\objects\lib\its.o:(.bss.g_its_file_count)
+30008d3c 30008d3c        4     1                 g_its_file_count
+30008d40 30008d40        1     1         D:\programming\sw_model\fw_samples\build\objects\lib\its.o:(.bss.g_its_initialized)
+30008d40 30008d40        1     1                 g_its_initialized
+30008d44 30008d44     4200     4         D:\programming\sw_model\fw_samples\build\objects\lib\secure_storage.o:(.bss.g_storage_items)
+30008d44 30008d44     4200     1                 g_storage_items
+3000cf44 3000cf44        4     4         D:\programming\sw_model\fw_samples\build\objects\lib\secure_storage.o:(.bss.g_storage_item_count)
+3000cf44 3000cf44        4     1                 g_storage_item_count
+3000cf48 3000cf48        1     1         D:\programming\sw_model\fw_samples\build\objects\lib\secure_storage.o:(.bss.g_storage_initialized)
+3000cf48 3000cf48        1     1                 g_storage_initialized
+3000cf4c 3000cf4c        1     4         D:\programming\sw_model\fw_samples\build\objects\lib\spi.o:(.bss.g_spi_base)
+3000cf4c 3000cf4c        1     1                 g_spi_base
+3000cf50 3000cf50      428     4         D:\programming\sw_model\fw_samples\build\objects\lib\uart.o:(.bss.g_uart_state)
+3000cf50 3000cf50      428     1                 g_uart_state
+3000d378 3000d378       18     4         D:\programming\sw_model\fw_samples\build\objects\src\board.o:(.bss.g_board_info)
+3000d378 3000d378       18     1                 g_board_info
+3000d390 3000d390        4     4         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.bss.g_fault_count)
+3000d390 3000d390        4     1                 g_fault_count
+3000d394 3000d394        4     4         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.bss.g_fault_next_index)
+3000d394 3000d394        4     1                 g_fault_next_index
+3000d398 3000d398      100     4         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.bss.g_fault_log)
+3000d398 3000d398      100     1                 g_fault_log
+3000d498 3000d498        4     4         D:\programming\sw_model\fw_samples\build\objects\src\main.o:(.bss.g_sys_tick_count)
+3000d498 3000d498        4     1                 g_sys_tick_count
+3000d49c 3000d49c        4     4         D:\programming\sw_model\fw_samples\build\objects\src\main.o:(.bss.g_main_loop_count)
+3000d49c 3000d49c        4     1                 g_main_loop_count
+3000d4a0 3000d4a0        4     4         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.bss.g_current_state)
+3000d4a0 3000d4a0        4     1                 g_current_state
+3000d4a4 3000d4a4       14     4         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.bss.g_sm_handlers)
+3000d4a4 3000d4a4       14     1                 g_sm_handlers
+3000d4b8 3000d4b8        1     4         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.bss.g_reset_cause)
+3000d4b8 3000d4b8        1     1                 g_reset_cause
+3000d4bc 3000d4bc        4     4         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.bss.g_current_power_mode)
+3000d4bc 3000d4bc        4     1                 g_current_power_mode
+3000d4c0 3000d4c0        0     1         . = ALIGN(4)
+3000d4c0 3000d4c0        0     1         _ebss = .
+3000d4c0 3000d4c0     8000     1 .heap
+3000d4c0 3000d4c0        0     1         . = ALIGN(8)
+3000d4c0 3000d4c0        0     1         _heap_start = .
+3000d4c0 3000d4c0     8000     1         . = . + 32K
+300154c0 300154c0        0     1         _heap_end = .
+30040000 30040000     1000     1 .stack
+30040000 30040000        0     1         . = ALIGN(8)
+30040000 30040000        0     1         _stack_start = .
+30040000 30040000     1000     1         . = . + 4K
+30041000 30041000        0     1         _stack_end = .
+       0        0     2718     1 .debug_loclists
+       0        0      15e     1         D:\programming\sw_model\fw_samples\build\objects\lib\attestation.o:(.debug_loclists)
+     15e      15e     1070     1         D:\programming\sw_model\fw_samples\build\objects\lib\crypto.o:(.debug_loclists)
+    11ce     11ce      1d6     1         D:\programming\sw_model\fw_samples\build\objects\lib\gpio.o:(.debug_loclists)
+    13a4     13a4       9e     1         D:\programming\sw_model\fw_samples\build\objects\lib\interrupt.o:(.debug_loclists)
+    1442     1442      36a     1         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.debug_loclists)
+    17ac     17ac      22e     1         D:\programming\sw_model\fw_samples\build\objects\lib\its.o:(.debug_loclists)
+    19da     19da       d7     1         D:\programming\sw_model\fw_samples\build\objects\lib\rtc.o:(.debug_loclists)
+    1ab1     1ab1      20a     1         D:\programming\sw_model\fw_samples\build\objects\lib\secure_storage.o:(.debug_loclists)
+    1cbb     1cbb       e1     1         D:\programming\sw_model\fw_samples\build\objects\lib\spi.o:(.debug_loclists)
+    1d9c     1d9c      140     1         D:\programming\sw_model\fw_samples\build\objects\lib\timer.o:(.debug_loclists)
+    1edc     1edc      1bc     1         D:\programming\sw_model\fw_samples\build\objects\lib\uart.o:(.debug_loclists)
+    2098     2098       99     1         D:\programming\sw_model\fw_samples\build\objects\src\board.o:(.debug_loclists)
+    2131     2131      166     1         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.debug_loclists)
+    2297     2297       49     1         D:\programming\sw_model\fw_samples\build\objects\src\main.o:(.debug_loclists)
+    22e0     22e0       e0     1         D:\programming\sw_model\fw_samples\build\objects\src\memory.o:(.debug_loclists)
+    23c0     23c0       20     1         D:\programming\sw_model\fw_samples\build\objects\src\platform.o:(.debug_loclists)
+    23e0     23e0      11f     1         D:\programming\sw_model\fw_samples\build\objects\src\startup.o:(.debug_loclists)
+    24ff     24ff      1b0     1         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.debug_loclists)
+    26af     26af       69     1         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.debug_loclists)
+       0        0     1bd5     1 .debug_abbrev
+       0        0      1c2     1         D:\programming\sw_model\fw_samples\build\objects\lib\attestation.o:(.debug_abbrev)
+     1c2      1c2      24d     1         D:\programming\sw_model\fw_samples\build\objects\lib\crypto.o:(.debug_abbrev)
+     40f      40f      11e     1         D:\programming\sw_model\fw_samples\build\objects\lib\gpio.o:(.debug_abbrev)
+     52d      52d      100     1         D:\programming\sw_model\fw_samples\build\objects\lib\interrupt.o:(.debug_abbrev)
+     62d      62d      1bb     1         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.debug_abbrev)
+     7e8      7e8      187     1         D:\programming\sw_model\fw_samples\build\objects\lib\its.o:(.debug_abbrev)
+     96f      96f      105     1         D:\programming\sw_model\fw_samples\build\objects\lib\rtc.o:(.debug_abbrev)
+     a74      a74      171     1         D:\programming\sw_model\fw_samples\build\objects\lib\secure_storage.o:(.debug_abbrev)
+     be5      be5      110     1         D:\programming\sw_model\fw_samples\build\objects\lib\spi.o:(.debug_abbrev)
+     cf5      cf5      116     1         D:\programming\sw_model\fw_samples\build\objects\lib\timer.o:(.debug_abbrev)
+     e0b      e0b      1f4     1         D:\programming\sw_model\fw_samples\build\objects\lib\uart.o:(.debug_abbrev)
+     fff      fff      147     1         D:\programming\sw_model\fw_samples\build\objects\src\board.o:(.debug_abbrev)
+    1146     1146      172     1         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.debug_abbrev)
+    12b8     12b8      143     1         D:\programming\sw_model\fw_samples\build\objects\src\main.o:(.debug_abbrev)
+    13fb     13fb      125     1         D:\programming\sw_model\fw_samples\build\objects\src\memory.o:(.debug_abbrev)
+    1520     1520       fb     1         D:\programming\sw_model\fw_samples\build\objects\src\platform.o:(.debug_abbrev)
+    161b     161b      175     1         D:\programming\sw_model\fw_samples\build\objects\src\startup.o:(.debug_abbrev)
+    1790     1790      1e1     1         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.debug_abbrev)
+    1971     1971      264     1         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.debug_abbrev)
+       0        0     369b     1 .debug_info
+       0        0      2bf     1         D:\programming\sw_model\fw_samples\build\objects\lib\attestation.o:(.debug_info)
+     2bf      2bf      857     1         D:\programming\sw_model\fw_samples\build\objects\lib\crypto.o:(.debug_info)
+     b16      b16      2c7     1         D:\programming\sw_model\fw_samples\build\objects\lib\gpio.o:(.debug_info)
+     ddd      ddd      187     1         D:\programming\sw_model\fw_samples\build\objects\lib\interrupt.o:(.debug_info)
+     f64      f64      45c     1         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.debug_info)
+    13c0     13c0      380     1         D:\programming\sw_model\fw_samples\build\objects\lib\its.o:(.debug_info)
+    1740     1740      250     1         D:\programming\sw_model\fw_samples\build\objects\lib\rtc.o:(.debug_info)
+    1990     1990      310     1         D:\programming\sw_model\fw_samples\build\objects\lib\secure_storage.o:(.debug_info)
+    1ca0     1ca0      23f     1         D:\programming\sw_model\fw_samples\build\objects\lib\spi.o:(.debug_info)
+    1edf     1edf      2cc     1         D:\programming\sw_model\fw_samples\build\objects\lib\timer.o:(.debug_info)
+    21ab     21ab      3ec     1         D:\programming\sw_model\fw_samples\build\objects\lib\uart.o:(.debug_info)
+    2597     2597      1d3     1         D:\programming\sw_model\fw_samples\build\objects\src\board.o:(.debug_info)
+    276a     276a      254     1         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.debug_info)
+    29be     29be      159     1         D:\programming\sw_model\fw_samples\build\objects\src\main.o:(.debug_info)
+    2b17     2b17      232     1         D:\programming\sw_model\fw_samples\build\objects\src\memory.o:(.debug_info)
+    2d49     2d49      149     1         D:\programming\sw_model\fw_samples\build\objects\src\platform.o:(.debug_info)
+    2e92     2e92      1c9     1         D:\programming\sw_model\fw_samples\build\objects\src\startup.o:(.debug_info)
+    305b     305b      347     1         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.debug_info)
+    33a2     33a2      2f9     1         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.debug_info)
+       0        0      504     1 .debug_rnglists
+       0        0       36     1         D:\programming\sw_model\fw_samples\build\objects\lib\attestation.o:(.debug_rnglists)
+      36       36      158     1         D:\programming\sw_model\fw_samples\build\objects\lib\crypto.o:(.debug_rnglists)
+     18e      18e       29     1         D:\programming\sw_model\fw_samples\build\objects\lib\gpio.o:(.debug_rnglists)
+     1b7      1b7       29     1         D:\programming\sw_model\fw_samples\build\objects\lib\interrupt.o:(.debug_rnglists)
+     1e0      1e0       5e     1         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.debug_rnglists)
+     23e      23e       2c     1         D:\programming\sw_model\fw_samples\build\objects\lib\its.o:(.debug_rnglists)
+     26a      26a       28     1         D:\programming\sw_model\fw_samples\build\objects\lib\rtc.o:(.debug_rnglists)
+     292      292       2a     1         D:\programming\sw_model\fw_samples\build\objects\lib\secure_storage.o:(.debug_rnglists)
+     2bc      2bc       2a     1         D:\programming\sw_model\fw_samples\build\objects\lib\spi.o:(.debug_rnglists)
+     2e6      2e6       29     1         D:\programming\sw_model\fw_samples\build\objects\lib\timer.o:(.debug_rnglists)
+     30f      30f       5f     1         D:\programming\sw_model\fw_samples\build\objects\lib\uart.o:(.debug_rnglists)
+     36e      36e       33     1         D:\programming\sw_model\fw_samples\build\objects\src\board.o:(.debug_rnglists)
+     3a1      3a1       43     1         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.debug_rnglists)
+     3e4      3e4       23     1         D:\programming\sw_model\fw_samples\build\objects\src\main.o:(.debug_rnglists)
+     407      407       25     1         D:\programming\sw_model\fw_samples\build\objects\src\memory.o:(.debug_rnglists)
+     42c      42c       29     1         D:\programming\sw_model\fw_samples\build\objects\src\platform.o:(.debug_rnglists)
+     455      455       34     1         D:\programming\sw_model\fw_samples\build\objects\src\startup.o:(.debug_rnglists)
+     489      489       37     1         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.debug_rnglists)
+     4c0      4c0       44     1         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.debug_rnglists)
+       0        0      e54     1 .debug_str_offsets
+       0        0       d0     1         D:\programming\sw_model\fw_samples\build\objects\lib\attestation.o:(.debug_str_offsets)
+      d0       d0      1b8     1         D:\programming\sw_model\fw_samples\build\objects\lib\crypto.o:(.debug_str_offsets)
+     288      288       e8     1         D:\programming\sw_model\fw_samples\build\objects\lib\gpio.o:(.debug_str_offsets)
+     370      370       64     1         D:\programming\sw_model\fw_samples\build\objects\lib\interrupt.o:(.debug_str_offsets)
+     3d4      3d4       c0     1         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.debug_str_offsets)
+     494      494       98     1         D:\programming\sw_model\fw_samples\build\objects\lib\its.o:(.debug_str_offsets)
+     52c      52c       c0     1         D:\programming\sw_model\fw_samples\build\objects\lib\rtc.o:(.debug_str_offsets)
+     5ec      5ec       98     1         D:\programming\sw_model\fw_samples\build\objects\lib\secure_storage.o:(.debug_str_offsets)
+     684      684       d8     1         D:\programming\sw_model\fw_samples\build\objects\lib\spi.o:(.debug_str_offsets)
+     75c      75c       f4     1         D:\programming\sw_model\fw_samples\build\objects\lib\timer.o:(.debug_str_offsets)
+     850      850      12c     1         D:\programming\sw_model\fw_samples\build\objects\lib\uart.o:(.debug_str_offsets)
+     97c      97c       b0     1         D:\programming\sw_model\fw_samples\build\objects\src\board.o:(.debug_str_offsets)
+     a2c      a2c       94     1         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.debug_str_offsets)
+     ac0      ac0       68     1         D:\programming\sw_model\fw_samples\build\objects\src\main.o:(.debug_str_offsets)
+     b28      b28       b8     1         D:\programming\sw_model\fw_samples\build\objects\src\memory.o:(.debug_str_offsets)
+     be0      be0       80     1         D:\programming\sw_model\fw_samples\build\objects\src\platform.o:(.debug_str_offsets)
+     c60      c60       68     1         D:\programming\sw_model\fw_samples\build\objects\src\startup.o:(.debug_str_offsets)
+     cc8      cc8       a8     1         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.debug_str_offsets)
+     d70      d70       e4     1         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.debug_str_offsets)
+       0        0     1eb9     1 .debug_str
+       0        0     1eb9     1         <internal>:(.debug_str)
+       0        0      530     1 .debug_addr
+       0        0       40     1         D:\programming\sw_model\fw_samples\build\objects\lib\attestation.o:(.debug_addr)
+      40       40       7c     1         D:\programming\sw_model\fw_samples\build\objects\lib\crypto.o:(.debug_addr)
+      bc       bc       2c     1         D:\programming\sw_model\fw_samples\build\objects\lib\gpio.o:(.debug_addr)
+      e8       e8       30     1         D:\programming\sw_model\fw_samples\build\objects\lib\interrupt.o:(.debug_addr)
+     118      118       70     1         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.debug_addr)
+     188      188       54     1         D:\programming\sw_model\fw_samples\build\objects\lib\its.o:(.debug_addr)
+     1dc      1dc       28     1         D:\programming\sw_model\fw_samples\build\objects\lib\rtc.o:(.debug_addr)
+     204      204       4c     1         D:\programming\sw_model\fw_samples\build\objects\lib\secure_storage.o:(.debug_addr)
+     250      250       30     1         D:\programming\sw_model\fw_samples\build\objects\lib\spi.o:(.debug_addr)
+     280      280       2c     1         D:\programming\sw_model\fw_samples\build\objects\lib\timer.o:(.debug_addr)
+     2ac      2ac       4c     1         D:\programming\sw_model\fw_samples\build\objects\lib\uart.o:(.debug_addr)
+     2f8      2f8       38     1         D:\programming\sw_model\fw_samples\build\objects\src\board.o:(.debug_addr)
+     330      330       44     1         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.debug_addr)
+     374      374       3c     1         D:\programming\sw_model\fw_samples\build\objects\src\main.o:(.debug_addr)
+     3b0      3b0       48     1         D:\programming\sw_model\fw_samples\build\objects\src\memory.o:(.debug_addr)
+     3f8      3f8       2c     1         D:\programming\sw_model\fw_samples\build\objects\src\platform.o:(.debug_addr)
+     424      424       2c     1         D:\programming\sw_model\fw_samples\build\objects\src\startup.o:(.debug_addr)
+     450      450       6c     1         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.debug_addr)
+     4bc      4bc       74     1         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.debug_addr)
+       0        0      e2c     4 .debug_frame
+       0        0       ac     4         D:\programming\sw_model\fw_samples\build\objects\lib\attestation.o:(.debug_frame)
+      ac       ac      17c     4         D:\programming\sw_model\fw_samples\build\objects\lib\crypto.o:(.debug_frame)
+     228      228       a4     4         D:\programming\sw_model\fw_samples\build\objects\lib\gpio.o:(.debug_frame)
+     2cc      2cc       94     4         D:\programming\sw_model\fw_samples\build\objects\lib\interrupt.o:(.debug_frame)
+     360      360       f4     4         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.debug_frame)
+     454      454       e4     4         D:\programming\sw_model\fw_samples\build\objects\lib\its.o:(.debug_frame)
+     538      538       a4     4         D:\programming\sw_model\fw_samples\build\objects\lib\rtc.o:(.debug_frame)
+     5dc      5dc       d8     4         D:\programming\sw_model\fw_samples\build\objects\lib\secure_storage.o:(.debug_frame)
+     6b4      6b4       a0     4         D:\programming\sw_model\fw_samples\build\objects\lib\spi.o:(.debug_frame)
+     754      754       a8     4         D:\programming\sw_model\fw_samples\build\objects\lib\timer.o:(.debug_frame)
+     7fc      7fc       f8     4         D:\programming\sw_model\fw_samples\build\objects\lib\uart.o:(.debug_frame)
+     8f4      8f4       98     4         D:\programming\sw_model\fw_samples\build\objects\src\board.o:(.debug_frame)
+     98c      98c       9c     4         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.debug_frame)
+     a28      a28       84     4         D:\programming\sw_model\fw_samples\build\objects\src\main.o:(.debug_frame)
+     aac      aac       90     4         D:\programming\sw_model\fw_samples\build\objects\src\memory.o:(.debug_frame)
+     b3c      b3c       94     4         D:\programming\sw_model\fw_samples\build\objects\src\platform.o:(.debug_frame)
+     bd0      bd0       74     4         D:\programming\sw_model\fw_samples\build\objects\src\startup.o:(.debug_frame)
+     c44      c44       bc     4         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.debug_frame)
+     d00      d00      12c     4         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.debug_frame)
+       0        0     33ed     1 .debug_line
+       0        0      20e     1         D:\programming\sw_model\fw_samples\build\objects\lib\attestation.o:(.debug_line)
+     20e      20e      7c9     1         D:\programming\sw_model\fw_samples\build\objects\lib\crypto.o:(.debug_line)
+     9d7      9d7      1ed     1         D:\programming\sw_model\fw_samples\build\objects\lib\gpio.o:(.debug_line)
+     bc4      bc4      19d     1         D:\programming\sw_model\fw_samples\build\objects\lib\interrupt.o:(.debug_line)
+     d61      d61      48d     1         D:\programming\sw_model\fw_samples\build\objects\lib\ipc.o:(.debug_line)
+    11ee     11ee      398     1         D:\programming\sw_model\fw_samples\build\objects\lib\its.o:(.debug_line)
+    1586     1586      26a     1         D:\programming\sw_model\fw_samples\build\objects\lib\rtc.o:(.debug_line)
+    17f0     17f0      34e     1         D:\programming\sw_model\fw_samples\build\objects\lib\secure_storage.o:(.debug_line)
+    1b3e     1b3e      242     1         D:\programming\sw_model\fw_samples\build\objects\lib\spi.o:(.debug_line)
+    1d80     1d80      1be     1         D:\programming\sw_model\fw_samples\build\objects\lib\timer.o:(.debug_line)
+    1f3e     1f3e      32a     1         D:\programming\sw_model\fw_samples\build\objects\lib\uart.o:(.debug_line)
+    2268     2268      19c     1         D:\programming\sw_model\fw_samples\build\objects\src\board.o:(.debug_line)
+    2404     2404      2e5     1         D:\programming\sw_model\fw_samples\build\objects\src\fault.o:(.debug_line)
+    26e9     26e9      1a3     1         D:\programming\sw_model\fw_samples\build\objects\src\main.o:(.debug_line)
+    288c     288c      2d8     1         D:\programming\sw_model\fw_samples\build\objects\src\memory.o:(.debug_line)
+    2b64     2b64      182     1         D:\programming\sw_model\fw_samples\build\objects\src\platform.o:(.debug_line)
+    2ce6     2ce6      192     1         D:\programming\sw_model\fw_samples\build\objects\src\startup.o:(.debug_line)
+    2e78     2e78      271     1         D:\programming\sw_model\fw_samples\build\objects\src\state_machine.o:(.debug_line)
+    30e9     30e9      304     1         D:\programming\sw_model\fw_samples\build\objects\src\system.o:(.debug_line)
+       0        0      4e2     1 .debug_line_str
+       0        0      4e2     1         <internal>:(.debug_line_str)
+       0        0      7c0     4 .symtab
+       0        0      7c0     4         <internal>:(.symtab)
+       0        0       cf     1 .shstrtab
+       0        0       cf     1         <internal>:(.shstrtab)
+       0        0      54a     1 .strtab
+       0        0      54a     1         <internal>:(.strtab)

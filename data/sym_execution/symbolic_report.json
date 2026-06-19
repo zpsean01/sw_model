@@ -1,0 +1,8 @@
+{
+  "binary": "fw_samples\\build\\bin\\firmware_tfm.elf",
+  "target_addresses": [],
+  "paths": [],
+  "errors": [
+    "angr not available"
+  ]
+}

@@ -10,7 +10,6 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include <string.h>
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -89,8 +88,8 @@ static int32_t ipc_find_free_slot(void)
  */
 void IPC_Init(void)
 {
-    (void)memset(g_endpoints, 0, sizeof(g_endpoints));
-    (void)memset(g_msg_queue, 0, sizeof(g_msg_queue));
+    (void)__builtin_memset(g_endpoints, 0, sizeof(g_endpoints));
+    (void)__builtin_memset(g_msg_queue, 0, sizeof(g_msg_queue));
     g_endpoint_count = 0;
     g_msg_count = 0;
     g_ipc_initialized = true;
@@ -138,7 +137,7 @@ int32_t IPC_Send(uint32_t src, uint32_t dst, const uint8_t *data, uint32_t len)
     g_msg_queue[slot].src = src;
     g_msg_queue[slot].dst = dst;
     g_msg_queue[slot].len = len;
-    (void)memcpy(g_msg_queue[slot].data, data, len);
+    (void)__builtin_memcpy(g_msg_queue[slot].data, data, len);
     ++g_msg_count;
     return 0;
 }
@@ -155,8 +154,8 @@ int32_t IPC_Receive(uint32_t endpoint_id, ipc_msg_t *msg)
 
     for (int32_t i = 0; i < 16; ++i) {
         if (g_msg_queue[i].len > 0 && g_msg_queue[i].dst == endpoint_id) {
-            (void)memcpy(msg, &g_msg_queue[i], sizeof(ipc_msg_t));
-            (void)memset(&g_msg_queue[i], 0, sizeof(ipc_msg_t));
+            (void)__builtin_memcpy(msg, &g_msg_queue[i], sizeof(ipc_msg_t));
+            (void)__builtin_memset(&g_msg_queue[i], 0, sizeof(ipc_msg_t));
             --g_msg_count;
             return 0;
         }
@@ -185,7 +184,7 @@ int32_t IPC_Reply(uint32_t src, uint32_t dst, const uint8_t *data, uint32_t len)
     g_msg_queue[slot].src = src;
     g_msg_queue[slot].dst = dst;
     g_msg_queue[slot].len = len;
-    (void)memcpy(g_msg_queue[slot].data, data, len);
+    (void)__builtin_memcpy(g_msg_queue[slot].data, data, len);
     ++g_msg_count;
     return 0;
 }
@@ -211,7 +210,7 @@ int32_t IPC_Notify(uint32_t src, uint32_t dst, const uint8_t *data, uint32_t len
     g_msg_queue[slot].src = src;
     g_msg_queue[slot].dst = dst;
     g_msg_queue[slot].len = len;
-    (void)memcpy(g_msg_queue[slot].data, data, len);
+    (void)__builtin_memcpy(g_msg_queue[slot].data, data, len);
     ++g_msg_count;
     return 0;
 }
@@ -248,12 +247,12 @@ int32_t IPC_EndpointDestroy(uint32_t endpoint_id)
     if (idx < 0) return -1;
 
     g_endpoints[idx].active = false;
-    (void)memset(&g_endpoints[idx], 0, sizeof(ipc_endpoint_t));
+    (void)__builtin_memset(&g_endpoints[idx], 0, sizeof(ipc_endpoint_t));
 
     /* Compact the endpoint array */
     uint32_t count = g_endpoint_count - (uint32_t)idx - 1U;
     if (count > 0U) {
-        (void)memmove(&g_endpoints[idx], &g_endpoints[idx + 1],
+        (void)__builtin_memmove(&g_endpoints[idx], &g_endpoints[idx + 1],
                       count * sizeof(ipc_endpoint_t));
     }
     --g_endpoint_count;

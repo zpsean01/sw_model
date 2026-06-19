@@ -10,7 +10,6 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include <string.h>
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -58,7 +57,7 @@ static void attest_compute_token(attest_token_t *token)
     /* Device ID */
     token->data[offset++] = (uint8_t)(g_device_id_len & 0xFFU);
     if (offset + g_device_id_len <= 256) {
-        (void)memcpy(&token->data[offset], g_device_id, g_device_id_len);
+        (void)__builtin_memcpy(&token->data[offset], g_device_id, g_device_id_len);
         offset += g_device_id_len;
     }
 
@@ -69,7 +68,7 @@ static void attest_compute_token(attest_token_t *token)
         if (offset + 1U > 256) break;
         token->data[offset++] = (uint8_t)(g_claims[i].length & 0xFFU);
         if (offset + g_claims[i].length <= 256) {
-            (void)memcpy(&token->data[offset], g_claims[i].value,
+            (void)__builtin_memcpy(&token->data[offset], g_claims[i].value,
                          g_claims[i].length);
             offset += g_claims[i].length;
         }
@@ -87,12 +86,12 @@ static void attest_compute_token(attest_token_t *token)
  */
 void ATTEST_Init(void)
 {
-    (void)memset(g_attest_key, 0, sizeof(g_attest_key));
-    (void)memset(g_device_id, 0, sizeof(g_device_id));
+    (void)__builtin_memset(g_attest_key, 0, sizeof(g_attest_key));
+    (void)__builtin_memset(g_device_id, 0, sizeof(g_device_id));
     g_device_id_len = 0;
     g_attest_verified = false;
     g_claim_count = 0;
-    (void)memset(g_claims, 0, sizeof(g_claims));
+    (void)__builtin_memset(g_claims, 0, sizeof(g_claims));
     g_attest_initialized = true;
 }
 
@@ -142,9 +141,9 @@ int32_t ATTEST_GetPlatformClaim(const char *claim_name,
     if (!g_attest_initialized) return -1;
 
     for (uint32_t i = 0; i < g_claim_count; ++i) {
-        if (strncmp(g_claims[i].name, claim_name, 32) == 0) {
+        if (__builtin_strncmp(g_claims[i].name, claim_name, 32) == 0) {
             *value_len = g_claims[i].length;
-            (void)memcpy(value, g_claims[i].value, g_claims[i].length);
+            (void)__builtin_memcpy(value, g_claims[i].value, g_claims[i].length);
             return 0;
         }
     }
@@ -160,7 +159,7 @@ void ATTEST_SetDeviceId(const uint8_t *id, uint32_t len)
 {
     if (len > 32) len = 32;
     g_device_id_len = len;
-    (void)memcpy(g_device_id, id, len);
+    (void)__builtin_memcpy(g_device_id, id, len);
 }
 
 /**
@@ -194,8 +193,8 @@ int32_t ATTEST_RotateKey(const uint8_t *new_key, uint32_t key_len)
     if (!g_attest_initialized) return -1;
     if (key_len > 32) return -1;
 
-    (void)memset(g_attest_key, 0, 32);
-    (void)memcpy(g_attest_key, new_key, key_len);
+    (void)__builtin_memset(g_attest_key, 0, 32);
+    (void)__builtin_memcpy(g_attest_key, new_key, key_len);
     g_attest_verified = false;
     return 0;
 }

@@ -1,0 +1,324 @@
+{
+  "functions": [
+    {
+      "name": "its_find_file",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c"
+    },
+    {
+      "name": "ITS_Init",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c"
+    },
+    {
+      "name": "ITS_Create",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "flags",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c"
+    },
+    {
+      "name": "ITS_Write",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "size",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "its_find_file"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c"
+    },
+    {
+      "name": "ITS_Read",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "data",
+          "type": "uint8_t *"
+        },
+        {
+          "name": "size",
+          "type": "uint32_t *"
+        }
+      ],
+      "calls": [
+        "its_find_file"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c"
+    },
+    {
+      "name": "ITS_Delete",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "its_find_file"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c"
+    },
+    {
+      "name": "ITS_GetSize",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "size",
+          "type": "uint32_t *"
+        }
+      ],
+      "calls": [
+        "its_find_file"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c"
+    },
+    {
+      "name": "ITS_GetFlags",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "flags",
+          "type": "uint32_t *"
+        }
+      ],
+      "calls": [
+        "its_find_file"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c"
+    },
+    {
+      "name": "ITS_EncryptFile",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "key",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "key_len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "its_find_file"
+      ],
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c"
+    }
+  ],
+  "global_variables": {
+    "g_its_storage": {
+      "type": "its_file_t[64]",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "line": 257
+    },
+    "g_its_file_count": {
+      "type": "uint32_t",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "line": 258
+    },
+    "g_its_initialized": {
+      "type": "_Bool",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "line": 259
+    }
+  },
+  "type_definitions": {
+    "int64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 73
+    },
+    "uint64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 75
+    },
+    "int_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 77
+    },
+    "uint_least64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 78
+    },
+    "int_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 79
+    },
+    "uint_fast64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 80
+    },
+    "int32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 82
+    },
+    "uint32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 87
+    },
+    "int_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 89
+    },
+    "uint_least32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 90
+    },
+    "int_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 91
+    },
+    "uint_fast32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 92
+    },
+    "int16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 94
+    },
+    "uint16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 96
+    },
+    "int_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 98
+    },
+    "uint_least16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 99
+    },
+    "int_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 100
+    },
+    "uint_fast16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 101
+    },
+    "int8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 107
+    },
+    "uint8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 109
+    },
+    "int_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 117
+    },
+    "uint_least8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 118
+    },
+    "int_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 119
+    },
+    "uint_fast8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 120
+    },
+    "intptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 134
+    },
+    "uintptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 141
+    },
+    "intmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 147
+    },
+    "uintmax_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "D:/llvm-mingw/lib/clang/22/include/stdint.h",
+      "line": 148
+    },
+    "its_flags_t": {
+      "kind": "ENUM_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "line": 241
+    },
+    "its_file_t": {
+      "kind": "STRUCT_DECL",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "line": 247
+    }
+  }
+}

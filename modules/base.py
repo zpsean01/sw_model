@@ -10,6 +10,8 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Any, Dict, Optional
 
+import networkx as nx
+
 logger = logging.getLogger(__name__)
 
 
@@ -59,3 +61,36 @@ class BaseStage(ABC):
         """Load a JSON file."""
         with open(filepath, "r", encoding="utf-8") as f:
             return json.load(f)
+
+    @staticmethod
+    def _call_graph_to_json(graph: nx.MultiDiGraph) -> Dict[str, list]:
+        """Convert a NetworkX MultiDiGraph to the standard call-graph JSON dict.
+
+        Nodes:  ``{"id": node_id, "attributes": {…}}``
+        Edges:  ``{"source": u, "target": v, "key": k, "attributes": {…}}``
+        """
+        nodes = [
+            {"id": n, "attributes": dict(graph.nodes[n])}
+            for n in graph.nodes()
+        ]
+        edges = [
+            {"source": u, "target": v, "key": k, "attributes": dict(d)}
+            for u, v, k, d in graph.edges(keys=True, data=True)
+        ]
+        return {"nodes": nodes, "edges": edges}
+
+    def save_call_graph_json(
+        self, filename: str, graph: nx.MultiDiGraph,
+        subdir: Optional[str] = None,
+    ) -> Path:
+        """Save a NetworkX MultiDiGraph as a standard call-graph JSON file.
+
+        The JSON schema is::
+
+            {
+              "nodes": [{"id": …, "attributes": {…}}],
+              "edges": [{"source": …, "target": …, "key": …, "attributes": {…}}],
+            }
+        """
+        data = self._call_graph_to_json(graph)
+        return self.save_json(filename, data, subdir=subdir)
