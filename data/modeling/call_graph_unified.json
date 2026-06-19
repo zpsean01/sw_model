@@ -1,0 +1,3212 @@
+{
+  "nodes": [
+    {
+      "id": "attest_compute_token",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "token",
+            "type": "attest_token_t *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ATTEST_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ATTEST_GetToken",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "token",
+            "type": "attest_token_t *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ATTEST_VerifyToken",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "token",
+            "type": "const attest_token_t *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ATTEST_GetPlatformClaim",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "claim_name",
+            "type": "const char *"
+          },
+          {
+            "name": "value",
+            "type": "uint8_t *"
+          },
+          {
+            "name": "value_len",
+            "type": "uint32_t *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ATTEST_SetDeviceId",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "len",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ATTEST_GetChallenge",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "challenge",
+            "type": "uint8_t *"
+          },
+          {
+            "name": "len",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ATTEST_RotateKey",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "new_key",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "key_len",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ATTEST_IsVerified",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "_Bool",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "GPIO_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "port",
+            "type": "uint32_t"
+          },
+          {
+            "name": "pin",
+            "type": "uint32_t"
+          },
+          {
+            "name": "mode",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "UART_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "instance",
+            "type": "uint32_t"
+          },
+          {
+            "name": "baud",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SPI_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "instance",
+            "type": "uint32_t"
+          },
+          {
+            "name": "speed",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "BOARD_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "BOARD_GetInfo",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "info",
+            "type": "board_info_t *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "BOARD_GetSerialNumber",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "buf",
+            "type": "uint8_t *"
+          },
+          {
+            "name": "len",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "BOARD_LEDInit",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "pin",
+            "type": "uint16_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "BOARD_LEDSet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "uint8_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "BOARD_Reset",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemReset",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "BOARD_DelayMs",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "ms",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemDelayMs",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "arg0",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "gf_mul2",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "uint8_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "gf_mul3",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "uint8_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "aes_encrypt_block",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "const uint32_t[44]"
+          },
+          {
+            "name": "input",
+            "type": "const uint8_t[16]"
+          },
+          {
+            "name": "output",
+            "type": "uint8_t[16]"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "aes_expand_key",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "key_bytes",
+            "type": "const uint8_t[16]"
+          },
+          {
+            "name": "rk",
+            "type": "uint32_t[44]"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "sha256_ch",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "uint32_t"
+          },
+          {
+            "name": "y",
+            "type": "uint32_t"
+          },
+          {
+            "name": "z",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "sha256_maj",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "uint32_t"
+          },
+          {
+            "name": "y",
+            "type": "uint32_t"
+          },
+          {
+            "name": "z",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "sha256_sigma0",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "sha256_sigma1",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "sha256_lsigma0",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "sha256_lsigma1",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "name": "x",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "sha256_transform",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "ctx",
+            "type": "sha256_ctx_t *"
+          },
+          {
+            "name": "block",
+            "type": "const uint8_t[64]"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "sha256_compute",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "input",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "ilen",
+            "type": "uint32_t"
+          },
+          {
+            "name": "digest",
+            "type": "uint8_t[32]"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "CRYPTO_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "crypto_status_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "CRYPTO_AESEncrypt",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "crypto_status_t",
+        "parameters": [
+          {
+            "name": "slot",
+            "type": "uint32_t"
+          },
+          {
+            "name": "input",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "output",
+            "type": "uint8_t *"
+          },
+          {
+            "name": "len",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "CRYPTO_AESDecrypt",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "crypto_status_t",
+        "parameters": [
+          {
+            "name": "slot",
+            "type": "uint32_t"
+          },
+          {
+            "name": "input",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "output",
+            "type": "uint8_t *"
+          },
+          {
+            "name": "len",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "CRYPTO_SHA256",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "crypto_status_t",
+        "parameters": [
+          {
+            "name": "data",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "len",
+            "type": "uint32_t"
+          },
+          {
+            "name": "digest",
+            "type": "uint8_t[32]"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "CRYPTO_HMACSHA256",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "crypto_status_t",
+        "parameters": [
+          {
+            "name": "key",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "klen",
+            "type": "uint32_t"
+          },
+          {
+            "name": "data",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "dlen",
+            "type": "uint32_t"
+          },
+          {
+            "name": "mac",
+            "type": "uint8_t[32]"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "CRYPTO_KeyImport",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "crypto_status_t",
+        "parameters": [
+          {
+            "name": "slot",
+            "type": "uint32_t"
+          },
+          {
+            "name": "key_data",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "key_len",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "CRYPTO_KeyGenerate",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "crypto_status_t",
+        "parameters": [
+          {
+            "name": "slot",
+            "type": "uint32_t"
+          },
+          {
+            "name": "key_len",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "CRYPTO_KeyDelete",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "crypto_status_t",
+        "parameters": [
+          {
+            "name": "slot",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "CRYPTO_TrngGet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "crypto_status_t",
+        "parameters": [
+          {
+            "name": "buf",
+            "type": "uint8_t *"
+          },
+          {
+            "name": "len",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "CRYPTO_IRQHandler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "fault_log",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "type",
+            "type": "fault_type_t"
+          },
+          {
+            "name": "addr",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "Fault_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "HardFault_Handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "MemManage_Handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "BusFault_Handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "UsageFault_Handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SecureFault_Handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "Fault_GetCount",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "Fault_GetLog",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "name": "buf",
+            "type": "fault_record_t *"
+          },
+          {
+            "name": "max",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "GPIO_WritePin",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "port",
+            "type": "gpio_port_t"
+          },
+          {
+            "name": "pin",
+            "type": "gpio_pin_t"
+          },
+          {
+            "name": "state",
+            "type": "_Bool"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "GPIO_ReadPin",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "_Bool",
+        "parameters": [
+          {
+            "name": "port",
+            "type": "gpio_port_t"
+          },
+          {
+            "name": "pin",
+            "type": "gpio_pin_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "GPIO_TogglePin",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "port",
+            "type": "gpio_port_t"
+          },
+          {
+            "name": "pin",
+            "type": "gpio_pin_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "GPIO_WritePort",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "port",
+            "type": "gpio_port_t"
+          },
+          {
+            "name": "value",
+            "type": "uint16_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "GPIO_ReadPort",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint16_t",
+        "parameters": [
+          {
+            "name": "port",
+            "type": "gpio_port_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "GPIO_SetAF",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "port",
+            "type": "gpio_port_t"
+          },
+          {
+            "name": "pin",
+            "type": "gpio_pin_t"
+          },
+          {
+            "name": "af",
+            "type": "uint8_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "GPIOA_IRQHandler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "NVIC_EnableIRQ",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "irq_num",
+            "type": "uint8_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "NVIC_DisableIRQ",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "irq_num",
+            "type": "uint8_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "NVIC_SetPriority",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "irq_num",
+            "type": "uint8_t"
+          },
+          {
+            "name": "priority",
+            "type": "uint8_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "NVIC_GetPriority",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "name": "irq_num",
+            "type": "uint8_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "NVIC_GetPendingIRQ",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "_Bool",
+        "parameters": [
+          {
+            "name": "irq_num",
+            "type": "uint8_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "NVIC_ClearPendingIRQ",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "irq_num",
+            "type": "uint8_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "NVIC_SystemReset",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "NVIC_GetActiveIRQ",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint8_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ipc_find_endpoint",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "endpoint_id",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ipc_find_free_slot",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "IPC_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "IPC_EndpointCreate",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "endpoint_id",
+            "type": "uint32_t"
+          },
+          {
+            "name": "attr",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "IPC_Send",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "src",
+            "type": "uint32_t"
+          },
+          {
+            "name": "dst",
+            "type": "uint32_t"
+          },
+          {
+            "name": "data",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "len",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [
+          "ipc_find_free_slot"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "IPC_Receive",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "endpoint_id",
+            "type": "uint32_t"
+          },
+          {
+            "name": "msg",
+            "type": "ipc_msg_t *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "IPC_Reply",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "src",
+            "type": "uint32_t"
+          },
+          {
+            "name": "dst",
+            "type": "uint32_t"
+          },
+          {
+            "name": "data",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "len",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [
+          "ipc_find_free_slot"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "IPC_Notify",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "src",
+            "type": "uint32_t"
+          },
+          {
+            "name": "dst",
+            "type": "uint32_t"
+          },
+          {
+            "name": "data",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "len",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [
+          "ipc_find_free_slot"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "IPC_Wait",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "endpoint_id",
+            "type": "uint32_t"
+          },
+          {
+            "name": "msg",
+            "type": "ipc_msg_t *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "IPC_EndpointDestroy",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "endpoint_id",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [
+          "ipc_find_endpoint"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "its_find_file",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "file_id",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ITS_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ITS_Create",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "file_id",
+            "type": "uint32_t"
+          },
+          {
+            "name": "flags",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ITS_Write",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "file_id",
+            "type": "uint32_t"
+          },
+          {
+            "name": "data",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "size",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [
+          "its_find_file"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ITS_Read",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "file_id",
+            "type": "uint32_t"
+          },
+          {
+            "name": "data",
+            "type": "uint8_t *"
+          },
+          {
+            "name": "size",
+            "type": "uint32_t *"
+          }
+        ],
+        "calls": [
+          "its_find_file"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ITS_Delete",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "file_id",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [
+          "its_find_file"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ITS_GetSize",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "file_id",
+            "type": "uint32_t"
+          },
+          {
+            "name": "size",
+            "type": "uint32_t *"
+          }
+        ],
+        "calls": [
+          "its_find_file"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ITS_GetFlags",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "file_id",
+            "type": "uint32_t"
+          },
+          {
+            "name": "flags",
+            "type": "uint32_t *"
+          }
+        ],
+        "calls": [
+          "its_find_file"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ITS_EncryptFile",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "file_id",
+            "type": "uint32_t"
+          },
+          {
+            "name": "key",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "key_len",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [
+          "its_find_file"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "STORAGE_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SM_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SM_Transition",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "to",
+            "type": "uint32_t"
+          },
+          {
+            "name": "arg",
+            "type": "void *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemTickConfig",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "reload",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemInit",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SysTick_Handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "sys_tick_handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "secure_service_init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "peripheral_init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "ipc_init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "app_main_loop",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "main",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "MEM_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "MEM_Alloc",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void *",
+        "parameters": [
+          {
+            "name": "size",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "MEM_Free",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "ptr",
+            "type": "void *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "MEM_GetFreeSize",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "MEM_GetAllocSize",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "MEM_ProtectRegion",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "region",
+            "type": "uint32_t"
+          },
+          {
+            "name": "base",
+            "type": "uint32_t"
+          },
+          {
+            "name": "size",
+            "type": "uint32_t"
+          },
+          {
+            "name": "attrs",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "PLATFORM_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "PLATFORM_PostInit",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "PLATFORM_Sleep",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "PLATFORM_SetConfig",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "cfg",
+            "type": "const platform_config_t *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "PLATFORM_GetConfig",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "cfg",
+            "type": "platform_config_t *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "PLATFORM_IsSecure",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "_Bool",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "PLATFORM_GetVersion",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "PLATFORM_ErrorHandler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "error_code",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "RTC_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "RTC_TimeSet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "time",
+            "type": "const rtc_time_t *"
+          },
+          {
+            "name": "format",
+            "type": "rtc_format_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "RTC_TimeGet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "time",
+            "type": "rtc_time_t *"
+          },
+          {
+            "name": "format",
+            "type": "rtc_format_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "RTC_DateSet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "date",
+            "type": "const rtc_date_t *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "RTC_DateGet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "date",
+            "type": "rtc_date_t *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "RTC_AlarmSet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "alarm_time",
+            "type": "const rtc_time_t *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "RTC_IRQHandler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "storage_find_item",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "item_id",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "STORAGE_Write",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "item_id",
+            "type": "uint32_t"
+          },
+          {
+            "name": "data",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "size",
+            "type": "uint32_t"
+          },
+          {
+            "name": "flags",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [
+          "storage_find_item"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "STORAGE_Read",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "item_id",
+            "type": "uint32_t"
+          },
+          {
+            "name": "data",
+            "type": "uint8_t *"
+          },
+          {
+            "name": "size",
+            "type": "uint32_t *"
+          }
+        ],
+        "calls": [
+          "storage_find_item"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "STORAGE_Delete",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "item_id",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [
+          "storage_find_item"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "STORAGE_GetInfo",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "item_id",
+            "type": "uint32_t"
+          },
+          {
+            "name": "out_size",
+            "type": "uint32_t *"
+          },
+          {
+            "name": "out_flags",
+            "type": "uint32_t *"
+          }
+        ],
+        "calls": [
+          "storage_find_item"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "STORAGE_List",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "ids",
+            "type": "uint32_t *"
+          },
+          {
+            "name": "count",
+            "type": "uint32_t *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "STORAGE_IsAuthenticated",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "item_id",
+            "type": "uint32_t"
+          },
+          {
+            "name": "auth",
+            "type": "_Bool *"
+          }
+        ],
+        "calls": [
+          "storage_find_item"
+        ],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "STORAGE_EraseAll",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SPI_Transmit",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "data",
+            "type": "uint8_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SPI_Receive",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint8_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SPI_TransmitReceive",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "name": "tx_data",
+            "type": "uint8_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SPI_ReadRegister",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "name": "offset",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SPI_WriteRegister",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "offset",
+            "type": "uint32_t"
+          },
+          {
+            "name": "value",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SPIM_IRQHandler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SPIS_IRQHandler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "Reset_Handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "Default_Handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "__initialize_hardware_early",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "NMI_Handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SVCall_Handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "DebugMon_Handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "PendSV_Handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "RESERVED",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "__aeabi_memclr4",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "ptr",
+            "type": "void *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "__aeabi_memclr8",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "ptr",
+            "type": "void *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "__aeabi_memcpy4",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "dest",
+            "type": "void *"
+          },
+          {
+            "name": "src",
+            "type": "const void *"
+          },
+          {
+            "name": "n",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "__aeabi_memcpy8",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "dest",
+            "type": "void *"
+          },
+          {
+            "name": "src",
+            "type": "const void *"
+          },
+          {
+            "name": "n",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "sm_default_handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "arg",
+            "type": "void *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SM_GetCurrentState",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "system_state_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SM_StateToString",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "const char *",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "system_state_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SM_RegisterHandler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "state",
+            "type": "system_state_t"
+          },
+          {
+            "name": "handler",
+            "type": "sm_handler_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SM_ProcessEvent",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "int32_t",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "uint32_t"
+          },
+          {
+            "name": "arg",
+            "type": "void *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SM_IsValidTransition",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "_Bool",
+        "parameters": [
+          {
+            "name": "to",
+            "type": "system_state_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "system_configure_flash_latency",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "clock_mhz",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemClockDividerSet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "ahb",
+            "type": "uint32_t"
+          },
+          {
+            "name": "apb1",
+            "type": "uint32_t"
+          },
+          {
+            "name": "apb2",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemCoreClockGet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemCoreClockUpdate",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemResetCauseGet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemSoftReset",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemPowerModeSet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "mode",
+            "type": "power_mode_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemPowerModeGet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "power_mode_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemTickDisable",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemTickCountGet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemAHBClockGet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemAPB1ClockGet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemAPB2ClockGet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "SystemInfoPrint",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "TIM_Init",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "timer_id_t"
+          },
+          {
+            "name": "mode",
+            "type": "timer_mode_t"
+          },
+          {
+            "name": "prescaler",
+            "type": "uint32_t"
+          },
+          {
+            "name": "period",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "TIM_PWMConfig",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "timer_id_t"
+          },
+          {
+            "name": "channel",
+            "type": "uint32_t"
+          },
+          {
+            "name": "oc_mode",
+            "type": "timer_oc_mode_t"
+          },
+          {
+            "name": "pulse",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "TIM_Start",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "timer_id_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "TIM_Stop",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "timer_id_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "TIM_CounterGet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint32_t",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "timer_id_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "TIM_IRQConfig",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "timer_id_t"
+          },
+          {
+            "name": "irq_mask",
+            "type": "uint32_t"
+          },
+          {
+            "name": "enable",
+            "type": "_Bool"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "TIM0_IRQHandler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "TIM1_IRQHandler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "uart_irq_handler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "uart_id_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "UART_DeInit",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "uart_id_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "UART_WriteByte",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "uart_id_t"
+          },
+          {
+            "name": "data",
+            "type": "uint8_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "UART_ReadByte",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uint8_t",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "uart_id_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "UART_WriteBuffer",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "uart_id_t"
+          },
+          {
+            "name": "data",
+            "type": "const uint8_t *"
+          },
+          {
+            "name": "length",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "UART_WriteString",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "uart_id_t"
+          },
+          {
+            "name": "str",
+            "type": "const char *"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "UART_Flush",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "uart_id_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "UART_ErrorsGet",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "uart_state_t *",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "uart_id_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "UART_EnableInterrupt",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "uart_id_t"
+          },
+          {
+            "name": "flags",
+            "type": "uint32_t"
+          }
+        ],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "UART0_IRQHandler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "UART1_IRQHandler",
+      "attributes": {
+        "kind": "CursorKind.FUNCTION_DECL",
+        "return_type": "void",
+        "parameters": [],
+        "calls": [],
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+        "node_type": "function"
+      }
+    },
+    {
+      "id": "g_gpio_ports",
+      "attributes": {
+        "node_type": "register",
+        "type": "gpio_regs_t *[2]",
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+        "line": 282,
+        "kind": "CursorKind.VAR_DECL"
+      }
+    },
+    {
+      "id": "g_gpio_initialized",
+      "attributes": {
+        "node_type": "register",
+        "type": "_Bool",
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+        "line": 286,
+        "kind": "CursorKind.VAR_DECL"
+      }
+    },
+    {
+      "id": "g_sys_tick_count",
+      "attributes": {
+        "node_type": "register",
+        "type": "volatile uint32_t",
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+        "line": 249,
+        "kind": "CursorKind.VAR_DECL"
+      }
+    },
+    {
+      "id": "g_transition_table",
+      "attributes": {
+        "node_type": "register",
+        "type": "state_transition_t[17]",
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+        "line": 275,
+        "kind": "CursorKind.VAR_DECL"
+      }
+    },
+    {
+      "id": "g_transition_count",
+      "attributes": {
+        "node_type": "register",
+        "type": "const uint32_t",
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+        "line": 296,
+        "kind": "CursorKind.VAR_DECL"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "IPC_Send",
+      "target": "ipc_find_free_slot",
+      "key": "0",
+      "attributes": {}
+    },
+    {
+      "source": "IPC_Reply",
+      "target": "ipc_find_free_slot",
+      "key": "1",
+      "attributes": {}
+    },
+    {
+      "source": "IPC_Notify",
+      "target": "ipc_find_free_slot",
+      "key": "2",
+      "attributes": {}
+    },
+    {
+      "source": "IPC_EndpointDestroy",
+      "target": "ipc_find_endpoint",
+      "key": "3",
+      "attributes": {}
+    },
+    {
+      "source": "ITS_Write",
+      "target": "its_find_file",
+      "key": "4",
+      "attributes": {}
+    },
+    {
+      "source": "ITS_Read",
+      "target": "its_find_file",
+      "key": "5",
+      "attributes": {}
+    },
+    {
+      "source": "ITS_Delete",
+      "target": "its_find_file",
+      "key": "6",
+      "attributes": {}
+    },
+    {
+      "source": "ITS_GetSize",
+      "target": "its_find_file",
+      "key": "7",
+      "attributes": {}
+    },
+    {
+      "source": "ITS_GetFlags",
+      "target": "its_find_file",
+      "key": "8",
+      "attributes": {}
+    },
+    {
+      "source": "ITS_EncryptFile",
+      "target": "its_find_file",
+      "key": "9",
+      "attributes": {}
+    },
+    {
+      "source": "STORAGE_Write",
+      "target": "storage_find_item",
+      "key": "10",
+      "attributes": {}
+    },
+    {
+      "source": "STORAGE_Read",
+      "target": "storage_find_item",
+      "key": "11",
+      "attributes": {}
+    },
+    {
+      "source": "STORAGE_Delete",
+      "target": "storage_find_item",
+      "key": "12",
+      "attributes": {}
+    },
+    {
+      "source": "STORAGE_GetInfo",
+      "target": "storage_find_item",
+      "key": "13",
+      "attributes": {}
+    },
+    {
+      "source": "STORAGE_IsAuthenticated",
+      "target": "storage_find_item",
+      "key": "14",
+      "attributes": {}
+    }
+  ]
+}

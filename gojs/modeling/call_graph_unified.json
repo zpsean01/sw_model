@@ -1,0 +1,3622 @@
+{
+  "class": "go.GraphLinksModel",
+  "nodeDataArray": [
+    {
+      "key": "root",
+      "category": "Group",
+      "isGroup": true,
+      "text": "All"
+    },
+    {
+      "key": "functions-group",
+      "category": "Group",
+      "isGroup": true,
+      "group": "root",
+      "text": "Functions",
+      "node_type": "function",
+      "count": 185
+    },
+    {
+      "key": "attest_compute_token",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "attest_compute_token",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+      "short_file": "fw_samples/lib/attestation.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "token",
+          "type": "attest_token_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ATTEST_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ATTEST_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+      "short_file": "fw_samples/lib/attestation.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "ATTEST_GetToken",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ATTEST_GetToken",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+      "short_file": "fw_samples/lib/attestation.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "token",
+          "type": "attest_token_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ATTEST_VerifyToken",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ATTEST_VerifyToken",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+      "short_file": "fw_samples/lib/attestation.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "token",
+          "type": "const attest_token_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ATTEST_GetPlatformClaim",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ATTEST_GetPlatformClaim",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+      "short_file": "fw_samples/lib/attestation.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "claim_name",
+          "type": "const char *"
+        },
+        {
+          "name": "value",
+          "type": "uint8_t *"
+        },
+        {
+          "name": "value_len",
+          "type": "uint32_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ATTEST_SetDeviceId",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ATTEST_SetDeviceId",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+      "short_file": "fw_samples/lib/attestation.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ATTEST_GetChallenge",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ATTEST_GetChallenge",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+      "short_file": "fw_samples/lib/attestation.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "challenge",
+          "type": "uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ATTEST_RotateKey",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ATTEST_RotateKey",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+      "short_file": "fw_samples/lib/attestation.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "new_key",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "key_len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ATTEST_IsVerified",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ATTEST_IsVerified",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\attestation.c",
+      "short_file": "fw_samples/lib/attestation.c",
+      "return_type": "_Bool",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "GPIO_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "GPIO_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+      "short_file": "fw_samples/src/board.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "port",
+          "type": "uint32_t"
+        },
+        {
+          "name": "pin",
+          "type": "uint32_t"
+        },
+        {
+          "name": "mode",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "UART_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "UART_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+      "short_file": "fw_samples/src/board.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "instance",
+          "type": "uint32_t"
+        },
+        {
+          "name": "baud",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SPI_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SPI_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+      "short_file": "fw_samples/src/board.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "instance",
+          "type": "uint32_t"
+        },
+        {
+          "name": "speed",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "BOARD_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "BOARD_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+      "short_file": "fw_samples/src/board.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "BOARD_GetInfo",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "BOARD_GetInfo",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+      "short_file": "fw_samples/src/board.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "info",
+          "type": "board_info_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "BOARD_GetSerialNumber",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "BOARD_GetSerialNumber",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+      "short_file": "fw_samples/src/board.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "buf",
+          "type": "uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "BOARD_LEDInit",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "BOARD_LEDInit",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+      "short_file": "fw_samples/src/board.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "pin",
+          "type": "uint16_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "BOARD_LEDSet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "BOARD_LEDSet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+      "short_file": "fw_samples/src/board.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "state",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "BOARD_Reset",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "BOARD_Reset",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+      "short_file": "fw_samples/src/board.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SystemReset",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemReset",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+      "short_file": "fw_samples/src/board.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "BOARD_DelayMs",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "BOARD_DelayMs",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+      "short_file": "fw_samples/src/board.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ms",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SystemDelayMs",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemDelayMs",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\board.c",
+      "short_file": "fw_samples/src/board.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "arg0",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "gf_mul2",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "gf_mul2",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "uint8_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "gf_mul3",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "gf_mul3",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "uint8_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "aes_encrypt_block",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "aes_encrypt_block",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "key",
+          "type": "const uint32_t[44]"
+        },
+        {
+          "name": "input",
+          "type": "const uint8_t[16]"
+        },
+        {
+          "name": "output",
+          "type": "uint8_t[16]"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "aes_expand_key",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "aes_expand_key",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "key_bytes",
+          "type": "const uint8_t[16]"
+        },
+        {
+          "name": "rk",
+          "type": "uint32_t[44]"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "sha256_ch",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "sha256_ch",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint32_t"
+        },
+        {
+          "name": "y",
+          "type": "uint32_t"
+        },
+        {
+          "name": "z",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "sha256_maj",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "sha256_maj",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint32_t"
+        },
+        {
+          "name": "y",
+          "type": "uint32_t"
+        },
+        {
+          "name": "z",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "sha256_sigma0",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "sha256_sigma0",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "sha256_sigma1",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "sha256_sigma1",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "sha256_lsigma0",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "sha256_lsigma0",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "sha256_lsigma1",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "sha256_lsigma1",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "x",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "sha256_transform",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "sha256_transform",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "sha256_ctx_t *"
+        },
+        {
+          "name": "block",
+          "type": "const uint8_t[64]"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "sha256_compute",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "sha256_compute",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "ilen",
+          "type": "uint32_t"
+        },
+        {
+          "name": "digest",
+          "type": "uint8_t[32]"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "CRYPTO_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "CRYPTO_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "crypto_status_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "CRYPTO_AESEncrypt",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "CRYPTO_AESEncrypt",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "slot",
+          "type": "uint32_t"
+        },
+        {
+          "name": "input",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "output",
+          "type": "uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "CRYPTO_AESDecrypt",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "CRYPTO_AESDecrypt",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "slot",
+          "type": "uint32_t"
+        },
+        {
+          "name": "input",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "output",
+          "type": "uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "CRYPTO_SHA256",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "CRYPTO_SHA256",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        },
+        {
+          "name": "digest",
+          "type": "uint8_t[32]"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "CRYPTO_HMACSHA256",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "CRYPTO_HMACSHA256",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "key",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "klen",
+          "type": "uint32_t"
+        },
+        {
+          "name": "data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "dlen",
+          "type": "uint32_t"
+        },
+        {
+          "name": "mac",
+          "type": "uint8_t[32]"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "CRYPTO_KeyImport",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "CRYPTO_KeyImport",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "slot",
+          "type": "uint32_t"
+        },
+        {
+          "name": "key_data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "key_len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "CRYPTO_KeyGenerate",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "CRYPTO_KeyGenerate",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "slot",
+          "type": "uint32_t"
+        },
+        {
+          "name": "key_len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "CRYPTO_KeyDelete",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "CRYPTO_KeyDelete",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "slot",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "CRYPTO_TrngGet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "CRYPTO_TrngGet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "crypto_status_t",
+      "parameters": [
+        {
+          "name": "buf",
+          "type": "uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "CRYPTO_IRQHandler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "CRYPTO_IRQHandler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\crypto.c",
+      "short_file": "fw_samples/lib/crypto.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "fault_log",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "fault_log",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+      "short_file": "fw_samples/src/fault.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "type",
+          "type": "fault_type_t"
+        },
+        {
+          "name": "addr",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "Fault_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "Fault_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+      "short_file": "fw_samples/src/fault.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "HardFault_Handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "HardFault_Handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+      "short_file": "fw_samples/src/fault.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "MemManage_Handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "MemManage_Handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+      "short_file": "fw_samples/src/fault.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "BusFault_Handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "BusFault_Handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+      "short_file": "fw_samples/src/fault.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "UsageFault_Handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "UsageFault_Handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+      "short_file": "fw_samples/src/fault.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SecureFault_Handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SecureFault_Handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+      "short_file": "fw_samples/src/fault.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "Fault_GetCount",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "Fault_GetCount",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+      "short_file": "fw_samples/src/fault.c",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "Fault_GetLog",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "Fault_GetLog",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\fault.c",
+      "short_file": "fw_samples/src/fault.c",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "buf",
+          "type": "fault_record_t *"
+        },
+        {
+          "name": "max",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "GPIO_WritePin",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "GPIO_WritePin",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+      "short_file": "fw_samples/lib/gpio.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "port",
+          "type": "gpio_port_t"
+        },
+        {
+          "name": "pin",
+          "type": "gpio_pin_t"
+        },
+        {
+          "name": "state",
+          "type": "_Bool"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "GPIO_ReadPin",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "GPIO_ReadPin",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+      "short_file": "fw_samples/lib/gpio.c",
+      "return_type": "_Bool",
+      "parameters": [
+        {
+          "name": "port",
+          "type": "gpio_port_t"
+        },
+        {
+          "name": "pin",
+          "type": "gpio_pin_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "GPIO_TogglePin",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "GPIO_TogglePin",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+      "short_file": "fw_samples/lib/gpio.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "port",
+          "type": "gpio_port_t"
+        },
+        {
+          "name": "pin",
+          "type": "gpio_pin_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "GPIO_WritePort",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "GPIO_WritePort",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+      "short_file": "fw_samples/lib/gpio.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "port",
+          "type": "gpio_port_t"
+        },
+        {
+          "name": "value",
+          "type": "uint16_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "GPIO_ReadPort",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "GPIO_ReadPort",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+      "short_file": "fw_samples/lib/gpio.c",
+      "return_type": "uint16_t",
+      "parameters": [
+        {
+          "name": "port",
+          "type": "gpio_port_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "GPIO_SetAF",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "GPIO_SetAF",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+      "short_file": "fw_samples/lib/gpio.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "port",
+          "type": "gpio_port_t"
+        },
+        {
+          "name": "pin",
+          "type": "gpio_pin_t"
+        },
+        {
+          "name": "af",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "GPIOA_IRQHandler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "GPIOA_IRQHandler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+      "short_file": "fw_samples/lib/gpio.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "NVIC_EnableIRQ",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "NVIC_EnableIRQ",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+      "short_file": "fw_samples/lib/interrupt.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "irq_num",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "NVIC_DisableIRQ",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "NVIC_DisableIRQ",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+      "short_file": "fw_samples/lib/interrupt.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "irq_num",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "NVIC_SetPriority",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "NVIC_SetPriority",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+      "short_file": "fw_samples/lib/interrupt.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "irq_num",
+          "type": "uint8_t"
+        },
+        {
+          "name": "priority",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "NVIC_GetPriority",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "NVIC_GetPriority",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+      "short_file": "fw_samples/lib/interrupt.c",
+      "return_type": "uint8_t",
+      "parameters": [
+        {
+          "name": "irq_num",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "NVIC_GetPendingIRQ",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "NVIC_GetPendingIRQ",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+      "short_file": "fw_samples/lib/interrupt.c",
+      "return_type": "_Bool",
+      "parameters": [
+        {
+          "name": "irq_num",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "NVIC_ClearPendingIRQ",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "NVIC_ClearPendingIRQ",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+      "short_file": "fw_samples/lib/interrupt.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "irq_num",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "NVIC_SystemReset",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "NVIC_SystemReset",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+      "short_file": "fw_samples/lib/interrupt.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "NVIC_GetActiveIRQ",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "NVIC_GetActiveIRQ",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\interrupt.c",
+      "short_file": "fw_samples/lib/interrupt.c",
+      "return_type": "uint8_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "ipc_find_endpoint",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ipc_find_endpoint",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+      "short_file": "fw_samples/lib/ipc.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "endpoint_id",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ipc_find_free_slot",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ipc_find_free_slot",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+      "short_file": "fw_samples/lib/ipc.c",
+      "return_type": "int32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "IPC_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "IPC_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+      "short_file": "fw_samples/lib/ipc.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "IPC_EndpointCreate",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "IPC_EndpointCreate",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+      "short_file": "fw_samples/lib/ipc.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "endpoint_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "attr",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "IPC_Send",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "IPC_Send",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+      "short_file": "fw_samples/lib/ipc.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "src",
+          "type": "uint32_t"
+        },
+        {
+          "name": "dst",
+          "type": "uint32_t"
+        },
+        {
+          "name": "data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "ipc_find_free_slot"
+      ]
+    },
+    {
+      "key": "IPC_Receive",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "IPC_Receive",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+      "short_file": "fw_samples/lib/ipc.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "endpoint_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "msg",
+          "type": "ipc_msg_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "IPC_Reply",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "IPC_Reply",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+      "short_file": "fw_samples/lib/ipc.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "src",
+          "type": "uint32_t"
+        },
+        {
+          "name": "dst",
+          "type": "uint32_t"
+        },
+        {
+          "name": "data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "ipc_find_free_slot"
+      ]
+    },
+    {
+      "key": "IPC_Notify",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "IPC_Notify",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+      "short_file": "fw_samples/lib/ipc.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "src",
+          "type": "uint32_t"
+        },
+        {
+          "name": "dst",
+          "type": "uint32_t"
+        },
+        {
+          "name": "data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "ipc_find_free_slot"
+      ]
+    },
+    {
+      "key": "IPC_Wait",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "IPC_Wait",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+      "short_file": "fw_samples/lib/ipc.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "endpoint_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "msg",
+          "type": "ipc_msg_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "IPC_EndpointDestroy",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "IPC_EndpointDestroy",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\ipc.c",
+      "short_file": "fw_samples/lib/ipc.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "endpoint_id",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "ipc_find_endpoint"
+      ]
+    },
+    {
+      "key": "its_find_file",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "its_find_file",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "short_file": "fw_samples/lib/its.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ITS_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ITS_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "short_file": "fw_samples/lib/its.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "ITS_Create",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ITS_Create",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "short_file": "fw_samples/lib/its.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "flags",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ITS_Write",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ITS_Write",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "short_file": "fw_samples/lib/its.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "size",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "its_find_file"
+      ]
+    },
+    {
+      "key": "ITS_Read",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ITS_Read",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "short_file": "fw_samples/lib/its.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "data",
+          "type": "uint8_t *"
+        },
+        {
+          "name": "size",
+          "type": "uint32_t *"
+        }
+      ],
+      "calls": [
+        "its_find_file"
+      ]
+    },
+    {
+      "key": "ITS_Delete",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ITS_Delete",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "short_file": "fw_samples/lib/its.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "its_find_file"
+      ]
+    },
+    {
+      "key": "ITS_GetSize",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ITS_GetSize",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "short_file": "fw_samples/lib/its.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "size",
+          "type": "uint32_t *"
+        }
+      ],
+      "calls": [
+        "its_find_file"
+      ]
+    },
+    {
+      "key": "ITS_GetFlags",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ITS_GetFlags",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "short_file": "fw_samples/lib/its.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "flags",
+          "type": "uint32_t *"
+        }
+      ],
+      "calls": [
+        "its_find_file"
+      ]
+    },
+    {
+      "key": "ITS_EncryptFile",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ITS_EncryptFile",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\its.c",
+      "short_file": "fw_samples/lib/its.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "file_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "key",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "key_len",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "its_find_file"
+      ]
+    },
+    {
+      "key": "STORAGE_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "STORAGE_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+      "short_file": "fw_samples/src/main.c",
+      "return_type": "int32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SM_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SM_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+      "short_file": "fw_samples/src/main.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SM_Transition",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SM_Transition",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+      "short_file": "fw_samples/src/main.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "to",
+          "type": "uint32_t"
+        },
+        {
+          "name": "arg",
+          "type": "void *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SystemTickConfig",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemTickConfig",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+      "short_file": "fw_samples/src/main.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "reload",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SystemInit",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemInit",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+      "short_file": "fw_samples/src/main.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SysTick_Handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SysTick_Handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+      "short_file": "fw_samples/src/main.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "sys_tick_handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "sys_tick_handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+      "short_file": "fw_samples/src/main.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "secure_service_init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "secure_service_init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+      "short_file": "fw_samples/src/main.c",
+      "return_type": "int32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "peripheral_init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "peripheral_init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+      "short_file": "fw_samples/src/main.c",
+      "return_type": "int32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "ipc_init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ipc_init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+      "short_file": "fw_samples/src/main.c",
+      "return_type": "int32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "app_main_loop",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "app_main_loop",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+      "short_file": "fw_samples/src/main.c",
+      "return_type": "int32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "main",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "main",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+      "short_file": "fw_samples/src/main.c",
+      "return_type": "int",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "MEM_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "MEM_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c",
+      "short_file": "fw_samples/src/memory.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "MEM_Alloc",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "MEM_Alloc",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c",
+      "short_file": "fw_samples/src/memory.c",
+      "return_type": "void *",
+      "parameters": [
+        {
+          "name": "size",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "MEM_Free",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "MEM_Free",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c",
+      "short_file": "fw_samples/src/memory.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ptr",
+          "type": "void *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "MEM_GetFreeSize",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "MEM_GetFreeSize",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c",
+      "short_file": "fw_samples/src/memory.c",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "MEM_GetAllocSize",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "MEM_GetAllocSize",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c",
+      "short_file": "fw_samples/src/memory.c",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "MEM_ProtectRegion",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "MEM_ProtectRegion",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\memory.c",
+      "short_file": "fw_samples/src/memory.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "region",
+          "type": "uint32_t"
+        },
+        {
+          "name": "base",
+          "type": "uint32_t"
+        },
+        {
+          "name": "size",
+          "type": "uint32_t"
+        },
+        {
+          "name": "attrs",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "PLATFORM_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "PLATFORM_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+      "short_file": "fw_samples/src/platform.c",
+      "return_type": "int32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "PLATFORM_PostInit",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "PLATFORM_PostInit",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+      "short_file": "fw_samples/src/platform.c",
+      "return_type": "int32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "PLATFORM_Sleep",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "PLATFORM_Sleep",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+      "short_file": "fw_samples/src/platform.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "PLATFORM_SetConfig",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "PLATFORM_SetConfig",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+      "short_file": "fw_samples/src/platform.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "cfg",
+          "type": "const platform_config_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "PLATFORM_GetConfig",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "PLATFORM_GetConfig",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+      "short_file": "fw_samples/src/platform.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "cfg",
+          "type": "platform_config_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "PLATFORM_IsSecure",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "PLATFORM_IsSecure",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+      "short_file": "fw_samples/src/platform.c",
+      "return_type": "_Bool",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "PLATFORM_GetVersion",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "PLATFORM_GetVersion",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+      "short_file": "fw_samples/src/platform.c",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "PLATFORM_ErrorHandler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "PLATFORM_ErrorHandler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\platform.c",
+      "short_file": "fw_samples/src/platform.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "error_code",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "RTC_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "RTC_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+      "short_file": "fw_samples/lib/rtc.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "RTC_TimeSet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "RTC_TimeSet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+      "short_file": "fw_samples/lib/rtc.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "time",
+          "type": "const rtc_time_t *"
+        },
+        {
+          "name": "format",
+          "type": "rtc_format_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "RTC_TimeGet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "RTC_TimeGet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+      "short_file": "fw_samples/lib/rtc.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "time",
+          "type": "rtc_time_t *"
+        },
+        {
+          "name": "format",
+          "type": "rtc_format_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "RTC_DateSet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "RTC_DateSet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+      "short_file": "fw_samples/lib/rtc.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "date",
+          "type": "const rtc_date_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "RTC_DateGet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "RTC_DateGet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+      "short_file": "fw_samples/lib/rtc.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "date",
+          "type": "rtc_date_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "RTC_AlarmSet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "RTC_AlarmSet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+      "short_file": "fw_samples/lib/rtc.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "alarm_time",
+          "type": "const rtc_time_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "RTC_IRQHandler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "RTC_IRQHandler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\rtc.c",
+      "short_file": "fw_samples/lib/rtc.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "storage_find_item",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "storage_find_item",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+      "short_file": "fw_samples/lib/secure_storage.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "item_id",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "STORAGE_Write",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "STORAGE_Write",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+      "short_file": "fw_samples/lib/secure_storage.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "item_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "size",
+          "type": "uint32_t"
+        },
+        {
+          "name": "flags",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "storage_find_item"
+      ]
+    },
+    {
+      "key": "STORAGE_Read",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "STORAGE_Read",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+      "short_file": "fw_samples/lib/secure_storage.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "item_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "data",
+          "type": "uint8_t *"
+        },
+        {
+          "name": "size",
+          "type": "uint32_t *"
+        }
+      ],
+      "calls": [
+        "storage_find_item"
+      ]
+    },
+    {
+      "key": "STORAGE_Delete",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "STORAGE_Delete",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+      "short_file": "fw_samples/lib/secure_storage.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "item_id",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [
+        "storage_find_item"
+      ]
+    },
+    {
+      "key": "STORAGE_GetInfo",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "STORAGE_GetInfo",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+      "short_file": "fw_samples/lib/secure_storage.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "item_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "out_size",
+          "type": "uint32_t *"
+        },
+        {
+          "name": "out_flags",
+          "type": "uint32_t *"
+        }
+      ],
+      "calls": [
+        "storage_find_item"
+      ]
+    },
+    {
+      "key": "STORAGE_List",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "STORAGE_List",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+      "short_file": "fw_samples/lib/secure_storage.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "ids",
+          "type": "uint32_t *"
+        },
+        {
+          "name": "count",
+          "type": "uint32_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "STORAGE_IsAuthenticated",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "STORAGE_IsAuthenticated",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+      "short_file": "fw_samples/lib/secure_storage.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "item_id",
+          "type": "uint32_t"
+        },
+        {
+          "name": "auth",
+          "type": "_Bool *"
+        }
+      ],
+      "calls": [
+        "storage_find_item"
+      ]
+    },
+    {
+      "key": "STORAGE_EraseAll",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "STORAGE_EraseAll",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\secure_storage.c",
+      "short_file": "fw_samples/lib/secure_storage.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SPI_Transmit",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SPI_Transmit",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "short_file": "fw_samples/lib/spi.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "data",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SPI_Receive",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SPI_Receive",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "short_file": "fw_samples/lib/spi.c",
+      "return_type": "uint8_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SPI_TransmitReceive",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SPI_TransmitReceive",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "short_file": "fw_samples/lib/spi.c",
+      "return_type": "uint8_t",
+      "parameters": [
+        {
+          "name": "tx_data",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SPI_ReadRegister",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SPI_ReadRegister",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "short_file": "fw_samples/lib/spi.c",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "offset",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SPI_WriteRegister",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SPI_WriteRegister",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "short_file": "fw_samples/lib/spi.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "offset",
+          "type": "uint32_t"
+        },
+        {
+          "name": "value",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SPIM_IRQHandler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SPIM_IRQHandler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "short_file": "fw_samples/lib/spi.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SPIS_IRQHandler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SPIS_IRQHandler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\spi.c",
+      "short_file": "fw_samples/lib/spi.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "Reset_Handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "Reset_Handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+      "short_file": "fw_samples/src/startup.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "Default_Handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "Default_Handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+      "short_file": "fw_samples/src/startup.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "__initialize_hardware_early",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "__initialize_hardware_early",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+      "short_file": "fw_samples/src/startup.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "NMI_Handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "NMI_Handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+      "short_file": "fw_samples/src/startup.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SVCall_Handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SVCall_Handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+      "short_file": "fw_samples/src/startup.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "DebugMon_Handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "DebugMon_Handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+      "short_file": "fw_samples/src/startup.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "PendSV_Handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "PendSV_Handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+      "short_file": "fw_samples/src/startup.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "RESERVED",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "RESERVED",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+      "short_file": "fw_samples/src/startup.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "__aeabi_memclr4",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "__aeabi_memclr4",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+      "short_file": "fw_samples/src/startup.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ptr",
+          "type": "void *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "__aeabi_memclr8",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "__aeabi_memclr8",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+      "short_file": "fw_samples/src/startup.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ptr",
+          "type": "void *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "__aeabi_memcpy4",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "__aeabi_memcpy4",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+      "short_file": "fw_samples/src/startup.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "dest",
+          "type": "void *"
+        },
+        {
+          "name": "src",
+          "type": "const void *"
+        },
+        {
+          "name": "n",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "__aeabi_memcpy8",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "__aeabi_memcpy8",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\startup.c",
+      "short_file": "fw_samples/src/startup.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "dest",
+          "type": "void *"
+        },
+        {
+          "name": "src",
+          "type": "const void *"
+        },
+        {
+          "name": "n",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "sm_default_handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "sm_default_handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+      "short_file": "fw_samples/src/state_machine.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "arg",
+          "type": "void *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SM_GetCurrentState",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SM_GetCurrentState",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+      "short_file": "fw_samples/src/state_machine.c",
+      "return_type": "system_state_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SM_StateToString",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SM_StateToString",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+      "short_file": "fw_samples/src/state_machine.c",
+      "return_type": "const char *",
+      "parameters": [
+        {
+          "name": "state",
+          "type": "system_state_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SM_RegisterHandler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SM_RegisterHandler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+      "short_file": "fw_samples/src/state_machine.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "state",
+          "type": "system_state_t"
+        },
+        {
+          "name": "handler",
+          "type": "sm_handler_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SM_ProcessEvent",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SM_ProcessEvent",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+      "short_file": "fw_samples/src/state_machine.c",
+      "return_type": "int32_t",
+      "parameters": [
+        {
+          "name": "event",
+          "type": "uint32_t"
+        },
+        {
+          "name": "arg",
+          "type": "void *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SM_IsValidTransition",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SM_IsValidTransition",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+      "short_file": "fw_samples/src/state_machine.c",
+      "return_type": "_Bool",
+      "parameters": [
+        {
+          "name": "to",
+          "type": "system_state_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "system_configure_flash_latency",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "system_configure_flash_latency",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "clock_mhz",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SystemClockDividerSet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemClockDividerSet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ahb",
+          "type": "uint32_t"
+        },
+        {
+          "name": "apb1",
+          "type": "uint32_t"
+        },
+        {
+          "name": "apb2",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SystemCoreClockGet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemCoreClockGet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SystemCoreClockUpdate",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemCoreClockUpdate",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SystemResetCauseGet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemResetCauseGet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SystemSoftReset",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemSoftReset",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SystemPowerModeSet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemPowerModeSet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mode",
+          "type": "power_mode_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "SystemPowerModeGet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemPowerModeGet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "power_mode_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SystemTickDisable",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemTickDisable",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SystemTickCountGet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemTickCountGet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SystemAHBClockGet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemAHBClockGet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SystemAPB1ClockGet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemAPB1ClockGet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SystemAPB2ClockGet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemAPB2ClockGet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "uint32_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "SystemInfoPrint",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "SystemInfoPrint",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\system.c",
+      "short_file": "fw_samples/src/system.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "TIM_Init",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "TIM_Init",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+      "short_file": "fw_samples/lib/timer.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "timer_id_t"
+        },
+        {
+          "name": "mode",
+          "type": "timer_mode_t"
+        },
+        {
+          "name": "prescaler",
+          "type": "uint32_t"
+        },
+        {
+          "name": "period",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "TIM_PWMConfig",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "TIM_PWMConfig",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+      "short_file": "fw_samples/lib/timer.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "timer_id_t"
+        },
+        {
+          "name": "channel",
+          "type": "uint32_t"
+        },
+        {
+          "name": "oc_mode",
+          "type": "timer_oc_mode_t"
+        },
+        {
+          "name": "pulse",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "TIM_Start",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "TIM_Start",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+      "short_file": "fw_samples/lib/timer.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "timer_id_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "TIM_Stop",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "TIM_Stop",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+      "short_file": "fw_samples/lib/timer.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "timer_id_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "TIM_CounterGet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "TIM_CounterGet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+      "short_file": "fw_samples/lib/timer.c",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "timer_id_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "TIM_IRQConfig",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "TIM_IRQConfig",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+      "short_file": "fw_samples/lib/timer.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "timer_id_t"
+        },
+        {
+          "name": "irq_mask",
+          "type": "uint32_t"
+        },
+        {
+          "name": "enable",
+          "type": "_Bool"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "TIM0_IRQHandler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "TIM0_IRQHandler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+      "short_file": "fw_samples/lib/timer.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "TIM1_IRQHandler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "TIM1_IRQHandler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\timer.c",
+      "short_file": "fw_samples/lib/timer.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "uart_irq_handler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "uart_irq_handler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "short_file": "fw_samples/lib/uart.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "UART_DeInit",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "UART_DeInit",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "short_file": "fw_samples/lib/uart.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "UART_WriteByte",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "UART_WriteByte",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "short_file": "fw_samples/lib/uart.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        },
+        {
+          "name": "data",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "UART_ReadByte",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "UART_ReadByte",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "short_file": "fw_samples/lib/uart.c",
+      "return_type": "uint8_t",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "UART_WriteBuffer",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "UART_WriteBuffer",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "short_file": "fw_samples/lib/uart.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        },
+        {
+          "name": "data",
+          "type": "const uint8_t *"
+        },
+        {
+          "name": "length",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "UART_WriteString",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "UART_WriteString",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "short_file": "fw_samples/lib/uart.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        },
+        {
+          "name": "str",
+          "type": "const char *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "UART_Flush",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "UART_Flush",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "short_file": "fw_samples/lib/uart.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "UART_ErrorsGet",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "UART_ErrorsGet",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "short_file": "fw_samples/lib/uart.c",
+      "return_type": "uart_state_t *",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "UART_EnableInterrupt",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "UART_EnableInterrupt",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "short_file": "fw_samples/lib/uart.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "uart_id_t"
+        },
+        {
+          "name": "flags",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "UART0_IRQHandler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "UART0_IRQHandler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "short_file": "fw_samples/lib/uart.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "UART1_IRQHandler",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "UART1_IRQHandler",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\uart.c",
+      "short_file": "fw_samples/lib/uart.c",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "registers-group",
+      "category": "Group",
+      "isGroup": true,
+      "group": "root",
+      "text": "Registers",
+      "node_type": "register",
+      "count": 5
+    },
+    {
+      "key": "g_gpio_ports",
+      "category": "Group",
+      "isGroup": true,
+      "group": "registers-group",
+      "text": "g_gpio_ports",
+      "node_type": "register",
+      "type": "gpio_regs_t *[2]",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+      "short_file": "fw_samples/lib/gpio.c",
+      "line": 282,
+      "kind": "CursorKind.VAR_DECL"
+    },
+    {
+      "key": "g_gpio_initialized",
+      "category": "Group",
+      "isGroup": true,
+      "group": "registers-group",
+      "text": "g_gpio_initialized",
+      "node_type": "register",
+      "type": "_Bool",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\lib\\\\gpio.c",
+      "short_file": "fw_samples/lib/gpio.c",
+      "line": 286,
+      "kind": "CursorKind.VAR_DECL"
+    },
+    {
+      "key": "g_sys_tick_count",
+      "category": "Group",
+      "isGroup": true,
+      "group": "registers-group",
+      "text": "g_sys_tick_count",
+      "node_type": "register",
+      "type": "volatile uint32_t",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\main.c",
+      "short_file": "fw_samples/src/main.c",
+      "line": 249,
+      "kind": "CursorKind.VAR_DECL"
+    },
+    {
+      "key": "g_transition_table",
+      "category": "Group",
+      "isGroup": true,
+      "group": "registers-group",
+      "text": "g_transition_table",
+      "node_type": "register",
+      "type": "state_transition_t[17]",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+      "short_file": "fw_samples/src/state_machine.c",
+      "line": 275,
+      "kind": "CursorKind.VAR_DECL"
+    },
+    {
+      "key": "g_transition_count",
+      "category": "Group",
+      "isGroup": true,
+      "group": "registers-group",
+      "text": "g_transition_count",
+      "node_type": "register",
+      "type": "const uint32_t",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\state_machine.c",
+      "short_file": "fw_samples/src/state_machine.c",
+      "line": 296,
+      "kind": "CursorKind.VAR_DECL"
+    }
+  ],
+  "linkDataArray": [
+    {
+      "from": "IPC_Send",
+      "to": "ipc_find_free_slot",
+      "key": "0",
+      "text": "0"
+    },
+    {
+      "from": "IPC_Reply",
+      "to": "ipc_find_free_slot",
+      "key": "1",
+      "text": "1"
+    },
+    {
+      "from": "IPC_Notify",
+      "to": "ipc_find_free_slot",
+      "key": "2",
+      "text": "2"
+    },
+    {
+      "from": "IPC_EndpointDestroy",
+      "to": "ipc_find_endpoint",
+      "key": "3",
+      "text": "3"
+    },
+    {
+      "from": "ITS_Write",
+      "to": "its_find_file",
+      "key": "4",
+      "text": "4"
+    },
+    {
+      "from": "ITS_Read",
+      "to": "its_find_file",
+      "key": "5",
+      "text": "5"
+    },
+    {
+      "from": "ITS_Delete",
+      "to": "its_find_file",
+      "key": "6",
+      "text": "6"
+    },
+    {
+      "from": "ITS_GetSize",
+      "to": "its_find_file",
+      "key": "7",
+      "text": "7"
+    },
+    {
+      "from": "ITS_GetFlags",
+      "to": "its_find_file",
+      "key": "8",
+      "text": "8"
+    },
+    {
+      "from": "ITS_EncryptFile",
+      "to": "its_find_file",
+      "key": "9",
+      "text": "9"
+    },
+    {
+      "from": "STORAGE_Write",
+      "to": "storage_find_item",
+      "key": "10",
+      "text": "10"
+    },
+    {
+      "from": "STORAGE_Read",
+      "to": "storage_find_item",
+      "key": "11",
+      "text": "11"
+    },
+    {
+      "from": "STORAGE_Delete",
+      "to": "storage_find_item",
+      "key": "12",
+      "text": "12"
+    },
+    {
+      "from": "STORAGE_GetInfo",
+      "to": "storage_find_item",
+      "key": "13",
+      "text": "13"
+    },
+    {
+      "from": "STORAGE_IsAuthenticated",
+      "to": "storage_find_item",
+      "key": "14",
+      "text": "14"
+    }
+  ]
+}

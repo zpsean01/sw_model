@@ -9,7 +9,6 @@ import logging
 from pathlib import Path
 from typing import Any, Dict, List
 
-import uvicorn
 from fastapi_offline import FastAPIOffline
 
 from api.routers import static, binary, modeling, sym_execution
@@ -94,6 +93,7 @@ async def get_ztree():
             "children": [
                 {"id": "modeling/event_architecture", "name": "Event Architecture"},
                 {"id": "modeling/security_report", "name": "Security Report"},
+                {"id": "modeling/unified_model", "name": "Unified Model"},
             ],
         },
         {
@@ -120,7 +120,3 @@ async def api_root():
 @app.get("/health", tags=["Health"])
 async def health():
     return {"status": "ok"}
-
-
-if __name__ == "__main__":
-    uvicorn.run("api.main:app", host="0.0.0.0", port=8000, reload=True)

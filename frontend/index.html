@@ -24,12 +24,29 @@
       <ul id="ztree" class="ztree"></ul>
     </aside>
 
-    <!-- Right: JSON Editor panel -->
+    <!-- Right: content panel -->
     <section id="editor-panel">
       <div id="jsoneditor"></div>
+      <div id="unified-page" style="display:none">
+        <div class="unified-col" id="stats-col">
+          <div class="col-header">Statistics</div>
+          <div id="stats-content"></div>
+        </div>
+        <div class="unified-col" id="gojs-col">
+          <div class="col-header">Graph</div>
+          <div id="gojs-diagram"></div>
+        </div>
+        <div class="unified-col" id="json-col">
+          <div class="col-header">JSON</div>
+          <div id="unified-jsoneditor"></div>
+        </div>
+      </div>
     </section>
   </div>
 </div>
+
+<!-- GoJS -->
+<script src="js/lib/gojs.min.js"></script>
 
 <!-- Ace Editor (JSON viewer) -->
 <script src="js/lib/ace.min.js"></script>
@@ -45,6 +62,8 @@
 <script src="js/common/api.js"></script>
 <script src="js/common/ztree-common.js"></script>
 <script src="js/common/json-editor.js"></script>
+<script src="js/common/gojs-common.js"></script>
+<script src="js/common/gojs_topo.js"></script>
 <script src="js/common/components.js"></script>
 <script src="js/features/app.js"></script>
 </body>

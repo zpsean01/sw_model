@@ -115,7 +115,7 @@ html, body {
   border-left-color: var(--border);
 }
 
-/* ── Right: JSON Editor panel ───────────────────── */
+/* ── Right: content panel ──────────────────────────── */
 #editor-panel {
   flex: 1;
   overflow: hidden;
@@ -125,6 +125,98 @@ html, body {
 #jsoneditor {
   width: 100%;
   height: 100%;
+}
+
+/* ── 3-column unified page ─────────────────────────── */
+#unified-page {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.unified-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-right: 1px solid var(--border);
+}
+
+.unified-col:last-child {
+  border-right: none;
+}
+
+.col-header {
+  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+#stats-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+#gojs-diagram {
+  flex: 1;
+  background: #fff;
+}
+
+#unified-jsoneditor {
+  flex: 1;
+}
+
+/* ── Stats cards ────────────────────────────────────── */
+.stat-section {
+  margin-bottom: 16px;
+}
+
+.stat-section h4 {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 13px;
+}
+
+.stat-row .stat-label {
+  color: var(--text-primary);
+}
+
+.stat-row .stat-value {
+  font-weight: 600;
+  color: var(--highlight);
+}
+
+.stat-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.stat-table td {
+  padding: 3px 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.stat-table td:last-child {
+  text-align: right;
+  font-weight: 600;
+  color: var(--highlight);
 }
 
 /* jsoneditor overrides */
