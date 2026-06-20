@@ -25,6 +25,7 @@ from modules.stage5.inspect import (
     EntryPointSpec,
     InspectSpec,
     InspectTrigger,
+    TraceRecorder,
     extract_entry_points_from_report,
 )
 
@@ -76,6 +77,7 @@ class Stage5SymbolicExecution(BaseStage):
             default_hook_type=default_hook_type,
             timeout=timeout,
             veritesting=veritesting,
+            output_dir=output_dir,
         )
 
         # ── 5. Save outputs ────────────────────────────────────────────
@@ -138,6 +140,7 @@ class Stage5SymbolicExecution(BaseStage):
         default_hook_type: str,
         timeout: int,
         veritesting: bool,
+        output_dir: Path,          # <-- added for trace saving
     ) -> Dict[str, Any]:
         """Run symbolic execution for each entry point."""
         report: Dict[str, Any] = {
@@ -173,6 +176,7 @@ class Stage5SymbolicExecution(BaseStage):
                     default_hook_type=default_hook_type,
                     timeout=timeout,
                     veritesting=veritesting,
+                    output_dir=output_dir,
                 )
                 report["entry_results"].append(result)
             except Exception as e:
@@ -195,9 +199,16 @@ class Stage5SymbolicExecution(BaseStage):
         default_hook_type: str,
         timeout: int,
         veritesting: bool,
+        output_dir: Optional[Path] = None,
     ) -> Dict[str, Any]:
         """Run symbolic execution from a single entry point."""
         import angr
+
+        # ── Initialize trace recorder for this entry ─────────────────────
+        recorder = TraceRecorder(
+            entry_function=entry.function,
+            max_depth=entry.max_depth,
+        )
 
         result: Dict[str, Any] = {
             "entry_function": entry.function,
@@ -213,9 +224,12 @@ class Stage5SymbolicExecution(BaseStage):
         if entry_addr is None:
             result["status"] = "skipped"
             result["errors"].append(f"Function '{entry.function}' not found in ELF symbols")
+            recorder.record_entry_end("skipped", 0, 0)
+            self._save_trace(recorder, output_dir)
             return result
 
         result["entry_address"] = hex(entry_addr)
+        recorder.record_entry_start(addr=entry_addr, args=entry.entry_args)
 
         # ── Generate boundary hooks (mechanism) ─────────────────────────
         boundary_hooks = hook_lib.auto_generate_hooks(
@@ -231,12 +245,21 @@ class Stage5SymbolicExecution(BaseStage):
         for func_name, hook_spec in boundary_hooks.items():
             func_addr = self._resolve_function_address(proj, func_name)
             if func_addr is None:
+                recorder.record_hook_triggered(
+                    called_function=func_name,
+                    depth=entry.max_depth,
+                    hook_type="skipped",
+                    symbolic_var={"name": "N/A", "bits": 0, "description": "Function not found in ELF"},
+                    constraints=["N/A"],
+                    registers={"reason": "symbol not found"},
+                )
                 continue
 
             inspect_spec = inspect_specs.get(func_name)
 
             simproc_cls = self._make_inspect_simproc(
-                entry.function, hook_spec, inspect_spec, triggers, entry.max_depth
+                entry.function, hook_spec, inspect_spec,
+                triggers, entry.max_depth, recorder,
             )
             proj.hook(func_addr, simproc_cls)
             applied_count += 1
@@ -248,6 +271,8 @@ class Stage5SymbolicExecution(BaseStage):
         if applied_count == 0:
             result["status"] = "no_hooks"
             result["errors"].append("No boundary functions found to hook")
+            recorder.record_entry_end("no_hooks", 0, 0)
+            self._save_trace(recorder, output_dir)
             return result
 
         # ── Create initial state at entry function ──────────────────────
@@ -256,6 +281,8 @@ class Stage5SymbolicExecution(BaseStage):
         except Exception as e:
             result["status"] = "error"
             result["errors"].append(f"Failed to create call_state: {e}")
+            recorder.record_entry_end("error", 0, 0)
+            self._save_trace(recorder, output_dir)
             return result
 
         # ── Explore ────────────────────────────────────────────────────
@@ -279,7 +306,38 @@ class Stage5SymbolicExecution(BaseStage):
         result["deadended_paths"] = len(simgr.deadended)
         result["inspect_triggers"] = [t.to_dict() for t in triggers]
 
+        recorder.record_entry_end(
+            status="completed",
+            active_paths=len(simgr.active),
+            deadended_paths=len(simgr.deadended),
+        )
+        self._save_trace(recorder, output_dir)
+
         return result
+
+    # ── Function address resolution ──────────────────────────────────────────
+
+    def _resolve_function_address(self, proj, func_name: str) -> Optional[int]:
+        """Resolve a function name to its address in the ELF.
+
+        Tries exact match first, then underscore-prefixed fallback
+        (common for ARM/Thumb symbols).
+        """
+        try:
+            sym = proj.loader.find_symbol(func_name)
+            if sym and sym.rebased_addr:
+                return sym.rebased_addr
+        except Exception:
+            pass
+
+        try:
+            sym = proj.loader.find_symbol(f"_{func_name}")
+            if sym and sym.rebased_addr:
+                return sym.rebased_addr
+        except Exception:
+            pass
+
+        return None
 
     # ── SimProcedure factory ────────────────────────────────────────────────
 
@@ -290,12 +348,16 @@ class Stage5SymbolicExecution(BaseStage):
         inspect_spec: Optional[InspectSpec],
         triggers: List[InspectTrigger],
         max_depth: int,
+        recorder: TraceRecorder,
     ):
         """Create an angr SimProcedure that implements the boundary hook.
 
-        Separates mechanism from semantics:
-          - HookSpec: determines hook_type (what the SimProcedure does)
-          - InspectSpec: (optional) provides risk annotation for the trigger record
+        The SimProcedure records detailed trace events so that each
+        finding can be reproduced from the log alone:
+          - symbolic variable creation (name, width, expression)
+          - register values at hook time
+          - current path constraints
+          - memory write targets (if known)
         """
         import angr
 
@@ -315,26 +377,102 @@ class Stage5SymbolicExecution(BaseStage):
             """Auto-generated SimProcedure for boundary hook."""
 
             def run(self, *args, **kwargs):
-                triggers.append(InspectTrigger(
-                    entry_function=entry_function,
+                # ── Capture symbolic state context ──────────────────────
+                # Register snapshot at hook entry
+                regs = {}
+                try:
+                    for r in ["r0", "r1", "r2", "r3", "sp", "lr", "pc"]:
+                        try:
+                            val = getattr(self.state.regs, r)
+                            regs[r] = str(val)
+                        except Exception:
+                            pass
+                except Exception:
+                    regs = {"error": "register read failed"}
+
+                # Current path constraints (simplified to strings)
+                constraints = []
+                try:
+                    for c in self.state.solver.constraints:
+                        try:
+                            constraints.append(str(c))
+                        except Exception:
+                            constraints.append("<unprintable>")
+                    if len(constraints) > 5:
+                        constraints = constraints[:5] + [f"... ({len(constraints)} total)"]
+                except Exception:
+                    constraints = ["<constraints unavailable>"]
+
+                # ── Create the symbolic return value ────────────────────
+                var_name = f"inspect_{called_func}_ret"
+                symbolic_var_info = {
+                    "name": var_name,
+                    "bits": 32,
+                    "description": description,
+                }
+
+                recorder.record_hook_triggered(
                     called_function=called_func,
-                    call_depth=max_depth,
+                    depth=max_depth,
                     hook_type=hook_type,
-                    risk_level=risk_level,
-                    risk_tags=list(risk_tags),
-                    description=description,
-                ))
+                    symbolic_var=symbolic_var_info,
+                    constraints=constraints,
+                    registers=regs,
+                )
 
-                if hook_type == "concrete_stub" and return_range:
-                    mid = (return_range[0] + return_range[1]) // 2
-                    return self.state.solver.BVV(mid, 32)
-
-                elif hook_type == "symbolic_return":
-                    return self.state.solver.BVS(
-                        f"inspect_{called_func}_ret", 32
+                # ── Record findings based on risk level ─────────────────
+                finding_id = f"F-{called_func}-{max_depth}"
+                if risk_level in ("warning", "critical"):
+                    recorder.record_finding(
+                        finding_id=finding_id,
+                        function=called_func,
+                        depth=max_depth,
+                        message=description,
+                        symbolic_vars=[symbolic_var_info],
+                        constraints=constraints,
+                        details={
+                            "risk_level": risk_level,
+                            "risk_tags": risk_tags,
+                            "hook_type": hook_type,
+                            "return_range": list(return_range) if return_range else None,
+                            "registers_at_hook": regs,
+                        },
                     )
 
+                # ── Generate return value ────────────────────────────────
+                if hook_type == "concrete_stub" and return_range:
+                    mid = (return_range[0] + return_range[1]) // 2
+                    ret_val = self.state.solver.BVV(mid, 32)
+                    recorder.record_symbolic_var_created(
+                        function=called_func,
+                        depth=max_depth,
+                        var_name=var_name,
+                        var_bits=32,
+                        description=f"Concrete stub return: {mid} "
+                                    f"(range [{return_range[0]}, {return_range[1]}])",
+                    )
+                    return ret_val
+
+                elif hook_type == "symbolic_return":
+                    sym_val = self.state.solver.BVS(var_name, 32)
+                    recorder.record_symbolic_var_created(
+                        function=called_func,
+                        depth=max_depth,
+                        var_name=var_name,
+                        var_bits=32,
+                        description=f"Unconstrained symbolic 32-bit return "
+                                    f"(risk: {risk_level}, tags: {risk_tags})",
+                    )
+                    return sym_val
+
                 else:
+                    recorder.record_symbolic_var_created(
+                        function=called_func,
+                        depth=max_depth,
+                        var_name=var_name,
+                        var_bits=32,
+                        description="Zero return (fallback)",
+                    )
                     return self.state.solver.BVV(0, 32)
 
         safe_name = called_func.replace("::", "_").replace("<", "").replace(">", "")
@@ -342,6 +480,14 @@ class Stage5SymbolicExecution(BaseStage):
         InspectSimProc.__qualname__ = f"Inspect_{safe_name}"
 
         return InspectSimProc
+
+    def _save_trace(
+        self, recorder: TraceRecorder, output_dir: Optional[Path]
+    ) -> None:
+        """Save trace recorder output to disk (if output_dir is provided)."""
+        if output_dir:
+            traces_dir = output_dir / "traces"
+            recorder.save(traces_dir)
 
     # ── Summary ────────────────────────────────────────────────────────────
 

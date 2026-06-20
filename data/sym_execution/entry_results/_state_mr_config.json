@@ -1,0 +1,10 @@
+{
+  "entry_function": "_state_mr_config",
+  "max_depth": 4,
+  "context": "Stage 4: cross_register_dependency — Register dependency detected: MR5_DFE_EN depends on MR3 CRC configuration state.",
+  "status": "skipped",
+  "inspect_triggers": [],
+  "errors": [
+    "Function '_state_mr_config' not found in ELF symbols"
+  ]
+}

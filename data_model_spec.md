@@ -427,8 +427,11 @@ binary_globals ──┘
 
 1. **自定义函数入口**：从 Stage 4 发现的具体函数开始，而非从 main 入口
 2. **深度受限遍历**：在调用树中探索到 `max_depth` 层即停止
-3. **边界 Hook + Inspect**：对深度外的调用实施 Hook，用 Inspect 表征风险
-4. **数据驱动**：入口点和 Hook 定义均可从配置文件显式指定，也可从 Stage 4 报告自动提取
+3. **边界 Hook + Inspect（分离）**：
+   - **Hook**（机制层）：在深度边界处拦截调用，用 SimProcedure 替换被调用函数
+   - **Inspect**（语义层）：为边界跨越赋予风险含义（risk_level, risk_tags, return_range）
+4. **TraceRecorder**：每次 Hook 触发时记录完整的符号变量、寄存器快照、路径约束，确保每个 finding 可复现
+5. **数据驱动**：入口点和 Hook/Inspect 定义均可从配置文件显式指定，也可从 Stage 4 报告自动提取
 
 **架构示意**：
 
@@ -436,22 +439,29 @@ binary_globals ──┘
 Stage 4 报告                   配置文件
   │                              │
   ├─ findings[].location.function──► entry_points
-  │                              │
+  │                              ├── hooks (HookSpec, 机制)
+  │                              └── inspect_specs (InspectSpec, 语义)
   └──────────────────────────────┤
                                  │
-  call_graph_unified.json ──────► HookLibrary
-                                 │
-  ┌──────────────────────────────┘
-  │
+  call_graph_unified.json ──────► HookLibrary  ──► auto_generate_hooks()
+                                 │                      │
+  ┌──────────────────────────────┘                      ▼
+  │                                           boundary functions set
   ▼
   ┌─────────────────────────────────────────┐
   │  per entry_point:                       │
-  │    1. 计算调用树 (BFS, max_depth 层)     │
-  │    2. 识别边界函数 (depth = max_depth)   │
-  │    3. 为边界函数创建 Inspect SimProcs    │
-  │    4. angr.Project.hook(addr, simproc)  │
-  │    5. call_state(entry_addr) → simgr.run()
-  │    6. 收集 InspectTrigger 记录          │
+  │    1. resolve entry address (ELF sym)   │
+  │    2. apply hooks (HookSpec → SimProc)  │←── 机制层：怎么拦截
+  │    3. record trace (TraceRecorder)      │←── 语义层：风险表征
+  │    4. call_state(entry_addr) → simgr    │
+  │    5. collect InspectTrigger records    │
+  └─────────────────────────────────────────┘
+           │
+           ▼
+  ┌─────────────────────────────────────────┐
+  │  traces/                                │
+  │  ├── trace_{func}.json (结构化事件流)    │
+  │  └── trace_{func}.md  (可读复现日志)     │
   └─────────────────────────────────────────┘
 ```
 
@@ -482,16 +492,38 @@ Stage 4 报告                   配置文件
    - severity 映射到 max_depth: critical→1, high→2, medium→3, low→4, info→5
 ```
 
-#### 4.2.2 Inspect Hook 定义
+#### 4.2.2 HookSpec — 边界拦截机制定义
 
-Hook 定义了深度边界处被调用函数的"摘要行为"和风险特征。
+Hook 是纯机制层，只定义"怎么拦截"，不携带风险语义。
+
+**源码**：`modules/stage5/hook.py` → `HookSpec`
 
 ```jsonc
 {
   "function_name": "string",         // 被 Hook 的函数名
-  "hook_type": "symbolic_return"     // Hook 类型
-             | "concrete_stub"       //   返回具体值
-             | "summary",            //   返回完整摘要（预定义行为）
+  "hook_type": "symbolic_return"     // SimProcedure 类型
+             | "concrete_stub"
+             | "summary"
+}
+```
+
+**Hook 类型语义**：
+
+| hook_type | SimProcedure 行为 | 适用场景 |
+|-----------|------------------|---------|
+| `symbolic_return` | 返回完全无约束的符号值 | 外部函数行为未知，但返回值参与后续逻辑 |
+| `concrete_stub` | 返回 `return_range` 中点的具体值 | 已知函数返回范围，可用中点近似 |
+| `summary` | 执行预定义的完整摘要（修改寄存器/内存） | 函数行为已知且有详细摘要定义 |
+
+#### 4.2.3 InspectSpec — 风险语义定义
+
+Inspect 是纯语义层，为边界跨越赋予风险含义。与 HookSpec 按 `function_name` 配对使用。
+
+**源码**：`modules/stage5/inspect.py` → `InspectSpec`
+
+```jsonc
+{
+  "function_name": "string",         // 对应的函数名（与 HookSpec 配对）
   "risk_level": "safe"               // 风险等级
               | "warning"
               | "critical"
@@ -505,30 +537,23 @@ Hook 定义了深度边界处被调用函数的"摘要行为"和风险特征。
   ],
   "return_range": [0, 255],         // 可选：返回值范围 [min, max]（仅 concrete_stub 使用）
   "modified_registers": ["r0", "r1"],  // 可选：此函数预期修改的寄存器
-  "description": "string"            // 人类可读的风险描述
+  "description": "string"            // 人类可读的风险描述，写入 InspectTrigger.trace_detail
 }
 ```
 
-**Hook 类型语义**：
-
-| hook_type | SimProcedure 行为 | 适用场景 |
-|-----------|------------------|---------|
-| `symbolic_return` | 返回完全无约束的符号值 | 外部函数行为未知，但返回值参与后续逻辑 |
-| `concrete_stub` | 返回 `return_range` 中点的具体值 | 已知函数返回范围，可用中点近似 |
-| `summary` | 执行预定义的完整摘要（修改寄存器/内存） | 函数行为已知且有详细摘要定义 |
-
-#### 4.2.3 全局策略（global_strategy）
+#### 4.2.4 全局策略（global_strategy）
 
 ```jsonc
 {
   "call_graph_path": "data/modeling/call_graph_unified.json",  // 调用图数据源
   "default_max_depth": 3,           // 默认探索深度
+  "default_hook_type": "symbolic_return",  // 自动生成 Hook 时的默认类型
   "timeout": 300,                   // 超时（秒）
   "veritesting": true               // 是否启用 Veritesting 混合执行
 }
 ```
 
-#### 4.2.4 配置示例
+#### 4.2.5 配置示例
 
 ```jsonc
 {
@@ -542,20 +567,31 @@ Hook 定义了深度边界处被调用函数的"摘要行为"和风险特征。
     "global_strategy": {
       "call_graph_path": "data/modeling/call_graph_unified.json",
       "default_max_depth": 3,
+      "default_hook_type": "symbolic_return",
       "timeout": 300,
       "veritesting": true
     },
 
-    "inspect_hooks": {
+    "hooks": {                        // 机制：只定义 hook_type
       "ddr5_train_vref_dq": {
-        "hook_type": "symbolic_return",
+        "hook_type": "symbolic_return"
+      },
+      "ddr5_train_vref_ca": {
+        "hook_type": "symbolic_return"
+      },
+      "ddr5_write_reg": {
+        "hook_type": "symbolic_return"
+      }
+    },
+
+    "inspect_specs": {                // 语义：为 hooks 提供风险注解
+      "ddr5_train_vref_dq": {
         "risk_level": "warning",
         "risk_tags": ["register_write", "value_range_overflow"],
         "return_range": [0, 255],
         "description": "Writes MR6 VREF_DQ_VAL. Returns 0-255 but spec limits to 0-127."
       },
       "ddr5_write_reg": {
-        "hook_type": "symbolic_return",
         "risk_level": "warning",
         "risk_tags": ["register_write", "timing_critical"],
         "description": "Writes a mode register. tMRD timing must be observed."
@@ -627,27 +663,151 @@ Hook 定义了深度边界处被调用函数的"摘要行为"和风险特征。
 
 每个入口点单独保存一份完整结果，字段与 `entry_results[]` 中的元素一致。便于按函数查询分析结果。
 
-#### 4.3.3 Inspect Hook 库（inspect_hooks）
+#### 4.3.3 TraceRecorder 输出（traces/）
 
-**文件路径**：`data/sym_execution/inspect_hooks.json`
+**说明**：每个入口点执行时，`TraceRecorder` 记录完整的事件流水，同步输出为 JSON 和 Markdown 两种格式。
 
-保存本次执行中实际使用的所有 Hook 定义（含自动生成的），用于结果可复现。
+**文件路径**：`data/sym_execution/traces/trace_{function_name}.json`
+
+结构化 JSON 事件流，每个事件包含：类型、函数名、深度、符号变量、路径约束、寄存器快照。
+
+```jsonc
+{
+  "entry_function": "_state_vref_train",
+  "max_depth": 3,
+  "event_count": 5,
+  "finding_count": 2,
+  "events": [
+    {
+      "event_type": "entry_start",           // 入口点开始执行
+      "function": "_state_vref_train",
+      "depth": 0,
+      "details": { "address": "0x8001000", "max_depth": 3 }
+    },
+    {
+      "event_type": "hook_triggered",        // 边界 Hook 被触发
+      "function": "ddr5_train_vref_dq",
+      "depth": 3,
+      "symbolic_vars": [{                   // 创建的符号变量
+        "name": "inspect_ddr5_train_vref_dq_ret",
+        "bits": 32,
+        "description": "Writes MR6 VREF_DQ_VAL..."
+      }],
+      "constraints": ["<Bool True>"],       // 当前路径约束
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {                       // 寄存器快照
+          "r0": "<BV32 0x40>",
+          "r1": "<BV32 0x6>",
+          "pc": "<BV32 0x8001300>"
+        }
+      }
+    },
+    {
+      "event_type": "finding",               // 风险发现
+      "function": "ddr5_train_vref_dq",
+      "depth": 3,
+      "finding_id": "F-ddr5_train_vref_dq-3",
+      "details": {
+        "message": "Training value written to 7-bit register field",
+        "risk_level": "warning",
+        "risk_tags": ["register_write", "value_range_overflow"]
+      }
+    },
+    {
+      "event_type": "entry_end",             // 入口点执行完成
+      "function": "_state_vref_train",
+      "depth": 0,
+      "details": { "status": "completed", "active_paths": 2 }
+    }
+  ],
+  "findings": [                             // findings 汇总
+    {
+      "finding_id": "F-ddr5_train_vref_dq-3",
+      "function": "ddr5_train_vref_dq",
+      "message": "Training value written to 7-bit register field",
+      "symbolic_vars": [...],
+      "constraints": [...]
+    }
+  ]
+}
+```
+
+**事件类型枚举**：
+
+| event_type | 含义 | 捕获的信息 |
+|------------|------|-----------|
+| `entry_start` | 入口点开始 | 地址、参数、max_depth |
+| `hook_triggered` | 边界 Hook 在符号执行中被触发 | 符号变量名/位宽、寄存器 r0-r3/sp/lr/pc、路径约束 |
+| `symbolic_var_created` | SimProcedure 创建符号变量 | 变量名、位宽、描述 |
+| `memory_write` | 对敏感地址的写入 | 目标地址、值描述、是否符号值 |
+| `finding` | 风险发现（risk_level=warning/critical 自动触发） | risk_level、risk_tags、symbolic_vars、constraints |
+| `branch` | 分支决策 | 条件表达式、选择方向 |
+| `entry_end` | 入口点完成 | 状态、活跃路径数 |
+
+**文件路径**：`data/sym_execution/traces/trace_{function_name}.md`
+
+Markdown 格式包含：
+
+```
+# Symbolic Execution Trace: `ddr5_train_vref_dq`
+
+- Max depth: 3
+- Events: 5
+- Findings: 2
+
+## Event Log
+
+| # | Type | Function | Depth | Details |
+|---|------|----------|-------|---------|
+| 0 | entry_start | _state_vref_train | 0 | address=0x8001000; max_depth=3 |
+
+## Findings
+
+### Finding: F-ddr5_train_vref_dq-3
+- Function: `ddr5_train_vref_dq` (depth=3)
+- Message: Training value written to 7-bit register field...
+- Symbolic var: `inspect_ddr5_train_vref_dq_ret` (32 bit)
+- Constraint: `<Bool True>`
+```
+
+**复现价值**：Markdown 文件可以直接作为 Bug Report 的复现步骤附件。JSON 文件携带完整上下文（symbolic vars + constraints + register snapshot），开发者可据此重新生成相同的符号执行状态。**每个 finding 在 trace 中都有完整的 symbolic var 定义和路径约束记录，确保可复现。**
+
+#### 4.3.4 Hook 库快照（hooks.json）
+
+**文件路径**：`data/sym_execution/hooks.json`
+
+保存本次执行中实际注册的所有 `HookSpec`（含配置指定的和自动生成的），用于结果可复现。
 
 ```jsonc
 {
   "ddr5_train_vref_dq": {
     "function_name": "ddr5_train_vref_dq",
-    "hook_type": "symbolic_return",
-    "risk_level": "warning",
-    "risk_tags": ["register_write", "value_range_overflow"],
-    "return_range": [0, 255],
-    "modified_registers": [],
-    "description": "Writes MR6..."
+    "hook_type": "symbolic_return"
   }
 }
 ```
 
-#### 4.3.4 入口点配置快照（entry_points）
+#### 4.3.5 InspectSpec 快照（inspect_specs.json）
+
+**文件路径**：`data/sym_execution/inspect_specs.json`
+
+保存本次执行的 `InspectSpec` 风险语义定义。
+
+```jsonc
+{
+  "ddr5_train_vref_dq": {
+    "function_name": "ddr5_train_vref_dq",
+    "risk_level": "warning",
+    "risk_tags": ["register_write", "value_range_overflow"],
+    "return_range": [0, 255],
+    "modified_registers": [],
+    "description": "Writes MR6 VREF_DQ_VAL..."
+  }
+}
+```
+
+#### 4.3.6 入口点配置快照（entry_points.json）
 
 **文件路径**：`data/sym_execution/entry_points.json`
 
@@ -659,7 +819,6 @@ Hook 定义了深度边界处被调用函数的"摘要行为"和风险特征。
     "function": "_state_vref_train",
     "max_depth": 3,
     "context": "Stage 4: register_config_audit — ...",
-    "inspect_default": "symbolic_return",
     "entry_args": []
   }
 ]
@@ -685,7 +844,7 @@ Hook 定义了深度边界处被调用函数的"摘要行为"和风险特征。
   ┌─────────────────────────────────────┐
   │  HookLibrary                        │
   │  + call_graph_unified.json (BFS)    │
-  │  + inspect_hooks config             │
+  │  + hooks + inspect_specs config   │
   └─────────────────────────────────────┘
            │
            ├──► auto_generate_hooks() → boundary functions set
@@ -707,7 +866,8 @@ Hook 定义了深度边界处被调用函数的"摘要行为"和风险特征。
            │
            ├──► symbolic_report.json              (汇总)
            ├──► entry_results/{func}.json          (逐入口点详情)
-           ├──► inspect_hooks.json                 (Hook 定义快照)
+           ├──► hooks.json                        (HookSpec 快照)
+           ├──► inspect_specs.json                (InspectSpec 快照)
            └──► entry_points.json                  (入口点配置快照)
 ```
 
@@ -738,10 +898,14 @@ data/
 │   └── protocol_conformance.json
 ├── sym_execution/                  # Stage 5 输出
 │   ├── symbolic_report.json
-│   ├── inspect_hooks.json          # Hook 定义快照（可复现）
-│   ├── entry_points.json           # 入口点配置快照
-│   └── entry_results/              # 逐入口点详情
-│       └── {function_name}.json
+│   ├── hooks.json                   # HookSpec 快照（可复现）
+│   ├── inspect_specs.json           # InspectSpec 快照
+│   ├── entry_points.json            # 入口点配置快照
+│   ├── entry_results/              # 逐入口点详情
+│   │   └── {function_name}.json
+│   └── traces/                     # TraceRecorder 输出
+│       ├── trace_{function_name}.json
+│       └── trace_{function_name}.md
 └── spec_model_ddr5_mock.json       # 外部协议知识库
 ```
 

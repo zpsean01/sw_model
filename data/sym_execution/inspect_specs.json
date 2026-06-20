@@ -1,0 +1,41 @@
+{
+  "ddr5_train_vref_dq": {
+    "function_name": "ddr5_train_vref_dq",
+    "risk_level": "warning",
+    "risk_tags": [
+      "register_write",
+      "value_range_overflow"
+    ],
+    "return_range": [
+      0,
+      255
+    ],
+    "modified_registers": [],
+    "description": "Writes MR6 VREF_DQ_VAL. Returns 0-255 but spec limits to 0-127 (7-bit)."
+  },
+  "ddr5_train_vref_ca": {
+    "function_name": "ddr5_train_vref_ca",
+    "risk_level": "warning",
+    "risk_tags": [
+      "register_write",
+      "value_range_overflow"
+    ],
+    "return_range": [
+      0,
+      255
+    ],
+    "modified_registers": [],
+    "description": "Writes MR7 VREF_CA_VAL. Returns 0-255 but spec limits to 0-127 (7-bit)."
+  },
+  "ddr5_write_reg": {
+    "function_name": "ddr5_write_reg",
+    "risk_level": "warning",
+    "risk_tags": [
+      "register_write",
+      "timing_critical"
+    ],
+    "return_range": null,
+    "modified_registers": [],
+    "description": "Writes a mode register. tMRD timing must be observed after this call."
+  }
+}
