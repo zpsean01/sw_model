@@ -14,7 +14,7 @@
       "group": "root",
       "text": "Functions",
       "node_type": "function",
-      "count": 185
+      "count": 208
     },
     {
       "key": "attest_compute_token",
@@ -897,6 +897,429 @@
       "short_file": "fw_samples/lib/crypto.c",
       "return_type": "void",
       "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "ddr5_tck_ns",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_tck_ns",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_timing.h",
+      "short_file": "src/ddr/ddr5_timing.h",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "bin",
+          "type": "ddr5_speed_bin_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ddr5_train_vref_dq",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_train_vref_dq",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h",
+      "short_file": "src/ddr/ddr5_training.h",
+      "return_type": "uint8_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "ddr5_train_vref_ca",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_train_vref_ca",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h",
+      "short_file": "src/ddr/ddr5_training.h",
+      "return_type": "uint8_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "ddr5_train_dq_write_leveling",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_train_dq_write_leveling",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h",
+      "short_file": "src/ddr/ddr5_training.h",
+      "return_type": "void",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "ddr5_train_duty_cycle",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_train_duty_cycle",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h",
+      "short_file": "src/ddr/ddr5_training.h",
+      "return_type": "uint8_t",
+      "parameters": [],
+      "calls": []
+    },
+    {
+      "key": "ddr5_delay_cycles",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_delay_cycles",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "cycles",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ddr5_ca_bus_send",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_ca_bus_send",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "cmd",
+          "type": "uint16_t"
+        },
+        {
+          "name": "addr",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ddr5_mr_read",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_mr_read",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "mr_addr",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ddr5_mr_write",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_mr_write",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "mr_addr",
+          "type": "uint8_t"
+        },
+        {
+          "name": "data",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ddr5_set_cke",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_set_cke",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "state",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ddr5_set_reset_n",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_set_reset_n",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "state",
+          "type": "uint8_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ddr5_read_reg",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_read_reg",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "addr",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ddr5_write_reg",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_write_reg",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "addr",
+          "type": "uint32_t"
+        },
+        {
+          "name": "val",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "_state_mr_config",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "_state_mr_config",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "_state_vref_train",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "_state_vref_train",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [
+        "ddr5_train_vref_ca",
+        "ddr5_train_vref_dq"
+      ]
+    },
+    {
+      "key": "_state_zq_calib",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "_state_zq_calib",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [
+        "ddr5_read_reg"
+      ]
+    },
+    {
+      "key": "_state_dq_train",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "_state_dq_train",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "_state_ca_train",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "_state_ca_train",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "_state_dca_train",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "_state_dca_train",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [
+        "ddr5_train_duty_cycle"
+      ]
+    },
+    {
+      "key": "_state_crc_config",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "_state_crc_config",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "_state_mr_verify",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "_state_mr_verify",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "_Bool",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        }
+      ],
+      "calls": [
+        "ddr5_mr_read"
+      ]
+    },
+    {
+      "key": "_mrw_register",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "_mrw_register",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "_Bool",
+      "parameters": [
+        {
+          "name": "ctx",
+          "type": "ddr5_init_context_t *"
+        },
+        {
+          "name": "mr",
+          "type": "uint8_t"
+        },
+        {
+          "name": "value",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": []
+    },
+    {
+      "key": "ddr5_initialize",
+      "category": "Group",
+      "isGroup": true,
+      "group": "functions-group",
+      "text": "ddr5_initialize",
+      "node_type": "function",
+      "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr\\\\ddr5_init_controller.c",
+      "short_file": "src/ddr/ddr5_init_controller.c",
+      "return_type": "ddr5_init_state_t",
+      "parameters": [
+        {
+          "name": "speed_bin",
+          "type": "ddr5_speed_bin_t"
+        }
+      ],
       "calls": []
     },
     {
@@ -3529,94 +3952,154 @@
   ],
   "linkDataArray": [
     {
-      "from": "IPC_Send",
-      "to": "ipc_find_free_slot",
+      "from": "_state_vref_train",
+      "to": "ddr5_train_vref_ca",
       "key": "0",
       "text": "0"
     },
     {
-      "from": "IPC_Reply",
-      "to": "ipc_find_free_slot",
-      "key": "1",
-      "text": "1"
-    },
-    {
-      "from": "IPC_Notify",
-      "to": "ipc_find_free_slot",
-      "key": "2",
-      "text": "2"
-    },
-    {
-      "from": "IPC_EndpointDestroy",
-      "to": "ipc_find_endpoint",
-      "key": "3",
-      "text": "3"
-    },
-    {
-      "from": "ITS_Write",
-      "to": "its_find_file",
-      "key": "4",
-      "text": "4"
-    },
-    {
-      "from": "ITS_Read",
-      "to": "its_find_file",
+      "from": "_state_vref_train",
+      "to": "ddr5_train_vref_ca",
       "key": "5",
       "text": "5"
     },
     {
-      "from": "ITS_Delete",
-      "to": "its_find_file",
+      "from": "_state_vref_train",
+      "to": "ddr5_train_vref_dq",
+      "key": "1",
+      "text": "1"
+    },
+    {
+      "from": "_state_vref_train",
+      "to": "ddr5_train_vref_dq",
       "key": "6",
       "text": "6"
     },
     {
-      "from": "ITS_GetSize",
-      "to": "its_find_file",
+      "from": "_state_zq_calib",
+      "to": "ddr5_read_reg",
+      "key": "2",
+      "text": "2"
+    },
+    {
+      "from": "_state_zq_calib",
+      "to": "ddr5_read_reg",
       "key": "7",
       "text": "7"
     },
     {
-      "from": "ITS_GetFlags",
-      "to": "its_find_file",
+      "from": "_state_dca_train",
+      "to": "ddr5_train_duty_cycle",
+      "key": "3",
+      "text": "3"
+    },
+    {
+      "from": "_state_dca_train",
+      "to": "ddr5_train_duty_cycle",
       "key": "8",
       "text": "8"
     },
     {
-      "from": "ITS_EncryptFile",
-      "to": "its_find_file",
+      "from": "_state_mr_verify",
+      "to": "ddr5_mr_read",
+      "key": "4",
+      "text": "4"
+    },
+    {
+      "from": "_state_mr_verify",
+      "to": "ddr5_mr_read",
       "key": "9",
       "text": "9"
     },
     {
-      "from": "STORAGE_Write",
-      "to": "storage_find_item",
+      "from": "IPC_Send",
+      "to": "ipc_find_free_slot",
       "key": "10",
       "text": "10"
     },
     {
-      "from": "STORAGE_Read",
-      "to": "storage_find_item",
+      "from": "IPC_Reply",
+      "to": "ipc_find_free_slot",
       "key": "11",
       "text": "11"
     },
     {
-      "from": "STORAGE_Delete",
-      "to": "storage_find_item",
+      "from": "IPC_Notify",
+      "to": "ipc_find_free_slot",
       "key": "12",
       "text": "12"
     },
     {
-      "from": "STORAGE_GetInfo",
-      "to": "storage_find_item",
+      "from": "IPC_EndpointDestroy",
+      "to": "ipc_find_endpoint",
       "key": "13",
       "text": "13"
     },
     {
-      "from": "STORAGE_IsAuthenticated",
-      "to": "storage_find_item",
+      "from": "ITS_Write",
+      "to": "its_find_file",
       "key": "14",
       "text": "14"
+    },
+    {
+      "from": "ITS_Read",
+      "to": "its_find_file",
+      "key": "15",
+      "text": "15"
+    },
+    {
+      "from": "ITS_Delete",
+      "to": "its_find_file",
+      "key": "16",
+      "text": "16"
+    },
+    {
+      "from": "ITS_GetSize",
+      "to": "its_find_file",
+      "key": "17",
+      "text": "17"
+    },
+    {
+      "from": "ITS_GetFlags",
+      "to": "its_find_file",
+      "key": "18",
+      "text": "18"
+    },
+    {
+      "from": "ITS_EncryptFile",
+      "to": "its_find_file",
+      "key": "19",
+      "text": "19"
+    },
+    {
+      "from": "STORAGE_Write",
+      "to": "storage_find_item",
+      "key": "20",
+      "text": "20"
+    },
+    {
+      "from": "STORAGE_Read",
+      "to": "storage_find_item",
+      "key": "21",
+      "text": "21"
+    },
+    {
+      "from": "STORAGE_Delete",
+      "to": "storage_find_item",
+      "key": "22",
+      "text": "22"
+    },
+    {
+      "from": "STORAGE_GetInfo",
+      "to": "storage_find_item",
+      "key": "23",
+      "text": "23"
+    },
+    {
+      "from": "STORAGE_IsAuthenticated",
+      "to": "storage_find_item",
+      "key": "24",
+      "text": "24"
     }
   ]
 }

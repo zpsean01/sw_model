@@ -230,28 +230,20 @@ APP._renderPCGoJS = function(gojsData, findingsData) {
     allowDelete: false,
   });
 
-  // Load data (backend already annotated nodeDataArray with 'findings' and 'color')
+  // Load data — nodeTemplate has new go.Binding('fill', 'color'),
+  // so nodes with a 'color' property are automatically highlighted
   GoJSTopo.loadData(gojsData);
 
-  // Color nodes using the backend-supplied 'color' field
+  // Build legend from colored nodes
   if (APP.pcDiagram) {
     var nodeDataArr = gojsData.nodeDataArray || [];
     var usedColors = {};
     nodeDataArr.forEach(function(nd) {
       if (nd.color) {
-        var node = APP.pcDiagram.findNodeForKey(nd.key);
-        if (node) {
-          var shape = node.findObject("SHAPE");
-          if (shape) {
-            shape.fill = nd.color;
-            shape.strokeWidth = 3;
-          }
-        }
         usedColors[nd.color] = nd.findings ? nd.findings[0].severity : "info";
       }
     });
 
-    // Build legend from used colors
     var legendLabels = {
       "#7f1d1d": "Critical",
       "#dc2626": "High",

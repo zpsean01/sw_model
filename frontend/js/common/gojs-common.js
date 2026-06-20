@@ -90,6 +90,7 @@ const GoJSCommon = {
         });
 
         this._applyLayout(diagram, opts.layout);
+        this._setupNodeTemplate($, diagram, opts);
         this._setupGroupTemplate($, diagram, opts);
         if (opts.linkable !== false) {
             this._setupLinkTemplate($, diagram, opts);
@@ -129,6 +130,41 @@ const GoJSCommon = {
                 spacing: new go.Size(10, 10)
             });
         }
+    },
+
+    _setupNodeTemplate($, diagram, opts) {
+        const self = this;
+
+        diagram.nodeTemplate = $(go.Node, 'Auto', {
+            click: (e, node) => {
+                if (opts.onNodeClick) opts.onNodeClick(node.data);
+            },
+            doubleClick: (e, node) => {
+                if (opts.onNodeDoubleClick) opts.onNodeDoubleClick(node.data);
+            }
+        },
+            new go.Binding('location', 'loc', go.Point.parse).makeTwoWay(go.Point.stringify),
+            $(go.Shape, 'RoundedRectangle', {
+                name: 'SHAPE',
+                fill: self.NODE_FILL,
+                stroke: self.NODE_STROKE,
+                strokeWidth: self.NODE_STROKE_WIDTH,
+                portId: '',
+                fromLinkable: true,
+                toLinkable: true,
+                fromLinkableDuplicates: true,
+                toLinkableDuplicates: true,
+                cursor: 'pointer'
+            },
+                new go.Binding('fill', 'color'),
+                new go.Binding('strokeWidth', 'color', function() { return 3; })
+            ),
+            $(go.TextBlock, {
+                font: self.TEXT_FONT,
+                stroke: self.TEXT_STROKE,
+                margin: 6
+            }, new go.Binding('text', 'text'))
+        );
     },
 
     _setupGroupTemplate($, diagram, opts) {
@@ -175,6 +211,7 @@ const GoJSCommon = {
                     toLinkableDuplicates: true,
                     cursor: 'pointer'
                 },
+                    new go.Binding('fill', 'color'),
                     new go.Binding('stroke', 'isBase', b => b ? self.GROUP_STROKE : '#95a5a6'),
                     new go.Binding('strokeWidth', 'isBase', b => b ? self.GROUP_BASE_STROKE_WIDTH : self.GROUP_STROKE_WIDTH),
                     new go.Binding('stroke', 'isHighlighted', (h, sh) => h ? self.HIGHLIGHT_STROKE : (sh.part.data.isBase ? self.GROUP_STROKE : '#95a5a6')),
@@ -264,8 +301,8 @@ const GoJSCommon = {
      * 所有节点统一为 Group
      */
     networkxToGoJS(data) {
-        const nodes = data.nodes || [];
-        const links = data.links || [];
+        const nodes = Array.isArray(data.nodes) ? data.nodes : [];
+        const links = Array.isArray(data.links) ? data.links : [];
 
         const containsMap = {};
         const childOfGroup = new Set();
@@ -405,14 +442,14 @@ const GoJSCommon = {
     },
 
     _normalizeGroupStructure(nodeDataArray, linkDataArray) {
-        if (!nodeDataArray || nodeDataArray.length === 0) {
-            return { nodeDataArray: nodeDataArray || [], linkDataArray: linkDataArray || [] };
+        if (!nodeDataArray || !Array.isArray(nodeDataArray) || nodeDataArray.length === 0) {
+            return { nodeDataArray: nodeDataArray || [], linkDataArray: Array.isArray(linkDataArray) ? linkDataArray : [] };
         }
 
         const containsEdges = [];
         const otherLinks = [];
 
-        (linkDataArray || []).forEach(l => {
+        (Array.isArray(linkDataArray) ? linkDataArray : []).forEach(l => {
             const cat = l.category || '';
             if (cat === 'contains') {
                 containsEdges.push(l);
@@ -452,7 +489,7 @@ const GoJSCommon = {
 
         let nodeDataArray, linkDataArray;
 
-        if (data.nodeDataArray && data.linkDataArray) {
+        if (Array.isArray(data.nodeDataArray) && Array.isArray(data.linkDataArray)) {
             const normalized = this._normalizeGroupStructure(data.nodeDataArray, data.linkDataArray);
             nodeDataArray = normalized.nodeDataArray;
             linkDataArray = normalized.linkDataArray;

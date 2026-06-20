@@ -82,7 +82,7 @@
             },
             {
                 "id": "stage5",
-                "name": "Dynamic Symbolic Execution",
+                "name": "Dynamic Symbolic Execution (Depth-Limited)",
                 "enabled": true,
                 "module": "modules.stage5.symbolic_execution",
                 "class": "Stage5SymbolicExecution",
@@ -90,12 +90,46 @@
                 "params": {
                     "elf_file": "fw_samples/build/bin/firmware_tfm.elf",
                     "output_dir": "data/sym_execution",
-                    "target_addresses": [],
-                    "exploration": {
+
+                    "entry_points": [],
+
+                    "global_strategy": {
+                        "call_graph_path": "data/modeling/call_graph_unified.json",
+                        "default_max_depth": 3,
                         "timeout": 300,
-                        "max_depth": 100,
-                        "veritesting": true,
-                        "lazy_initialization": true
+                        "veritesting": true
+                    },
+
+                    "hooks": {
+                        "ddr5_train_vref_dq": {
+                            "hook_type": "symbolic_return"
+                        },
+                        "ddr5_train_vref_ca": {
+                            "hook_type": "symbolic_return"
+                        },
+                        "ddr5_write_reg": {
+                            "hook_type": "symbolic_return"
+                        }
+                    },
+
+                    "inspect_specs": {
+                        "ddr5_train_vref_dq": {
+                            "risk_level": "warning",
+                            "risk_tags": ["register_write", "value_range_overflow"],
+                            "return_range": [0, 255],
+                            "description": "Writes MR6 VREF_DQ_VAL. Returns 0-255 but spec limits to 0-127 (7-bit)."
+                        },
+                        "ddr5_train_vref_ca": {
+                            "risk_level": "warning",
+                            "risk_tags": ["register_write", "value_range_overflow"],
+                            "return_range": [0, 255],
+                            "description": "Writes MR7 VREF_CA_VAL. Returns 0-255 but spec limits to 0-127 (7-bit)."
+                        },
+                        "ddr5_write_reg": {
+                            "risk_level": "warning",
+                            "risk_tags": ["register_write", "timing_critical"],
+                            "description": "Writes a mode register. tMRD timing must be observed after this call."
+                        }
                     }
                 }
             }
