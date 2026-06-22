@@ -1,4 +1,4 @@
-# 数据模型规格说明书 — Stage 4 与 Stage 5
+# 数据模型规格说明书 — Stage 4、Stage 5 与 Stage 6
 
 > 本文档定义 `architecture_spec.md` 中 Stage 4（场景模型构建与安全审计）和 Stage 5（动态符号执行）所涉及的全部数据模型，包括输入、中间表示和输出产物的字段语义、类型约束和关联关系。
 
@@ -150,6 +150,18 @@ Stage 2 输出，识别 `enum + switch` 模式构成的状态机。
 
 **文件路径**：`data/spec_model_ddr5_mock.json`（概念验证 mock）
 
+> **消费方说明**：sw_model 作为 spec_model 的消费者，当前主要消费以下子集：
+> 1. `object_entities.registers[].fields[].valid_values` → `register_config_audit`
+> 2. `behavior_constraints.timing` → `timing_constraint_audit`
+> 3. `behavior_constraints.state_machines` → `state_machine_completeness` / `error_handling_coverage`
+> 4. `object_entities.registers[].cross_dependency` → `cross_register_dependency`
+>
+> 其余字段（pairwise 成对约束、path 路径约束、resource 资源约束等）为未来扩展预留，
+> 完整定义参见 `spec_model/data_model_spec.md`。
+>
+> **版本一致性**：spec_model 的 `metadata.protocol` / `metadata.version` 必须在各阶段间保持
+> 一致，并与数据目录名 `{protocol}_{version}` 匹配。不匹配时流水线应产生告警。
+
 ### 2.1 顶层结构
 
 ```jsonc
@@ -180,13 +192,16 @@ Stage 2 输出，识别 `enum + switch` 模式构成的状态机。
       "description": "string",
       "fields": {
         "FIELD_NAME": {
-          "bits": [0, 6],          // 位域范围 [高位, 低位]；或 "bit": 3
-          "valid_values": [0, 127],  // 合法取值集合
+          "bits": [6, 0],          // 位域范围 [high_bit, low_bit]，如 [6,0]=bit6~bit0
+          "valid_values": {
+            "range": {"min": 0, "max": 127}  // 范围模式
+            // 或枚举模式: "enum": ["BL8", "BC4", "BC4_OFF"]
+          },
           "description": "string",
           "depends_on": ["MR3.CRC_EN_WR=1"]  // 可选：依赖条件
         }
       },
-      "cross_dependency": "string" // 可选：跨寄存器依赖说明
+      "cross_dependency": "string"  // 可选：跨寄存器依赖说明
     }
   ],
   "commands": [
@@ -202,6 +217,22 @@ Stage 2 输出，识别 `enum + switch` 模式构成的状态机。
 }
 ```
 
+#### 寄存器位域字段 (Field) Schema
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| `bits` | array | 位域范围 `[high_bit, low_bit]`，如 `[6, 0]` 表示 bit6~bit0。单比特用 `[n, n]` |
+| `valid_values` | object | **两种格式**：`{"range": {"min": 0, "max": 127}}` 连续范围 或 `{"enum": ["BL8", "BC4"]}` 离散枚举。消费方 `register_config_audit` 断言按此格式校验固件写入值 |
+| `description` | string | 该位域的功能描述 |
+| `depends_on` | list \| null | 可选依赖条件，形如 `["MR3.CRC_EN_WR=1"]`。仅当条件满足时该位域才生效 |
+
+**bits 位域顺序约定**：spec_model 使用 `[high_bit, low_bit]` 顺序（如 `[6, 0]`），sw_model 在消费时需保持一致，避免位域解析错误。
+
+**valid_values 消费语义**：
+- `range`：固件写入值必须在 `[min, max]` 闭区间内
+- `enum`：固件写入值必须是枚举列表中之一
+- 当未提供 `valid_values` 时，默认使用 `[0, 2^(bits_len)-1]` 范围
+
 ### 2.3 generalized_interfaces — 广义接口
 
 描述协议物理接口的抽象。
@@ -209,26 +240,60 @@ Stage 2 输出，识别 `enum + switch` 模式构成的状态机。
 ```jsonc
 {
   "CA_Bus": {
-    "description": "string",
-    "commands": {
-      "MRW": {
-        "ca_pins": "string",       // CA 引脚编码
-        "tMRD_min": 8             // 可选：该命令的最小时序要求
+    "type": "pin_group",             // 接口类型：pin_group / protocol_interface / bus / register_file / interrupt
+    "direction": "bidirectional",    // 方向：input / output / bidirectional / internal
+    "description": "Command/Address bus — 14-bit CA bus from controller to DRAM",
+    "source_section": "JESD79-5C §2.1",  // 协议规范溯源（可选）
+    "signals": [                     // 物理信号列表（仅 pin_group 类型）
+      {"name": "CA[0]", "direction": "input", "group": "CA"}
+    ],
+    "operations": [                  // 操作原语列表
+      {
+        "name": "MRW",
+        "direction": "initiator",
+        "description": "Mode Register Write",
+        "ca_pins": "CA[13:0] encoded: CS/RAS/CAS/WE = 0011",
+        "parameters": [
+          {"name": "mr_addr", "type": "uint8", "range": {"min": 0, "max": 254}},
+          {"name": "op_value", "type": "uint8", "range": {"min": 0, "max": 255}}
+        ]
       }
-    }
+    ]
   },
   "MR_Interface": {
-    "description": "string",
+    "type": "register_file",
+    "direction": "internal",
+    "description": "DDR5 Mode Registers MR0–MR254",
     "register_map": {
       "DDR_CTRL_MR_CMD": {
-        "offset": "string",        // 相对于基址的偏移
-        "access": "rw" | "ro" | "wo",
-        "values": { "BUSY": "(1<<31)" }  // 可选：位域编码
+        "offset": "0x100",
+        "access": "rw",
+        "description": "Write: send MRW; Read: read MRR result"
       }
-    }
+    },
+    "registers": [ ... ],           // 同 §2.2 registers 定义
+    "operations": [
+      {
+        "name": "MRW",
+        "direction": "initiator",
+        "description": "Mode Register Write via CA Bus"
+      }
+    ]
   }
 }
 ```
+
+**接口类型语义**（消费方重点）：
+
+| 类型 | 含义 | sw_model 消费场景 |
+|------|------|-----------------|
+| `pin_group` | 物理引脚组 | `timing_constraint_audit` 关联时序参数 |
+| `register_file` | 寄存器接口 | `register_config_audit` 校验写入值、`cross_register_dependency` 校验配置顺序 |
+| `interrupt` | 中断信号 | 事件模型 `event_architecture` 建立 ISR→触发事件关系 |
+
+**operations[].parameters[].range 消费语义**：
+- `register_config_audit` 断言用 `parameters[].range` 校验命令参数合法性，作为 `valid_values` 的补充
+- 当参数名匹配寄存器位域名时，以寄存器 `valid_values` 为准，`parameters.range` 作为宽范围兜底
 
 ### 2.4 behavior_constraints — 行为约束
 
@@ -264,6 +329,8 @@ Stage 2 输出，识别 `enum + switch` 模式构成的状态机。
 }
 ```
 
+
+
 ### 2.5 scenarios — 业务场景
 
 定义协议层面的典型业务场景，用于对比固件实现。
@@ -290,6 +357,28 @@ Stage 2 输出，识别 `enum + switch` 模式构成的状态机。
     }
   }
 }
+```
+
+
+
+### 2.6 spec_model → sw_model 消费映射总表（按审计类型）
+
+| sw_model 审计类型 | 所在阶段 | spec_model 源字段 | sw_model 消费逻辑 |
+|-----------------|---------|------------------|------------------|
+| `register_config_audit` | Stage 4 | `object_entities.registers[].fields[].valid_values`（range/enum） | 断言固件写入值在 `range` 或 `enum` 范围内；无 `valid_values` 时默认 `[0, 2^bits_len - 1]` |
+| `timing_constraint_audit` | Stage 4 | `behavior_constraints.timing[].min_cycles` | 断言固件等待循环数 ≥ `min_cycles` |
+| `state_machine_completeness` | Stage 4 | `behavior_constraints.state_machines[].protocol_states` + `expected_states` | 断言固件实现了协议的全部状态 |
+| `error_handling_coverage` | Stage 4 | `behavior_constraints.state_machines[].error_recovery_required` + `recovery_requirement` | 断言固件包含所需错误恢复路径 |
+| `cross_register_dependency` | Stage 4 | `object_entities.registers[].cross_dependency` | 解析跨寄存器依赖表达式，断言依赖条件满足 |
+| Stage 5 entry_point 提取 | Stage 5 | `scenarios[].expected_path[].function` | 提取符号执行入口函数，配合 max_depth 遍历 |
+| Stage 5 inspect_trigger | Stage 5 | `object_entities.registers[].fields[].valid_values` + `behavior_constraints.timing[]` | 在 SimProcedure 边界处捕获寄存器写入值，与 spec_model 合法值比较 |
+| Stage 6 风险聚合 | Stage 6 | 全部上述字段（间接通过 Stage 4/5 报告） | 分类 verified/residual，下游测试系统按此优先级排序 |
+
+**版本一致性规则**：
+```
+metadata.protocol = "DDR5", metadata.version = "JESD79-5C"
+→ 数据目录 data/{modeling,sym_execution,risks}/DDR5_JESD79-5C/protocol_conformance/
+首次加载 spec_model 时，流水线应校验 protocol/version 并与 config 中的预期值匹配。
 ```
 
 ---
