@@ -90,6 +90,7 @@
                 "params": {
                     "elf_file": "fw_samples/build/bin/firmware_tfm.elf",
                     "output_dir": "data/sym_execution",
+                    "spec_model_path": "data/spec_model_ddr5_mock.json",
 
                     "entry_points": [],
 
@@ -131,6 +132,21 @@
                             "description": "Writes a mode register. tMRD timing must be observed after this call."
                         }
                     }
+                }
+            },
+            {
+                "id": "stage6",
+                "name": "Risk Audit & Aggregation",
+                "enabled": true,
+                "module": "modules.stage6.risk_aggregator",
+                "class": "Stage6RiskAggregator",
+                "depends_on": ["stage4", "stage5"],
+                "params": {
+                    "output_dir": "data/risks",
+                    "spec_model_path": "data/spec_model_ddr5_mock.json",
+                    "stage4_pc_path": "data/modeling/DDR5_JESD79-5C/protocol_conformance/report.json",
+                    "stage5_report_path": "data/sym_execution/symbolic_report.json",
+                    "stage5_traces_dir": "data/sym_execution/traces"
                 }
             }
         ]

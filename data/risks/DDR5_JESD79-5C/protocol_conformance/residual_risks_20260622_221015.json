@@ -1,0 +1,101 @@
+{
+  "protocol": {
+    "name": "DDR5",
+    "version": "JESD79-5C"
+  },
+  "total_residual": 7,
+  "note": "These risks were identified by Stage 4 static analysis but NOT reproduced by Stage 5 symbolic execution. They require downstream dynamic testing for further validation.",
+  "risks": [
+    {
+      "risk_id": "R-state_machine_completeness-unknown-0",
+      "finding_ref": "state_machine_completeness",
+      "risk_type": "state_machine_completeness",
+      "severity": "high",
+      "message": "Firmware state machine 'ddr5_init' is missing 12 protocol-defined state(s): ['DDR5_STATE_CA_TRAIN', 'DDR5_STATE_CKE_HIGH', 'DDR5_STATE_CRC_CONFIG', 'DDR5_STATE_DCA_TRAIN', 'DDR5_STATE_DQ_TRAIN', 'DDR5_STATE_ERROR', 'DDR5_STATE_MR_CONFIG', 'DDR5_STATE_MR_VERIFY', 'DDR5_STATE_READY', 'DDR5_STATE_RESET', 'DDR5_STATE_VREF_TRAIN', 'DDR5_STATE_ZQ_CALIB']",
+      "spec_ref": "JESD79-5C §3.3 — expected 12 states",
+      "location": {
+        "file": "D:\\\\programming\\\\sw_model\\\\fw_samples\\\\src\\\\ddr/ddr5_training.h",
+        "function": ""
+      },
+      "residual_reason": "static_only"
+    },
+    {
+      "risk_id": "R-state_machine_completeness-unknown-1",
+      "finding_ref": "state_machine_completeness",
+      "risk_type": "state_machine_completeness",
+      "severity": "medium",
+      "message": "Missing 10 expected state transition(s): DDR5_STATE_RESET→DDR5_STATE_CKE_HIGH, DDR5_STATE_CKE_HIGH→DDR5_STATE_MR_CONFIG, DDR5_STATE_MR_CONFIG→DDR5_STATE_VREF_TRAIN, DDR5_STATE_VREF_TRAIN→DDR5_STATE_ZQ_CALIB, DDR5_STATE_ZQ_CALIB→DDR5_STATE_DQ_TRAIN, DDR5_STATE_DQ_TRAIN→DDR5_STATE_CA_TRAIN, DDR5_STATE_CA_TRAIN→DDR5_STATE_DCA_TRAIN, DDR5_STATE_DCA_TRAIN→DDR5_STATE_CRC_CONFIG, DDR5_STATE_CRC_CONFIG→DDR5_STATE_MR_VERIFY, DDR5_STATE_MR_VERIFY→DDR5_STATE_READY",
+      "spec_ref": "JESD79-5C §3.3 state transition diagram",
+      "location": {
+        "file": "",
+        "function": ""
+      },
+      "residual_reason": "static_only"
+    },
+    {
+      "risk_id": "R-register_config_audit-ddr5_train_vref_dq-2",
+      "finding_ref": "register_config_audit",
+      "risk_type": "register_config_audit",
+      "severity": "medium",
+      "message": "Function 'ddr5_train_vref_dq' writes MR6 Vref DQ value. Spec limits VREF_DQ_VAL to 127 (7-bit), but training function may return 0-255. Values >127 will be silently truncated.",
+      "spec_ref": "JESD79-5C §3.4.7 — MR6 VREF_DQ_VAL is 7-bit (0-127)",
+      "location": {
+        "file": "",
+        "function": "ddr5_train_vref_dq"
+      },
+      "residual_reason": "path_not_reproduced"
+    },
+    {
+      "risk_id": "R-register_config_audit-ddr5_train_vref_ca-3",
+      "finding_ref": "register_config_audit",
+      "risk_type": "register_config_audit",
+      "severity": "medium",
+      "message": "Function 'ddr5_train_vref_ca' writes MR6 Vref DQ value. Spec limits VREF_DQ_VAL to 127 (7-bit), but training function may return 0-255. Values >127 will be silently truncated.",
+      "spec_ref": "JESD79-5C §3.4.7 — MR6 VREF_DQ_VAL is 7-bit (0-127)",
+      "location": {
+        "file": "",
+        "function": "ddr5_train_vref_ca"
+      },
+      "residual_reason": "path_not_reproduced"
+    },
+    {
+      "risk_id": "R-register_config_audit-_state_vref_train-4",
+      "finding_ref": "register_config_audit",
+      "risk_type": "register_config_audit",
+      "severity": "medium",
+      "message": "Function '_state_vref_train' writes MR6 Vref DQ value. Spec limits VREF_DQ_VAL to 127 (7-bit), but training function may return 0-255. Values >127 will be silently truncated.",
+      "spec_ref": "JESD79-5C §3.4.7 — MR6 VREF_DQ_VAL is 7-bit (0-127)",
+      "location": {
+        "file": "",
+        "function": "_state_vref_train"
+      },
+      "residual_reason": "path_not_reproduced"
+    },
+    {
+      "risk_id": "R-error_handling_coverage-unknown-5",
+      "finding_ref": "error_handling_coverage",
+      "risk_type": "error_handling_coverage",
+      "severity": "high",
+      "message": "DDR5 ERROR state has no outgoing transitions — it is a dead-end state with no recovery path.",
+      "spec_ref": "JESD79-5C §3.3 — error recovery expectation",
+      "location": {
+        "file": "",
+        "function": ""
+      },
+      "residual_reason": "static_only"
+    },
+    {
+      "risk_id": "R-cross_register_dependency-_state_mr_config-6",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "low",
+      "message": "Register dependency detected: MR5_DFE_EN depends on MR3 CRC configuration state. Verify configuration order in '_state_mr_config'.",
+      "spec_ref": "JESD79-5C — MR3 (CRC, Parity, Data Mask)",
+      "location": {
+        "file": "",
+        "function": "_state_mr_config"
+      },
+      "residual_reason": "path_not_reproduced"
+    }
+  ]
+}

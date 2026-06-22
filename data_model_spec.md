@@ -363,7 +363,7 @@ Stage 2 输出，识别 `enum + switch` 模式构成的状态机。
 
 ### 3.3 协议一致性报告（protocol_conformance）
 
-**文件路径**：`data/modeling/protocol_conformance.json`
+**文件路径**：`data/modeling/{protocol}_{version}/protocol_conformance/report.json`
 
 ```jsonc
 {
@@ -411,8 +411,10 @@ Stage 2 output ──┐                │
   state_machines │                ├──► security_report.json
                  │                │    (含所有 findings)
 Stage 3 output ──┤                │
-  call_graph     │                └──► protocol_conformance.json
-  unified        │                     (协议专项 findings)
+  call_graph     │                └──► {protocol}_{version}/
+    unified      │                     └── protocol_conformance/
+                 │                         └── report.json
+                 │                     (协议专项 findings)
                  │
 binary_globals ──┘
 ```
@@ -873,7 +875,129 @@ Markdown 格式包含：
 
 ---
 
-## 5. 附录：数据目录总览
+## 5. Stage 6 — 风险审计与聚合（Risk Audit & Aggregation）
+
+### 5.1 设计动机
+
+风险的消除方向：**静态识别（Stage 4）→ 符号执行验证（Stage 5）→ 风险聚合输出（Stage 6）→ 下游动态测试设计**。
+
+Stage 6 **不做测试用例生成**——测试用例设计是下游系统的职责。Stage 6 只做三件事：
+1. **聚合记录**：将 Stage 4（静态识别）和 Stage 5（符号执行验证）的发现按协议/版本归并，如实记录每个发现的风险等级、来源阶段、验证状态
+2. **风险分类**：标记每个发现属于"已验证风险"（Stage 5 复现确认）还是"遗留风险"（仅静态识别，未在符号执行中复现或无法复现）
+3. **如实输出**：下游系统消费这份风险注册表，自行决定如何设计动态测试用例
+
+### 5.2 数据输入
+
+| 输入来源 | 数据内容 | 用途 |
+|---------|---------|------|
+| Stage 4 `protocol_conformance.json` | 协议一致性发现（状态机、时序、寄存器、错误处理、跨寄存器依赖） | 提供初始风险清单 |
+| Stage 4 `security_report.json` | 全部静态断言发现 | 补充安全/质量类风险 |
+| Stage 5 `symbolic_report.json` | 入口点执行状态、InspectTrigger 记录、风险分布统计 | 标记哪些发现已在符号执行中复现 |
+| Stage 5 `traces/` | 逐入口点 TraceRecorder 事件流水 | 为每个已复现风险提供可追溯的上下文 |
+
+### 5.3 输出模型
+
+#### 5.3.1 风险注册表（risk_registry）
+
+**文件路径**：`data/risks/{protocol}_{version}/protocol_conformance/risk_registry.json`
+
+```jsonc
+{
+  "protocol": {
+    "name": "string",                    // 协议名称，如 "DDR5"
+    "version": "string"                  // 协议版本，如 "JESD79-5C"
+  },
+  "generated_at": "string",              // ISO 8601 时间戳
+  "summary": {
+    "total_risks": 0,                    // 风险总数
+    "verified": 0,                       // 已验证（Stage 5 复现确认）
+    "residual": 0,                       // 遗留（仅 Stage 4 识别）
+    "severity_distribution": {
+      "critical": 0, "high": 0, "medium": 0, "low": 0, "info": 0
+    }
+  },
+  "risks": [
+    {
+      "risk_id": "string",               // 风险唯一标识
+      "source": "stage4" | "stage5",     // 首次发现的阶段
+      "finding_ref": "string",           // 引用原始报告中的 finding ID
+      "risk_type": "state_machine_completeness"
+                 | "timing_constraint_audit"
+                 | "register_config_audit"
+                 | "error_handling_coverage"
+                 | "cross_register_dependency",
+      "severity": "critical" | "high" | "medium" | "low" | "info",
+      "status": "verified"               // 已验证：Stage 5 符号执行复现确认
+              | "residual",              // 遗留：仅 Stage 4 识别
+      "message": "string",               // 风险描述
+      "spec_ref": "string",              // 协议规范引用
+      "location": {
+        "file": "string",
+        "function": "string"
+      },
+      "verification": {                  // 验证详情（仅 verified 时有此字段）
+        "entry_function": "string",
+        "trace_file": "string",
+        "constraints": ["string"],
+        "register_snapshot": {
+          "r0": "string",
+          "r1": "string",
+          "pc": "string"
+        }
+      }
+    }
+  ]
+}
+```
+
+#### 5.3.2 遗留风险清单（residual_risks）
+
+**文件路径**：`data/risks/{protocol}_{version}/protocol_conformance/residual_risks.json`
+
+从 `risk_registry` 中筛选出 `status = "residual"` 的条目，独立输出以便下游系统直接关注未验证风险。
+
+```jsonc
+{
+  "protocol": {
+    "name": "string",
+    "version": "string"
+  },
+  "total_residual": 0,
+  "note": "These risks were identified by Stage 4 static analysis but NOT reproduced by Stage 5 symbolic execution. They require downstream dynamic testing for further validation.",
+  "risks": [
+    {
+      "risk_id": "string",
+      "finding_ref": "string",
+      "risk_type": "string",
+      "severity": "string",
+      "message": "string",
+      "spec_ref": "string",
+      "location": {
+        "file": "string",
+        "function": "string"
+      },
+      "residual_reason": "no_entry_point"
+                        | "symbolic_timeout"
+                        | "path_not_reproduced"
+                        | "static_only"
+    }
+  ]
+}
+```
+
+### 5.4 下游系统消费约定
+
+Stage 6 的输出是下游动态测试系统的**输入素材**，而非可执行规格。下游系统按以下方式消费：
+
+| 下游系统 | 消费方式 | 说明 |
+|---------|---------|------|
+| 动态测试设计工具 | 读取 `risk_registry.json`，按 `severity` 和 `status` 优先级排序，自行设计测试序列 | `verified` 风险有 trace 可复现上下文；`residual` 风险需额外探索 |
+| HIL 测试平台 | 读取 `residual_risks.json` 中 `register_config_audit` 类风险，转化为硬件引脚驱动序列 | 关注寄存器越界写入等可硬件验证的风险 |
+| 人工测试分析 | `risk_registry.json` + `traces/` 提供完整证据链，测试人员据此编写测试用例 | trace 中的 symbolic vars 和 constraints 可直接指导输入设计 |
+
+---
+
+## 6. 附录：数据目录总览
 
 ```
 data/
@@ -895,7 +1019,9 @@ data/
 │   ├── call_graph_unified.json     # (Stage 3 写入，Stage 4 作为输入)
 │   ├── event_architecture.json
 │   ├── security_report.json
-│   └── protocol_conformance.json
+│   └── {protocol}_{version}/       # 按协议/版本归类（如 DDR5_JESD79-5C/）
+│       └── protocol_conformance/
+│           └── report.json
 ├── sym_execution/                  # Stage 5 输出
 │   ├── symbolic_report.json
 │   ├── hooks.json                   # HookSpec 快照（可复现）
@@ -903,9 +1029,17 @@ data/
 │   ├── entry_points.json            # 入口点配置快照
 │   ├── entry_results/              # 逐入口点详情
 │   │   └── {function_name}.json
-│   └── traces/                     # TraceRecorder 输出
-│       ├── trace_{function_name}.json
-│       └── trace_{function_name}.md
+│   ├── traces/                     # TraceRecorder 输出
+│   │   ├── trace_{function_name}.json
+│   │   └── trace_{function_name}.md
+│   └── {protocol}_{version}/
+│       └── protocol_conformance/
+│           └── report.json
+├── risks/                          # Stage 6 写入
+│   └── {protocol}_{version}/
+│       └── protocol_conformance/
+│           ├── risk_registry.json    # 完整风险注册表（verified + residual）
+│           └── residual_risks.json   # 仅遗留风险（下游测试设计入口）
 └── spec_model_ddr5_mock.json       # 外部协议知识库
 ```
 
@@ -913,13 +1047,15 @@ data/
 
 ```
 Stage 1 ──► Stage 2 ──┐
-                       ├──► Stage 4 ──► Stage 5
+                       ├──► Stage 4 ──► Stage 5 ──► Stage 6
 Stage 3 ───────────────┘        │
                                 │
 spec_model (外部) ──────────────┘
 ```
 
 - **Stage 4 输入**：Stage 2 全部输出 + Stage 3 部分输出 + `call_graph_unified.json` + `spec_model`
-- **Stage 4 输出**：`event_architecture.json` + `security_report.json` + `protocol_conformance.json`
+- **Stage 4 输出**：`event_architecture.json` + `security_report.json` + `{protocol}_{version}/protocol_conformance/report.json`
 - **Stage 5 输入**：ELF 文件 + `security_report.json`（提取目标地址）+ 探索策略
-- **Stage 5 输出**：`symbolic_report.json` + `exploit_paths/path_*.json`
+- **Stage 5 输出**：`symbolic_report.json` + `entry_results/{func}.json` + `traces/trace_{func}.json` + `{protocol}_{version}/protocol_conformance/report.json`
+- **Stage 6 输入**：Stage 4 + Stage 5 全部报告 + `spec_model`
+- **Stage 6 输出**：`risks/{protocol}_{version}/protocol_conformance/risk_registry.json` + `residual_risks.json`

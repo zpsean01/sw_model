@@ -13,7 +13,7 @@ import json
 import logging
 import sys
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from modules.base import BaseStage
 
@@ -72,13 +72,13 @@ def run_pipeline(
     stages: List[Dict[str, Any]],
     skip_ids: List[str],
     only_ids: List[str],
+    from_id: Optional[str] = None,
 ) -> int:
     """Execute the pipeline stages in order."""
     ordered = resolve_dependency_order(stages)
 
     if only_ids:
         ordered = [s for s in ordered if s["id"] in only_ids]
-        # Verify dependencies are met for filtered stages
         all_ids = set(only_ids)
         for s in ordered:
             for dep in s.get("depends_on", []):
@@ -88,6 +88,21 @@ def run_pipeline(
                         "selected set — may lack required input.",
                         s["id"], dep,
                     )
+    elif from_id:
+        # --from: skip all stages before the specified one
+        found = False
+        filtered = []
+        for s in ordered:
+            if s["id"] == from_id:
+                found = True
+            if found:
+                filtered.append(s)
+        if not found:
+            logger.error("Stage '%s' not found for --from", from_id)
+            return 1
+        ordered = filtered
+        logger.info("--from '%s': running stages %s",
+                    from_id, [s["id"] for s in ordered])
 
     context: Dict[str, Any] = {}
     exit_code = 0
@@ -155,6 +170,12 @@ def main():
         action="store_true",
         help="List configured stages and exit",
     )
+    parser.add_argument(
+        "--from",
+        dest="from_id",
+        default=None,
+        help="Start pipeline from the specified stage ID (skips all earlier stages)",
+    )
 
     args = parser.parse_args()
 
@@ -176,7 +197,7 @@ def main():
             )
         sys.exit(0)
 
-    exit_code = run_pipeline(stages, args.skip, args.only)
+    exit_code = run_pipeline(stages, args.skip, args.only, args.from_id)
     sys.exit(exit_code)
 
 

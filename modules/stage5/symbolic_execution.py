@@ -16,6 +16,7 @@ Separation of concerns:
 
 import json
 import logging
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -85,6 +86,9 @@ class Stage5SymbolicExecution(BaseStage):
         hook_lib.save(output_dir / "hooks.json")
         self._save_inspect_specs(output_dir, inspect_specs)
         self._save_entry_config(output_dir, entry_points)
+
+        # ── 6. Save protocol-versioned conformance report ──────────────
+        self._save_protocol_conformance(report, params, output_dir)
 
         entries_dir = output_dir / "entry_results"
         entries_dir.mkdir(parents=True, exist_ok=True)
@@ -536,3 +540,53 @@ class Stage5SymbolicExecution(BaseStage):
             "inspect_specs.json",
             {k: v.to_dict() for k, v in specs.items()},
         )
+
+    def _save_protocol_conformance(
+        self, report: Dict[str, Any], params: Dict[str, Any], output_dir: Path
+    ) -> None:
+        """Save a protocol-versioned summary of Stage 5 findings, e.g.
+        data/sym_execution/DDR5_JESD79-5C/protocol_conformance/report_20260620_220000.json
+        """
+        spec_model_path = Path(params.get("spec_model_path", "data/spec_model_ddr5_mock.json"))
+        try:
+            with open(spec_model_path, "r", encoding="utf-8") as f:
+                spec = json.load(f)
+            meta = spec.get("metadata", {})
+        except Exception:
+            meta = {}
+        proto_dir = f"{meta.get('protocol', 'UNKNOWN')}_{meta.get('version', 'unknown')}"
+        proto_path = output_dir / proto_dir / "protocol_conformance"
+        proto_path.mkdir(parents=True, exist_ok=True)
+
+        pc_report = self._build_pc_report(report)
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S_%f")[:-3]
+        ts_path = proto_path / f"report_{ts}.json"
+        latest_path = proto_path / "report.json"
+
+        with open(ts_path, "w", encoding="utf-8") as f:
+            json.dump(pc_report, f, indent=2, ensure_ascii=False)
+        with open(latest_path, "w", encoding="utf-8") as f:
+            json.dump(pc_report, f, indent=2, ensure_ascii=False)
+
+        logger.info("Protocol-versioned conformance saved: %s (latest: %s)",
+                    ts_path, latest_path)
+
+    def _build_pc_report(self, report: Dict[str, Any]) -> Dict[str, Any]:
+        """Build a protocol conformance view from the symbolic execution report."""
+        triggers = []
+        for er in report.get("entry_results", []):
+            for t in er.get("inspect_triggers", []):
+                triggers.append(t)
+
+        summary = report.get("summary", {})
+        return {
+            "source": "stage5_symbolic_execution",
+            "binary": report.get("binary", ""),
+            "summary": {
+                "total_entry_points": summary.get("total_entry_points", 0),
+                "completed": summary.get("completed", 0),
+                "total_inspect_triggers": summary.get("total_inspect_triggers", 0),
+                "risk_distribution": summary.get("risk_distribution", {}),
+            },
+            "findings": triggers,
+        }

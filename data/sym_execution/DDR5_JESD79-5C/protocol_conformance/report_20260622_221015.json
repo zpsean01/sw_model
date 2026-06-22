@@ -1,0 +1,11 @@
+{
+  "source": "stage5_symbolic_execution",
+  "binary": "fw_samples\\build\\bin\\firmware_tfm.elf",
+  "summary": {
+    "total_entry_points": 4,
+    "completed": 0,
+    "total_inspect_triggers": 0,
+    "risk_distribution": {}
+  },
+  "findings": []
+}

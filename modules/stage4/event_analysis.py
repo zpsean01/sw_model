@@ -7,6 +7,7 @@ event-driven architecture model and perform static security checks.
 
 import json
 import logging
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -118,7 +119,11 @@ class Stage4EventArchAnalysis(BaseStage):
                     "total_protocol_findings": len(pc_findings),
                     "findings": pc_findings,
                 }
-                self.save_json("protocol_conformance.json", protocol_report)
+                # ── Save to protocol-versioned path ─────────────────────
+                self._save_protocol_conformance(
+                    protocol_report, spec_model, output_dir
+                )
+
                 logger.info("Protocol conformance: %d findings", len(pc_findings))
 
         report["summary"] = self._summarize_findings(report["findings"])
@@ -263,6 +268,40 @@ class Stage4EventArchAnalysis(BaseStage):
                 })
         logger.info("State machine integrity check: %d findings", len(findings))
         return findings
+
+    # ------------------------------------------------------------------
+    # Protocol-versioned save
+    # ------------------------------------------------------------------
+
+    def _save_protocol_conformance(
+        self,
+        protocol_report: Dict[str, Any],
+        spec_model: Dict[str, Any],
+        output_dir: Path,
+    ) -> None:
+        """Save a copy of the protocol conformance report under the
+        protocol-versioned subdirectory, e.g.
+        data/modeling/DDR5_JESD79-5C/protocol_conformance/report_20260620_220000.json
+
+        A latest copy (report.json) is also saved and overwritten on each run
+        so downstream stages always find a stable reference.
+        """
+        meta = spec_model.get("metadata", {})
+        proto_dir = f"{meta.get('protocol', 'UNKNOWN')}_{meta.get('version', 'unknown')}"
+        proto_path = output_dir / proto_dir / "protocol_conformance"
+        proto_path.mkdir(parents=True, exist_ok=True)
+
+        ts = datetime.now().strftime("%Y%m%d_%H%M%S_%f")[:-3]
+        ts_path = proto_path / f"report_{ts}.json"
+        latest_path = proto_path / "report.json"
+
+        with open(ts_path, "w", encoding="utf-8") as f:
+            json.dump(protocol_report, f, indent=2, ensure_ascii=False)
+        with open(latest_path, "w", encoding="utf-8") as f:
+            json.dump(protocol_report, f, indent=2, ensure_ascii=False)
+
+        logger.info("Protocol-versioned conformance saved: %s (latest: %s)",
+                    ts_path, latest_path)
 
     def _summarize_findings(self, findings: List[Dict]) -> Dict[str, Any]:
         if not findings:
