@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "name": "driver_data",
+    "address": 2230936,
+    "size": 48,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "rdistif_base_addrs",
+    "address": 2230928,
+    "size": 4,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "gicv3_driver_data",
+    "address": 2230984,
+    "size": 8,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  }
+]

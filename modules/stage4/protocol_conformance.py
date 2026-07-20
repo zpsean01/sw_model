@@ -32,6 +32,7 @@ class ProtocolConformanceAnalyzer:
         self.fw_functions: List[Dict] = []       # from Stage 2
         self.fw_call_graph: List = []            # from Stage 2
         self.fw_globals: List[Dict] = []         # from Stage 2
+        self.fw_binary_call_graph: Dict[str, List[str]] = {}  # from Stage 3 binary CFG
 
     # ── Public API ───────────────────────────────────────────────────────────
 
@@ -123,6 +124,27 @@ class ProtocolConformanceAnalyzer:
         logger.info("Loaded firmware data: %d functions, %d globals from %s",
                      total, len(self.fw_globals), static_dir)
         return total > 0
+
+    def load_binary_call_graph(self, path: Path) -> bool:
+        """Load binary (Stage 3) call graph to supplement static call info.
+
+        The binary CFG captures calls that libclang may have missed (e.g.
+        indirect calls, or calls via function pointers that the front-end
+        could not resolve).
+        """
+        if not path.exists():
+            logger.warning("Binary call graph not found: %s", path)
+            return False
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        for edge in data.get("edges", []):
+            src = edge.get("source", "")
+            tgt = edge.get("target", "")
+            if src and tgt:
+                self.fw_binary_call_graph.setdefault(src, []).append(tgt)
+        logger.info("Loaded binary call graph: %d edges, %d callers",
+                     len(data.get("edges", [])), len(self.fw_binary_call_graph))
+        return True
 
     def run_all_checks(self) -> List[Finding]:
         """Run all loaded rules against oracle + firmware data."""
@@ -329,6 +351,9 @@ class ProtocolConformanceAnalyzer:
         - Clear-enable operations
         - Set-activation operations
         - Polling of write-pending/busy bits
+
+        Falls back to the binary (Stage 3) call graph when the static
+        (Stage 2) ``calls`` arrays are empty (known libclang limitation).
         """
         result: Dict[str, List[str]] = {
             "writes_to_register": [],
@@ -340,7 +365,10 @@ class ProtocolConformanceAnalyzer:
 
         for func in self.fw_functions:
             fname = func.get("name", "")
+            # Try static calls first, fall back to binary call graph
             calls = func.get("calls") or func.get("attributes", {}).get("calls", [])
+            if not calls:
+                calls = self.fw_binary_call_graph.get(fname, [])
             if not calls:
                 continue
             calls_str = " ".join(calls).upper()

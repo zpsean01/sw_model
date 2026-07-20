@@ -1,7 +1,7 @@
 {
   "entry_function": "gicv3_distif_init",
   "max_depth": 2,
-  "event_count": 2,
+  "event_count": 38,
   "finding_count": 0,
   "events": [
     {
@@ -11,10 +11,784 @@
       "symbolic_vars": [],
       "constraints": [],
       "details": {
-        "address": "0x400204",
+        "address": "0x21064c",
         "max_depth": 2,
         "entry_args": []
       },
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_read_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_read_ctlr'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 != 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x7>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x21077c>",
+          "pc": "<BV64 0x210620>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_read_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_read_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_read_ctlr'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 == 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x7>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x21077c>",
+          "pc": "<BV64 0x210620>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_read_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_write_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_write_ctlr'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 != 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_21_32[31:3] .. 0>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x210790>",
+          "pc": "<BV64 0x210a28>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_write_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_write_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_write_ctlr'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 == 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_22_32[31:3] .. 0>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x210790>",
+          "pc": "<BV64 0x210a28>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_write_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_wait_for_pending_write",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_wait_for_pending_write'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 != 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_21_32[31:3] .. 0>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107a4>",
+          "pc": "<BV64 0x210a5c>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_wait_for_pending_write",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_wait_for_pending_write",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_wait_for_pending_write'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 == 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_22_32[31:3] .. 0>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107a4>",
+          "pc": "<BV64 0x210a5c>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_wait_for_pending_write",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_read_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_read_ctlr'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 != 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x30>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107dc>",
+          "pc": "<BV64 0x210620>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_read_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_read_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_read_ctlr'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 == 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x30>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107dc>",
+          "pc": "<BV64 0x210620>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_read_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_write_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_write_ctlr'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 != 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_35_32[31:6] .. 3 .. inspect_gicd_read_ctlr_ret_35_32[3:0]>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107f0>",
+          "pc": "<BV64 0x210a28>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_write_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_write_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_write_ctlr'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 == 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_36_32[31:6] .. 3 .. inspect_gicd_read_ctlr_ret_36_32[3:0]>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107f0>",
+          "pc": "<BV64 0x210a28>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_write_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_wait_for_pending_write",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_wait_for_pending_write'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 != 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_35_32[31:6] .. 3 .. inspect_gicd_read_ctlr_ret_35_32[3:0]>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x210804>",
+          "pc": "<BV64 0x210a5c>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_wait_for_pending_write",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_wait_for_pending_write",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_wait_for_pending_write'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 == 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_36_32[31:6] .. 3 .. inspect_gicd_read_ctlr_ret_36_32[3:0]>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x210804>",
+          "pc": "<BV64 0x210a5c>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_wait_for_pending_write",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_read_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_read_ctlr'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 != 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107dc>",
+          "pc": "<BV64 0x210620>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_read_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_read_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_read_ctlr'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 == 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107dc>",
+          "pc": "<BV64 0x210620>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_read_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_write_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_write_ctlr'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 != 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_51_32>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107f0>",
+          "pc": "<BV64 0x210a28>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_write_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_write_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_write_ctlr'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 == 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_52_32>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107f0>",
+          "pc": "<BV64 0x210a28>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_write_ctlr",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_wait_for_pending_write",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_wait_for_pending_write'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 != 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_51_32>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x210804>",
+          "pc": "<BV64 0x210a5c>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_wait_for_pending_write",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_wait_for_pending_write",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_wait_for_pending_write'"
+        }
+      ],
+      "constraints": [
+        "<Bool mem_0_20_32 == 0x0>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_0_20_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_52_32>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x210804>",
+          "pc": "<BV64 0x210a5c>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_wait_for_pending_write",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
       "finding_id": null
     },
     {
@@ -26,8 +800,8 @@
       "details": {
         "status": "completed",
         "active_paths": 0,
-        "deadended_paths": 1,
-        "total_events": 1
+        "deadended_paths": 2,
+        "total_events": 37
       },
       "finding_id": null
     }

@@ -1,0 +1,6 @@
+{
+  "__assert_fail": {
+    "function_name": "__assert_fail",
+    "hook_type": "concrete_stub"
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "function": "gicv3_distif_init",
+    "max_depth": 2,
+    "context": "GIC distributor init — GICD_CTLR write sequence",
+    "entry_args": []
+  },
+  {
+    "function": "gicv3_driver_init",
+    "max_depth": 2,
+    "context": "GIC driver init — probe + erratas",
+    "entry_args": []
+  },
+  {
+    "function": "gicv3_rdistif_init",
+    "max_depth": 2,
+    "context": "GIC redistributor init — per-core",
+    "entry_args": []
+  }
+]

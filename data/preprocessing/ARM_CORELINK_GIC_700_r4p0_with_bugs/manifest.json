@@ -1,0 +1,7 @@
+[
+  {
+    "source": "drivers/arm/gic/v3/gicv3_main.c",
+    "preprocessed": "D:\\programming\\sw_model\\data\\preprocessing\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\gicv3_main.i",
+    "directory": "D:/programming/sw_model/fw_samples/tf_a_with_bugs"
+  }
+]

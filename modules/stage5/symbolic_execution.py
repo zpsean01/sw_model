@@ -20,6 +20,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+import claripy
+
 from modules.base import BaseStage
 from modules.stage5.hook import HookLibrary, HookSpec
 from modules.stage5.inspect import (
@@ -40,6 +42,11 @@ class Stage5SymbolicExecution(BaseStage):
         params = self.config["params"]
         elf_path = Path(params["elf_file"])
         output_dir = self.setup_output_dir(params["output_dir"])
+        # Wrap output_dir with protocol-specific subdirectory for consistent organization
+        proto_wrap = f"{params.get('protocol_name', 'UNKNOWN')}_{params.get('protocol_version', 'unknown')}"
+        output_dir = output_dir / proto_wrap
+        output_dir.mkdir(parents=True, exist_ok=True)
+        self.output_dir = output_dir  # also update BaseStage so save_json() uses wrapped path
         strategy = params.get("global_strategy", {})
 
         if not elf_path.exists():
@@ -424,6 +431,24 @@ class Stage5SymbolicExecution(BaseStage):
                     registers=regs,
                 )
 
+                # ── Record InspectTrigger for downstream consumption ─────
+                from modules.stage5.inspect import InspectTrigger
+                trigger = InspectTrigger(
+                    entry_function=entry_function,
+                    called_function=called_func,
+                    call_depth=max_depth,
+                    hook_type=hook_type,
+                    risk_level=risk_level,
+                    risk_tags=risk_tags,
+                    description=description,
+                    trace_detail={
+                        "symbolic_var": symbolic_var_info,
+                        "constraints": constraints[:3],
+                        "registers_at_hook": regs,
+                    },
+                )
+                triggers.append(trigger)
+
                 # ── Record findings based on risk level ─────────────────
                 finding_id = f"F-{called_func}-{max_depth}"
                 if risk_level in ("warning", "critical"):
@@ -446,7 +471,7 @@ class Stage5SymbolicExecution(BaseStage):
                 # ── Generate return value ────────────────────────────────
                 if hook_type == "concrete_stub" and return_range:
                     mid = (return_range[0] + return_range[1]) // 2
-                    ret_val = self.state.solver.BVV(mid, 32)
+                    ret_val = claripy.BVV(mid, 32)
                     recorder.record_symbolic_var_created(
                         function=called_func,
                         depth=max_depth,
@@ -458,7 +483,7 @@ class Stage5SymbolicExecution(BaseStage):
                     return ret_val
 
                 elif hook_type == "symbolic_return":
-                    sym_val = self.state.solver.BVS(var_name, 32)
+                    sym_val = claripy.BVS(var_name, 32)
                     recorder.record_symbolic_var_created(
                         function=called_func,
                         depth=max_depth,
@@ -477,7 +502,7 @@ class Stage5SymbolicExecution(BaseStage):
                         var_bits=32,
                         description="Zero return (fallback)",
                     )
-                    return self.state.solver.BVV(0, 32)
+                    return claripy.BVV(0, 32)
 
         safe_name = called_func.replace("::", "_").replace("<", "").replace(">", "")
         InspectSimProc.__name__ = f"Inspect_{safe_name}"
@@ -546,25 +571,12 @@ class Stage5SymbolicExecution(BaseStage):
     ) -> None:
         """Save a protocol-versioned summary of Stage 5 findings, e.g.
         data/sym_execution/ARM_CORELINK_GIC_700_r4p0/protocol_conformance/report_20260620_220000.json
+
+        ``output_dir`` already includes the protocol subdirectory (e.g.
+        ``.../ARM_CORELINK_GIC_700_r4p0/``), so ``protocol_conformance/``
+        is added directly under it.
         """
-        # Prefer explicit params over spec_model metadata
-        protocol_name = params.get("protocol_name", "")
-        protocol_version = params.get("protocol_version", "")
-        if not protocol_name or not protocol_version:
-            spec_model_path = Path(params.get("spec_model_path", "data/spec_model_ddr5_mock.json"))
-            try:
-                with open(spec_model_path, "r", encoding="utf-8") as f:
-                    spec = json.load(f)
-                meta = spec.get("metadata", {})
-                if not protocol_name:
-                    protocol_name = meta.get("protocol", "UNKNOWN")
-                if not protocol_version:
-                    protocol_version = meta.get("version", "unknown")
-            except Exception:
-                protocol_name = protocol_name or "UNKNOWN"
-                protocol_version = protocol_version or "unknown"
-        proto_dir = f"{protocol_name}_{protocol_version}"
-        proto_path = output_dir / proto_dir / "protocol_conformance"
+        proto_path = output_dir / "protocol_conformance"
         proto_path.mkdir(parents=True, exist_ok=True)
 
         pc_report = self._build_pc_report(report)

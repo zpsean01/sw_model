@@ -1,0 +1,521 @@
+[
+  {
+    "name": "__assert_fail",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "expr",
+        "type": "const char *"
+      },
+      {
+        "name": "file",
+        "type": "const char *"
+      },
+      {
+        "name": "line",
+        "type": "int"
+      },
+      {
+        "name": "func",
+        "type": "const char *"
+      }
+    ],
+    "calls": [],
+    "file": "include/assert.h"
+  },
+  {
+    "name": "gicv3_driver_init",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "plat_driver_data",
+        "type": "const void *"
+      }
+    ],
+    "calls": [],
+    "file": "include/drivers/arm/gicv3.h"
+  },
+  {
+    "name": "gicv3_distif_init",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [],
+    "calls": [],
+    "file": "include/drivers/arm/gicv3.h"
+  },
+  {
+    "name": "gicv3_rdistif_init",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "proc_num",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "include/drivers/arm/gicv3.h"
+  },
+  {
+    "name": "gicv3_cpuif_enable",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "proc_num",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "include/drivers/arm/gicv3.h"
+  },
+  {
+    "name": "gicv3_cpuif_disable",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "proc_num",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "include/drivers/arm/gicv3.h"
+  },
+  {
+    "name": "gicv3_rdistif_off",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "proc_num",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "include/drivers/arm/gicv3.h"
+  },
+  {
+    "name": "gicv3_rdistif_on",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "proc_num",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "include/drivers/arm/gicv3.h"
+  },
+  {
+    "name": "gicd_read_ctlr",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicd_write_ctlr",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "val",
+        "type": "uint32_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "mmio_write_32",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "arg0",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "arg1",
+        "type": "uint32_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicd_read_pidr2",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicr_read_waker",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicr_write_waker",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "val",
+        "type": "uint32_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicr_write_igroupr",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "id",
+        "type": "unsigned int"
+      },
+      {
+        "name": "v",
+        "type": "uint32_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicr_read_igroupr",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "id",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicd_read_igroupr",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "id",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicr_read_igrpmodr",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "id",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicd_read_igrpmodr",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "id",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicd_get_igroupr",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "id",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicr_get_igroupr",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "id",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicd_get_igrpmodr",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "id",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicr_get_igrpmodr",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "uint32_t",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "id",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicd_clr_ctlr",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "bitmap",
+        "type": "unsigned int"
+      },
+      {
+        "name": "rwp",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicd_set_ctlr",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "bitmap",
+        "type": "unsigned int"
+      },
+      {
+        "name": "rwp",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicd_wait_for_pending_write",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "gicd_base",
+        "type": "uintptr_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicv3_rdistif_base_addrs_probe",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "base_addrs",
+        "type": "uintptr_t *"
+      },
+      {
+        "name": "num",
+        "type": "unsigned int"
+      },
+      {
+        "name": "gicr_base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "mpidr_to_core_pos",
+        "type": "unsigned int (*)(unsigned long)"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  },
+  {
+    "name": "gicv3_check_erratas_applies",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "gicd_base",
+        "type": "uintptr_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  },
+  {
+    "name": "gicv3_spis_config_defaults",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "gicd_base",
+        "type": "uintptr_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  },
+  {
+    "name": "gicv3_secure_spis_config_props",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "unsigned int",
+    "parameters": [
+      {
+        "name": "gicd_base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "props",
+        "type": "const void *"
+      },
+      {
+        "name": "num",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  },
+  {
+    "name": "gicv3_ppi_sgi_config_defaults",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "gicr_base",
+        "type": "uintptr_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  },
+  {
+    "name": "gicv3_secure_ppi_sgi_config_props",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "unsigned int",
+    "parameters": [
+      {
+        "name": "gicr_base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "props",
+        "type": "const void *"
+      },
+      {
+        "name": "num",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  }
+]

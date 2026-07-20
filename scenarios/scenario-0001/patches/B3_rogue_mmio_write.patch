@@ -1,0 +1,10 @@
+--- a/drivers/arm/gic/v3/gicv3_main.c
++++ b/drivers/arm/gic/v3/gicv3_main.c
+@@ -140,4 +140,8 @@ void __init gicv3_distif_init(void)
+ 
+     gicd_set_ctlr(gicv3_driver_data->gicd_base, bitmap, RWP_TRUE);
++
++    /* BUG: rogue direct MMIO write to GICD_CTLR — bypasses protocol */
++    extern void mmio_write_32(uintptr_t, uint32_t);
++    mmio_write_32(gicv3_driver_data->gicd_base + 0x0000, 0xFFFFFFFF);
+ }

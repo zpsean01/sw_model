@@ -8,5 +8,5 @@
 
 | # | Type | Function | Depth | Details |
 |---|------|----------|-------|---------|
-| 0 | entry_start | `gicv3_driver_init` | 0 | address=0x400000; max_depth=2; entry_args=[] |
-| 1 | entry_end | `gicv3_driver_init` | 0 | status=completed; active_paths=0; deadended_paths=1; total_events=1 |
+| 0 | entry_start | `gicv3_driver_init` | 0 | address=0x210448; max_depth=2; entry_args=[] |
+| 1 | entry_end | `gicv3_driver_init` | 0 | status=completed; active_paths=0; deadended_paths=5; total_events=1 |

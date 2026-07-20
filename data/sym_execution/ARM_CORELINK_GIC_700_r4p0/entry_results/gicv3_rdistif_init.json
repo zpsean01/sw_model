@@ -1,0 +1,606 @@
+{
+  "entry_function": "gicv3_rdistif_init",
+  "max_depth": 2,
+  "context": "GIC redistributor init — per-core",
+  "status": "completed",
+  "inspect_triggers": [
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_rdistif_on",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_rdistif_on'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_rdistif_on_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_rdistif_on'"
+        },
+        "constraints": [
+          "<Bool mem_0_192_32 != 0x0 && mem_10_191_64 != 0x0 && reg_x0_189_64[31:0] < mem_8_190_32 || mem_0_192_32 != 0x0 && (!(mem_10_191_64 == 0x0) || !(mem_8_190_32 <= reg_x0_189_64[31:0]) && mem_10_191_64 == 0x0)>",
+          "<Bool (LShR((0#32 .. inspect_gicd_read_ctlr_ret_193_32), 0x4)[7:0] & 1) != 0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. reg_x0_189_64[31:0]>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0x0 .. (if mem_0_192_32 != 0x0 && mem_10_191_64 != 0x0 && reg_x0_189_64[31:0] < mem_8_190_32 then 153 else (if mem_0_192_32 != 0x0 && (!(mem_10_191_64 == 0x0) || !(mem_8_190_32 <= reg_x0_189_64[31:0]) && mem_10_191_64 == 0x0) then (if mem_10_191_64 == 0x0 && reg_x0_189_64[31:0] < mem_8_190_32 then 155 else (if mem_10_191_64 != 0x0 && reg_x0_189_64[31:0] >= mem_8_190_32 then 154 else 0)) else 0))>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x210954>",
+          "pc": "<BV64 0x210a08>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_rdistif_on",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_rdistif_on'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_rdistif_on_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_rdistif_on'"
+        },
+        "constraints": [
+          "<Bool mem_0_192_32 != 0x0 && mem_10_191_64 != 0x0 && reg_x0_189_64[31:0] < mem_8_190_32 || mem_0_192_32 != 0x0 && (!(mem_10_191_64 == 0x0) || !(mem_8_190_32 <= reg_x0_189_64[31:0]) && mem_10_191_64 == 0x0)>",
+          "<Bool (LShR((0#32 .. inspect_gicd_read_ctlr_ret_193_32), 0x4)[7:0] & 1) == 0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. reg_x0_189_64[31:0]>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0x9f>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x210954>",
+          "pc": "<BV64 0x210a08>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_ppi_sgi_config_defaults",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_ppi_sgi_config_defaults_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'"
+        },
+        "constraints": [
+          "<Bool !(mem_8_190_32 <= reg_x0_189_64[31:0] || mem_0_192_32 == 0x0 || mem_10_191_64 == 0x0) || !(mem_0_192_32 == 0x0 || !(!(mem_10_191_64 == 0x0) || !(mem_8_190_32 <= reg_x0_189_64[31:0])))>",
+          "<Bool !(inspect_gicd_read_ctlr_ret_193_32[4:4] == 0)>",
+          "<Bool mem_10_191_64 + ((0#32 .. reg_x0_189_64[31:0]) << 0x2) <= 0xffffffffffffffff>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_192_32>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0x0 .. (if mem_0_192_32 != 0x0 && mem_10_191_64 != 0x0 && reg_x0_189_64[31:0] < mem_8_190_32 then 153 else (if mem_0_192_32 != 0x0 && (!(mem_10_191_64 == 0x0) || !(mem_8_190_32 <= reg_x0_189_64[31:0]) && mem_10_191_64 == 0x0) then (if mem_10_191_64 == 0x0 && reg_x0_189_64[31:0] < mem_8_190_32 then 155 else (if mem_10_191_64 != 0x0 && reg_x0_189_64[31:0] >= mem_8_190_32 then 154 else 0)) else 0))>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109a4>",
+          "pc": "<BV64 0x2103c4>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_secure_ppi_sgi_config_props",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_secure_ppi_sgi_config_props_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'"
+        },
+        "constraints": [
+          "<Bool !(mem_8_190_32 <= reg_x0_189_64[31:0] || mem_0_192_32 == 0x0 || mem_10_191_64 == 0x0) || !(mem_0_192_32 == 0x0 || !(!(mem_10_191_64 == 0x0) || !(mem_8_190_32 <= reg_x0_189_64[31:0])))>",
+          "<Bool !(inspect_gicd_read_ctlr_ret_193_32[4:4] == 0)>",
+          "<Bool mem_10_191_64 + ((0#32 .. reg_x0_189_64[31:0]) << 0x2) <= 0xffffffffffffffff>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_192_32>",
+          "r1": "<BV64 mem_20_198_64>",
+          "r2": "<BV64 0x0 .. mem_18_199_32>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109c0>",
+          "pc": "<BV64 0x2103d4>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_rdistif_on",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_rdistif_on'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_rdistif_on_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_rdistif_on'"
+        },
+        "constraints": [
+          "<Bool mem_0_192_32 == 0x0 && mem_10_191_64 != 0x0 && reg_x0_189_64[31:0] < mem_8_190_32 || mem_0_192_32 == 0x0 && (!(mem_10_191_64 == 0x0) || !(mem_8_190_32 <= reg_x0_189_64[31:0]) && mem_10_191_64 == 0x0)>",
+          "<Bool (LShR((0#32 .. inspect_gicd_read_ctlr_ret_197_32), 0x4)[7:0] & 1) != 0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. reg_x0_189_64[31:0]>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0x9c>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x210954>",
+          "pc": "<BV64 0x210a08>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_ppi_sgi_config_defaults",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_ppi_sgi_config_defaults_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'"
+        },
+        "constraints": [
+          "<Bool !(mem_8_190_32 <= reg_x0_189_64[31:0] || mem_0_192_32 == 0x0 || mem_10_191_64 == 0x0) || !(mem_0_192_32 == 0x0 || !(!(mem_10_191_64 == 0x0) || !(mem_8_190_32 <= reg_x0_189_64[31:0])))>",
+          "<Bool inspect_gicd_read_ctlr_ret_193_32[4:4] == 0>",
+          "<Bool mem_10_191_64 + ((0#32 .. reg_x0_189_64[31:0]) << 0x2) <= 0xffffffffffffffff>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_192_32>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0x9f>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109a4>",
+          "pc": "<BV64 0x2103c4>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_secure_ppi_sgi_config_props",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_secure_ppi_sgi_config_props_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'"
+        },
+        "constraints": [
+          "<Bool !(mem_8_190_32 <= reg_x0_189_64[31:0] || mem_0_192_32 == 0x0 || mem_10_191_64 == 0x0) || !(mem_0_192_32 == 0x0 || !(!(mem_10_191_64 == 0x0) || !(mem_8_190_32 <= reg_x0_189_64[31:0])))>",
+          "<Bool inspect_gicd_read_ctlr_ret_193_32[4:4] == 0>",
+          "<Bool mem_10_191_64 + ((0#32 .. reg_x0_189_64[31:0]) << 0x2) <= 0xffffffffffffffff>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_192_32>",
+          "r1": "<BV64 mem_20_198_64>",
+          "r2": "<BV64 0x0 .. mem_18_199_32>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109c0>",
+          "pc": "<BV64 0x2103d4>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_rdistif_on",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_rdistif_on'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_rdistif_on_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_rdistif_on'"
+        },
+        "constraints": [
+          "<Bool (LShR((0#32 .. inspect_gicd_read_ctlr_ret_197_32), 0x4)[7:0] & 1) == 0 || (LShR((0#32 .. inspect_gicd_read_ctlr_ret_204_32), 0x4)[7:0] & 1) != 0 && mem_0_192_32 != 0x0 && mem_10_191_64 == 0x0 && reg_x0_189_64[31:0] >= mem_8_190_32>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. reg_x0_189_64[31:0]>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0x0 .. (if (LShR((0#32 .. inspect_gicd_read_ctlr_ret_204_32), 0x4)[7:0] & 1) != 0 && mem_0_192_32 != 0x0 && mem_10_191_64 == 0x0 && reg_x0_189_64[31:0] >= mem_8_190_32 then 155 else (if (LShR((0#32 .. inspect_gicd_read_ctlr_ret_197_32), 0x4)[7:0] & 1) == 0 then 159 else 0))>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x210954>",
+          "pc": "<BV64 0x210a08>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_ppi_sgi_config_defaults",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_ppi_sgi_config_defaults_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'"
+        },
+        "constraints": [
+          "<Bool mem_10_191_64 + ((0#32 .. reg_x0_189_64[31:0]) << 0x2) == 0xfffffffffffc0004 && mem_fffffffffffc0004_205_32 != 0x0 && (LShR((0#32 .. inspect_gicd_read_ctlr_ret_197_32), 0x4)[7:0] & 1) != 0 || mem_10_191_64 + ((0#32 .. reg_x0_189_64[31:0]) << 0x2) == 0xffffffffffffffff && (mem_0_192_32[23:0] .. mem_ffffffffffffffff_209_8) != 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. (if mem_10_191_64 == 0xffffffffffffffff + 0xffffffffffffffff * (0x0 .. reg_x0_189_64[31:0] .. 0) && !(mem_ffffffffffffffff_209_8 == 0 && mem_0_192_32[23:0] == 0x0) then (mem_0_192_32[23:0] .. mem_ffffffffffffffff_209_8) else (if mem_10_191_64 == 0xfffffffffffc0004 + 0xffffffffffffffff * (0x0 .. reg_x0_189_64[31:0] .. 0) && !(mem_fffffffffffc0004_205_32 == 0x0) && !(inspect_gicd_read_ctlr_ret_197_32[4:4] == 0) then mem_fffffffffffc0004_205_32 else 0x0))>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0x0 .. (if mem_10_191_64 + ((0#32 .. reg_x0_189_64[31:0]) << 0x2) == 0xfffffffffffc0004 && mem_fffffffffffc0004_205_32 != 0x0 && (LShR((0#32 .. inspect_gicd_read_ctlr_ret_197_32), 0x4)[7:0] & 1) != 0 then 156 else (if mem_10_191_64 + ((0#32 .. reg_x0_189_64[31:0]) << 0x2) == 0xffffffffffffffff && (mem_0_192_32[23:0] .. mem_ffffffffffffffff_209_8) != 0x0 then (if (LShR((0#32 .. inspect_gicd_read_ctlr_ret_204_32), 0x4)[7:0] & 1) != 0 && mem_0_192_32 != 0x0 && mem_10_191_64 == 0x0 && reg_x0_189_64[31:0] >= mem_8_190_32 then 155 else (if (LShR((0#32 .. inspect_gicd_read_ctlr_ret_197_32), 0x4)[7:0] & 1) == 0 then 159 else 0)) else 0))>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109a4>",
+          "pc": "<BV64 0x2103c4>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_secure_ppi_sgi_config_props",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_secure_ppi_sgi_config_props_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'"
+        },
+        "constraints": [
+          "<Bool mem_10_191_64 + ((0#32 .. reg_x0_189_64[31:0]) << 0x2) == 0xfffffffffffc0004 && mem_fffffffffffc0004_205_32 != 0x0 && (LShR((0#32 .. inspect_gicd_read_ctlr_ret_197_32), 0x4)[7:0] & 1) != 0 || mem_10_191_64 + ((0#32 .. reg_x0_189_64[31:0]) << 0x2) == 0xffffffffffffffff && (mem_0_192_32[23:0] .. mem_ffffffffffffffff_209_8) != 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. (if mem_10_191_64 == 0xffffffffffffffff + 0xffffffffffffffff * (0x0 .. reg_x0_189_64[31:0] .. 0) && !(mem_ffffffffffffffff_209_8 == 0 && mem_0_192_32[23:0] == 0x0) then (mem_0_192_32[23:0] .. mem_ffffffffffffffff_209_8) else (if mem_10_191_64 == 0xfffffffffffc0004 + 0xffffffffffffffff * (0x0 .. reg_x0_189_64[31:0] .. 0) && !(mem_fffffffffffc0004_205_32 == 0x0) && !(inspect_gicd_read_ctlr_ret_197_32[4:4] == 0) then mem_fffffffffffc0004_205_32 else 0x0))>",
+          "r1": "<BV64 mem_20_198_64>",
+          "r2": "<BV64 0x0 .. mem_18_199_32>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109c0>",
+          "pc": "<BV64 0x2103d4>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_rdistif_on",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_rdistif_on'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_rdistif_on_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_rdistif_on'"
+        },
+        "constraints": [
+          "<Bool reg_x0_189_64[31:0] >= mem_8_190_32>",
+          "<Bool mem_10_191_64 == 0x0>",
+          "<Bool (LShR((0#32 .. inspect_gicd_read_ctlr_ret_204_32), 0x4)[7:0] & 1) == 0 && mem_0_192_32 != 0x0 || (LShR((0#32 .. inspect_gicd_read_ctlr_ret_217_32), 0x4)[7:0] & 1) != 0 && mem_0_192_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. reg_x0_189_64[31:0]>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0x0 .. (if (LShR((0#32 .. inspect_gicd_read_ctlr_ret_217_32), 0x4)[7:0] & 1) != 0 && mem_0_192_32 == 0x0 then 156 else (if (LShR((0#32 .. inspect_gicd_read_ctlr_ret_204_32), 0x4)[7:0] & 1) == 0 && mem_0_192_32 != 0x0 then 159 else 0))>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x210954>",
+          "pc": "<BV64 0x210a08>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_ppi_sgi_config_defaults",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_ppi_sgi_config_defaults_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'"
+        },
+        "constraints": [],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. (if mem_10_191_64 == 0x3c0000000 + 0xffffffffffffffff * (0x0 .. reg_x0_189_64[31:0] .. 0) && !(mem_3c0000000_219_32 == 0x0) && mem_10_191_64 == 0x0 && mem_8_190_32 <= reg_x0_189_64[31:0] then mem_3c0000000_219_32 else (if mem_10_191_64 == 0xffffffffffffffff + 0xffffffffffffffff * (0x0 .. reg_x0_189_64[31:0] .. 0) && mem_ffffffffffffffff_209_8 == 0 && mem_0_192_32[23:0] == 0x0 then (mem_0_192_32[23:0] .. mem_ffffffffffffffff_209_8) else (if mem_10_191_64 == 0xfffffffffffc0004 + 0xffffffffffffffff * (0x0 .. reg_x0_189_64[31:0] .. 0) && mem_fffffffffffc0004_205_32 == 0x0 && !(inspect_gicd_read_ctlr_ret_197_32[4:4] == 0) then mem_fffffffffffc0004_205_32 else 0x0)))>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0xa4>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109a4>",
+          "pc": "<BV64 0x2103c4>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_secure_ppi_sgi_config_props",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_secure_ppi_sgi_config_props_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'"
+        },
+        "constraints": [],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. (if mem_10_191_64 == 0x3c0000000 + 0xffffffffffffffff * (0x0 .. reg_x0_189_64[31:0] .. 0) && !(mem_3c0000000_219_32 == 0x0) && mem_10_191_64 == 0x0 && mem_8_190_32 <= reg_x0_189_64[31:0] then mem_3c0000000_219_32 else (if mem_10_191_64 == 0xffffffffffffffff + 0xffffffffffffffff * (0x0 .. reg_x0_189_64[31:0] .. 0) && mem_ffffffffffffffff_209_8 == 0 && mem_0_192_32[23:0] == 0x0 then (mem_0_192_32[23:0] .. mem_ffffffffffffffff_209_8) else (if mem_10_191_64 == 0xfffffffffffc0004 + 0xffffffffffffffff * (0x0 .. reg_x0_189_64[31:0] .. 0) && mem_fffffffffffc0004_205_32 == 0x0 && !(inspect_gicd_read_ctlr_ret_197_32[4:4] == 0) then mem_fffffffffffc0004_205_32 else 0x0)))>",
+          "r1": "<BV64 mem_20_198_64>",
+          "r2": "<BV64 0x0 .. mem_18_199_32>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109c0>",
+          "pc": "<BV64 0x2103d4>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_rdistif_on",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_rdistif_on'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_rdistif_on_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_rdistif_on'"
+        },
+        "constraints": [
+          "<Bool reg_x0_189_64[31:0] >= mem_8_190_32>",
+          "<Bool mem_10_191_64 == 0x0>",
+          "<Bool mem_0_192_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. reg_x0_189_64[31:0]>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0x9f>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x210954>",
+          "pc": "<BV64 0x210a08>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_ppi_sgi_config_defaults",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_ppi_sgi_config_defaults_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'"
+        },
+        "constraints": [
+          "<Bool mem_8_190_32 <= reg_x0_189_64[31:0]>",
+          "<Bool mem_10_191_64 == 0x0>",
+          "<Bool !(if mem_0_192_32 == 0x0 then inspect_gicd_read_ctlr_ret_217_32[4:4] == 0 else !(inspect_gicd_read_ctlr_ret_204_32[4:4] == 0))>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_3c0000000_219_32>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0xa4>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109a4>",
+          "pc": "<BV64 0x2103c4>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_secure_ppi_sgi_config_props",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_secure_ppi_sgi_config_props_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'"
+        },
+        "constraints": [
+          "<Bool mem_8_190_32 <= reg_x0_189_64[31:0]>",
+          "<Bool mem_10_191_64 == 0x0>",
+          "<Bool !(if mem_0_192_32 == 0x0 then inspect_gicd_read_ctlr_ret_217_32[4:4] == 0 else !(inspect_gicd_read_ctlr_ret_204_32[4:4] == 0))>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_3c0000000_219_32>",
+          "r1": "<BV64 mem_20_198_64>",
+          "r2": "<BV64 0x0 .. mem_18_199_32>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109c0>",
+          "pc": "<BV64 0x2103d4>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_ppi_sgi_config_defaults",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_ppi_sgi_config_defaults_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'"
+        },
+        "constraints": [
+          "<Bool mem_8_190_32 <= reg_x0_189_64[31:0]>",
+          "<Bool mem_10_191_64 == 0x0>",
+          "<Bool mem_0_192_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_3ffff8000_226_32>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0x9f>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109a4>",
+          "pc": "<BV64 0x2103c4>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_secure_ppi_sgi_config_props",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_secure_ppi_sgi_config_props_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'"
+        },
+        "constraints": [
+          "<Bool mem_8_190_32 <= reg_x0_189_64[31:0]>",
+          "<Bool mem_10_191_64 == 0x0>",
+          "<Bool mem_0_192_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_3ffff8000_226_32>",
+          "r1": "<BV64 mem_20_198_64>",
+          "r2": "<BV64 0x0 .. mem_18_199_32>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109c0>",
+          "pc": "<BV64 0x2103d4>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_ppi_sgi_config_defaults",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_ppi_sgi_config_defaults_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'"
+        },
+        "constraints": [
+          "<Bool mem_8_190_32 <= reg_x0_189_64[31:0]>",
+          "<Bool mem_10_191_64 == 0x0>",
+          "<Bool mem_0_192_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_3ffff8000_226_32>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0xa4>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109a4>",
+          "pc": "<BV64 0x2103c4>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "called_function": "gicv3_secure_ppi_sgi_config_props",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_secure_ppi_sgi_config_props_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'"
+        },
+        "constraints": [
+          "<Bool mem_8_190_32 <= reg_x0_189_64[31:0]>",
+          "<Bool mem_10_191_64 == 0x0>",
+          "<Bool mem_0_192_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_3ffff8000_226_32>",
+          "r1": "<BV64 mem_20_198_64>",
+          "r2": "<BV64 0x0 .. mem_18_199_32>",
+          "r3": "<BV64 0x200185>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2109c0>",
+          "pc": "<BV64 0x2103d4>"
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "entry_address": "0x210814",
+  "boundary_hooks_applied": 8,
+  "boundary_functions": [
+    "__assert_fail",
+    "gicd_read_ctlr",
+    "gicd_wait_for_pending_write",
+    "gicd_write_ctlr",
+    "gicv3_ppi_sgi_config_defaults",
+    "gicv3_rdistif_on",
+    "gicv3_secure_ppi_sgi_config_props",
+    "mmio_read_32"
+  ],
+  "active_paths": 0,
+  "deadended_paths": 13
+}

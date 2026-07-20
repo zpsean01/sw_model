@@ -1,0 +1,45 @@
+{
+  "protocol": {
+    "name": "ARM_CORELINK_GIC_700",
+    "version": "r4p0_with_bugs"
+  },
+  "total_residual": 1,
+  "note": "These risks were identified by Stage 4 static analysis but NOT reproduced by Stage 5 symbolic execution. They require downstream dynamic testing for further validation.",
+  "risks": [
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-SEQ-03",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "message": "[SEQ-03] gicd_write_ctlr: 20 cross-register dependency constraints (20 unique spec_refs)",
+      "spec_refs": [
+        "pre.001",
+        "pre.002",
+        "pre.003",
+        "pre.004",
+        "pre.005",
+        "pre.006",
+        "pre.007",
+        "pre.008",
+        "pre.009",
+        "pre.010",
+        "pre.011",
+        "pre.012",
+        "pre.013",
+        "pre.014",
+        "pre.015",
+        "pre.016",
+        "pre.017",
+        "pre.018",
+        "pre.019",
+        "pre.020"
+      ],
+      "dep_count": 20,
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "residual_reason": "no_entry_point"
+    }
+  ]
+}

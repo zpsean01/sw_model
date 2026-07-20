@@ -46,11 +46,11 @@
                 "class": "Stage3ELFBinaryAnalysis",
                 "depends_on": ["stage2"],
                 "params": {
-                    "elf_file": "fw_samples/tf_a/build/gicv3_main.o",
+                    "elf_file": "fw_samples/tf_a/build/gic_harness.elf",
                     "output_dir": "data/binary/ARM_CORELINK_GIC_700_r4p0",
                     "arch": "AARCH64",
                     "static_dir": "data/static/ARM_CORELINK_GIC_700_r4p0",
-                    "unified_output_dir": "data/modeling",
+                    "unified_output_dir": "data/modeling/ARM_CORELINK_GIC_700_r4p0",
                     "extract": {
                         "functions": true,
                         "globals": true,
@@ -92,7 +92,7 @@
                 "class": "Stage5SymbolicExecution",
                 "depends_on": ["stage4"],
                 "params": {
-                    "elf_file": "fw_samples/tf_a/build/gicv3_main.o",
+                    "elf_file": "fw_samples/tf_a/build/gic_harness.elf",
                     "output_dir": "data/sym_execution",
                     "protocol_name": "ARM_CORELINK_GIC_700",
                     "protocol_version": "r4p0",
@@ -102,7 +102,30 @@
                         "timeout": 120,
                         "veritesting": true,
                         "default_hook_type": "symbolic_return",
-                        "call_graph_path": "data/modeling/call_graph_unified.json"
+                        "call_graph_path": "data/modeling/ARM_CORELINK_GIC_700_r4p0/call_graph_unified.json"
+                    },
+                    "hooks": {
+                        "__assert_fail": {
+                            "hook_type": "concrete_stub",
+                            "return_range": [0, 0]
+                        }
+                    },
+                    "inspect_specs": {
+                        "gicd_read_ctlr": {
+                            "risk_level": "info",
+                            "risk_tags": ["register_read"],
+                            "description": "GICD_CTLR register read — base protocol operation"
+                        },
+                        "gicd_write_ctlr": {
+                            "risk_level": "warning",
+                            "risk_tags": ["register_write"],
+                            "description": "GICD_CTLR register write — protocol critical"
+                        },
+                        "gicd_wait_for_pending_write": {
+                            "risk_level": "critical",
+                            "risk_tags": ["protocol_compliance", "rwp_poll"],
+                            "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec"
+                        }
                     },
                     "entry_points": [
                         {"function": "gicv3_distif_init", "max_depth": 2, "context": "GIC distributor init — GICD_CTLR write sequence"},
@@ -124,8 +147,8 @@
                     "output_dir": "data/risks",
                     "spec_model_dir": "D:/programming/spec_model/data/arm_corelink_gic_700_r4p0/extract",
                     "stage4_pc_path": "data/modeling/ARM_CORELINK_GIC_700_r4p0/protocol_conformance/report.json",
-                    "stage5_report_path": "data/sym_execution/ARM_CORELINK_GIC_700_r4p0/protocol_conformance/report.json",
-                    "stage5_traces_dir": "data/sym_execution/ARM_CORELINK_GIC_700_r4p0/protocol_conformance/traces"
+                    "stage5_report_path": "data/sym_execution/ARM_CORELINK_GIC_700_r4p0/symbolic_report.json",
+                    "stage5_traces_dir": "data/sym_execution/ARM_CORELINK_GIC_700_r4p0/traces"
                 }
             }
         ]

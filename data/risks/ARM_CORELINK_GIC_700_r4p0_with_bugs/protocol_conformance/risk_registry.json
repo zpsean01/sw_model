@@ -1,0 +1,340 @@
+{
+  "protocol": {
+    "name": "ARM_CORELINK_GIC_700",
+    "version": "r4p0_with_bugs"
+  },
+  "generated_at": "2026-07-20T16:38:25.899756+00:00",
+  "summary": {
+    "total_risks": 15,
+    "verified": 14,
+    "residual": 1,
+    "severity_distribution": {
+      "critical": 2,
+      "high": 1,
+      "medium": 0,
+      "low": 0,
+      "info": 12
+    }
+  },
+  "risks": [
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-SEQ-03",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "rule": "SEQ-03",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "[SEQ-03] gicd_write_ctlr: 20 cross-register dependency constraints (20 unique spec_refs)",
+      "spec_refs": [
+        "pre.001",
+        "pre.002",
+        "pre.003",
+        "pre.004",
+        "pre.005",
+        "pre.006",
+        "pre.007",
+        "pre.008",
+        "pre.009",
+        "pre.010",
+        "pre.011",
+        "pre.012",
+        "pre.013",
+        "pre.014",
+        "pre.015",
+        "pre.016",
+        "pre.017",
+        "pre.018",
+        "pre.019",
+        "pre.020"
+      ],
+      "dep_count": 20,
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-1",
+      "source": "stage5",
+      "finding_ref": "GICD_CTLR register read — base protocol operation",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "GICD_CTLR register read — base protocol operation",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-2",
+      "source": "stage5",
+      "finding_ref": "GICD_CTLR register read — base protocol operation",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "GICD_CTLR register read — base protocol operation",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-3",
+      "source": "stage5",
+      "finding_ref": "GICD_CTLR register write — protocol critical",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "GICD_CTLR register write — protocol critical",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-4",
+      "source": "stage5",
+      "finding_ref": "GICD_CTLR register write — protocol critical",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "GICD_CTLR register write — protocol critical",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-5",
+      "source": "stage5",
+      "finding_ref": "RWP polling after GICD_CTLR write — MUST be present per GIC spec",
+      "risk_type": "register_config_audit",
+      "severity": "critical",
+      "status": "verified",
+      "message": "RWP polling after GICD_CTLR write — MUST be present per GIC spec",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-6",
+      "source": "stage5",
+      "finding_ref": "RWP polling after GICD_CTLR write — MUST be present per GIC spec",
+      "risk_type": "register_config_audit",
+      "severity": "critical",
+      "status": "verified",
+      "message": "RWP polling after GICD_CTLR write — MUST be present per GIC spec",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-7",
+      "source": "stage5",
+      "finding_ref": "GICD_CTLR register read — base protocol operation",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "GICD_CTLR register read — base protocol operation",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-8",
+      "source": "stage5",
+      "finding_ref": "GICD_CTLR register read — base protocol operation",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "GICD_CTLR register read — base protocol operation",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-9",
+      "source": "stage5",
+      "finding_ref": "GICD_CTLR register write — protocol critical",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "GICD_CTLR register write — protocol critical",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-10",
+      "source": "stage5",
+      "finding_ref": "GICD_CTLR register write — protocol critical",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "GICD_CTLR register write — protocol critical",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-11",
+      "source": "stage5",
+      "finding_ref": "GICD_CTLR register read — base protocol operation",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "GICD_CTLR register read — base protocol operation",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-12",
+      "source": "stage5",
+      "finding_ref": "GICD_CTLR register read — base protocol operation",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "GICD_CTLR register read — base protocol operation",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-13",
+      "source": "stage5",
+      "finding_ref": "GICD_CTLR register write — protocol critical",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "GICD_CTLR register write — protocol critical",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-14",
+      "source": "stage5",
+      "finding_ref": "GICD_CTLR register write — protocol critical",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "GICD_CTLR register write — protocol critical",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0_with_bugs\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    }
+  ]
+}

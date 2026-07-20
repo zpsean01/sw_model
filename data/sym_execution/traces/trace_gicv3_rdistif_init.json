@@ -11,7 +11,7 @@
       "symbolic_vars": [],
       "constraints": [],
       "details": {
-        "address": "0x4003cc",
+        "address": "0x210814",
         "max_depth": 2,
         "entry_args": []
       },
@@ -26,7 +26,7 @@
       "details": {
         "status": "completed",
         "active_paths": 0,
-        "deadended_paths": 1,
+        "deadended_paths": 6,
         "total_events": 1
       },
       "finding_id": null

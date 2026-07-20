@@ -1,0 +1,33 @@
+{
+  "gicd_read_ctlr": {
+    "function_name": "gicd_read_ctlr",
+    "risk_level": "info",
+    "risk_tags": [
+      "register_read"
+    ],
+    "return_range": null,
+    "modified_registers": [],
+    "description": "GICD_CTLR register read — base protocol operation"
+  },
+  "gicd_write_ctlr": {
+    "function_name": "gicd_write_ctlr",
+    "risk_level": "warning",
+    "risk_tags": [
+      "register_write"
+    ],
+    "return_range": null,
+    "modified_registers": [],
+    "description": "GICD_CTLR register write — protocol critical"
+  },
+  "gicd_wait_for_pending_write": {
+    "function_name": "gicd_wait_for_pending_write",
+    "risk_level": "critical",
+    "risk_tags": [
+      "protocol_compliance",
+      "rwp_poll"
+    ],
+    "return_range": null,
+    "modified_registers": [],
+    "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec"
+  }
+}

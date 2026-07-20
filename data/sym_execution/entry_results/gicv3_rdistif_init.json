@@ -4,14 +4,20 @@
   "context": "GIC redistributor init — per-core",
   "status": "completed",
   "inspect_triggers": [],
-  "errors": [],
-  "entry_address": "0x4003cc",
-  "boundary_hooks_applied": 3,
+  "errors": [
+    "Exploration interrupted: 'SimSolver' object has no attribute 'BVV'"
+  ],
+  "entry_address": "0x210814",
+  "boundary_hooks_applied": 7,
   "boundary_functions": [
+    "__assert_fail",
     "gicd_wait_for_pending_write",
     "gicd_write_ctlr",
+    "gicv3_ppi_sgi_config_defaults",
+    "gicv3_rdistif_on",
+    "gicv3_secure_ppi_sgi_config_props",
     "mmio_read_32"
   ],
-  "active_paths": 0,
-  "deadended_paths": 1
+  "active_paths": 1,
+  "deadended_paths": 0
 }

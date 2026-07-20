@@ -137,22 +137,71 @@ class HookLibrary:
 
         return set()
 
+    def get_leaf_functions_within_depth(
+        self,
+        entry_function: str,
+        max_depth: int,
+    ) -> Set[str]:
+        """Get leaf functions (no callees in call graph) reachable within
+        ``max_depth`` BFS from *entry_function*, excluding the entry itself.
+
+        Leaf functions are the "dead ends" of the call tree.  Hooking them
+        prevents angr from inlining their body and hitting MMIO / unhandled
+        instructions that would stall exploration.
+        """
+        if entry_function not in self._call_graph:
+            return set()
+
+        visited: Set[str] = set()
+        current_level: Set[str] = {entry_function}
+        leaves: Set[str] = set()
+
+        for depth in range(max_depth + 1):
+            next_level: Set[str] = set()
+            for func in current_level:
+                if func in visited:
+                    continue
+                visited.add(func)
+                callees = self._call_graph.get(func, [])
+                if not callees and depth > 0:
+                    leaves.add(func)
+                for callee in callees:
+                    if callee not in visited:
+                        next_level.add(callee)
+            current_level = next_level
+
+        return leaves
+
     def auto_generate_hooks(
         self,
         entry_function: str,
         max_depth: int,
         default_hook_type: str = "symbolic_return",
+        include_leaves: bool = True,
     ) -> Dict[str, HookSpec]:
         """Auto-generate HookSpecs for boundary functions.
 
         For each function at the max_depth boundary from the entry point,
         create a default HookSpec (hook_type = default_hook_type).
         If a HookSpec is already registered (from config), use that instead.
+
+        When *include_leaves* is ``True`` (default), also generate hooks for
+        every leaf function (no callees) reachable within *max_depth*,
+        ensuring angr never inlines functions whose body may contain MMIO
+        accesses or other concretisation hazards.
         """
         boundary = self.get_boundary_functions(entry_function, max_depth)
         generated: Dict[str, HookSpec] = {}
 
-        for func_name in sorted(boundary):
+        target_funcs: Set[str] = set(boundary)
+
+        if include_leaves:
+            leaf_funcs = self.get_leaf_functions_within_depth(entry_function, max_depth)
+            target_funcs |= leaf_funcs
+            logger.info("Leaf functions within depth %d: %s", max_depth,
+                        sorted(leaf_funcs))
+
+        for func_name in sorted(target_funcs):
             if func_name in self._hooks:
                 generated[func_name] = self._hooks[func_name]
             else:

@@ -113,71 +113,85 @@ class Stage6RiskAggregator(BaseStage):
         residual_count = 0
         severity_dist: Dict[str, int] = {s: 0 for s in SEVERITIES}
 
-        # 5a. Process each Stage 4 finding
+        # 5a. Process each Stage 4 finding — aggregate by (function, risk_type)
+        # to avoid overwhelming the registry with near-identical entries
+        # (e.g. 20 SEQ-03 cross_register_dependency entries for the same function)
+        s4_aggregated: Dict[tuple, Dict] = {}
         for finding in stage4_findings:
             risk_type = finding.get("type", "unknown")
             severity = finding.get("severity", "info")
             location = finding.get("location", {})
             func_name = location.get("function") if location else None
+            rule = finding.get("rule", "")
+            agg_key = (func_name or "unknown", risk_type, rule)
 
             # Determine if this finding is "verified" or "residual"
-            # A finding is verified if its function was a Stage 5 entry
-            # AND that entry had inspect_triggers (meaning hooks fired)
             is_verified = False
             verification_info: Dict[str, Any] = {}
 
             if func_name and func_name in s5_verified_functions:
-                triggers = s5_verified_functions[func_name]
                 is_verified = True
                 verification_info = {
                     "entry_function": func_name,
                     "trace_file": str(trace_map.get(func_name, "")),
-                    "constraints": self._collect_constraints(triggers),
-                    "register_snapshot": self._collect_register_snapshot(triggers),
+                    "constraints": self._collect_constraints(s5_verified_functions[func_name]),
+                    "register_snapshot": self._collect_register_snapshot(s5_verified_functions[func_name]),
                 }
             elif func_name and func_name in s5_entry_functions:
-                # Was an entry point but no triggers — still residual
                 verification_info = {
                     "entry_function": func_name,
                     "trace_file": str(trace_map.get(func_name, "")),
                 }
             elif func_name:
-                # Not even an entry point — residual (static-only)
                 verification_info = {
                     "entry_function": func_name,
                     "trace_file": "",
                 }
 
-            if is_verified:
+            if agg_key not in s4_aggregated:
+                sev = severity if severity in SEVERITIES else "info"
+                s4_aggregated[agg_key] = {
+                    "risk_id": f"R-{risk_type}-{func_name or 'unknown'}-{rule or '0'}",
+                    "source": "stage4",
+                    "finding_ref": risk_type,
+                    "rule": rule,
+                    "risk_type": risk_type,
+                    "severity": sev,
+                    "status": "verified" if is_verified else "residual",
+                    "message": finding.get("message", ""),
+                    "spec_refs": [finding.get("spec_ref", "")] if finding.get("spec_ref") else [],
+                    "dep_count": 1,
+                    "expected": finding.get("expected", ""),
+                    "actual": finding.get("actual", ""),
+                    "location": {
+                        "file": location.get("file", "") if location else "",
+                        "function": func_name or "",
+                    },
+                }
+                if is_verified and verification_info:
+                    s4_aggregated[agg_key]["verification"] = verification_info
+            else:
+                existing = s4_aggregated[agg_key]
+                existing["dep_count"] += 1
+                spec_ref = finding.get("spec_ref", "")
+                if spec_ref and spec_ref not in existing["spec_refs"]:
+                    existing["spec_refs"].append(spec_ref)
+
+        for agg in s4_aggregated.values():
+            sev = agg["severity"]
+            severity_dist[sev] += 1
+            if agg["status"] == "verified":
                 verified_count += 1
             else:
                 residual_count += 1
-
-            sev = severity if severity in SEVERITIES else "info"
-            severity_dist[sev] += 1
-
-            risk_id = f"R-{risk_type}-{func_name or 'unknown'}-{len(risks)}"
-
-            risk_entry: Dict[str, Any] = {
-                "risk_id": risk_id,
-                "source": "stage4",
-                "finding_ref": finding.get("type", ""),
-                "risk_type": risk_type,
-                "severity": sev,
-                "status": "verified" if is_verified else "residual",
-                "message": finding.get("message", ""),
-                "spec_ref": finding.get("spec_ref", ""),
-                "expected": finding.get("expected", ""),
-                "actual": finding.get("actual", ""),
-                "location": {
-                    "file": location.get("file", "") if location else "",
-                    "function": func_name or "",
-                },
-            }
-            if is_verified and verification_info:
-                risk_entry["verification"] = verification_info
-
-            risks.append(risk_entry)
+            # Enrich message with dep_count when > 1
+            if agg["dep_count"] > 1:
+                agg["message"] = (
+                    f"[{agg['rule']}] {agg['location']['function']}: "
+                    f"{agg['dep_count']} cross-register dependency constraints "
+                    f"({len(agg['spec_refs'])} unique spec_refs)"
+                )
+            risks.append(agg)
 
         # 5b. Add Stage 5 specific findings (InspectTriggers) as additional risks
         # if they reference functions NOT covered by Stage 4 findings
@@ -191,7 +205,10 @@ class Stage6RiskAggregator(BaseStage):
             if func in s4_functions:
                 continue  # already covered from Stage 4
             for t in triggers:
-                sev = t.get("risk_level", "unknown")
+                risk_level = t.get("risk_level", "unknown")
+                if risk_level in ("unknown", "safe"):
+                    continue  # unannotated / safe — not a real risk
+                sev = risk_level
                 sev = sev if sev in SEVERITIES else "info"
                 severity_dist[sev] += 1
                 verified_count += 1
@@ -268,7 +285,8 @@ class Stage6RiskAggregator(BaseStage):
                 "risk_type": r["risk_type"],
                 "severity": r["severity"],
                 "message": r["message"],
-                "spec_ref": r["spec_ref"],
+                "spec_refs": r.get("spec_refs", []),
+                "dep_count": r.get("dep_count", 1),
                 "location": r["location"],
                 "residual_reason": self._infer_residual_reason(r, s5_entry_functions),
             })

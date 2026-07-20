@@ -92,6 +92,13 @@ class Stage4EventArchAnalysis(BaseStage):
             # Load firmware analysis data (Stage 2 output)
             fw_ok = analyzer.load_firmware(static_dir)
 
+            # Load binary (Stage 3) call graph to supplement Stage 2's
+            # empty ``calls`` arrays (libclang limitation)
+            if analyzer.oracle.get("protocol") and analyzer.oracle.get("version"):
+                proto_dir = f"{analyzer.oracle['protocol']}_{analyzer.oracle['version']}"
+                binary_cg = output_dir / proto_dir / "call_graph_unified.json"
+                analyzer.load_binary_call_graph(binary_cg)
+
             if n_constraints > 0 and oracle_ok and fw_ok:
                 pc_findings = analyzer.run_all_checks()
                 for f in pc_findings:

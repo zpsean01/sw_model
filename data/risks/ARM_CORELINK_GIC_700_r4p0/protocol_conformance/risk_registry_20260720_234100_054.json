@@ -1,0 +1,701 @@
+{
+  "protocol": {
+    "name": "ARM_CORELINK_GIC_700",
+    "version": "r4p0"
+  },
+  "generated_at": "2026-07-20T15:41:00.054086+00:00",
+  "summary": {
+    "total_risks": 38,
+    "verified": 18,
+    "residual": 20,
+    "severity_distribution": {
+      "critical": 0,
+      "high": 20,
+      "medium": 0,
+      "low": 0,
+      "info": 18
+    }
+  },
+  "risks": [
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-0",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:ACE_CC.write → armcorelinkgic700:distributor:gicd_ccccr:Group2.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.001",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-1",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:CHIPS_UPPER.write → armcorelinkgic700:distributor:gicd_ccccr:Group2.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.002",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-2",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:ACE_CC.write → armcorelinkgic700:distributor:gicd_ccccr:Group1.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.003",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-3",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:CHIPS_UPPER.write → armcorelinkgic700:distributor:gicd_ccccr:Group1.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.004",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-4",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:ACE_CC.write → armcorelinkgic700:distributor:gicd_ccccr:Group0.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.005",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-5",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:CHIPS_UPPER.write → armcorelinkgic700:distributor:gicd_ccccr:Group0.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.006",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-6",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:ACE_CC.write → armcorelinkgic700:distributor:gicd_cccgr:Chip.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.007",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-7",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:CHIPS_UPPER.write → armcorelinkgic700:distributor:gicd_cccgr:Chip.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.008",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-8",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:VIEW.write → armcorelinkgic700:distributor:gicd_cfgid:AFF3.write  guard: GICD_CFGID.VIEW == 1",
+      "spec_ref": "pre.009",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-9",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:VIEW.write → armcorelinkgic700:distributor:gicd_cfgid:AFF2.write  guard: GICD_CFGID.VIEW == 1",
+      "spec_ref": "pre.010",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-10",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:VIEW.write → armcorelinkgic700:distributor:gicd_cfgid:AFF1.write  guard: GICD_CFGID.VIEW == 1",
+      "spec_ref": "pre.011",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-11",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:VIEW.write → armcorelinkgic700:distributor:gicd_cfgid:AFFO.write  guard: GICD_CFGID.VIEW == 1",
+      "spec_ref": "pre.012",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-12",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:VIEW.write → armcorelinkgic700:distributor:gicd_cfgid:CHIPS.write  guard: GICD_CFGID.VIEW == 1",
+      "spec_ref": "pre.013",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-13",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:VIEW.write → armcorelinkgic700:distributor:gicd_cfgid:EITS.write  guard: GICD_CFGID.VIEW == 1",
+      "spec_ref": "pre.014",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-14",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_ctlr:EnableGrp0.write → armcorelinkgic700:distributor:gicd_chiprn:ADDR.write  guard: (GICD_CTLR.EnableGrp0 == 0) and (GICD_CTLR.EnableGrp1NS == 0) and (GICD_CTLR.EnableGrp1S == 0)",
+      "spec_ref": "pre.015",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-15",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_ctlr:EnableGrp1NS.write → armcorelinkgic700:distributor:gicd_chiprn:ADDR.write  guard: (GICD_CTLR.EnableGrp0 == 0) and (GICD_CTLR.EnableGrp1NS == 0) and (GICD_CTLR.EnableGrp1S == 0)",
+      "spec_ref": "pre.016",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-16",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_ctlr:EnableGrp1S.write → armcorelinkgic700:distributor:gicd_chiprn:ADDR.write  guard: (GICD_CTLR.EnableGrp0 == 0) and (GICD_CTLR.EnableGrp1NS == 0) and (GICD_CTLR.EnableGrp1S == 0)",
+      "spec_ref": "pre.017",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-17",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_ctlr:EnableGrp0.write → armcorelinkgic700:distributor:gicd_chiprn:SPI_BLOCK_MIN.write  guard: (GICD_CTLR.EnableGrp0 == 0) and (GICD_CTLR.EnableGrp1NS == 0) and (GICD_CTLR.EnableGrp1S == 0)",
+      "spec_ref": "pre.018",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-18",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_ctlr:EnableGrp1NS.write → armcorelinkgic700:distributor:gicd_chiprn:SPI_BLOCK_MIN.write  guard: (GICD_CTLR.EnableGrp0 == 0) and (GICD_CTLR.EnableGrp1NS == 0) and (GICD_CTLR.EnableGrp1S == 0)",
+      "spec_ref": "pre.019",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-19",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_ctlr:EnableGrp1S.write → armcorelinkgic700:distributor:gicd_chiprn:SPI_BLOCK_MIN.write  guard: (GICD_CTLR.EnableGrp0 == 0) and (GICD_CTLR.EnableGrp1NS == 0) and (GICD_CTLR.EnableGrp1S == 0)",
+      "spec_ref": "pre.020",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-20",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-21",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-22",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_write_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_write_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-23",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_write_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_write_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-24",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-25",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-26",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-27",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-28",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_write_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_write_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-29",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_write_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_write_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-30",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-31",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-32",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-33",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-34",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_write_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_write_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-35",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_write_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_write_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-36",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-37",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    }
+  ]
+}

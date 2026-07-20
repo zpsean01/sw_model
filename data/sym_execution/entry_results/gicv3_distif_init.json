@@ -3,15 +3,47 @@
   "max_depth": 2,
   "context": "GIC distributor init — GICD_CTLR write sequence",
   "status": "completed",
-  "inspect_triggers": [],
-  "errors": [],
-  "entry_address": "0x400204",
-  "boundary_hooks_applied": 3,
+  "inspect_triggers": [
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "__assert_fail",
+      "call_depth": 2,
+      "hook_type": "concrete_stub",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for '__assert_fail'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect___assert_fail_ret",
+          "bits": 32,
+          "description": "Boundary hook for '__assert_fail'"
+        },
+        "constraints": [],
+        "registers_at_hook": {
+          "r0": "<BV64 0x2001d8>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0x6d>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x210688>",
+          "pc": "<BV64 0x2103f0>"
+        }
+      }
+    }
+  ],
+  "errors": [
+    "Exploration interrupted: 'SimSolver' object has no attribute 'BVV'"
+  ],
+  "entry_address": "0x21064c",
+  "boundary_hooks_applied": 6,
   "boundary_functions": [
+    "__assert_fail",
     "gicd_read_ctlr",
     "gicd_wait_for_pending_write",
-    "gicd_write_ctlr"
+    "gicd_write_ctlr",
+    "gicv3_secure_spis_config_props",
+    "gicv3_spis_config_defaults"
   ],
-  "active_paths": 0,
-  "deadended_paths": 1
+  "active_paths": 1,
+  "deadended_paths": 0
 }

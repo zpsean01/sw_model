@@ -1,0 +1,1641 @@
+{
+  "protocol": {
+    "name": "ARM_CORELINK_GIC_700",
+    "version": "r4p0"
+  },
+  "generated_at": "2026-07-20T16:09:33.421486+00:00",
+  "summary": {
+    "total_risks": 85,
+    "verified": 65,
+    "residual": 20,
+    "severity_distribution": {
+      "critical": 0,
+      "high": 20,
+      "medium": 0,
+      "low": 0,
+      "info": 65
+    }
+  },
+  "risks": [
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-0",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:ACE_CC.write → armcorelinkgic700:distributor:gicd_ccccr:Group2.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.001",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-1",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:CHIPS_UPPER.write → armcorelinkgic700:distributor:gicd_ccccr:Group2.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.002",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-2",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:ACE_CC.write → armcorelinkgic700:distributor:gicd_ccccr:Group1.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.003",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-3",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:CHIPS_UPPER.write → armcorelinkgic700:distributor:gicd_ccccr:Group1.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.004",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-4",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:ACE_CC.write → armcorelinkgic700:distributor:gicd_ccccr:Group0.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.005",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-5",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:CHIPS_UPPER.write → armcorelinkgic700:distributor:gicd_ccccr:Group0.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.006",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-6",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:ACE_CC.write → armcorelinkgic700:distributor:gicd_cccgr:Chip.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.007",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-7",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:CHIPS_UPPER.write → armcorelinkgic700:distributor:gicd_cccgr:Chip.write  guard: (GICD_CFGID.ACE_CC == 0) and (GICD_CFGID.CHIPS_UPPER == 0)",
+      "spec_ref": "pre.008",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-8",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:VIEW.write → armcorelinkgic700:distributor:gicd_cfgid:AFF3.write  guard: GICD_CFGID.VIEW == 1",
+      "spec_ref": "pre.009",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-9",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:VIEW.write → armcorelinkgic700:distributor:gicd_cfgid:AFF2.write  guard: GICD_CFGID.VIEW == 1",
+      "spec_ref": "pre.010",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-10",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:VIEW.write → armcorelinkgic700:distributor:gicd_cfgid:AFF1.write  guard: GICD_CFGID.VIEW == 1",
+      "spec_ref": "pre.011",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-11",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:VIEW.write → armcorelinkgic700:distributor:gicd_cfgid:AFFO.write  guard: GICD_CFGID.VIEW == 1",
+      "spec_ref": "pre.012",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-12",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:VIEW.write → armcorelinkgic700:distributor:gicd_cfgid:CHIPS.write  guard: GICD_CFGID.VIEW == 1",
+      "spec_ref": "pre.013",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-13",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_cfgid:VIEW.write → armcorelinkgic700:distributor:gicd_cfgid:EITS.write  guard: GICD_CFGID.VIEW == 1",
+      "spec_ref": "pre.014",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-14",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_ctlr:EnableGrp0.write → armcorelinkgic700:distributor:gicd_chiprn:ADDR.write  guard: (GICD_CTLR.EnableGrp0 == 0) and (GICD_CTLR.EnableGrp1NS == 0) and (GICD_CTLR.EnableGrp1S == 0)",
+      "spec_ref": "pre.015",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-15",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_ctlr:EnableGrp1NS.write → armcorelinkgic700:distributor:gicd_chiprn:ADDR.write  guard: (GICD_CTLR.EnableGrp0 == 0) and (GICD_CTLR.EnableGrp1NS == 0) and (GICD_CTLR.EnableGrp1S == 0)",
+      "spec_ref": "pre.016",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-16",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_ctlr:EnableGrp1S.write → armcorelinkgic700:distributor:gicd_chiprn:ADDR.write  guard: (GICD_CTLR.EnableGrp0 == 0) and (GICD_CTLR.EnableGrp1NS == 0) and (GICD_CTLR.EnableGrp1S == 0)",
+      "spec_ref": "pre.017",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-17",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_ctlr:EnableGrp0.write → armcorelinkgic700:distributor:gicd_chiprn:SPI_BLOCK_MIN.write  guard: (GICD_CTLR.EnableGrp0 == 0) and (GICD_CTLR.EnableGrp1NS == 0) and (GICD_CTLR.EnableGrp1S == 0)",
+      "spec_ref": "pre.018",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-18",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_ctlr:EnableGrp1NS.write → armcorelinkgic700:distributor:gicd_chiprn:SPI_BLOCK_MIN.write  guard: (GICD_CTLR.EnableGrp0 == 0) and (GICD_CTLR.EnableGrp1NS == 0) and (GICD_CTLR.EnableGrp1S == 0)",
+      "spec_ref": "pre.019",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-cross_register_dependency-gicd_write_ctlr-19",
+      "source": "stage4",
+      "finding_ref": "cross_register_dependency",
+      "risk_type": "cross_register_dependency",
+      "severity": "high",
+      "status": "residual",
+      "message": "Cross-register dependency: armcorelinkgic700:distributor:gicd_ctlr:EnableGrp1S.write → armcorelinkgic700:distributor:gicd_chiprn:SPI_BLOCK_MIN.write  guard: (GICD_CTLR.EnableGrp0 == 0) and (GICD_CTLR.EnableGrp1NS == 0) and (GICD_CTLR.EnableGrp1S == 0)",
+      "spec_ref": "pre.020",
+      "expected": "",
+      "actual": "",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      }
+    },
+    {
+      "risk_id": "R-stage5-__assert_fail-20",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for '__assert_fail'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for '__assert_fail'",
+      "spec_ref": "concrete_stub",
+      "location": {
+        "file": "",
+        "function": "__assert_fail"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-__assert_fail-21",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for '__assert_fail'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for '__assert_fail'",
+      "spec_ref": "concrete_stub",
+      "location": {
+        "file": "",
+        "function": "__assert_fail"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-22",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-23",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-24",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_write_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_write_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-25",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_write_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_write_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-26",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-27",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-28",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-29",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-30",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_write_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_write_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-31",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_write_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_write_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-32",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-33",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_spis_config_defaults-34",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_spis_config_defaults'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_spis_config_defaults'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_spis_config_defaults"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_spis_config_defaults-35",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_spis_config_defaults'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_spis_config_defaults'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_spis_config_defaults"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_secure_spis_config_props-36",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_secure_spis_config_props'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_secure_spis_config_props'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_secure_spis_config_props"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_secure_spis_config_props-37",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_secure_spis_config_props'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_secure_spis_config_props'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_secure_spis_config_props"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-38",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_ctlr-39",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-40",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_write_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_write_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_write_ctlr-41",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_write_ctlr'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_write_ctlr'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_write_ctlr"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-42",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_wait_for_pending_write-43",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_wait_for_pending_write'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_wait_for_pending_write"
+      },
+      "verification": {
+        "entry_function": "gicv3_distif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_distif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_pidr2-44",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_pidr2'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_pidr2'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_pidr2"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_rdistif_base_addrs_probe-45",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_rdistif_base_addrs_probe"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_check_erratas_applies-46",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_check_erratas_applies'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_check_erratas_applies'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_check_erratas_applies"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_pidr2-47",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_pidr2'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_pidr2'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_pidr2"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_pidr2-48",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_pidr2'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_pidr2'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_pidr2"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_rdistif_base_addrs_probe-49",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_rdistif_base_addrs_probe"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_rdistif_base_addrs_probe-50",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_rdistif_base_addrs_probe"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_check_erratas_applies-51",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_check_erratas_applies'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_check_erratas_applies'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_check_erratas_applies"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_pidr2-52",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_pidr2'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_pidr2'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_pidr2"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_rdistif_base_addrs_probe-53",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_rdistif_base_addrs_probe"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_check_erratas_applies-54",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_check_erratas_applies'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_check_erratas_applies'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_check_erratas_applies"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_pidr2-55",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_pidr2'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_pidr2'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_pidr2"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_rdistif_base_addrs_probe-56",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_rdistif_base_addrs_probe"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_check_erratas_applies-57",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_check_erratas_applies'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_check_erratas_applies'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_check_erratas_applies"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicd_read_pidr2-58",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicd_read_pidr2'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicd_read_pidr2'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicd_read_pidr2"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_rdistif_base_addrs_probe-59",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_rdistif_base_addrs_probe"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_check_erratas_applies-60",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_check_erratas_applies'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_check_erratas_applies'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_check_erratas_applies"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_rdistif_base_addrs_probe-61",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_rdistif_base_addrs_probe'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_rdistif_base_addrs_probe"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_check_erratas_applies-62",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_check_erratas_applies'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_check_erratas_applies'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_check_erratas_applies"
+      },
+      "verification": {
+        "entry_function": "gicv3_driver_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_driver_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_rdistif_on-63",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_rdistif_on'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_rdistif_on'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_rdistif_on"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_rdistif_on-64",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_rdistif_on'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_rdistif_on'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_rdistif_on"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_ppi_sgi_config_defaults-65",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_ppi_sgi_config_defaults"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_secure_ppi_sgi_config_props-66",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_secure_ppi_sgi_config_props"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_rdistif_on-67",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_rdistif_on'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_rdistif_on'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_rdistif_on"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_ppi_sgi_config_defaults-68",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_ppi_sgi_config_defaults"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_secure_ppi_sgi_config_props-69",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_secure_ppi_sgi_config_props"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_ppi_sgi_config_defaults-70",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_ppi_sgi_config_defaults"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_secure_ppi_sgi_config_props-71",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_secure_ppi_sgi_config_props"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_rdistif_on-72",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_rdistif_on'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_rdistif_on'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_rdistif_on"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_ppi_sgi_config_defaults-73",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_ppi_sgi_config_defaults"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_secure_ppi_sgi_config_props-74",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_secure_ppi_sgi_config_props"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_rdistif_on-75",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_rdistif_on'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_rdistif_on'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_rdistif_on"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_ppi_sgi_config_defaults-76",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_ppi_sgi_config_defaults"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_secure_ppi_sgi_config_props-77",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_secure_ppi_sgi_config_props"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_rdistif_on-78",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_rdistif_on'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_rdistif_on'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_rdistif_on"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_ppi_sgi_config_defaults-79",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_ppi_sgi_config_defaults"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_secure_ppi_sgi_config_props-80",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_secure_ppi_sgi_config_props"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_ppi_sgi_config_defaults-81",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_ppi_sgi_config_defaults"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_secure_ppi_sgi_config_props-82",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_secure_ppi_sgi_config_props"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_ppi_sgi_config_defaults-83",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_ppi_sgi_config_defaults'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_ppi_sgi_config_defaults"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    },
+    {
+      "risk_id": "R-stage5-gicv3_secure_ppi_sgi_config_props-84",
+      "source": "stage5",
+      "finding_ref": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "risk_type": "register_config_audit",
+      "severity": "info",
+      "status": "verified",
+      "message": "Boundary hook for 'gicv3_secure_ppi_sgi_config_props'",
+      "spec_ref": "symbolic_return",
+      "location": {
+        "file": "",
+        "function": "gicv3_secure_ppi_sgi_config_props"
+      },
+      "verification": {
+        "entry_function": "gicv3_rdistif_init",
+        "trace_file": "data\\sym_execution\\ARM_CORELINK_GIC_700_r4p0\\traces\\trace_gicv3_rdistif_init.json",
+        "constraints": [],
+        "register_snapshot": {}
+      }
+    }
+  ]
+}

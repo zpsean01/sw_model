@@ -1,5 +1,5 @@
 {
-  "binary": "fw_samples\\tf_a\\build\\gicv3_main.o",
+  "binary": "fw_samples\\tf_a\\build\\gic_harness.elf",
   "entry_count": 3,
   "entry_results": [
     {
@@ -7,17 +7,49 @@
       "max_depth": 2,
       "context": "GIC distributor init — GICD_CTLR write sequence",
       "status": "completed",
-      "inspect_triggers": [],
-      "errors": [],
-      "entry_address": "0x400204",
-      "boundary_hooks_applied": 3,
+      "inspect_triggers": [
+        {
+          "entry_function": "gicv3_distif_init",
+          "called_function": "__assert_fail",
+          "call_depth": 2,
+          "hook_type": "concrete_stub",
+          "risk_level": "unknown",
+          "risk_tags": [],
+          "description": "Boundary hook for '__assert_fail'",
+          "trace_detail": {
+            "symbolic_var": {
+              "name": "inspect___assert_fail_ret",
+              "bits": 32,
+              "description": "Boundary hook for '__assert_fail'"
+            },
+            "constraints": [],
+            "registers_at_hook": {
+              "r0": "<BV64 0x2001d8>",
+              "r1": "<BV64 0x20021c>",
+              "r2": "<BV64 0x6d>",
+              "r3": "<BV64 0x2002e7>",
+              "sp": "<BV64 0x7fffffffffeffe0>",
+              "lr": "<BV64 0x210688>",
+              "pc": "<BV64 0x2103f0>"
+            }
+          }
+        }
+      ],
+      "errors": [
+        "Exploration interrupted: 'SimSolver' object has no attribute 'BVV'"
+      ],
+      "entry_address": "0x21064c",
+      "boundary_hooks_applied": 6,
       "boundary_functions": [
+        "__assert_fail",
         "gicd_read_ctlr",
         "gicd_wait_for_pending_write",
-        "gicd_write_ctlr"
+        "gicd_write_ctlr",
+        "gicv3_secure_spis_config_props",
+        "gicv3_spis_config_defaults"
       ],
-      "active_paths": 0,
-      "deadended_paths": 1
+      "active_paths": 1,
+      "deadended_paths": 0
     },
     {
       "entry_function": "gicv3_driver_init",
@@ -25,14 +57,20 @@
       "context": "GIC driver init — probe + erratas",
       "status": "completed",
       "inspect_triggers": [],
-      "errors": [],
-      "entry_address": "0x400000",
-      "boundary_hooks_applied": 1,
+      "errors": [
+        "Exploration interrupted: 'SimSolver' object has no attribute 'BVV'"
+      ],
+      "entry_address": "0x210448",
+      "boundary_hooks_applied": 5,
       "boundary_functions": [
+        "__assert_fail",
+        "gicd_read_pidr2",
+        "gicv3_check_erratas_applies",
+        "gicv3_rdistif_base_addrs_probe",
         "mmio_read_32"
       ],
-      "active_paths": 0,
-      "deadended_paths": 1
+      "active_paths": 1,
+      "deadended_paths": 0
     },
     {
       "entry_function": "gicv3_rdistif_init",
@@ -40,16 +78,22 @@
       "context": "GIC redistributor init — per-core",
       "status": "completed",
       "inspect_triggers": [],
-      "errors": [],
-      "entry_address": "0x4003cc",
-      "boundary_hooks_applied": 3,
+      "errors": [
+        "Exploration interrupted: 'SimSolver' object has no attribute 'BVV'"
+      ],
+      "entry_address": "0x210814",
+      "boundary_hooks_applied": 7,
       "boundary_functions": [
+        "__assert_fail",
         "gicd_wait_for_pending_write",
         "gicd_write_ctlr",
+        "gicv3_ppi_sgi_config_defaults",
+        "gicv3_rdistif_on",
+        "gicv3_secure_ppi_sgi_config_props",
         "mmio_read_32"
       ],
-      "active_paths": 0,
-      "deadended_paths": 1
+      "active_paths": 1,
+      "deadended_paths": 0
     }
   ],
   "errors": [],
@@ -57,8 +101,10 @@
     "total_entry_points": 3,
     "completed": 3,
     "errors": 0,
-    "total_inspect_triggers": 0,
-    "risk_distribution": {},
-    "paths_found": 0
+    "total_inspect_triggers": 1,
+    "risk_distribution": {
+      "unknown": 1
+    },
+    "paths_found": 3
   }
 }

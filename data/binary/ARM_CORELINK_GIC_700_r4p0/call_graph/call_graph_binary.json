@@ -1,413 +1,449 @@
 {
   "nodes": [
     {
-      "id": "gicv3_driver_init",
-      "attributes": {
-        "address": 4194304
-      }
-    },
-    {
-      "id": "__assert_fail",
-      "attributes": {
-        "address": 5242880
-      }
-    },
-    {
-      "id": "gicd_read_pidr2",
-      "attributes": {
-        "address": 4194756
-      }
-    },
-    {
-      "id": "gicd_read_ctlr",
-      "attributes": {
-        "address": 4194776
-      }
-    },
-    {
-      "id": "gicv3_check_erratas_applies",
-      "attributes": {
-        "address": 5242896
-      }
-    },
-    {
-      "id": "gicv3_rdistif_base_addrs_probe",
-      "attributes": {
-        "address": 5242888
-      }
-    },
-    {
       "id": "mmio_read_32",
       "attributes": {
-        "address": 5242904
-      }
-    },
-    {
-      "id": "gicv3_distif_init",
-      "attributes": {
-        "address": 4194820
-      }
-    },
-    {
-      "id": "gicd_clr_ctlr",
-      "attributes": {
-        "address": 4195084
-      }
-    },
-    {
-      "id": "gicd_set_ctlr",
-      "attributes": {
-        "address": 4195180
-      }
-    },
-    {
-      "id": "gicv3_spis_config_defaults",
-      "attributes": {
-        "address": 5242912
-      }
-    },
-    {
-      "id": "gicv3_secure_spis_config_props",
-      "attributes": {
-        "address": 5242920
-      }
-    },
-    {
-      "id": "gicd_write_ctlr",
-      "attributes": {
-        "address": 4195808
-      }
-    },
-    {
-      "id": "gicd_wait_for_pending_write",
-      "attributes": {
-        "address": 4195860
-      }
-    },
-    {
-      "id": "gicv3_rdistif_init",
-      "attributes": {
-        "address": 4195276
-      }
-    },
-    {
-      "id": "gicv3_rdistif_on",
-      "attributes": {
-        "address": 4195776
-      }
-    },
-    {
-      "id": "gicv3_ppi_sgi_config_defaults",
-      "attributes": {
-        "address": 5242928
-      }
-    },
-    {
-      "id": "gicv3_secure_ppi_sgi_config_props",
-      "attributes": {
-        "address": 5242936
-      }
-    },
-    {
-      "id": "gicv3_rdistif_off",
-      "attributes": {
-        "address": 4195792
+        "address": 2163524
       }
     },
     {
       "id": "mmio_write_32",
       "attributes": {
-        "address": 5242944
+        "address": 2163544
+      }
+    },
+    {
+      "id": "gicv3_rdistif_base_addrs_probe",
+      "attributes": {
+        "address": 2163564
+      }
+    },
+    {
+      "id": "gicv3_check_erratas_applies",
+      "attributes": {
+        "address": 2163592
+      }
+    },
+    {
+      "id": "gicv3_spis_config_defaults",
+      "attributes": {
+        "address": 2163608
+      }
+    },
+    {
+      "id": "gicv3_secure_spis_config_props",
+      "attributes": {
+        "address": 2163624
+      }
+    },
+    {
+      "id": "gicv3_ppi_sgi_config_defaults",
+      "attributes": {
+        "address": 2163652
+      }
+    },
+    {
+      "id": "gicv3_secure_ppi_sgi_config_props",
+      "attributes": {
+        "address": 2163668
+      }
+    },
+    {
+      "id": "__assert_fail",
+      "attributes": {
+        "address": 2163696
+      }
+    },
+    {
+      "id": "_start",
+      "attributes": {
+        "address": 2163724
+      }
+    },
+    {
+      "id": "gicv3_driver_init",
+      "attributes": {
+        "address": 2163784
+      }
+    },
+    {
+      "id": "gicv3_distif_init",
+      "attributes": {
+        "address": 2164300
+      }
+    },
+    {
+      "id": "gicv3_rdistif_init",
+      "attributes": {
+        "address": 2164756
+      }
+    },
+    {
+      "id": "mpidr_to_core_pos",
+      "attributes": {
+        "address": 2163764
+      }
+    },
+    {
+      "id": "gicd_read_pidr2",
+      "attributes": {
+        "address": 2164236
+      }
+    },
+    {
+      "id": "gicd_read_ctlr",
+      "attributes": {
+        "address": 2164256
+      }
+    },
+    {
+      "id": "gicd_clr_ctlr",
+      "attributes": {
+        "address": 2164564
+      }
+    },
+    {
+      "id": "gicd_set_ctlr",
+      "attributes": {
+        "address": 2164660
+      }
+    },
+    {
+      "id": "gicd_write_ctlr",
+      "attributes": {
+        "address": 2165288
+      }
+    },
+    {
+      "id": "gicd_wait_for_pending_write",
+      "attributes": {
+        "address": 2165340
+      }
+    },
+    {
+      "id": "gicv3_rdistif_on",
+      "attributes": {
+        "address": 2165256
+      }
+    },
+    {
+      "id": "gicv3_rdistif_off",
+      "attributes": {
+        "address": 2165272
       }
     }
   ],
   "edges": [
     {
-      "source": "gicv3_driver_init",
-      "target": "__assert_fail",
-      "key": "0x400024",
+      "source": "_start",
+      "target": "gicv3_driver_init",
+      "key": "0x21040c",
       "attributes": {
-        "at": "0x400024"
+        "at": "0x21040c"
+      }
+    },
+    {
+      "source": "_start",
+      "target": "gicv3_distif_init",
+      "key": "0x210420",
+      "attributes": {
+        "at": "0x210420"
+      }
+    },
+    {
+      "source": "_start",
+      "target": "gicv3_rdistif_init",
+      "key": "0x210424",
+      "attributes": {
+        "at": "0x210424"
       }
     },
     {
       "source": "gicv3_driver_init",
       "target": "__assert_fail",
-      "key": "0x400058",
+      "key": "0x21046c",
       "attributes": {
-        "at": "0x400058"
+        "at": "0x21046c"
       }
     },
     {
       "source": "gicv3_driver_init",
       "target": "__assert_fail",
-      "key": "0x40008c",
+      "key": "0x2104a0",
       "attributes": {
-        "at": "0x40008c"
+        "at": "0x2104a0"
       }
     },
     {
       "source": "gicv3_driver_init",
       "target": "__assert_fail",
-      "key": "0x4000c0",
+      "key": "0x2104d4",
       "attributes": {
-        "at": "0x4000c0"
+        "at": "0x2104d4"
       }
     },
     {
       "source": "gicv3_driver_init",
       "target": "__assert_fail",
-      "key": "0x40011c",
+      "key": "0x210508",
       "attributes": {
-        "at": "0x40011c"
+        "at": "0x210508"
+      }
+    },
+    {
+      "source": "gicv3_driver_init",
+      "target": "__assert_fail",
+      "key": "0x210564",
+      "attributes": {
+        "at": "0x210564"
       }
     },
     {
       "source": "gicv3_driver_init",
       "target": "gicd_read_pidr2",
-      "key": "0x4000e4",
+      "key": "0x21052c",
       "attributes": {
-        "at": "0x4000e4"
+        "at": "0x21052c"
       }
     },
     {
       "source": "gicv3_driver_init",
       "target": "gicd_read_ctlr",
-      "key": "0x400140",
+      "key": "0x210588",
       "attributes": {
-        "at": "0x400140"
+        "at": "0x210588"
       }
     },
     {
       "source": "gicv3_driver_init",
       "target": "gicv3_check_erratas_applies",
-      "key": "0x4001a0",
+      "key": "0x2105e8",
       "attributes": {
-        "at": "0x4001a0"
+        "at": "0x2105e8"
       }
     },
     {
       "source": "gicv3_driver_init",
       "target": "gicv3_rdistif_base_addrs_probe",
-      "key": "0x400178",
+      "key": "0x2105c0",
       "attributes": {
-        "at": "0x400178"
-      }
-    },
-    {
-      "source": "gicd_read_ctlr",
-      "target": "mmio_read_32",
-      "key": "0x4001d8",
-      "attributes": {
-        "at": "0x4001d8"
+        "at": "0x2105c0"
       }
     },
     {
       "source": "gicv3_distif_init",
       "target": "gicd_clr_ctlr",
-      "key": "0x40027c",
+      "key": "0x2106c4",
       "attributes": {
-        "at": "0x40027c"
+        "at": "0x2106c4"
       }
     },
     {
       "source": "gicv3_distif_init",
       "target": "__assert_fail",
-      "key": "0x400220",
+      "key": "0x210668",
       "attributes": {
-        "at": "0x400220"
+        "at": "0x210668"
       }
     },
     {
       "source": "gicv3_distif_init",
       "target": "__assert_fail",
-      "key": "0x400258",
+      "key": "0x2106a0",
       "attributes": {
-        "at": "0x400258"
+        "at": "0x2106a0"
       }
     },
     {
       "source": "gicv3_distif_init",
       "target": "gicd_set_ctlr",
-      "key": "0x40029c",
+      "key": "0x2106e4",
       "attributes": {
-        "at": "0x40029c"
+        "at": "0x2106e4"
       }
     },
     {
       "source": "gicv3_distif_init",
       "target": "gicd_set_ctlr",
-      "key": "0x4002e4",
+      "key": "0x21072c",
       "attributes": {
-        "at": "0x4002e4"
+        "at": "0x21072c"
       }
     },
     {
       "source": "gicv3_distif_init",
       "target": "gicv3_spis_config_defaults",
-      "key": "0x4002b4",
+      "key": "0x2106fc",
       "attributes": {
-        "at": "0x4002b4"
+        "at": "0x2106fc"
       }
     },
     {
       "source": "gicv3_distif_init",
       "target": "gicv3_secure_spis_config_props",
-      "key": "0x4002c4",
+      "key": "0x21070c",
       "attributes": {
-        "at": "0x4002c4"
-      }
-    },
-    {
-      "source": "gicd_clr_ctlr",
-      "target": "gicd_read_ctlr",
-      "key": "0x40030c",
-      "attributes": {
-        "at": "0x40030c"
-      }
-    },
-    {
-      "source": "gicd_clr_ctlr",
-      "target": "gicd_write_ctlr",
-      "key": "0x400334",
-      "attributes": {
-        "at": "0x400334"
-      }
-    },
-    {
-      "source": "gicd_clr_ctlr",
-      "target": "gicd_wait_for_pending_write",
-      "key": "0x400354",
-      "attributes": {
-        "at": "0x400354"
-      }
-    },
-    {
-      "source": "gicd_set_ctlr",
-      "target": "gicd_read_ctlr",
-      "key": "0x40036c",
-      "attributes": {
-        "at": "0x40036c"
-      }
-    },
-    {
-      "source": "gicd_set_ctlr",
-      "target": "gicd_write_ctlr",
-      "key": "0x400394",
-      "attributes": {
-        "at": "0x400394"
-      }
-    },
-    {
-      "source": "gicd_set_ctlr",
-      "target": "gicd_wait_for_pending_write",
-      "key": "0x4003b4",
-      "attributes": {
-        "at": "0x4003b4"
-      }
-    },
-    {
-      "source": "gicd_write_ctlr",
-      "target": "mmio_write_32",
-      "key": "0x4005e0",
-      "attributes": {
-        "at": "0x4005e0"
-      }
-    },
-    {
-      "source": "gicd_wait_for_pending_write",
-      "target": "gicd_read_ctlr",
-      "key": "0x400628",
-      "attributes": {
-        "at": "0x400628"
+        "at": "0x21070c"
       }
     },
     {
       "source": "gicv3_rdistif_init",
       "target": "__assert_fail",
-      "key": "0x4003ec",
+      "key": "0x210834",
       "attributes": {
-        "at": "0x4003ec"
+        "at": "0x210834"
       }
     },
     {
       "source": "gicv3_rdistif_init",
       "target": "__assert_fail",
-      "key": "0x40042c",
+      "key": "0x210874",
       "attributes": {
-        "at": "0x40042c"
+        "at": "0x210874"
       }
     },
     {
       "source": "gicv3_rdistif_init",
       "target": "__assert_fail",
-      "key": "0x400464",
+      "key": "0x2108ac",
       "attributes": {
-        "at": "0x400464"
+        "at": "0x2108ac"
       }
     },
     {
       "source": "gicv3_rdistif_init",
       "target": "__assert_fail",
-      "key": "0x40049c",
+      "key": "0x2108e4",
       "attributes": {
-        "at": "0x40049c"
+        "at": "0x2108e4"
       }
     },
     {
       "source": "gicv3_rdistif_init",
       "target": "__assert_fail",
-      "key": "0x4004e0",
+      "key": "0x210928",
       "attributes": {
-        "at": "0x4004e0"
+        "at": "0x210928"
       }
     },
     {
       "source": "gicv3_rdistif_init",
       "target": "__assert_fail",
-      "key": "0x400530",
+      "key": "0x210978",
       "attributes": {
-        "at": "0x400530"
+        "at": "0x210978"
       }
     },
     {
       "source": "gicv3_rdistif_init",
       "target": "gicd_read_ctlr",
-      "key": "0x4004c0",
+      "key": "0x210908",
       "attributes": {
-        "at": "0x4004c0"
+        "at": "0x210908"
       }
     },
     {
       "source": "gicv3_rdistif_init",
       "target": "gicv3_rdistif_on",
-      "key": "0x400504",
+      "key": "0x21094c",
       "attributes": {
-        "at": "0x400504"
+        "at": "0x21094c"
       }
     },
     {
       "source": "gicv3_rdistif_init",
       "target": "gicv3_ppi_sgi_config_defaults",
-      "key": "0x400554",
+      "key": "0x21099c",
       "attributes": {
-        "at": "0x400554"
+        "at": "0x21099c"
       }
     },
     {
       "source": "gicv3_rdistif_init",
       "target": "gicv3_secure_ppi_sgi_config_props",
-      "key": "0x40055c",
+      "key": "0x2109a4",
       "attributes": {
-        "at": "0x40055c"
+        "at": "0x2109a4"
       }
     },
     {
       "source": "gicv3_rdistif_init",
       "target": "gicd_set_ctlr",
-      "key": "0x400598",
+      "key": "0x2109e0",
       "attributes": {
-        "at": "0x400598"
+        "at": "0x2109e0"
+      }
+    },
+    {
+      "source": "gicd_read_ctlr",
+      "target": "mmio_read_32",
+      "key": "0x210620",
+      "attributes": {
+        "at": "0x210620"
+      }
+    },
+    {
+      "source": "gicd_clr_ctlr",
+      "target": "gicd_read_ctlr",
+      "key": "0x210754",
+      "attributes": {
+        "at": "0x210754"
+      }
+    },
+    {
+      "source": "gicd_clr_ctlr",
+      "target": "gicd_write_ctlr",
+      "key": "0x21077c",
+      "attributes": {
+        "at": "0x21077c"
+      }
+    },
+    {
+      "source": "gicd_clr_ctlr",
+      "target": "gicd_wait_for_pending_write",
+      "key": "0x21079c",
+      "attributes": {
+        "at": "0x21079c"
+      }
+    },
+    {
+      "source": "gicd_set_ctlr",
+      "target": "gicd_read_ctlr",
+      "key": "0x2107b4",
+      "attributes": {
+        "at": "0x2107b4"
+      }
+    },
+    {
+      "source": "gicd_set_ctlr",
+      "target": "gicd_write_ctlr",
+      "key": "0x2107dc",
+      "attributes": {
+        "at": "0x2107dc"
+      }
+    },
+    {
+      "source": "gicd_set_ctlr",
+      "target": "gicd_wait_for_pending_write",
+      "key": "0x2107fc",
+      "attributes": {
+        "at": "0x2107fc"
+      }
+    },
+    {
+      "source": "gicd_write_ctlr",
+      "target": "mmio_write_32",
+      "key": "0x210a28",
+      "attributes": {
+        "at": "0x210a28"
+      }
+    },
+    {
+      "source": "gicd_wait_for_pending_write",
+      "target": "gicd_read_ctlr",
+      "key": "0x210a70",
+      "attributes": {
+        "at": "0x210a70"
       }
     }
   ]

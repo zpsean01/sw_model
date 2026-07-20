@@ -1,0 +1,9 @@
+{
+  "protocol": {
+    "name": "ARM_CORELINK_GIC_700",
+    "version": "r4p0_with_bugs"
+  },
+  "total_residual": 0,
+  "note": "These risks were identified by Stage 4 static analysis but NOT reproduced by Stage 5 symbolic execution. They require downstream dynamic testing for further validation.",
+  "risks": []
+}

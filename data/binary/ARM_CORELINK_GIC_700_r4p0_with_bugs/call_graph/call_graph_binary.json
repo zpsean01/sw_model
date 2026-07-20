@@ -1,0 +1,442 @@
+{
+  "nodes": [
+    {
+      "id": "gicv3_driver_init",
+      "attributes": {
+        "address": 2163536
+      }
+    },
+    {
+      "id": "__assert_fail",
+      "attributes": {
+        "address": 2165292
+      }
+    },
+    {
+      "id": "gicd_read_pidr2",
+      "attributes": {
+        "address": 2163988
+      }
+    },
+    {
+      "id": "gicd_read_ctlr",
+      "attributes": {
+        "address": 2164008
+      }
+    },
+    {
+      "id": "gicv3_check_erratas_applies",
+      "attributes": {
+        "address": 2165188
+      }
+    },
+    {
+      "id": "gicv3_rdistif_base_addrs_probe",
+      "attributes": {
+        "address": 2165160
+      }
+    },
+    {
+      "id": "gicv3_distif_init",
+      "attributes": {
+        "address": 2164028
+      }
+    },
+    {
+      "id": "gicd_clr_ctlr",
+      "attributes": {
+        "address": 2164316
+      }
+    },
+    {
+      "id": "gicd_set_ctlr",
+      "attributes": {
+        "address": 2164412
+      }
+    },
+    {
+      "id": "gicv3_spis_config_defaults",
+      "attributes": {
+        "address": 2165204
+      }
+    },
+    {
+      "id": "gicv3_secure_spis_config_props",
+      "attributes": {
+        "address": 2165220
+      }
+    },
+    {
+      "id": "mmio_write_32",
+      "attributes": {
+        "address": 2165140
+      }
+    },
+    {
+      "id": "gicd_write_ctlr",
+      "attributes": {
+        "address": 2165016
+      }
+    },
+    {
+      "id": "gicd_wait_for_pending_write",
+      "attributes": {
+        "address": 2165068
+      }
+    },
+    {
+      "id": "gicv3_rdistif_init",
+      "attributes": {
+        "address": 2164484
+      }
+    },
+    {
+      "id": "gicv3_rdistif_on",
+      "attributes": {
+        "address": 2164984
+      }
+    },
+    {
+      "id": "gicv3_ppi_sgi_config_defaults",
+      "attributes": {
+        "address": 2165248
+      }
+    },
+    {
+      "id": "gicv3_secure_ppi_sgi_config_props",
+      "attributes": {
+        "address": 2165264
+      }
+    },
+    {
+      "id": "gicv3_rdistif_off",
+      "attributes": {
+        "address": 2165000
+      }
+    },
+    {
+      "id": "mmio_read_32",
+      "attributes": {
+        "address": 2165120
+      }
+    },
+    {
+      "id": "_start",
+      "attributes": {
+        "address": 2165320
+      }
+    },
+    {
+      "id": "mpidr_to_core_pos",
+      "attributes": {
+        "address": 2165360
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "gicv3_driver_init",
+      "target": "__assert_fail",
+      "key": "0x210374",
+      "attributes": {
+        "at": "0x210374"
+      }
+    },
+    {
+      "source": "gicv3_driver_init",
+      "target": "__assert_fail",
+      "key": "0x2103a8",
+      "attributes": {
+        "at": "0x2103a8"
+      }
+    },
+    {
+      "source": "gicv3_driver_init",
+      "target": "__assert_fail",
+      "key": "0x2103dc",
+      "attributes": {
+        "at": "0x2103dc"
+      }
+    },
+    {
+      "source": "gicv3_driver_init",
+      "target": "__assert_fail",
+      "key": "0x210410",
+      "attributes": {
+        "at": "0x210410"
+      }
+    },
+    {
+      "source": "gicv3_driver_init",
+      "target": "__assert_fail",
+      "key": "0x21046c",
+      "attributes": {
+        "at": "0x21046c"
+      }
+    },
+    {
+      "source": "gicv3_driver_init",
+      "target": "gicd_read_pidr2",
+      "key": "0x210434",
+      "attributes": {
+        "at": "0x210434"
+      }
+    },
+    {
+      "source": "gicv3_driver_init",
+      "target": "gicd_read_ctlr",
+      "key": "0x210490",
+      "attributes": {
+        "at": "0x210490"
+      }
+    },
+    {
+      "source": "gicv3_driver_init",
+      "target": "gicv3_check_erratas_applies",
+      "key": "0x2104f0",
+      "attributes": {
+        "at": "0x2104f0"
+      }
+    },
+    {
+      "source": "gicv3_driver_init",
+      "target": "gicv3_rdistif_base_addrs_probe",
+      "key": "0x2104c8",
+      "attributes": {
+        "at": "0x2104c8"
+      }
+    },
+    {
+      "source": "gicv3_distif_init",
+      "target": "gicd_clr_ctlr",
+      "key": "0x2105b4",
+      "attributes": {
+        "at": "0x2105b4"
+      }
+    },
+    {
+      "source": "gicv3_distif_init",
+      "target": "__assert_fail",
+      "key": "0x210558",
+      "attributes": {
+        "at": "0x210558"
+      }
+    },
+    {
+      "source": "gicv3_distif_init",
+      "target": "__assert_fail",
+      "key": "0x210590",
+      "attributes": {
+        "at": "0x210590"
+      }
+    },
+    {
+      "source": "gicv3_distif_init",
+      "target": "gicd_set_ctlr",
+      "key": "0x2105d4",
+      "attributes": {
+        "at": "0x2105d4"
+      }
+    },
+    {
+      "source": "gicv3_distif_init",
+      "target": "gicd_set_ctlr",
+      "key": "0x21061c",
+      "attributes": {
+        "at": "0x21061c"
+      }
+    },
+    {
+      "source": "gicv3_distif_init",
+      "target": "gicv3_spis_config_defaults",
+      "key": "0x2105ec",
+      "attributes": {
+        "at": "0x2105ec"
+      }
+    },
+    {
+      "source": "gicv3_distif_init",
+      "target": "gicv3_secure_spis_config_props",
+      "key": "0x2105fc",
+      "attributes": {
+        "at": "0x2105fc"
+      }
+    },
+    {
+      "source": "gicv3_distif_init",
+      "target": "mmio_write_32",
+      "key": "0x210638",
+      "attributes": {
+        "at": "0x210638"
+      }
+    },
+    {
+      "source": "gicd_clr_ctlr",
+      "target": "gicd_read_ctlr",
+      "key": "0x21065c",
+      "attributes": {
+        "at": "0x21065c"
+      }
+    },
+    {
+      "source": "gicd_clr_ctlr",
+      "target": "gicd_write_ctlr",
+      "key": "0x210684",
+      "attributes": {
+        "at": "0x210684"
+      }
+    },
+    {
+      "source": "gicd_clr_ctlr",
+      "target": "gicd_wait_for_pending_write",
+      "key": "0x2106a4",
+      "attributes": {
+        "at": "0x2106a4"
+      }
+    },
+    {
+      "source": "gicd_set_ctlr",
+      "target": "gicd_read_ctlr",
+      "key": "0x2106bc",
+      "attributes": {
+        "at": "0x2106bc"
+      }
+    },
+    {
+      "source": "gicd_set_ctlr",
+      "target": "gicd_write_ctlr",
+      "key": "0x2106e4",
+      "attributes": {
+        "at": "0x2106e4"
+      }
+    },
+    {
+      "source": "gicd_write_ctlr",
+      "target": "mmio_write_32",
+      "key": "0x210918",
+      "attributes": {
+        "at": "0x210918"
+      }
+    },
+    {
+      "source": "gicd_wait_for_pending_write",
+      "target": "gicd_read_ctlr",
+      "key": "0x210960",
+      "attributes": {
+        "at": "0x210960"
+      }
+    },
+    {
+      "source": "gicv3_rdistif_init",
+      "target": "__assert_fail",
+      "key": "0x210724",
+      "attributes": {
+        "at": "0x210724"
+      }
+    },
+    {
+      "source": "gicv3_rdistif_init",
+      "target": "__assert_fail",
+      "key": "0x210764",
+      "attributes": {
+        "at": "0x210764"
+      }
+    },
+    {
+      "source": "gicv3_rdistif_init",
+      "target": "__assert_fail",
+      "key": "0x21079c",
+      "attributes": {
+        "at": "0x21079c"
+      }
+    },
+    {
+      "source": "gicv3_rdistif_init",
+      "target": "__assert_fail",
+      "key": "0x2107d4",
+      "attributes": {
+        "at": "0x2107d4"
+      }
+    },
+    {
+      "source": "gicv3_rdistif_init",
+      "target": "__assert_fail",
+      "key": "0x210818",
+      "attributes": {
+        "at": "0x210818"
+      }
+    },
+    {
+      "source": "gicv3_rdistif_init",
+      "target": "__assert_fail",
+      "key": "0x210868",
+      "attributes": {
+        "at": "0x210868"
+      }
+    },
+    {
+      "source": "gicv3_rdistif_init",
+      "target": "gicd_read_ctlr",
+      "key": "0x2107f8",
+      "attributes": {
+        "at": "0x2107f8"
+      }
+    },
+    {
+      "source": "gicv3_rdistif_init",
+      "target": "gicv3_rdistif_on",
+      "key": "0x21083c",
+      "attributes": {
+        "at": "0x21083c"
+      }
+    },
+    {
+      "source": "gicv3_rdistif_init",
+      "target": "gicv3_ppi_sgi_config_defaults",
+      "key": "0x21088c",
+      "attributes": {
+        "at": "0x21088c"
+      }
+    },
+    {
+      "source": "gicv3_rdistif_init",
+      "target": "gicv3_secure_ppi_sgi_config_props",
+      "key": "0x210894",
+      "attributes": {
+        "at": "0x210894"
+      }
+    },
+    {
+      "source": "gicv3_rdistif_init",
+      "target": "gicd_set_ctlr",
+      "key": "0x2108d0",
+      "attributes": {
+        "at": "0x2108d0"
+      }
+    },
+    {
+      "source": "_start",
+      "target": "gicv3_driver_init",
+      "key": "0x210a48",
+      "attributes": {
+        "at": "0x210a48"
+      }
+    },
+    {
+      "source": "_start",
+      "target": "gicv3_distif_init",
+      "key": "0x210a5c",
+      "attributes": {
+        "at": "0x210a5c"
+      }
+    },
+    {
+      "source": "_start",
+      "target": "gicv3_rdistif_init",
+      "key": "0x210a60",
+      "attributes": {
+        "at": "0x210a60"
+      }
+    }
+  ]
+}

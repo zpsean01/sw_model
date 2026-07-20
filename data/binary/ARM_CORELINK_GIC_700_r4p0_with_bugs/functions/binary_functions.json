@@ -1,0 +1,156 @@
+[
+  {
+    "name": "gicd_read_pidr2",
+    "address": 2163988,
+    "size": 20,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "gicd_read_ctlr",
+    "address": 2164008,
+    "size": 20,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "gicd_write_ctlr",
+    "address": 2165016,
+    "size": 52,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "mpidr_to_core_pos",
+    "address": 2165360,
+    "size": 20,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "gicv3_driver_init",
+    "address": 2163536,
+    "size": 452,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "__assert_fail",
+    "address": 2165292,
+    "size": 28,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicv3_rdistif_base_addrs_probe",
+    "address": 2165160,
+    "size": 28,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicv3_check_erratas_applies",
+    "address": 2165188,
+    "size": 16,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicv3_distif_init",
+    "address": 2164028,
+    "size": 288,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicd_clr_ctlr",
+    "address": 2164316,
+    "size": 96,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicd_set_ctlr",
+    "address": 2164412,
+    "size": 72,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicv3_spis_config_defaults",
+    "address": 2165204,
+    "size": 16,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicv3_secure_spis_config_props",
+    "address": 2165220,
+    "size": 28,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "mmio_write_32",
+    "address": 2165140,
+    "size": 20,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicd_wait_for_pending_write",
+    "address": 2165068,
+    "size": 52,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicv3_rdistif_init",
+    "address": 2164484,
+    "size": 500,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicv3_rdistif_on",
+    "address": 2164984,
+    "size": 16,
+    "section": ".symtab",
+    "binding": "STB_WEAK"
+  },
+  {
+    "name": "gicv3_ppi_sgi_config_defaults",
+    "address": 2165248,
+    "size": 16,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicv3_secure_ppi_sgi_config_props",
+    "address": 2165264,
+    "size": 28,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicv3_rdistif_off",
+    "address": 2165000,
+    "size": 16,
+    "section": ".symtab",
+    "binding": "STB_WEAK"
+  },
+  {
+    "name": "mmio_read_32",
+    "address": 2165120,
+    "size": 20,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "_start",
+    "address": 2165320,
+    "size": 40,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  }
+]

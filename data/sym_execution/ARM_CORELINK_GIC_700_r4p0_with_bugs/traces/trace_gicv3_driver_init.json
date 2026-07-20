@@ -1,0 +1,83 @@
+{
+  "entry_function": "gicv3_driver_init",
+  "max_depth": 2,
+  "event_count": 4,
+  "finding_count": 0,
+  "events": [
+    {
+      "event_type": "entry_start",
+      "function": "gicv3_driver_init",
+      "depth": 0,
+      "symbolic_vars": [],
+      "constraints": [],
+      "details": {
+        "address": "0x210350",
+        "max_depth": 2,
+        "entry_args": []
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "hook_triggered",
+      "function": "gicd_read_pidr2",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_pidr2_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicd_read_pidr2'"
+        }
+      ],
+      "constraints": [
+        "<Bool reg_x0_101_64 == 0xffffffffffffffe8>",
+        "<Bool !(mem_0_103_32 == 0x0)>",
+        "<Bool reg_x0_101_64 == 0xffffffffffffffe8>",
+        "<Bool !(mem_0_103_32 == 0x0)>",
+        "<Bool !(mem_fffffffffffffff8_135_64 == 0x0)>"
+      ],
+      "details": {
+        "hook_type": "symbolic_return",
+        "registers": {
+          "r0": "<BV64 0x0 .. mem_ffffffffffffffe8_136_32>",
+          "r1": "<BV64 (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_1f_116_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_1e_115_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_1d_114_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_1c_113_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_1b_112_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_1a_111_8 else (if (if reg_x0_101_64 + 0x8 == 0x9 then Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))) else (if reg_x0_101_64 + 0x8 == 0x8 then (Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))[31:8]) .. mem_8_108_8) else 0xc0deb4be)) != 0x0 && (!(mem_0_103_32 == 0x0) || mem_1_102_32 == 0x0 && reg_x0_101_64 == 0x1) then 32 else 0)) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_19_110_8 else (if (if reg_x0_101_64 + 0x8 == 0x9 then Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))) else (if reg_x0_101_64 + 0x8 == 0x8 then (Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))[31:8]) .. mem_8_108_8) else 0xc0deb4be)) != 0x0 && (!(mem_0_103_32 == 0x0) || mem_1_102_32 == 0x0 && reg_x0_101_64 == 0x1) then 1 else 0)) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_18_109_8 else (if (if reg_x0_101_64 + 0x8 == 0x9 then Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))) else (if reg_x0_101_64 + 0x8 == 0x8 then (Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))[31:8]) .. mem_8_108_8) else 0xc0deb4be)) != 0x0 && (!(mem_0_103_32 == 0x0) || mem_1_102_32 == 0x0 && reg_x0_101_64 == 0x1) then 152 else 0))>",
+          "r2": "<BV64 (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_27_124_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_26_123_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_25_122_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_24_121_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_23_120_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_22_119_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_21_118_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_20_117_8 else (if (if reg_x0_101_64 + 0x8 == 0x9 then Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))) else (if reg_x0_101_64 + 0x8 == 0x8 then (Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))[31:8]) .. mem_8_108_8) else 0xc0deb4be)) != 0x0 && (!(mem_0_103_32 == 0x0) || mem_1_102_32 == 0x0 && reg_x0_101_64 == 0x1) then (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then 66 else (if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then 65 else 0)) else 0))>",
+          "r3": "<BV64 (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_2f_132_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_2e_131_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_2d_130_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_2c_129_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_2b_128_8 else 0) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_2a_127_8 else (if (if reg_x0_101_64 + 0x8 == 0x9 then Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))) else (if reg_x0_101_64 + 0x8 == 0x8 then (Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))[31:8]) .. mem_8_108_8) else 0xc0deb4be)) != 0x0 && (!(mem_0_103_32 == 0x0) || mem_1_102_32 == 0x0 && reg_x0_101_64 == 0x1) then 32 else 0)) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_29_126_8 else (if (if reg_x0_101_64 + 0x8 == 0x9 then Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))) else (if reg_x0_101_64 + 0x8 == 0x8 then (Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))[31:8]) .. mem_8_108_8) else 0xc0deb4be)) != 0x0 && (!(mem_0_103_32 == 0x0) || mem_1_102_32 == 0x0 && reg_x0_101_64 == 0x1) then 1 else 0)) .. (if mem_9_104_32 != 0x0 && reg_x0_101_64 == 0x1 && mem_1_102_32 != 0x0 && reg_x0_101_64 != 0x0 then merge_uc_reg_0_28_125_8 else (if (if reg_x0_101_64 + 0x8 == 0x9 then Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))) else (if reg_x0_101_64 + 0x8 == 0x8 then (Reverse((if mem_0_103_32 != 0x0 && reg_x0_101_64 == 0x0 then merge_uc_mem_0_9_107_32 else (if reg_x0_101_64 == 0x1 && mem_1_102_32 == 0x0 && reg_x0_101_64 != 0x0 then Reverse(mem_9_104_32) else 0x0))[31:8]) .. mem_8_108_8) else 0xc0deb4be)) != 0x0 && (!(mem_0_103_32 == 0x0) || mem_1_102_32 == 0x0 && reg_x0_101_64 == 0x1) then 234 else 0))>",
+          "sp": "<BV64 0x7fffffffffeffd0>",
+          "lr": "<BV64 0x210440>",
+          "pc": "<BV64 0x210514>"
+        }
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "symbolic_var_created",
+      "function": "gicd_read_pidr2",
+      "depth": 2,
+      "symbolic_vars": [
+        {
+          "name": "inspect_gicd_read_pidr2_ret",
+          "bits": 32,
+          "description": "Unconstrained symbolic 32-bit return (risk: unknown, tags: [])"
+        }
+      ],
+      "constraints": [],
+      "details": {},
+      "finding_id": null
+    },
+    {
+      "event_type": "entry_end",
+      "function": "gicv3_driver_init",
+      "depth": 0,
+      "symbolic_vars": [],
+      "constraints": [],
+      "details": {
+        "status": "completed",
+        "active_paths": 1,
+        "deadended_paths": 0,
+        "total_events": 3
+      },
+      "finding_id": null
+    }
+  ],
+  "findings": []
+}

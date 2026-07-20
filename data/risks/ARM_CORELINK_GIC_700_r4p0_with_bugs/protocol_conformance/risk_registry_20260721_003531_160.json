@@ -1,0 +1,20 @@
+{
+  "protocol": {
+    "name": "ARM_CORELINK_GIC_700",
+    "version": "r4p0_with_bugs"
+  },
+  "generated_at": "2026-07-20T16:35:31.159996+00:00",
+  "summary": {
+    "total_risks": 0,
+    "verified": 0,
+    "residual": 0,
+    "severity_distribution": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    }
+  },
+  "risks": []
+}

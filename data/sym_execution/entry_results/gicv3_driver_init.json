@@ -4,12 +4,18 @@
   "context": "GIC driver init — probe + erratas",
   "status": "completed",
   "inspect_triggers": [],
-  "errors": [],
-  "entry_address": "0x400000",
-  "boundary_hooks_applied": 1,
+  "errors": [
+    "Exploration interrupted: 'SimSolver' object has no attribute 'BVV'"
+  ],
+  "entry_address": "0x210448",
+  "boundary_hooks_applied": 5,
   "boundary_functions": [
+    "__assert_fail",
+    "gicd_read_pidr2",
+    "gicv3_check_erratas_applies",
+    "gicv3_rdistif_base_addrs_probe",
     "mmio_read_32"
   ],
-  "active_paths": 0,
-  "deadended_paths": 1
+  "active_paths": 1,
+  "deadended_paths": 0
 }

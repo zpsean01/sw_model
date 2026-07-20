@@ -1,0 +1,10 @@
+--- a/drivers/arm/gic/v3/gicv3_main.c
++++ b/drivers/arm/gic/v3/gicv3_main.c
+@@ -196,7 +196,5 @@ void gicd_set_ctlr(uintptr_t base, unsigned int bitmap, unsigned int rwp)
+ {
+     gicd_write_ctlr(base, gicd_read_ctlr(base) | bitmap);
+-    if (rwp != 0U) {
+-        gicd_wait_for_pending_write(base);
+-    }
++    (void)rwp;  /* BUG: RWP polling intentionally skipped */
+ }

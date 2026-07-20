@@ -1,0 +1,733 @@
+{
+  "entry_function": "gicv3_distif_init",
+  "max_depth": 2,
+  "context": "GIC distributor init — GICD_CTLR write sequence",
+  "status": "completed",
+  "inspect_triggers": [
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "__assert_fail",
+      "call_depth": 2,
+      "hook_type": "concrete_stub",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for '__assert_fail'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect___assert_fail_ret",
+          "bits": 32,
+          "description": "Boundary hook for '__assert_fail'"
+        },
+        "constraints": [],
+        "registers_at_hook": {
+          "r0": "<BV64 0x2001d8>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0x6d>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x210688>",
+          "pc": "<BV64 0x2103f0>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "__assert_fail",
+      "call_depth": 2,
+      "hook_type": "concrete_stub",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for '__assert_fail'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect___assert_fail_ret",
+          "bits": 32,
+          "description": "Boundary hook for '__assert_fail'"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x2002c4>",
+          "r1": "<BV64 0x20021c>",
+          "r2": "<BV64 0x6e>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x2106c0>",
+          "pc": "<BV64 0x2103f0>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_read_ctlr",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "info",
+      "risk_tags": [
+        "register_read"
+      ],
+      "description": "GICD_CTLR register read — base protocol operation",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "GICD_CTLR register read — base protocol operation"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 != 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x7>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x21077c>",
+          "pc": "<BV64 0x210620>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_read_ctlr",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "info",
+      "risk_tags": [
+        "register_read"
+      ],
+      "description": "GICD_CTLR register read — base protocol operation",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "GICD_CTLR register read — base protocol operation"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x7>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x21077c>",
+          "pc": "<BV64 0x210620>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_write_ctlr",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "warning",
+      "risk_tags": [
+        "register_write"
+      ],
+      "description": "GICD_CTLR register write — protocol critical",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "GICD_CTLR register write — protocol critical"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 != 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_25_32[31:3] .. 0>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x210790>",
+          "pc": "<BV64 0x210a28>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_write_ctlr",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "warning",
+      "risk_tags": [
+        "register_write"
+      ],
+      "description": "GICD_CTLR register write — protocol critical",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "GICD_CTLR register write — protocol critical"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_26_32[31:3] .. 0>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x210790>",
+          "pc": "<BV64 0x210a28>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_wait_for_pending_write",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "critical",
+      "risk_tags": [
+        "protocol_compliance",
+        "rwp_poll"
+      ],
+      "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 != 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_25_32[31:3] .. 0>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107a4>",
+          "pc": "<BV64 0x210a5c>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_wait_for_pending_write",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "critical",
+      "risk_tags": [
+        "protocol_compliance",
+        "rwp_poll"
+      ],
+      "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_26_32[31:3] .. 0>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107a4>",
+          "pc": "<BV64 0x210a5c>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_read_ctlr",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "info",
+      "risk_tags": [
+        "register_read"
+      ],
+      "description": "GICD_CTLR register read — base protocol operation",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "GICD_CTLR register read — base protocol operation"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 != 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x30>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107dc>",
+          "pc": "<BV64 0x210620>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_read_ctlr",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "info",
+      "risk_tags": [
+        "register_read"
+      ],
+      "description": "GICD_CTLR register read — base protocol operation",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "GICD_CTLR register read — base protocol operation"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x30>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107dc>",
+          "pc": "<BV64 0x210620>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_write_ctlr",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "warning",
+      "risk_tags": [
+        "register_write"
+      ],
+      "description": "GICD_CTLR register write — protocol critical",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "GICD_CTLR register write — protocol critical"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 != 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_39_32[31:6] .. 3 .. inspect_gicd_read_ctlr_ret_39_32[3:0]>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107f0>",
+          "pc": "<BV64 0x210a28>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_write_ctlr",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "warning",
+      "risk_tags": [
+        "register_write"
+      ],
+      "description": "GICD_CTLR register write — protocol critical",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "GICD_CTLR register write — protocol critical"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_40_32[31:6] .. 3 .. inspect_gicd_read_ctlr_ret_40_32[3:0]>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107f0>",
+          "pc": "<BV64 0x210a28>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_wait_for_pending_write",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "critical",
+      "risk_tags": [
+        "protocol_compliance",
+        "rwp_poll"
+      ],
+      "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 != 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_39_32[31:6] .. 3 .. inspect_gicd_read_ctlr_ret_39_32[3:0]>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x210804>",
+          "pc": "<BV64 0x210a5c>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_wait_for_pending_write",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "critical",
+      "risk_tags": [
+        "protocol_compliance",
+        "rwp_poll"
+      ],
+      "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_40_32[31:6] .. 3 .. inspect_gicd_read_ctlr_ret_40_32[3:0]>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x210804>",
+          "pc": "<BV64 0x210a5c>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicv3_spis_config_defaults",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_spis_config_defaults'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_spis_config_defaults_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_spis_config_defaults'"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 != 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_39_32[31:6] .. 3 .. inspect_gicd_read_ctlr_ret_39_32[3:0]>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x21070c>",
+          "pc": "<BV64 0x210398>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicv3_spis_config_defaults",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_spis_config_defaults'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_spis_config_defaults_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_spis_config_defaults'"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_40_32[31:6] .. 3 .. inspect_gicd_read_ctlr_ret_40_32[3:0]>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x21070c>",
+          "pc": "<BV64 0x210398>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicv3_secure_spis_config_props",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_secure_spis_config_props'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_secure_spis_config_props_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_secure_spis_config_props'"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 != 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 mem_20_55_64>",
+          "r2": "<BV64 0x0 .. mem_18_56_32>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x21072c>",
+          "pc": "<BV64 0x2103a8>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicv3_secure_spis_config_props",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "unknown",
+      "risk_tags": [],
+      "description": "Boundary hook for 'gicv3_secure_spis_config_props'",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicv3_secure_spis_config_props_ret",
+          "bits": 32,
+          "description": "Boundary hook for 'gicv3_secure_spis_config_props'"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 mem_20_55_64>",
+          "r2": "<BV64 0x0 .. mem_18_56_32>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffe0>",
+          "lr": "<BV64 0x21072c>",
+          "pc": "<BV64 0x2103a8>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_read_ctlr",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "info",
+      "risk_tags": [
+        "register_read"
+      ],
+      "description": "GICD_CTLR register read — base protocol operation",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "GICD_CTLR register read — base protocol operation"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 != 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicv3_secure_spis_config_props_ret_57_32>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107dc>",
+          "pc": "<BV64 0x210620>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_read_ctlr",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "info",
+      "risk_tags": [
+        "register_read"
+      ],
+      "description": "GICD_CTLR register read — base protocol operation",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_read_ctlr_ret",
+          "bits": 32,
+          "description": "GICD_CTLR register read — base protocol operation"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicv3_secure_spis_config_props_ret_58_32>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107dc>",
+          "pc": "<BV64 0x210620>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_write_ctlr",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "warning",
+      "risk_tags": [
+        "register_write"
+      ],
+      "description": "GICD_CTLR register write — protocol critical",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "GICD_CTLR register write — protocol critical"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 != 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_59_32 | inspect_gicv3_secure_spis_config_props_ret_57_32>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107f0>",
+          "pc": "<BV64 0x210a28>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_write_ctlr",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "warning",
+      "risk_tags": [
+        "register_write"
+      ],
+      "description": "GICD_CTLR register write — protocol critical",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_write_ctlr_ret",
+          "bits": 32,
+          "description": "GICD_CTLR register write — protocol critical"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_60_32 | inspect_gicv3_secure_spis_config_props_ret_58_32>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x2107f0>",
+          "pc": "<BV64 0x210a28>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_wait_for_pending_write",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "critical",
+      "risk_tags": [
+        "protocol_compliance",
+        "rwp_poll"
+      ],
+      "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 != 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_59_32 | inspect_gicv3_secure_spis_config_props_ret_57_32>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x210804>",
+          "pc": "<BV64 0x210a5c>"
+        }
+      }
+    },
+    {
+      "entry_function": "gicv3_distif_init",
+      "called_function": "gicd_wait_for_pending_write",
+      "call_depth": 2,
+      "hook_type": "symbolic_return",
+      "risk_level": "critical",
+      "risk_tags": [
+        "protocol_compliance",
+        "rwp_poll"
+      ],
+      "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec",
+      "trace_detail": {
+        "symbolic_var": {
+          "name": "inspect_gicd_wait_for_pending_write_ret",
+          "bits": 32,
+          "description": "RWP polling after GICD_CTLR write — MUST be present per GIC spec"
+        },
+        "constraints": [
+          "<Bool mem_0_24_32 == 0x0>"
+        ],
+        "registers_at_hook": {
+          "r0": "<BV64 0x0 .. mem_0_24_32>",
+          "r1": "<BV64 0x0 .. inspect_gicd_read_ctlr_ret_60_32 | inspect_gicv3_secure_spis_config_props_ret_58_32>",
+          "r2": "<BV64 0x1>",
+          "r3": "<BV64 0x2002e7>",
+          "sp": "<BV64 0x7fffffffffeffc0>",
+          "lr": "<BV64 0x210804>",
+          "pc": "<BV64 0x210a5c>"
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "entry_address": "0x21064c",
+  "boundary_hooks_applied": 6,
+  "boundary_functions": [
+    "__assert_fail",
+    "gicd_read_ctlr",
+    "gicd_wait_for_pending_write",
+    "gicd_write_ctlr",
+    "gicv3_secure_spis_config_props",
+    "gicv3_spis_config_defaults"
+  ],
+  "active_paths": 0,
+  "deadended_paths": 2
+}
