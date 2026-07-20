@@ -1,0 +1,593 @@
+{
+  "functions": [
+    {
+      "name": "__assert_fail",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "expr",
+          "type": "const char *"
+        },
+        {
+          "name": "file",
+          "type": "const char *"
+        },
+        {
+          "name": "line",
+          "type": "int"
+        },
+        {
+          "name": "func",
+          "type": "const char *"
+        }
+      ],
+      "calls": [],
+      "file": "include/assert.h"
+    },
+    {
+      "name": "gicv3_driver_init",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "plat_driver_data",
+          "type": "const void *"
+        }
+      ],
+      "calls": [],
+      "file": "include/drivers/arm/gicv3.h"
+    },
+    {
+      "name": "gicv3_distif_init",
+      "return_type": "void",
+      "parameters": [],
+      "calls": [],
+      "file": "include/drivers/arm/gicv3.h"
+    },
+    {
+      "name": "gicv3_rdistif_init",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "proc_num",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "include/drivers/arm/gicv3.h"
+    },
+    {
+      "name": "gicv3_cpuif_enable",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "proc_num",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "include/drivers/arm/gicv3.h"
+    },
+    {
+      "name": "gicv3_cpuif_disable",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "proc_num",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "include/drivers/arm/gicv3.h"
+    },
+    {
+      "name": "gicv3_rdistif_off",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "proc_num",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "include/drivers/arm/gicv3.h"
+    },
+    {
+      "name": "gicv3_rdistif_on",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "proc_num",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "include/drivers/arm/gicv3.h"
+    },
+    {
+      "name": "gicd_read_ctlr",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "mmio_read_32",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "arg0",
+          "type": "uintptr_t"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicd_write_ctlr",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "val",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "mmio_write_32",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "arg0",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "arg1",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicd_read_pidr2",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicr_read_waker",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicr_write_waker",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "val",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicr_write_igroupr",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "id",
+          "type": "unsigned int"
+        },
+        {
+          "name": "v",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicr_read_igroupr",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "id",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicd_read_igroupr",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "id",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicr_read_igrpmodr",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "id",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicd_read_igrpmodr",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "id",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicd_get_igroupr",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "id",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicr_get_igroupr",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "id",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicd_get_igrpmodr",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "id",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicr_get_igrpmodr",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "id",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicd_clr_ctlr",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "bitmap",
+          "type": "unsigned int"
+        },
+        {
+          "name": "rwp",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicd_set_ctlr",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "bitmap",
+          "type": "unsigned int"
+        },
+        {
+          "name": "rwp",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicd_wait_for_pending_write",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "gicd_base",
+          "type": "uintptr_t"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_private.h"
+    },
+    {
+      "name": "gicv3_rdistif_init",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "proc_num",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_main.c"
+    },
+    {
+      "name": "gicv3_rdistif_off",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "proc_num",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_main.c"
+    },
+    {
+      "name": "gicv3_rdistif_on",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "proc_num",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_main.c"
+    },
+    {
+      "name": "gicd_read_ctlr",
+      "return_type": "uint32_t",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_main.c"
+    },
+    {
+      "name": "gicd_write_ctlr",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "val",
+          "type": "uint32_t"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_main.c"
+    },
+    {
+      "name": "gicd_clr_ctlr",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "bitmap",
+          "type": "unsigned int"
+        },
+        {
+          "name": "rwp",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_main.c"
+    },
+    {
+      "name": "gicd_set_ctlr",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "uintptr_t"
+        },
+        {
+          "name": "bitmap",
+          "type": "unsigned int"
+        },
+        {
+          "name": "rwp",
+          "type": "unsigned int"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_main.c"
+    },
+    {
+      "name": "gicd_wait_for_pending_write",
+      "return_type": "void",
+      "parameters": [
+        {
+          "name": "gicd_base",
+          "type": "uintptr_t"
+        }
+      ],
+      "calls": [],
+      "file": "drivers/arm/gic/v3/gicv3_main.c"
+    }
+  ],
+  "global_variables": {
+    "gicv3_driver_data": {
+      "type": "const int *",
+      "file": "drivers/arm/gic/v3/gicv3_main.c",
+      "line": 158
+    },
+    "gic_lock": {
+      "type": "int",
+      "file": "drivers/arm/gic/v3/gicv3_main.c",
+      "line": 159
+    },
+    "__init": {
+      "type": "void",
+      "file": "drivers/arm/gic/v3/gicv3_main.c",
+      "line": 213
+    }
+  },
+  "type_definitions": {
+    "uint64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "include/stdint.h",
+      "line": 96
+    },
+    "uint32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "include/stdint.h",
+      "line": 97
+    },
+    "uint16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "include/stdint.h",
+      "line": 98
+    },
+    "uint8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "include/stdint.h",
+      "line": 99
+    },
+    "int64_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "include/stdint.h",
+      "line": 105
+    },
+    "int32_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "include/stdint.h",
+      "line": 101
+    },
+    "int16_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "include/stdint.h",
+      "line": 102
+    },
+    "int8_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "include/stdint.h",
+      "line": 103
+    },
+    "uintptr_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "include/stdint.h",
+      "line": 104
+    },
+    "u_register_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "include/stdint.h",
+      "line": 106
+    },
+    "size_t": {
+      "kind": "TYPEDEF_DECL",
+      "file": "include/stdint.h",
+      "line": 107
+    }
+  }
+}

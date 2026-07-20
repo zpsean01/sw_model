@@ -1,10 +1,6 @@
 {
-  "summary": {
-    "total": 20,
-    "severities": {
-      "high": 20
-    }
-  },
+  "spec_model_dir": "D:\\programming\\spec_model\\data\\arm_corelink_gic_700_r4p0\\extract",
+  "total_protocol_findings": 20,
   "findings": [
     {
       "type": "cross_register_dependency",

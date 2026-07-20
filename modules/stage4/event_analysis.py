@@ -1,8 +1,9 @@
 """
-Stage 4 — Event-Driven Architecture Analysis
+Stage 4 — Event-Driven Architecture Analysis (protocol-agnostic)
 
 Combines AST-level (Stage 2) and binary-level (Stage 3) results to build an
-event-driven architecture model and perform static security checks.
+event-driven architecture model, perform static security checks, and run
+protocol-agnostic rule-based conformance checks using rules/ + spec_model oracle.
 """
 
 import json
@@ -33,7 +34,6 @@ class Stage4EventArchAnalysis(BaseStage):
         interrupts = self._load_if_exists(ast_dir / "interrupts" / "interrupts.json")
         functions = self._load_if_exists(ast_dir / "functions" / "functions.json")
         ast_call_graph = self._load_if_exists(ast_dir / "call_graph" / "call_graph.json")
-        binary_functions = self._load_if_exists(elf_dir / "functions" / "binary_functions.json")
         binary_globals = self._load_if_exists(elf_dir / "globals" / "binary_globals.json")
 
         # ----------------------------------------------------------
@@ -47,7 +47,7 @@ class Stage4EventArchAnalysis(BaseStage):
         self.save_json("event_architecture.json", model)
 
         # ----------------------------------------------------------
-        # Run static security checks
+        # Run static security checks (stubs for MVP)
         # ----------------------------------------------------------
         report: Dict[str, Any] = {
             "summary": {},
@@ -55,76 +55,62 @@ class Stage4EventArchAnalysis(BaseStage):
         }
 
         if checks_cfg.get("irq_priority", True):
-            findings = self._check_irq_priority(model)
-            report["findings"].extend(findings)
+            report["findings"].extend(self._check_irq_priority(model))
 
         if checks_cfg.get("critical_section", True):
-            findings = self._check_critical_section(model, ast_call_graph)
-            report["findings"].extend(findings)
+            report["findings"].extend(self._check_critical_section(model, ast_call_graph))
 
         if checks_cfg.get("stack_analysis", True):
-            findings = self._check_stack_usage(ast_call_graph, functions)
-            report["findings"].extend(findings)
+            report["findings"].extend(self._check_stack_usage(ast_call_graph, functions))
 
         if checks_cfg.get("uninit_globals", True):
-            findings = self._check_uninit_globals(
-                model, binary_globals, functions
-            )
-            report["findings"].extend(findings)
+            report["findings"].extend(self._check_uninit_globals(model, binary_globals, functions))
 
         if checks_cfg.get("reentrancy", True):
-            findings = self._check_reentrancy(model, ast_call_graph)
-            report["findings"].extend(findings)
+            report["findings"].extend(self._check_reentrancy(model, ast_call_graph))
 
         if checks_cfg.get("state_machine_integrity", True):
             sm_data = self._load_if_exists(ast_dir / "state_machines" / "state_machines.json")
-            findings = self._check_state_machine_integrity(sm_data)
-            report["findings"].extend(findings)
+            report["findings"].extend(self._check_state_machine_integrity(sm_data))
 
         # ----------------------------------------------------------
-        # Protocol conformance analysis (DDR5 vs spec_model)
+        # Protocol-agnostic conformance: rules/ + spec_model oracle
         # ----------------------------------------------------------
         if checks_cfg.get("protocol_conformance", True):
-            spec_model_path = Path(params.get("spec_model_path", ""))
-            if not spec_model_path.exists():
-                logger.warning("spec_model not found: %s (skipping protocol conformance)", spec_model_path)
-            else:
-                with open(spec_model_path, "r", encoding="utf-8") as f:
-                    spec_model = json.load(f)
-                analyzer = ProtocolConformanceAnalyzer(spec_model)
+            rules_dir = Path(params.get("rules_dir", "rules"))
+            spec_model_dir = Path(params.get("spec_model_dir", ""))
+            static_dir = ast_dir  # Stage 2 output
 
-                pc_findings = []
-                registers_data = self._load_if_exists(ast_dir / "registers" / "registers.json")
+            analyzer = ProtocolConformanceAnalyzer(params)
 
-                # Check 1: State machine completeness
-                pc_findings.extend(analyzer.check_state_machine_completeness(sm_data))
+            # Load protocol-agnostic rules
+            n_constraints = analyzer.load_rules(rules_dir / "stage4")
 
-                # Check 2: Timing constraint audit
-                pc_findings.extend(analyzer.check_timing_constraints(functions, ast_call_graph))
+            # Load spec_model oracle (protocol-specific binding)
+            oracle_ok = analyzer.load_oracle(spec_model_dir)
 
-                # Check 3: Register configuration audit
-                pc_findings.extend(analyzer.check_register_config(functions, registers_data))
+            # Load firmware analysis data (Stage 2 output)
+            fw_ok = analyzer.load_firmware(static_dir)
 
-                # Check 4: Error handling coverage
-                pc_findings.extend(analyzer.check_error_handling(sm_data, ast_call_graph))
-
-                # Check 5: Cross-register dependency
-                pc_findings.extend(analyzer.check_cross_register_dependency(functions))
-
+            if n_constraints > 0 and oracle_ok and fw_ok:
+                pc_findings = analyzer.run_all_checks()
                 for f in pc_findings:
                     report["findings"].append(f)
+                logger.info("Protocol conformance: %d findings", len(pc_findings))
 
                 protocol_report = {
-                    "spec_model": str(spec_model_path),
+                    "spec_model_dir": str(spec_model_dir),
                     "total_protocol_findings": len(pc_findings),
                     "findings": pc_findings,
                 }
-                # ── Save to protocol-versioned path ─────────────────────
-                self._save_protocol_conformance(
-                    protocol_report, spec_model, output_dir
+                # ── Save to protocol-versioned path ─────────────
+                self._save_protocol_conformance_agnostic(
+                    protocol_report, analyzer.oracle, output_dir
                 )
-
-                logger.info("Protocol conformance: %d findings", len(pc_findings))
+            else:
+                logger.warning(
+                    "Protocol conformance skipped: rules=%d, oracle=%s, fw=%s",
+                    n_constraints, oracle_ok, fw_ok)
 
         report["summary"] = self._summarize_findings(report["findings"])
         self.save_json("security_report.json", report)
@@ -161,16 +147,11 @@ class Stage4EventArchAnalysis(BaseStage):
     ) -> Dict[str, Any]:
         """Build an event-driven architecture model."""
         isr_names = {i["name"] for i in interrupts}
-
-        # Identify which functions are reachable from ISRs
         isr_reachable = self._compute_reachable_from_isrs(isr_names, ast_call_graph)
-
-        # Identify shared globals (accessed by both ISR and main context)
         shared_functions = set()
         for caller, callees in isr_reachable.items():
             for c in callees:
                 shared_functions.add(c)
-
         return {
             "total_isrs": len(interrupts),
             "isr_list": sorted(isr_names),
@@ -181,17 +162,10 @@ class Stage4EventArchAnalysis(BaseStage):
     def _compute_reachable_from_isrs(
         self, isr_names: set, call_graph: List
     ) -> Dict[str, List[str]]:
-        """Compute the transitive closure of callees for each ISR.
-
-        call_graph is a NetworkX MultiDiGraph serialization:
-            [[nodes], [edges]] where each edge has {source, target, ...}
-        """
-        # Extract edges from [nodes, edges] format
         if isinstance(call_graph, list) and len(call_graph) == 2:
             edges = call_graph[1]
         else:
             edges = call_graph if isinstance(call_graph, list) else []
-
         graph: Dict[str, List[str]] = {}
         for e in edges:
             src = e.get("source")
@@ -212,51 +186,28 @@ class Stage4EventArchAnalysis(BaseStage):
 
         for isr in isr_names:
             result[isr] = list(reachable(isr, set()))
-
         return result
 
     # ------------------------------------------------------------------
-    # Security checks
+    # Security checks (stubs)
     # ------------------------------------------------------------------
 
     def _check_irq_priority(self, model: Dict) -> List[Dict]:
-        findings = []
-        logger.info("IRQ priority check — stub")
-        return findings
+        return []
 
-    def _check_critical_section(
-        self, model: Dict, call_graph: List[Dict]
-    ) -> List[Dict]:
-        findings = []
-        logger.info("Critical section check — stub")
-        return findings
+    def _check_critical_section(self, model: Dict, call_graph: List[Dict]) -> List[Dict]:
+        return []
 
-    def _check_stack_usage(
-        self, call_graph: List[Dict], functions: List[Dict]
-    ) -> List[Dict]:
-        findings = []
-        logger.info("Stack usage analysis — stub")
-        return findings
+    def _check_stack_usage(self, call_graph: List[Dict], functions: List[Dict]) -> List[Dict]:
+        return []
 
-    def _check_uninit_globals(
-        self, model: Dict, binary_globals: List[Dict], functions: List[Dict]
-    ) -> List[Dict]:
-        findings = []
-        logger.info("Uninitialized global variable check — stub")
-        return findings
+    def _check_uninit_globals(self, model: Dict, binary_globals: List[Dict], functions: List[Dict]) -> List[Dict]:
+        return []
 
-    def _check_reentrancy(
-        self, model: Dict, call_graph: List[Dict]
-    ) -> List[Dict]:
-        findings = []
-        # Simple heuristic: look for global variables accessed both in ISR
-        # reachable paths and normal context
-        logger.info("Reentrancy check — stub")
-        return findings
+    def _check_reentrancy(self, model: Dict, call_graph: List[Dict]) -> List[Dict]:
+        return []
 
-    def _check_state_machine_integrity(
-        self, state_machines: List[Dict]
-    ) -> List[Dict]:
+    def _check_state_machine_integrity(self, state_machines: List[Dict]) -> List[Dict]:
         findings = []
         for sm in state_machines:
             if len(sm.get("states", [])) < 2:
@@ -266,28 +217,22 @@ class Stage4EventArchAnalysis(BaseStage):
                     "message": f"State machine '{sm['name']}' has fewer than 2 states",
                     "location": {"file": sm.get("file", ""), "line": sm.get("line", 0)},
                 })
-        logger.info("State machine integrity check: %d findings", len(findings))
         return findings
 
     # ------------------------------------------------------------------
     # Protocol-versioned save
     # ------------------------------------------------------------------
 
-    def _save_protocol_conformance(
+    def _save_protocol_conformance_agnostic(
         self,
         protocol_report: Dict[str, Any],
-        spec_model: Dict[str, Any],
+        oracle: Dict[str, Any],
         output_dir: Path,
     ) -> None:
-        """Save a copy of the protocol conformance report under the
-        protocol-versioned subdirectory, e.g.
-        data/modeling/DDR5_JESD79-5C/protocol_conformance/report_20260620_220000.json
-
-        A latest copy (report.json) is also saved and overwritten on each run
-        so downstream stages always find a stable reference.
-        """
-        meta = spec_model.get("metadata", {})
-        proto_dir = f"{meta.get('protocol', 'UNKNOWN')}_{meta.get('version', 'unknown')}"
+        """Save protocol conformance report under protocol-versioned path."""
+        proto = oracle.get("protocol", "UNKNOWN")
+        version = oracle.get("version", "unknown")
+        proto_dir = f"{proto}_{version}"
         proto_path = output_dir / proto_dir / "protocol_conformance"
         proto_path.mkdir(parents=True, exist_ok=True)
 
@@ -310,7 +255,4 @@ class Stage4EventArchAnalysis(BaseStage):
         for f in findings:
             s = f.get("severity", "info")
             severities[s] = severities.get(s, 0) + 1
-        return {
-            "total": len(findings),
-            "severities": severities,
-        }
+        return {"total": len(findings), "severities": severities}

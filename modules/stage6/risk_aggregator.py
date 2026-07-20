@@ -28,6 +28,17 @@ RISK_TYPES = (
     "cross_register_dependency",
 )
 
+# ── Protocol info cache ──────────────────────────────────────────────────────
+def _resolve_protocol_from_spec_model(spec_model_dir: str) -> tuple:
+    """Read protocol name and version from spec_model oracle manifest."""
+    manifest = Path(spec_model_dir) / "stage3" / "latest" / "manifest.json"
+    if manifest.exists():
+        with open(manifest, "r", encoding="utf-8") as f:
+            m = json.load(f)
+        meta = m.get("metadata", {})
+        return meta.get("protocol", "UNKNOWN"), meta.get("version", "unknown")
+    return "UNKNOWN", "unknown"
+
 
 class Stage6RiskAggregator(BaseStage):
     """Aggregate Stage 4 & 5 findings into a consolidated risk registry."""
@@ -36,9 +47,12 @@ class Stage6RiskAggregator(BaseStage):
         params = self.config["params"]
         output_dir = self.setup_output_dir(params["output_dir"])
 
-        # ── Resolve protocol info ────────────────────────────────────────
-        spec_model_path = Path(params.get("spec_model_path", "data/spec_model_ddr5_mock.json"))
-        protocol_name, protocol_version = self._resolve_protocol(spec_model_path)
+        # ── Resolve protocol info from spec_model oracle ──────────────────
+        spec_model_dir = params.get("spec_model_dir", "D:/programming/spec_model/data/arm_corelink_gic_700_r4p0/extract")
+        protocol_name = params.get("protocol_name", "")
+        protocol_version = params.get("protocol_version", "")
+        if not protocol_name or not protocol_version:
+            protocol_name, protocol_version = _resolve_protocol_from_spec_model(spec_model_dir)
 
         # Determine the protocol subdirectory under risks/
         proto_dir = f"{protocol_name}_{protocol_version}"
@@ -58,7 +72,7 @@ class Stage6RiskAggregator(BaseStage):
 
         # ── 2. Load Stage 5 symbolic report ──────────────────────────────
         stage5_path = Path(params.get("stage5_report_path", ""))
-        if not stage5_path.exists():
+        if not stage5_path.name or not stage5_path.exists():
             logger.warning("Stage 5 report not found: %s", stage5_path)
             entry_results = []
         else:
@@ -70,7 +84,7 @@ class Stage6RiskAggregator(BaseStage):
         # ── 3. Build trace file lookup ───────────────────────────────────
         traces_dir = Path(params.get("stage5_traces_dir", ""))
         trace_map: Dict[str, Path] = {}
-        if traces_dir.exists():
+        if traces_dir.name and traces_dir.exists():
             for f in traces_dir.iterdir():
                 if f.suffix == ".json" and f.stem.startswith("trace_"):
                     func_name = f.stem.replace("trace_", "", 1)
@@ -275,17 +289,6 @@ class Stage6RiskAggregator(BaseStage):
         }
 
     # ── Helpers ──────────────────────────────────────────────────────────────
-
-    @staticmethod
-    def _resolve_protocol(spec_model_path: Path) -> tuple:
-        """Read protocol name and version from the spec_model."""
-        try:
-            with open(spec_model_path, "r", encoding="utf-8") as f:
-                spec = json.load(f)
-            meta = spec.get("metadata", {})
-            return meta.get("protocol", "DDR5"), meta.get("version", "JESD79-5C")
-        except Exception:
-            return "DDR5", "JESD79-5C"
 
     @staticmethod
     def _collect_constraints(triggers: List[Dict]) -> List[str]:

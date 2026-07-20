@@ -124,11 +124,18 @@ class Stage1Preprocessor(BaseStage):
         tokens = shlex.split(command, posix=False)
         cmd = [compiler, "-E", "-C"]
         skip_next = False
+        _skip_value = {"-o", "-c", "-S"}
+        _take_next = {"-I", "-D", "-U", "-idirafter", "-target"}
         for i, tok in enumerate(tokens):
             if skip_next:
                 skip_next = False
+                cmd.append(tok)
                 continue
-            if tok in ("-c", "-o", "-S"):
+            if tok in _skip_value:
+                skip_next = True
+                continue
+            if tok in _take_next:
+                cmd.append(tok)
                 skip_next = True
                 continue
             if tok.startswith("-") or tok.startswith("-m") or tok.startswith("-f"):

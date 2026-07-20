@@ -1,28 +1,6 @@
 {
-  "total_isrs": 21,
-  "isr_list": [
-    "BusFault_Handler",
-    "CRYPTO_IRQHandler",
-    "DebugMon_Handler",
-    "Default_Handler",
-    "GPIOA_IRQHandler",
-    "HardFault_Handler",
-    "MemManage_Handler",
-    "NMI_Handler",
-    "PendSV_Handler",
-    "RTC_IRQHandler",
-    "Reset_Handler",
-    "SPIM_IRQHandler",
-    "SPIS_IRQHandler",
-    "SVCall_Handler",
-    "SecureFault_Handler",
-    "SysTick_Handler",
-    "TIM0_IRQHandler",
-    "TIM1_IRQHandler",
-    "UART0_IRQHandler",
-    "UART1_IRQHandler",
-    "UsageFault_Handler"
-  ],
+  "total_isrs": 0,
+  "isr_list": [],
   "isr_reachable_functions": [],
   "model_type": "event_driven"
 }

@@ -1,6 +1,6 @@
 {
     "pipeline": {
-        "description": "ARM Firmware Analysis Pipeline — TF-A GIC-700 MVP target",
+        "description": "ARM Firmware Analysis Pipeline — TF-A GIC-700 MVP (protocol-agnostic rules)",
         "stages": [
             {
                 "id": "stage1",
@@ -12,7 +12,7 @@
                 "params": {
                     "compile_commands": "fw_samples/tf_a/build/compile_commands.json",
                     "compiler": "D:/llvm-mingw/bin/clang.exe",
-                    "output_dir": "data/preprocessing"
+                    "output_dir": "data/preprocessing/ARM_CORELINK_GIC_700_r4p0"
                 }
             },
             {
@@ -23,8 +23,8 @@
                 "class": "Stage2ASTAnalysis",
                 "depends_on": ["stage1"],
                 "params": {
-                    "preprocessed_dir": "data/preprocessing",
-                    "output_dir": "data/static",
+                    "preprocessed_dir": "data/preprocessing/ARM_CORELINK_GIC_700_r4p0",
+                    "output_dir": "data/static/ARM_CORELINK_GIC_700_r4p0",
                     "ast_engine": "libclang",
                     "extract": {
                         "functions": true,
@@ -53,26 +53,25 @@
             },
             {
                 "id": "stage4",
-                "name": "Event-Driven Architecture Analysis",
+                "name": "Event-Driven Architecture Analysis + Protocol Conformance",
                 "enabled": true,
                 "module": "modules.stage4.event_analysis",
                 "class": "Stage4EventArchAnalysis",
                 "depends_on": ["stage2"],
                 "params": {
-                    "ast_output_dir": "data/static",
+                    "ast_output_dir": "data/static/ARM_CORELINK_GIC_700_r4p0",
                     "elf_output_dir": "data/binary",
                     "output_dir": "data/modeling",
-                    "spec_model_path": "",
                     "spec_model_dir": "D:/programming/spec_model/data/arm_corelink_gic_700_r4p0/extract",
                     "rules_dir": "rules",
                     "checks": {
-                        "irq_priority": true,
-                        "critical_section": true,
-                        "stack_analysis": true,
-                        "uninit_globals": true,
-                        "reentrancy": true,
-                        "state_machine_integrity": true,
-                        "protocol_conformance": true
+                        "protocol_conformance": true,
+                        "irq_priority": false,
+                        "critical_section": false,
+                        "stack_analysis": false,
+                        "uninit_globals": false,
+                        "reentrancy": false,
+                        "state_machine_integrity": false
                     }
                 }
             },
@@ -96,8 +95,8 @@
                     "protocol_name": "ARM_CORELINK_GIC_700",
                     "protocol_version": "r4p0",
                     "output_dir": "data/risks",
-                    "spec_model_path": "D:/programming/spec_model/data/arm_corelink_gic_700_r4p0/extract/stage3/latest/behavior_space_graph.json",
-                    "stage4_pc_path": "data/modeling/protocol_conformance/report.json",
+                    "spec_model_dir": "D:/programming/spec_model/data/arm_corelink_gic_700_r4p0/extract",
+                    "stage4_pc_path": "data/modeling/ARM_CORELINK_GIC_700_r4p0/protocol_conformance/report.json",
                     "stage5_report_path": "",
                     "stage5_traces_dir": ""
                 }

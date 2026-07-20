@@ -1,0 +1,68 @@
+[
+  {
+    "name": "uint64_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 96,
+    "file": "include/stdint.h"
+  },
+  {
+    "name": "uint32_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 97,
+    "file": "include/stdint.h"
+  },
+  {
+    "name": "uint16_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 98,
+    "file": "include/stdint.h"
+  },
+  {
+    "name": "uint8_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 99,
+    "file": "include/stdint.h"
+  },
+  {
+    "name": "int64_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 105,
+    "file": "include/stdint.h"
+  },
+  {
+    "name": "int32_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 101,
+    "file": "include/stdint.h"
+  },
+  {
+    "name": "int16_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 102,
+    "file": "include/stdint.h"
+  },
+  {
+    "name": "int8_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 103,
+    "file": "include/stdint.h"
+  },
+  {
+    "name": "uintptr_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 104,
+    "file": "include/stdint.h"
+  },
+  {
+    "name": "u_register_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 106,
+    "file": "include/stdint.h"
+  },
+  {
+    "name": "size_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 107,
+    "file": "include/stdint.h"
+  }
+]

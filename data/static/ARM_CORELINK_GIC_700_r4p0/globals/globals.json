@@ -1,0 +1,23 @@
+[
+  {
+    "name": "gicv3_driver_data",
+    "kind": "CursorKind.VAR_DECL",
+    "type": "const int *",
+    "line": 158,
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  },
+  {
+    "name": "gic_lock",
+    "kind": "CursorKind.VAR_DECL",
+    "type": "int",
+    "line": 159,
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  },
+  {
+    "name": "__init",
+    "kind": "CursorKind.VAR_DECL",
+    "type": "void",
+    "line": 213,
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  }
+]
