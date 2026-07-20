@@ -70,10 +70,10 @@ class Stage3ELFBinaryAnalysis(BaseStage):
             # Unified graph: merge static call_graph + registers → output to modeling/
             if extract_cfg.get("unified_graph", True):
                 unified_graph = self._build_unified_graph(output_dir)
-                modeling_dir = output_dir.parent / "modeling"
-                modeling_dir.mkdir(parents=True, exist_ok=True)
+                unified_dir = Path(params.get("unified_output_dir", str(output_dir.parent / "modeling")))
+                unified_dir.mkdir(parents=True, exist_ok=True)
                 cg_data = self._call_graph_to_json(unified_graph)
-                filepath = modeling_dir / "call_graph_unified.json"
+                filepath = unified_dir / "call_graph_unified.json"
                 with open(filepath, "w", encoding="utf-8") as f:
                     json.dump(cg_data, f, indent=2, ensure_ascii=False)
                 logger.info("Saved: %s", filepath)
@@ -297,62 +297,73 @@ class Stage3ELFBinaryAnalysis(BaseStage):
     def _build_unified_graph(self, output_dir: Path) -> nx.MultiDiGraph:
         """Build a unified MultiDiGraph merging static call_graph and registers.
 
-        - Function nodes (from ``data/static/call_graph/call_graph.json``)
-          get ``node_type="function"``.
-        - Register nodes (from ``data/static/registers/registers.json``)
-          get ``node_type="register"``.
-        - Call edges from the static call graph are copied verbatim.
+        - Function nodes get ``node_type="function"`` (preferring binary CFG nodes,
+          supplemented by static call_graph nodes when available).
+        - Register nodes get ``node_type="register"``.
+        - Call edges from the binary call graph are used as base; static call
+          edges are merged where available.
         """
-        static_dir = output_dir.parent / "static"
-
-        # --- load static call_graph ---
-        cg_path = static_dir / "call_graph" / "call_graph.json"
-        if not cg_path.exists():
-            logger.warning("Static call_graph not found at %s — returning empty graph", cg_path)
-            return nx.MultiDiGraph()
-        cg_data = self.load_json(str(cg_path))
-        logger.info("Loaded static call_graph: %d nodes, %d edges",
-                    len(cg_data.get("nodes", [])), len(cg_data.get("edges", [])))
-
-        # --- load registers ---
-        reg_path = static_dir / "registers" / "registers.json"
-        if not reg_path.exists():
-            logger.warning("Registers file not found at %s — returning empty graph", reg_path)
-            return nx.MultiDiGraph()
-        registers = self.load_json(str(reg_path))
-        logger.info("Loaded %d registers", len(registers))
-
+        params = self.config.get("params", {})
         graph = nx.MultiDiGraph()
 
-        # --- add function nodes ---
-        for node in cg_data.get("nodes", []):
-            nid = node["id"]
-            attrs = dict(node.get("attributes", {}))
-            attrs["node_type"] = "function"
-            graph.add_node(nid, **attrs)
+        # --- 1. Load binary call graph (angr CFG) as base ---
+        binary_cg_path = output_dir / "call_graph" / "call_graph_binary.json"
+        if binary_cg_path.exists():
+            bcg = self.load_json(str(binary_cg_path))
+            for node in bcg.get("nodes", []):
+                nid = node["id"]
+                attrs = dict(node.get("attributes", {}))
+                attrs["node_type"] = "function"
+                graph.add_node(nid, **attrs)
+            for edge in bcg.get("edges", []):
+                u, v = edge["source"], edge["target"]
+                k = edge.get("key", f"{u}->{v}")
+                if not graph.has_node(u):
+                    graph.add_node(u, node_type="function")
+                if not graph.has_node(v):
+                    graph.add_node(v, node_type="function")
+                attrs = dict(edge.get("attributes", {}))
+                graph.add_edge(u, v, key=k, **attrs)
+            logger.info("Unified: loaded binary CFG (%d nodes, %d edges)",
+                        bcg.get("node_count", 0), bcg.get("edge_count", 0))
 
-        # --- add call edges ---
-        for edge in cg_data.get("edges", []):
-            u = edge["source"]
-            v = edge["target"]
-            k = edge.get("key", str(u) + "->" + str(v))
-            attrs = dict(edge.get("attributes", {}))
-            graph.add_edge(u, v, key=k, **attrs)
+        # --- 2. Merge static call_graph if available ---
+        static_dir = Path(params.get("static_dir",
+            str(output_dir.parent.parent / "static" / output_dir.name)))
+        cg_path = static_dir / "call_graph" / "call_graph.json"
+        if cg_path.exists():
+            cg_data = self.load_json(str(cg_path))
+            for node in cg_data.get("nodes", []):
+                nid = node["id"]
+                if not graph.has_node(nid):
+                    attrs = dict(node.get("attributes", {}))
+                    attrs["node_type"] = "function"
+                    graph.add_node(nid, **attrs)
+            for edge in cg_data.get("edges", []):
+                u, v = edge["source"], edge["target"]
+                k = edge.get("key", f"static:{u}->{v}")
+                if not graph.has_node(u):
+                    graph.add_node(u, node_type="function")
+                if not graph.has_node(v):
+                    graph.add_node(v, node_type="function")
+                graph.add_edge(u, v, key=k)
+            logger.info("Unified: merged static call_graph (%d nodes, %d edges)",
+                        len(cg_data.get("nodes", [])), len(cg_data.get("edges", [])))
 
-        # --- add register nodes ---
-        for reg in registers:
-            name = reg.get("name", str(reg))
-            if graph.has_node(name):
-                # avoid clobbering — suffix with _reg if name collision occurs
-                name = f"{name}_reg"
-            attrs = {
-                "node_type": "register",
-                "type": reg.get("type", ""),
-                "file": reg.get("file", ""),
-                "line": reg.get("line", 0),
-                "kind": reg.get("kind", ""),
-            }
-            graph.add_node(name, **attrs)
+        # --- 3. Add register nodes ---
+        reg_path = static_dir / "registers" / "registers.json"
+        if reg_path.exists():
+            registers = self.load_json(str(reg_path))
+            for reg in registers:
+                name = reg.get("name", str(reg))
+                if graph.has_node(name):
+                    name = f"{name}_reg"
+                graph.add_node(name, node_type="register",
+                               type=reg.get("type", ""),
+                               file=reg.get("file", ""),
+                               line=reg.get("line", 0),
+                               kind=reg.get("kind", ""))
+            logger.info("Unified: added %d register nodes", len(registers))
 
         n_edges = graph.number_of_edges()
         logger.info("Unified graph: %d nodes, %d edges",

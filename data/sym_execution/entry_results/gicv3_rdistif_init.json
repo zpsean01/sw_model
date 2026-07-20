@@ -1,0 +1,17 @@
+{
+  "entry_function": "gicv3_rdistif_init",
+  "max_depth": 2,
+  "context": "GIC redistributor init — per-core",
+  "status": "completed",
+  "inspect_triggers": [],
+  "errors": [],
+  "entry_address": "0x4003cc",
+  "boundary_hooks_applied": 3,
+  "boundary_functions": [
+    "gicd_wait_for_pending_write",
+    "gicd_write_ctlr",
+    "mmio_read_32"
+  ],
+  "active_paths": 0,
+  "deadended_paths": 1
+}

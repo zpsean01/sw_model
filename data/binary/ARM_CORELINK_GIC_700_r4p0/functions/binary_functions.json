@@ -1,0 +1,72 @@
+[
+  {
+    "name": "gicd_read_pidr2",
+    "address": 452,
+    "size": 20,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "gicd_read_ctlr",
+    "address": 472,
+    "size": 44,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "gicd_write_ctlr",
+    "address": 1504,
+    "size": 52,
+    "section": ".symtab",
+    "binding": "STB_LOCAL"
+  },
+  {
+    "name": "gicv3_distif_init",
+    "address": 516,
+    "size": 264,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicd_clr_ctlr",
+    "address": 780,
+    "size": 96,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicd_set_ctlr",
+    "address": 876,
+    "size": 96,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicd_wait_for_pending_write",
+    "address": 1556,
+    "size": 52,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicv3_rdistif_init",
+    "address": 972,
+    "size": 500,
+    "section": ".symtab",
+    "binding": "STB_GLOBAL"
+  },
+  {
+    "name": "gicv3_rdistif_on",
+    "address": 1472,
+    "size": 16,
+    "section": ".symtab",
+    "binding": "STB_WEAK"
+  },
+  {
+    "name": "gicv3_rdistif_off",
+    "address": 1488,
+    "size": 16,
+    "section": ".symtab",
+    "binding": "STB_WEAK"
+  }
+]

@@ -41,14 +41,23 @@
             {
                 "id": "stage3",
                 "name": "ELF Binary Analysis",
-                "enabled": false,
+                "enabled": true,
                 "module": "modules.stage3.elf_analysis",
                 "class": "Stage3ELFBinaryAnalysis",
-                "depends_on": [],
+                "depends_on": ["stage2"],
                 "params": {
-                    "elf_file": "",
-                    "output_dir": "data/binary",
-                    "arch": "ARM"
+                    "elf_file": "fw_samples/tf_a/build/gicv3_main.o",
+                    "output_dir": "data/binary/ARM_CORELINK_GIC_700_r4p0",
+                    "arch": "AARCH64",
+                    "static_dir": "data/static/ARM_CORELINK_GIC_700_r4p0",
+                    "unified_output_dir": "data/modeling",
+                    "extract": {
+                        "functions": true,
+                        "globals": true,
+                        "types": true,
+                        "call_graph": true,
+                        "unified_graph": true
+                    }
                 }
             },
             {
@@ -57,10 +66,10 @@
                 "enabled": true,
                 "module": "modules.stage4.event_analysis",
                 "class": "Stage4EventArchAnalysis",
-                "depends_on": ["stage2"],
+                "depends_on": ["stage2", "stage3"],
                 "params": {
                     "ast_output_dir": "data/static/ARM_CORELINK_GIC_700_r4p0",
-                    "elf_output_dir": "data/binary",
+                    "elf_output_dir": "data/binary/ARM_CORELINK_GIC_700_r4p0",
                     "output_dir": "data/modeling",
                     "spec_model_dir": "D:/programming/spec_model/data/arm_corelink_gic_700_r4p0/extract",
                     "rules_dir": "rules",
@@ -78,11 +87,29 @@
             {
                 "id": "stage5",
                 "name": "Dynamic Symbolic Execution",
-                "enabled": false,
+                "enabled": true,
                 "module": "modules.stage5.symbolic_execution",
                 "class": "Stage5SymbolicExecution",
                 "depends_on": ["stage4"],
-                "params": {}
+                "params": {
+                    "elf_file": "fw_samples/tf_a/build/gicv3_main.o",
+                    "output_dir": "data/sym_execution",
+                    "protocol_name": "ARM_CORELINK_GIC_700",
+                    "protocol_version": "r4p0",
+                    "spec_model_path": "D:/programming/spec_model/data/arm_corelink_gic_700_r4p0/extract/stage3/latest/manifest.json",
+                    "global_strategy": {
+                        "default_max_depth": 2,
+                        "timeout": 120,
+                        "veritesting": true,
+                        "default_hook_type": "symbolic_return",
+                        "call_graph_path": "data/modeling/call_graph_unified.json"
+                    },
+                    "entry_points": [
+                        {"function": "gicv3_distif_init", "max_depth": 2, "context": "GIC distributor init — GICD_CTLR write sequence"},
+                        {"function": "gicv3_driver_init", "max_depth": 2, "context": "GIC driver init — probe + erratas"},
+                        {"function": "gicv3_rdistif_init", "max_depth": 2, "context": "GIC redistributor init — per-core"}
+                    ]
+                }
             },
             {
                 "id": "stage6",
@@ -90,15 +117,15 @@
                 "enabled": true,
                 "module": "modules.stage6.risk_aggregator",
                 "class": "Stage6RiskAggregator",
-                "depends_on": ["stage4"],
+                "depends_on": ["stage4", "stage5"],
                 "params": {
                     "protocol_name": "ARM_CORELINK_GIC_700",
                     "protocol_version": "r4p0",
                     "output_dir": "data/risks",
                     "spec_model_dir": "D:/programming/spec_model/data/arm_corelink_gic_700_r4p0/extract",
                     "stage4_pc_path": "data/modeling/ARM_CORELINK_GIC_700_r4p0/protocol_conformance/report.json",
-                    "stage5_report_path": "",
-                    "stage5_traces_dir": ""
+                    "stage5_report_path": "data/sym_execution/ARM_CORELINK_GIC_700_r4p0/protocol_conformance/report.json",
+                    "stage5_traces_dir": "data/sym_execution/ARM_CORELINK_GIC_700_r4p0/protocol_conformance/traces"
                 }
             }
         ]

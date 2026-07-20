@@ -1,0 +1,64 @@
+{
+  "binary": "fw_samples\\tf_a\\build\\gicv3_main.o",
+  "entry_count": 3,
+  "entry_results": [
+    {
+      "entry_function": "gicv3_distif_init",
+      "max_depth": 2,
+      "context": "GIC distributor init — GICD_CTLR write sequence",
+      "status": "completed",
+      "inspect_triggers": [],
+      "errors": [],
+      "entry_address": "0x400204",
+      "boundary_hooks_applied": 3,
+      "boundary_functions": [
+        "gicd_read_ctlr",
+        "gicd_wait_for_pending_write",
+        "gicd_write_ctlr"
+      ],
+      "active_paths": 0,
+      "deadended_paths": 1
+    },
+    {
+      "entry_function": "gicv3_driver_init",
+      "max_depth": 2,
+      "context": "GIC driver init — probe + erratas",
+      "status": "completed",
+      "inspect_triggers": [],
+      "errors": [],
+      "entry_address": "0x400000",
+      "boundary_hooks_applied": 1,
+      "boundary_functions": [
+        "mmio_read_32"
+      ],
+      "active_paths": 0,
+      "deadended_paths": 1
+    },
+    {
+      "entry_function": "gicv3_rdistif_init",
+      "max_depth": 2,
+      "context": "GIC redistributor init — per-core",
+      "status": "completed",
+      "inspect_triggers": [],
+      "errors": [],
+      "entry_address": "0x4003cc",
+      "boundary_hooks_applied": 3,
+      "boundary_functions": [
+        "gicd_wait_for_pending_write",
+        "gicd_write_ctlr",
+        "mmio_read_32"
+      ],
+      "active_paths": 0,
+      "deadended_paths": 1
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "total_entry_points": 3,
+    "completed": 3,
+    "errors": 0,
+    "total_inspect_triggers": 0,
+    "risk_distribution": {},
+    "paths_found": 0
+  }
+}

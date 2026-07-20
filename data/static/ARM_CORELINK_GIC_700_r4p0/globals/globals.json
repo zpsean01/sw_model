@@ -2,22 +2,15 @@
   {
     "name": "gicv3_driver_data",
     "kind": "CursorKind.VAR_DECL",
-    "type": "const int *",
-    "line": 158,
+    "type": "const gicv3_driver_data_t *",
+    "line": 199,
     "file": "drivers/arm/gic/v3/gicv3_main.c"
   },
   {
     "name": "gic_lock",
     "kind": "CursorKind.VAR_DECL",
-    "type": "int",
-    "line": 159,
-    "file": "drivers/arm/gic/v3/gicv3_main.c"
-  },
-  {
-    "name": "__init",
-    "kind": "CursorKind.VAR_DECL",
-    "type": "void",
-    "line": 213,
+    "type": "spinlock_t",
+    "line": 200,
     "file": "drivers/arm/gic/v3/gicv3_main.c"
   }
 ]

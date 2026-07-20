@@ -1,0 +1,17 @@
+{
+  "entry_function": "gicv3_distif_init",
+  "max_depth": 2,
+  "context": "GIC distributor init — GICD_CTLR write sequence",
+  "status": "completed",
+  "inspect_triggers": [],
+  "errors": [],
+  "entry_address": "0x400204",
+  "boundary_hooks_applied": 3,
+  "boundary_functions": [
+    "gicd_read_ctlr",
+    "gicd_wait_for_pending_write",
+    "gicd_write_ctlr"
+  ],
+  "active_paths": 0,
+  "deadended_paths": 1
+}

@@ -2,6 +2,6 @@
   {
     "directory": "D:/programming/sw_model/fw_samples/tf_a",
     "file": "drivers/arm/gic/v3/gicv3_main.c",
-    "command": "clang -E -C -w -nostdinc -I include -I D:/llvm-mingw/lib/clang/22/include -target aarch64-none-elf -D__aarch64__ -DGIC_EXT_INTID=0 -DGIC_ENABLE_V4_EXTN=0 -DHW_ASSISTED_COHERENCY=1 -D__ASSEMBLER__=0 drivers/arm/gic/v3/gicv3_main.c"
+    "command": "D:/llvm-mingw/bin/clang.exe -c -w -nostdinc -I include -I D:/llvm-mingw/lib/clang/22/include -target aarch64-none-elf -D__aarch64__ -DGIC_EXT_INTID=0 -DGIC_ENABLE_V4_EXTN=0 -DHW_ASSISTED_COHERENCY=1 -D__ASSEMBLER__=0 -o build/gicv3_main.o drivers/arm/gic/v3/gicv3_main.c"
   }
 ]

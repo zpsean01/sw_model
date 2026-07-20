@@ -6,11 +6,45 @@
  * ARM GICv3/3.1 driver — shortened version for sw_model MVP verification.
  * Full source at: https://github.com/ARM-software/arm-trusted-firmware
  *   drivers/arm/gic/v3/gicv3_main.c
+ *
+ * Stub definitions for compilation (minimal GIC driver test fixture):
+ *   - __init: TF-A init attribute (empty for analysis build)
+ *   - gicv3_driver_data_t: minimal struct with only fields used in this driver
+ *   - mmio_read_32 / mmio_write_32: stub implementations returning 0 / no-op
  */
 #include <assert.h>
+#include <stdint.h>
+#include <stddef.h>
 #include <drivers/arm/gicv3.h>
 #include <drivers/arm/gic_common.h>
+#include <lib/spinlock.h>
+#include <arch.h>
+#include <common/debug.h>
 #include "gicv3_private.h"
+
+#define __init
+
+typedef struct gicv3_driver_data {
+    uintptr_t gicd_base;
+    uintptr_t gicr_base;
+    unsigned int rdistif_num;
+    uintptr_t *rdistif_base_addrs;
+    unsigned int interrupt_props_num;
+    const void *interrupt_props;
+    unsigned int (*mpidr_to_core_pos)(unsigned long);
+} gicv3_driver_data_t;
+
+/* External function declarations (defined in other TF-A source files) */
+void gicv3_rdistif_base_addrs_probe(uintptr_t *base_addrs,
+    unsigned int num, uintptr_t gicr_base,
+    unsigned int (*mpidr_to_core_pos)(unsigned long));
+void gicv3_check_erratas_applies(uintptr_t gicd_base);
+void gicv3_spis_config_defaults(uintptr_t gicd_base);
+unsigned int gicv3_secure_spis_config_props(uintptr_t gicd_base,
+    const void *props, unsigned int num);
+void gicv3_ppi_sgi_config_defaults(uintptr_t gicr_base);
+unsigned int gicv3_secure_ppi_sgi_config_props(uintptr_t gicr_base,
+    const void *props, unsigned int num);
 
 const gicv3_driver_data_t *gicv3_driver_data;
 static spinlock_t gic_lock;
@@ -22,8 +56,9 @@ static spinlock_t gic_lock;
  * This function initialises the ARM GICv3 driver in EL3 with provided platform
  * inputs.
  ******************************************************************************/
-void __init gicv3_driver_init(const gicv3_driver_data_t *plat_driver_data)
+void __init gicv3_driver_init(const void *plat_driver_data_v)
 {
+    const gicv3_driver_data_t *plat_driver_data = (const gicv3_driver_data_t *)plat_driver_data_v;
     unsigned int gic_version;
     unsigned int gicv2_compat;
 
@@ -145,17 +180,11 @@ void gicv3_rdistif_on(unsigned int proc_num) { }
 /*******************************************************************************
  * GICD_CTLR register accessor functions
  * These are the functions that sw_model stage4/5 must analyze.
+ *
+ * NOTE: gicd_read_ctlr / gicd_write_ctlr are already defined as static inline
+ * in gicv3_private.h (included above). Only gicd_clr_ctlr / gicd_set_ctlr /
+ * gicd_wait_for_pending_write are defined here.
  ******************************************************************************/
-static inline uint32_t gicd_read_ctlr(uintptr_t base)
-{
-    return mmio_read_32(base + GICD_CTLR);
-}
-
-static inline void gicd_write_ctlr(uintptr_t base, uint32_t val)
-{
-    mmio_write_32(base + GICD_CTLR, val);
-}
-
 void gicd_clr_ctlr(uintptr_t base, unsigned int bitmap, unsigned int rwp)
 {
     gicd_write_ctlr(base, gicd_read_ctlr(base) & ~bitmap);

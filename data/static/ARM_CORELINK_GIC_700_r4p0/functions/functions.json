@@ -424,5 +424,111 @@
     ],
     "calls": [],
     "file": "drivers/arm/gic/v3/gicv3_private.h"
+  },
+  {
+    "name": "gicv3_rdistif_base_addrs_probe",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "base_addrs",
+        "type": "uintptr_t *"
+      },
+      {
+        "name": "num",
+        "type": "unsigned int"
+      },
+      {
+        "name": "gicr_base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "mpidr_to_core_pos",
+        "type": "unsigned int (*)(unsigned long)"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  },
+  {
+    "name": "gicv3_check_erratas_applies",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "gicd_base",
+        "type": "uintptr_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  },
+  {
+    "name": "gicv3_spis_config_defaults",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "gicd_base",
+        "type": "uintptr_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  },
+  {
+    "name": "gicv3_secure_spis_config_props",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "unsigned int",
+    "parameters": [
+      {
+        "name": "gicd_base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "props",
+        "type": "const void *"
+      },
+      {
+        "name": "num",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  },
+  {
+    "name": "gicv3_ppi_sgi_config_defaults",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "gicr_base",
+        "type": "uintptr_t"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  },
+  {
+    "name": "gicv3_secure_ppi_sgi_config_props",
+    "kind": "CursorKind.FUNCTION_DECL",
+    "return_type": "unsigned int",
+    "parameters": [
+      {
+        "name": "gicr_base",
+        "type": "uintptr_t"
+      },
+      {
+        "name": "props",
+        "type": "const void *"
+      },
+      {
+        "name": "num",
+        "type": "unsigned int"
+      }
+    ],
+    "calls": [],
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
   }
 ]

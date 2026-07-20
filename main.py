@@ -104,18 +104,43 @@ def run_pipeline(
         logger.info("--from '%s': running stages %s",
                     from_id, [s["id"] for s in ordered])
 
+    # ── Compute cascaded disabled set ───────────────────────────────────
+    # If a stage is disabled (config or --skip), all stages that depend on it
+    # should also be automatically disabled.
+    disabled_set: set = {
+        s["id"] for s in stages if not s.get("enabled", True)
+    }
+    disabled_set.update(skip_ids)
+
+    changed = True
+    while changed:
+        changed = False
+        for s in ordered:
+            sid = s["id"]
+            if sid in disabled_set:
+                continue
+            for dep in s.get("depends_on", []):
+                if dep in disabled_set:
+                    logger.info(
+                        "[CASCADE] Stage '%s' auto-disabled because dependency '%s' is disabled",
+                        sid, dep,
+                    )
+                    disabled_set.add(sid)
+                    changed = True
+                    break
+
     context: Dict[str, Any] = {}
     exit_code = 0
 
     for stage_cfg in ordered:
         sid = stage_cfg["id"]
 
-        if not stage_cfg.get("enabled", True):
-            logger.info("[SKIP] Stage '%s' is disabled in config", sid)
-            continue
-
-        if skip_ids and sid in skip_ids:
-            logger.info("[SKIP] Stage '%s' skipped via --skip", sid)
+        if sid in disabled_set:
+            if stage_cfg.get("enabled", True) and sid not in skip_ids:
+                reason = "dependency disabled"
+            else:
+                reason = "disabled in config" if not stage_cfg.get("enabled", True) else "skipped via --skip"
+            logger.info("[SKIP] Stage '%s' (%s)", sid, reason)
             continue
 
         logger.info("=" * 60)

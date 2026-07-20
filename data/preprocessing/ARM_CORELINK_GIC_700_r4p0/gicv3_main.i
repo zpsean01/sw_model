@@ -13,6 +13,11 @@
  * ARM GICv3/3.1 driver — shortened version for sw_model MVP verification.
  * Full source at: https://github.com/ARM-software/arm-trusted-firmware
  *   drivers/arm/gic/v3/gicv3_main.c
+ *
+ * Stub definitions for compilation (minimal GIC driver test fixture):
+ *   - __init: TF-A init attribute (empty for analysis build)
+ *   - gicv3_driver_data_t: minimal struct with only fields used in this driver
+ *   - mmio_read_32 / mmio_write_32: stub implementations returning 0 / no-op
  */
 # 1 "include/assert.h" 1
 
@@ -23,7 +28,28 @@
 
 
 void __assert_fail(const char *expr, const char *file, int line, const char *func);
-# 11 "drivers/arm/gic/v3/gicv3_main.c" 2
+# 16 "drivers/arm/gic/v3/gicv3_main.c" 2
+# 1 "include/stdint.h" 1
+
+
+typedef unsigned long long uint64_t;
+typedef unsigned int uint32_t;
+typedef unsigned short uint16_t;
+typedef unsigned char uint8_t;
+typedef long long int64_t;
+typedef int int32_t;
+typedef short int16_t;
+typedef signed char int8_t;
+typedef uint32_t uintptr_t;
+typedef int64_t int64_t;
+typedef uint64_t u_register_t;
+typedef unsigned long size_t;
+# 17 "drivers/arm/gic/v3/gicv3_main.c" 2
+# 1 "include/stddef.h" 1
+
+
+typedef unsigned long size_t;
+# 18 "drivers/arm/gic/v3/gicv3_main.c" 2
 # 1 "include/drivers/arm/gicv3.h" 1
 /*
  * Copyright (c) 2015-2026, Arm Limited and Contributors. All rights reserved.
@@ -77,7 +103,7 @@ void gicv3_cpuif_enable(unsigned int proc_num);
 void gicv3_cpuif_disable(unsigned int proc_num);
 void gicv3_rdistif_off(unsigned int proc_num);
 void gicv3_rdistif_on(unsigned int proc_num);
-# 12 "drivers/arm/gic/v3/gicv3_main.c" 2
+# 19 "drivers/arm/gic/v3/gicv3_main.c" 2
 # 1 "include/drivers/arm/gic_common.h" 1
 /*
  * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
@@ -88,24 +114,6 @@ void gicv3_rdistif_on(unsigned int proc_num);
 
 
 # 1 "include/lib/utils_def.h" 1
-
-
-# 1 "include/stdint.h" 1
-
-
-typedef unsigned long long uint64_t;
-typedef unsigned int uint32_t;
-typedef unsigned short uint16_t;
-typedef unsigned char uint8_t;
-typedef long long int64_t;
-typedef int int32_t;
-typedef short int16_t;
-typedef signed char int8_t;
-typedef uint32_t uintptr_t;
-typedef int64_t int64_t;
-typedef uint64_t u_register_t;
-typedef unsigned long size_t;
-# 4 "include/lib/utils_def.h" 2
 # 10 "include/drivers/arm/gic_common.h" 2
 
 /*******************************************************************************
@@ -118,7 +126,16 @@ typedef unsigned long size_t;
  ******************************************************************************/
 # 48 "include/drivers/arm/gic_common.h"
 /* GICD_CTLR bit definitions (common subset) */
-# 13 "drivers/arm/gic/v3/gicv3_main.c" 2
+# 20 "drivers/arm/gic/v3/gicv3_main.c" 2
+# 1 "include/lib/spinlock.h" 1
+
+
+typedef struct { } spinlock_t;
+# 21 "drivers/arm/gic/v3/gicv3_main.c" 2
+# 1 "include/arch.h" 1
+# 22 "drivers/arm/gic/v3/gicv3_main.c" 2
+# 1 "include/common/debug.h" 1
+# 23 "drivers/arm/gic/v3/gicv3_main.c" 2
 # 1 "drivers/arm/gic/v3/gicv3_private.h" 1
 # 18 "drivers/arm/gic/v3/gicv3_private.h"
 static inline uint32_t gicd_read_ctlr(uintptr_t base)
@@ -153,7 +170,31 @@ static inline uint32_t gicr_get_igrpmodr(uintptr_t base, unsigned int id) { retu
 void gicd_clr_ctlr(uintptr_t base, unsigned int bitmap, unsigned int rwp);
 void gicd_set_ctlr(uintptr_t base, unsigned int bitmap, unsigned int rwp);
 void gicd_wait_for_pending_write(uintptr_t gicd_base);
-# 14 "drivers/arm/gic/v3/gicv3_main.c" 2
+# 24 "drivers/arm/gic/v3/gicv3_main.c" 2
+
+
+
+typedef struct gicv3_driver_data {
+    uintptr_t gicd_base;
+    uintptr_t gicr_base;
+    unsigned int rdistif_num;
+    uintptr_t *rdistif_base_addrs;
+    unsigned int interrupt_props_num;
+    const void *interrupt_props;
+    unsigned int (*mpidr_to_core_pos)(unsigned long);
+} gicv3_driver_data_t;
+
+/* External function declarations (defined in other TF-A source files) */
+void gicv3_rdistif_base_addrs_probe(uintptr_t *base_addrs,
+    unsigned int num, uintptr_t gicr_base,
+    unsigned int (*mpidr_to_core_pos)(unsigned long));
+void gicv3_check_erratas_applies(uintptr_t gicd_base);
+void gicv3_spis_config_defaults(uintptr_t gicd_base);
+unsigned int gicv3_secure_spis_config_props(uintptr_t gicd_base,
+    const void *props, unsigned int num);
+void gicv3_ppi_sgi_config_defaults(uintptr_t gicr_base);
+unsigned int gicv3_secure_ppi_sgi_config_props(uintptr_t gicr_base,
+    const void *props, unsigned int num);
 
 const gicv3_driver_data_t *gicv3_driver_data;
 static spinlock_t gic_lock;
@@ -165,23 +206,24 @@ static spinlock_t gic_lock;
  * This function initialises the ARM GICv3 driver in EL3 with provided platform
  * inputs.
  ******************************************************************************/
-void __init gicv3_driver_init(const gicv3_driver_data_t *plat_driver_data)
+void gicv3_driver_init(const void *plat_driver_data_v)
 {
+    const gicv3_driver_data_t *plat_driver_data = (const gicv3_driver_data_t *)plat_driver_data_v;
     unsigned int gic_version;
     unsigned int gicv2_compat;
 
-    ((void)((plat_driver_data != NULL) || (__assert_fail("plat_driver_data != NULL", "drivers/arm/gic/v3/gicv3_main.c", 30, __func__), 0)));
-    ((void)((plat_driver_data->gicd_base != 0U) || (__assert_fail("plat_driver_data->gicd_base != 0U", "drivers/arm/gic/v3/gicv3_main.c", 31, __func__), 0)));
-    ((void)((plat_driver_data->rdistif_num != 0U) || (__assert_fail("plat_driver_data->rdistif_num != 0U", "drivers/arm/gic/v3/gicv3_main.c", 32, __func__), 0)));
-    ((void)((plat_driver_data->rdistif_base_addrs != NULL) || (__assert_fail("plat_driver_data->rdistif_base_addrs != NULL", "drivers/arm/gic/v3/gicv3_main.c", 33, __func__), 0)));
-    ((void)((IS_IN_EL3()) || (__assert_fail("IS_IN_EL3()", "drivers/arm/gic/v3/gicv3_main.c", 34, __func__), 0)));
+    ((void)((plat_driver_data != ((void*)0)) || (__assert_fail("plat_driver_data != NULL", "drivers/arm/gic/v3/gicv3_main.c", 65, __func__), 0)));
+    ((void)((plat_driver_data->gicd_base != 0U) || (__assert_fail("plat_driver_data->gicd_base != 0U", "drivers/arm/gic/v3/gicv3_main.c", 66, __func__), 0)));
+    ((void)((plat_driver_data->rdistif_num != 0U) || (__assert_fail("plat_driver_data->rdistif_num != 0U", "drivers/arm/gic/v3/gicv3_main.c", 67, __func__), 0)));
+    ((void)((plat_driver_data->rdistif_base_addrs != ((void*)0)) || (__assert_fail("plat_driver_data->rdistif_base_addrs != NULL", "drivers/arm/gic/v3/gicv3_main.c", 68, __func__), 0)));
+    ((void)((1) || (__assert_fail("IS_IN_EL3()", "drivers/arm/gic/v3/gicv3_main.c", 69, __func__), 0)));
 
     gic_version = gicd_read_pidr2(plat_driver_data->gicd_base);
     gic_version >>= 4;
     gic_version &= 0xfULL;
 
 
-    ((void)((gic_version == 0x3ULL) || (__assert_fail("gic_version == ARCH_REV_GICV3", "drivers/arm/gic/v3/gicv3_main.c", 41, __func__), 0)));
+    ((void)((gic_version == 0x3ULL) || (__assert_fail("gic_version == ARCH_REV_GICV3", "drivers/arm/gic/v3/gicv3_main.c", 76, __func__), 0)));
 
 
     /* Check GICv2 compatibility — ARE_S bit resets to 0 if supported */
@@ -200,9 +242,9 @@ void __init gicv3_driver_init(const gicv3_driver_data_t *plat_driver_data)
     gicv3_driver_data = plat_driver_data;
     gicv3_check_erratas_applies(plat_driver_data->gicd_base);
 
-    INFO("GICv%u with%s legacy support detected.\n", gic_version,
-         (gicv2_compat == 0U) ? "" : "out");
-    INFO("ARM GICv%u driver initialized in EL3\n", gic_version);
+
+                                           ;
+                                                               ;
 }
 
 /*******************************************************************************
@@ -210,13 +252,13 @@ void __init gicv3_driver_init(const gicv3_driver_data_t *plat_driver_data)
  * GICD_CTLR is the central configuration register — this function
  * demonstrates the key programming sequence that sw_model must audit.
  ******************************************************************************/
-void __init gicv3_distif_init(void)
+void gicv3_distif_init(void)
 {
     unsigned int bitmap;
 
-    ((void)((gicv3_driver_data != NULL) || (__assert_fail("gicv3_driver_data != NULL", "drivers/arm/gic/v3/gicv3_main.c", 74, __func__), 0)));
-    ((void)((gicv3_driver_data->gicd_base != 0U) || (__assert_fail("gicv3_driver_data->gicd_base != 0U", "drivers/arm/gic/v3/gicv3_main.c", 75, __func__), 0)));
-    ((void)((IS_IN_EL3()) || (__assert_fail("IS_IN_EL3()", "drivers/arm/gic/v3/gicv3_main.c", 76, __func__), 0)));
+    ((void)((gicv3_driver_data != ((void*)0)) || (__assert_fail("gicv3_driver_data != NULL", "drivers/arm/gic/v3/gicv3_main.c", 109, __func__), 0)));
+    ((void)((gicv3_driver_data->gicd_base != 0U) || (__assert_fail("gicv3_driver_data->gicd_base != 0U", "drivers/arm/gic/v3/gicv3_main.c", 110, __func__), 0)));
+    ((void)((1) || (__assert_fail("IS_IN_EL3()", "drivers/arm/gic/v3/gicv3_main.c", 111, __func__), 0)));
 
     /*
      * Step 1: Clear ALL group enable bits before configuring ARE_S.
@@ -258,18 +300,18 @@ void gicv3_rdistif_init(unsigned int proc_num)
     unsigned int bitmap;
     uint32_t ctlr;
 
-    ((void)((gicv3_driver_data != NULL) || (__assert_fail("gicv3_driver_data != NULL", "drivers/arm/gic/v3/gicv3_main.c", 118, __func__), 0)));
-    ((void)((proc_num < gicv3_driver_data->rdistif_num) || (__assert_fail("proc_num < gicv3_driver_data->rdistif_num", "drivers/arm/gic/v3/gicv3_main.c", 119, __func__), 0)));
-    ((void)((gicv3_driver_data->rdistif_base_addrs != NULL) || (__assert_fail("gicv3_driver_data->rdistif_base_addrs != NULL", "drivers/arm/gic/v3/gicv3_main.c", 120, __func__), 0)));
-    ((void)((gicv3_driver_data->gicd_base != 0U) || (__assert_fail("gicv3_driver_data->gicd_base != 0U", "drivers/arm/gic/v3/gicv3_main.c", 121, __func__), 0)));
+    ((void)((gicv3_driver_data != ((void*)0)) || (__assert_fail("gicv3_driver_data != NULL", "drivers/arm/gic/v3/gicv3_main.c", 153, __func__), 0)));
+    ((void)((proc_num < gicv3_driver_data->rdistif_num) || (__assert_fail("proc_num < gicv3_driver_data->rdistif_num", "drivers/arm/gic/v3/gicv3_main.c", 154, __func__), 0)));
+    ((void)((gicv3_driver_data->rdistif_base_addrs != ((void*)0)) || (__assert_fail("gicv3_driver_data->rdistif_base_addrs != NULL", "drivers/arm/gic/v3/gicv3_main.c", 155, __func__), 0)));
+    ((void)((gicv3_driver_data->gicd_base != 0U) || (__assert_fail("gicv3_driver_data->gicd_base != 0U", "drivers/arm/gic/v3/gicv3_main.c", 156, __func__), 0)));
 
     ctlr = gicd_read_ctlr(gicv3_driver_data->gicd_base);
-    ((void)(((ctlr & (1U << (4))) != 0U) || (__assert_fail("(ctlr & CTLR_ARE_S_BIT) != 0U", "drivers/arm/gic/v3/gicv3_main.c", 124, __func__), 0)));
-    ((void)((IS_IN_EL3()) || (__assert_fail("IS_IN_EL3()", "drivers/arm/gic/v3/gicv3_main.c", 125, __func__), 0)));
+    ((void)(((ctlr & (1U << (4))) != 0U) || (__assert_fail("(ctlr & CTLR_ARE_S_BIT) != 0U", "drivers/arm/gic/v3/gicv3_main.c", 159, __func__), 0)));
+    ((void)((1) || (__assert_fail("IS_IN_EL3()", "drivers/arm/gic/v3/gicv3_main.c", 160, __func__), 0)));
 
     gicv3_rdistif_on(proc_num);
     gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
-    ((void)((gicr_base != 0U) || (__assert_fail("gicr_base != 0U", "drivers/arm/gic/v3/gicv3_main.c", 129, __func__), 0)));
+    ((void)((gicr_base != 0U) || (__assert_fail("gicr_base != 0U", "drivers/arm/gic/v3/gicv3_main.c", 164, __func__), 0)));
 
     gicv3_ppi_sgi_config_defaults(gicr_base);
     bitmap = gicv3_secure_ppi_sgi_config_props(
@@ -288,17 +330,11 @@ void gicv3_rdistif_on(unsigned int proc_num) { }
 /*******************************************************************************
  * GICD_CTLR register accessor functions
  * These are the functions that sw_model stage4/5 must analyze.
+ *
+ * NOTE: gicd_read_ctlr / gicd_write_ctlr are already defined as static inline
+ * in gicv3_private.h (included above). Only gicd_clr_ctlr / gicd_set_ctlr /
+ * gicd_wait_for_pending_write are defined here.
  ******************************************************************************/
-static inline uint32_t gicd_read_ctlr(uintptr_t base)
-{
-    return mmio_read_32(base + 0x0ULL);
-}
-
-static inline void gicd_write_ctlr(uintptr_t base, uint32_t val)
-{
-    mmio_write_32(base + 0x0ULL, val);
-}
-
 void gicd_clr_ctlr(uintptr_t base, unsigned int bitmap, unsigned int rwp)
 {
     gicd_write_ctlr(base, gicd_read_ctlr(base) & ~bitmap);

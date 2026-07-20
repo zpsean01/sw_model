@@ -1,0 +1,15 @@
+{
+  "entry_function": "gicv3_driver_init",
+  "max_depth": 2,
+  "context": "GIC driver init — probe + erratas",
+  "status": "completed",
+  "inspect_triggers": [],
+  "errors": [],
+  "entry_address": "0x400000",
+  "boundary_hooks_applied": 1,
+  "boundary_functions": [
+    "mmio_read_32"
+  ],
+  "active_paths": 0,
+  "deadended_paths": 1
+}

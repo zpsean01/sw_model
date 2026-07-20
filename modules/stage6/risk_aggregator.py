@@ -47,6 +47,16 @@ class Stage6RiskAggregator(BaseStage):
         params = self.config["params"]
         output_dir = self.setup_output_dir(params["output_dir"])
 
+        # ── Guard: Stage 5 must have actually produced data ──────────────
+        stage5_path = Path(params.get("stage5_report_path", ""))
+        if not stage5_path.name or not stage5_path.exists():
+            raise RuntimeError(
+                "Stage 5 symbolic execution report not found — Stage 6 cannot "
+                "produce a risk registry without Stage 5 data. Either run Stage 5 "
+                "first, or disable Stage 6 in the config if symbolic execution is "
+                "not required for this target."
+            )
+
         # ── Resolve protocol info from spec_model oracle ──────────────────
         spec_model_dir = params.get("spec_model_dir", "D:/programming/spec_model/data/arm_corelink_gic_700_r4p0/extract")
         protocol_name = params.get("protocol_name", "")
@@ -71,20 +81,15 @@ class Stage6RiskAggregator(BaseStage):
             logger.info("Loaded %d findings from Stage 4", len(stage4_findings))
 
         # ── 2. Load Stage 5 symbolic report ──────────────────────────────
-        stage5_path = Path(params.get("stage5_report_path", ""))
-        if not stage5_path.name or not stage5_path.exists():
-            logger.warning("Stage 5 report not found: %s", stage5_path)
-            entry_results = []
-        else:
-            with open(stage5_path, "r", encoding="utf-8") as f:
-                s5_data = json.load(f)
-            entry_results = s5_data.get("entry_results", [])
-            logger.info("Loaded %d entry results from Stage 5", len(entry_results))
+        with open(stage5_path, "r", encoding="utf-8") as f:
+            s5_data = json.load(f)
+        entry_results = s5_data.get("entry_results", [])
+        logger.info("Loaded %d entry results from Stage 5", len(entry_results))
 
         # ── 3. Build trace file lookup ───────────────────────────────────
         traces_dir = Path(params.get("stage5_traces_dir", ""))
         trace_map: Dict[str, Path] = {}
-        if traces_dir.name and traces_dir.exists():
+        if traces_dir.exists():
             for f in traces_dir.iterdir():
                 if f.suffix == ".json" and f.stem.startswith("trace_"):
                     func_name = f.stem.replace("trace_", "", 1)

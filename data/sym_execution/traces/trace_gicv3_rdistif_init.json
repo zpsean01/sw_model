@@ -1,0 +1,36 @@
+{
+  "entry_function": "gicv3_rdistif_init",
+  "max_depth": 2,
+  "event_count": 2,
+  "finding_count": 0,
+  "events": [
+    {
+      "event_type": "entry_start",
+      "function": "gicv3_rdistif_init",
+      "depth": 0,
+      "symbolic_vars": [],
+      "constraints": [],
+      "details": {
+        "address": "0x4003cc",
+        "max_depth": 2,
+        "entry_args": []
+      },
+      "finding_id": null
+    },
+    {
+      "event_type": "entry_end",
+      "function": "gicv3_rdistif_init",
+      "depth": 0,
+      "symbolic_vars": [],
+      "constraints": [],
+      "details": {
+        "status": "completed",
+        "active_paths": 0,
+        "deadended_paths": 1,
+        "total_events": 1
+      },
+      "finding_id": null
+    }
+  ],
+  "findings": []
+}

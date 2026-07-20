@@ -265,7 +265,7 @@ class Stage5SymbolicExecution(BaseStage):
                 entry.function, hook_spec, inspect_spec,
                 triggers, entry.max_depth, recorder,
             )
-            proj.hook(func_addr, simproc_cls)
+            proj.hook(func_addr, simproc_cls())
             applied_count += 1
 
         logger.info("Entry '%s': applied %d hooks", entry.function, applied_count)
@@ -545,16 +545,25 @@ class Stage5SymbolicExecution(BaseStage):
         self, report: Dict[str, Any], params: Dict[str, Any], output_dir: Path
     ) -> None:
         """Save a protocol-versioned summary of Stage 5 findings, e.g.
-        data/sym_execution/DDR5_JESD79-5C/protocol_conformance/report_20260620_220000.json
+        data/sym_execution/ARM_CORELINK_GIC_700_r4p0/protocol_conformance/report_20260620_220000.json
         """
-        spec_model_path = Path(params.get("spec_model_path", "data/spec_model_ddr5_mock.json"))
-        try:
-            with open(spec_model_path, "r", encoding="utf-8") as f:
-                spec = json.load(f)
-            meta = spec.get("metadata", {})
-        except Exception:
-            meta = {}
-        proto_dir = f"{meta.get('protocol', 'UNKNOWN')}_{meta.get('version', 'unknown')}"
+        # Prefer explicit params over spec_model metadata
+        protocol_name = params.get("protocol_name", "")
+        protocol_version = params.get("protocol_version", "")
+        if not protocol_name or not protocol_version:
+            spec_model_path = Path(params.get("spec_model_path", "data/spec_model_ddr5_mock.json"))
+            try:
+                with open(spec_model_path, "r", encoding="utf-8") as f:
+                    spec = json.load(f)
+                meta = spec.get("metadata", {})
+                if not protocol_name:
+                    protocol_name = meta.get("protocol", "UNKNOWN")
+                if not protocol_version:
+                    protocol_version = meta.get("version", "unknown")
+            except Exception:
+                protocol_name = protocol_name or "UNKNOWN"
+                protocol_version = protocol_version or "unknown"
+        proto_dir = f"{protocol_name}_{protocol_version}"
         proto_path = output_dir / proto_dir / "protocol_conformance"
         proto_path.mkdir(parents=True, exist_ok=True)
 

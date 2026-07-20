@@ -1,0 +1,11 @@
+{
+  "source": "stage5_symbolic_execution",
+  "binary": "fw_samples\\tf_a\\build\\gicv3_main.o",
+  "summary": {
+    "total_entry_points": 3,
+    "completed": 1,
+    "total_inspect_triggers": 0,
+    "risk_distribution": {}
+  },
+  "findings": []
+}

@@ -2,67 +2,85 @@
   {
     "name": "uint64_t",
     "kind": "CursorKind.TYPEDEF_DECL",
-    "line": 96,
+    "line": 35,
     "file": "include/stdint.h"
   },
   {
     "name": "uint32_t",
     "kind": "CursorKind.TYPEDEF_DECL",
-    "line": 97,
+    "line": 36,
     "file": "include/stdint.h"
   },
   {
     "name": "uint16_t",
     "kind": "CursorKind.TYPEDEF_DECL",
-    "line": 98,
+    "line": 37,
     "file": "include/stdint.h"
   },
   {
     "name": "uint8_t",
     "kind": "CursorKind.TYPEDEF_DECL",
-    "line": 99,
+    "line": 38,
     "file": "include/stdint.h"
   },
   {
     "name": "int64_t",
     "kind": "CursorKind.TYPEDEF_DECL",
-    "line": 105,
+    "line": 44,
     "file": "include/stdint.h"
   },
   {
     "name": "int32_t",
     "kind": "CursorKind.TYPEDEF_DECL",
-    "line": 101,
+    "line": 40,
     "file": "include/stdint.h"
   },
   {
     "name": "int16_t",
     "kind": "CursorKind.TYPEDEF_DECL",
-    "line": 102,
+    "line": 41,
     "file": "include/stdint.h"
   },
   {
     "name": "int8_t",
     "kind": "CursorKind.TYPEDEF_DECL",
-    "line": 103,
+    "line": 42,
     "file": "include/stdint.h"
   },
   {
     "name": "uintptr_t",
     "kind": "CursorKind.TYPEDEF_DECL",
-    "line": 104,
+    "line": 43,
     "file": "include/stdint.h"
   },
   {
     "name": "u_register_t",
     "kind": "CursorKind.TYPEDEF_DECL",
-    "line": 106,
+    "line": 45,
     "file": "include/stdint.h"
   },
   {
     "name": "size_t",
     "kind": "CursorKind.TYPEDEF_DECL",
-    "line": 107,
-    "file": "include/stdint.h"
+    "line": 51,
+    "file": "include/stddef.h"
+  },
+  {
+    "name": "spinlock_t",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 133,
+    "file": "include/lib/spinlock.h"
+  },
+  {
+    "name": "gicv3_driver_data",
+    "kind": "CursorKind.STRUCT_DECL",
+    "line": 177,
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
+  },
+  {
+    "name": "gicv3_driver_data_t",
+    "kind": "CursorKind.TYPEDEF_DECL",
+    "line": 185,
+    "file": "drivers/arm/gic/v3/gicv3_main.c"
   }
 ]
