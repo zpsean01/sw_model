@@ -1,0 +1,40 @@
+{
+  "rule_id": "risk_classification",
+  "category": "risk_aggregation",
+  "description": "风险分类规则 — 根据 Stage 4 findings 的验证状态和严重度，决定 risk_registry 中的 status 和 residual_reason",
+  "severity_default": "info",
+  "audit_type": "risk_classification",
+  "match_mode": "by_finding_verification",
+  "constraints": [
+    {
+      "constraint_id": "RISK-01",
+      "severity": "info",
+      "description": "Stage 5 入口点执行完成且有 InspectTrigger 匹配的 finding → verified",
+      "verification_rule": {
+        "match_key": "location.function",
+        "match_to": "symbolic_report.entry_results[].entry_function",
+        "status_if_matched": "verified",
+        "status_if_unmatched": "residual"
+      }
+    },
+    {
+      "constraint_id": "RISK-02",
+      "severity": "low",
+      "description": "entired residual 风险需标注 residual_reason",
+      "residual_reason_rules": [
+        {
+          "condition": "entry_function not in entry_points",
+          "reason": "no_entry_point"
+        },
+        {
+          "condition": "entry_function in entry_points but no triggers",
+          "reason": "path_not_reproduced"
+        },
+        {
+          "condition": "entry_function in entry_points but timeout",
+          "reason": "symbolic_timeout"
+        }
+      ]
+    }
+  ]
+}

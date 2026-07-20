@@ -1,0 +1,3 @@
+#ifndef PLAT_COMMON_PLATFORM_H
+#define PLAT_COMMON_PLATFORM_H
+#endif

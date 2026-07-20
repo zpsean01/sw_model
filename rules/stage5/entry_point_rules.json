@@ -1,0 +1,33 @@
+{
+  "rule_id": "firmware_entry_point_rules",
+  "category": "entry_point_extraction",
+  "description": "符号执行入口点提取规则 — 从静态审计报告中发现的问题位置提取符号执行入口函数",
+  "severity_default": "medium",
+  "audit_type": "entry_point_extraction",
+  "match_mode": "by_report_finding",
+  "constraints": [
+    {
+      "constraint_id": "ENTRY-01",
+      "severity": "medium",
+      "description": "每条 register_config_audit 类型的 finding 应作为符号执行的潜在入口点",
+      "assertion": "security_report.json 中 type=register_config_audit 的 findings[].location.function 应加入 entry_points[]",
+      "entry_mapping": {
+        "max_depth_strategy": "by_severity",
+        "severity_depth_map": {
+          "critical": 1,
+          "high": 2,
+          "medium": 3,
+          "low": 4,
+          "info": 5
+        }
+      }
+    },
+    {
+      "constraint_id": "ENTRY-02",
+      "severity": "medium",
+      "description": "含 MMIO 写入的函数应作为 hook 边界目标",
+      "assertion": "固件中调用了 gicd_write*/gicr_write*/gicd_set*/gicd_clr* 等 MMIO 写入助手的函数，应自动生成 HookSpec",
+      "hook_strategy": "symbolic_return"
+    }
+  ]
+}

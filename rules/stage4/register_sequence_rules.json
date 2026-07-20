@@ -1,0 +1,59 @@
+{
+  "rule_id": "register_config_sequence",
+  "category": "protocol_conformance",
+  "description": "寄存器配置序列规则 — 当寄存器同时包含'group enable'类位域和'activation'类位域时，enable 位必须在 activation 位设置之前先清除",
+  "severity_default": "critical",
+  "audit_type": "register_config_audit",
+  "match_mode": "by_field_semantic",
+  "semantic_patterns": {
+    "enable_fields": {
+      "description": "属于'组使能'语义的位域，常见命名模式",
+      "name_patterns": ["Enable*", "ENABLE_*", "enable_*", "*_ENABLE_*"],
+      "typical_bit_roles": ["group_enable", "interrupt_enable"]
+    },
+    "activation_fields": {
+      "description": "属于'激活/路由'语义的位域，通常需在 enable 清除后才能设置",
+      "name_patterns": ["ARE_*", "*_ROUTE*", "*RTE*", "AFFINITY_*"],
+      "typical_bit_roles": ["affinity_routing", "mode_select"]
+    },
+    "write_pending_fields": {
+      "description": "表示写操作正在进行的只读位域，写入后需要轮询该位清零",
+      "name_patterns": ["*WP*", "*_PENDING*", "*_BUSY*", "*RWP*", "REG_*_WP*"],
+      "typical_bit_roles": ["write_pending", "busy"]
+    }
+  },
+  "constraints": [
+    {
+      "constraint_id": "SEQ-01",
+      "severity": "critical",
+      "description": "配置 activation 类位域前必须清除所有 group enable 类位域",
+      "assertion": "对同一寄存器，写 activation_fields 时，enable_fields 必须为 0（已清除）",
+      "check_on": "write_to_register",
+      "expected_sequence": [
+        { "action": "clear", "target": "enable_fields" },
+        { "action": "set", "target": "activation_fields" }
+      ],
+      "spec_model_oracle_required": ["register.fields.*.bit_role"]
+    },
+    {
+      "constraint_id": "SEQ-02",
+      "severity": "critical",
+      "description": "每次写寄存器后必须轮询 write_pending 位直至清零",
+      "assertion": "对每个含有 write_pending 位域的寄存器，每次写入后 3 行内必须有对该位域的轮询循环",
+      "check_on": "write_to_register",
+      "expected_sequence": [
+        { "action": "write", "target": "register" },
+        { "action": "poll", "target": "write_pending_fields", "until": "cleared" }
+      ],
+      "spec_model_oracle_required": ["register.fields.*.bit_role"]
+    },
+    {
+      "constraint_id": "SEQ-03",
+      "severity": "high",
+      "description": "跨寄存器依赖 — 当寄存器 A 的位域是寄存器 B 的 pre_condition 时，固件写 B 前必须检查 A 的取值",
+      "assertion": "如果 spec_model 标明 reg_A.field_X 是 reg_B.field_Y 的前置条件，那么固件写 reg_B 的路径上必须有对 reg_A.field_X 的访问",
+      "check_on": "cross_register_dependency",
+      "spec_model_oracle_required": ["behavior_edges.*.event_source", "behavior_edges.*.event_target", "behavior_edges.*.guard"]
+    }
+  ]
+}
